@@ -29,8 +29,8 @@
 }
 
 .header-userinfo_box image{
-  width:125rpx;
-  height: 125rpx;
+  width:130rpx;
+  height: 130rpx;
   border-radius: 50%;
 }
 .header-name_box{
@@ -81,4 +81,31 @@
 
 .border{
   border-right:1rpx solid rgb(206, 206, 206);
+}
+
+.main{
+  background-color: white;
+  width: 95%;
+  margin:30rpx auto;
+  border-radius: 15rpx;
+}
+
+.main-item image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.main-item_box{
+    padding:30rpx;
+    border-bottom: 1rpx solid rgb(230, 230, 230);
+}
+
+.main-item{
+  display: flex;
+  gap: 0 15rpx;
+  align-items: center;
+}
+
+.mt-10{
+  margin-top: 10rpx;
 }

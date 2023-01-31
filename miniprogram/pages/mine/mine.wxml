@@ -14,7 +14,7 @@
       
       <!-- 头部积分 -->
        <view class="header-gold_box">
-         <view class="ft-30">999999 金币</view>
+         <view class="ft-30">99999 金币</view>
          <view class="fc-173170">去兑换奖品 ></view>
        </view>
 
@@ -53,6 +53,50 @@
           </view>
         </view>
       </view>
-
    </view>
+   
+    <view class="main">
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/welfare-icon.png" mode=""/></view>
+          <view>商家入驻</view>
+        </view>
+        <view>></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/welfare-icon.png" mode=""/></view>
+          <view>审核商家</view>
+        </view>
+        <view>></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/welfare-icon.png" mode=""/></view>
+          <view>联系我们</view>
+        </view>
+        <view>></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/welfare-icon.png" mode=""/></view>
+          <view>常见问题</view>
+        </view>
+        <view>></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/welfare-icon.png" mode=""/></view>
+          <view>意见反馈</view>
+        </view>
+        <view>></view>
+      </view>
+
+
+    </view>
+
 </view>
