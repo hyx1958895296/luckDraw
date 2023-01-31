@@ -1,2 +1,7 @@
 <!--pages/activity/activity.wxml-->
 
+<view class="warp">
+  <view class="activity activity-frist">
+    
+  </view>
+</view>
