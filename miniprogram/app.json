@@ -15,22 +15,23 @@
   "style": "v2",
 
   "tabBar": {
+    "selectedColor":"#d81e06",
     "borderStyle":"white",
     "list": [{
       "pagePath": "pages/home/home",
       "text": "首页",
-      "iconPath":"./images/welfare-icon.png",
-      "selectedIconPath":"./images/select-welfare_icon.png"
+      "iconPath":"./images/icon-home.png",
+      "selectedIconPath":"./images/icon-home_select.png"
     }, {
       "pagePath": "pages/activity/activity",
       "text": "活动",
-      "iconPath":"",
-      "selectedIconPath":""
+      "iconPath":"./images/icon-activity.png",
+      "selectedIconPath":"./images/icon-activity_select.png"
     },{
       "pagePath": "pages/mine/mine",
       "text": "我的",
-      "iconPath":"",
-      "selectedIconPath":""
+      "iconPath":"./images/icon-mine.png",
+      "selectedIconPath":"./images/icon-mine_select.png"
     }]
   }
 }
