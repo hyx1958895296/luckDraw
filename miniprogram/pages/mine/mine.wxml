@@ -8,7 +8,7 @@
          <view><image src="../../images/avator.png" mode=""/></view>
          <view class="header-name_box">
          <view class="ft-35">名字</view>
-         <view class="ft-20">等级：6</view>
+         <view class="ft-20 fc-red">等级：6</view>
          </view>
        </view>
       
@@ -26,7 +26,7 @@
           <view>
             12
           </view>
-          <view>
+          <view class="ft-25">
             参与抽奖
           </view>
         </view>
@@ -37,7 +37,7 @@
           <view>
             12
           </view>
-          <view>
+          <view class="ft-25">
             中奖记录
           </view>
         </view>
@@ -48,7 +48,7 @@
           <view>
             12
           </view>
-          <view>
+          <view class="ft-25">
             兑换记录
           </view>
         </view>
@@ -56,45 +56,17 @@
    </view>
    
     <view class="main">
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <view><image src="../../images/welfare-icon.png" mode=""/></view>
-          <view>商家入驻</view>
-        </view>
-        <view>></view>
-      </view>
+
 
       <view class="main-item_box flex-between">
         <view class="main-item ">
-          <view><image src="../../images/welfare-icon.png" mode=""/></view>
-          <view>审核商家</view>
+          <view><image src="../../images/icon-home_select.png" mode=""/></view>
+          <view class="ft-20">审核商家</view>
         </view>
-        <view>></view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
       </view>
 
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <view><image src="../../images/welfare-icon.png" mode=""/></view>
-          <view>联系我们</view>
-        </view>
-        <view>></view>
-      </view>
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <view><image src="../../images/welfare-icon.png" mode=""/></view>
-          <view>常见问题</view>
-        </view>
-        <view>></view>
-      </view>
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <view><image src="../../images/welfare-icon.png" mode=""/></view>
-          <view>意见反馈</view>
-        </view>
-        <view>></view>
-      </view>
+     
 
 
     </view>

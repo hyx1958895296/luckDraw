@@ -50,7 +50,11 @@
 }
 
 .ft-30{
-  font-size: 32rpx;
+  font-size: 30rpx;
+}
+
+.ft-25{
+  font-size: 25rpx;
 }
 
 .fc-173170{
@@ -63,7 +67,10 @@
 
 .ft-20{
   font-size: 26rpx;
-  color: rgb(228, 70, 49);
+}
+
+.fc-red{
+  color: red;
 }
 
 .header-bottom{
@@ -98,6 +105,11 @@
 .main-item_box{
     padding:30rpx;
     border-bottom: 1rpx solid rgb(230, 230, 230);
+}
+
+.main-item_arrow image{
+  height: 25rpx;
+  width: 40rpx;
 }
 
 .main-item{
