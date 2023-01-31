@@ -1,2 +1,74 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="mine">
+   <view class="header">
+     <view class="header-top flex-between">
+     
+      <!-- 头部用户信息 -->
+       <view class="header-userinfo_box">
+         <view><image src="../../images/avator.png" mode=""/></view>
+         <view class="header-name_box">
+         <view class="ft-35">名字</view>
+         <view class="ft-20 fc-red">等级：6</view>
+         </view>
+       </view>
+      
+      <!-- 头部积分 -->
+       <view class="header-gold_box">
+         <view class="ft-30">99999 金币</view>
+         <view class="fc-173170">去兑换奖品 ></view>
+       </view>
+
+     </view>
+
+     <!-- 头部下部分 -->
+      <view class="header-bottom">
+        <view class="header-bottom_item">
+          <view>
+            12
+          </view>
+          <view class="ft-25">
+            参与抽奖
+          </view>
+        </view>
+
+      <view class="border"></view>
+
+        <view class="header-bottom_item">
+          <view>
+            12
+          </view>
+          <view class="ft-25">
+            中奖记录
+          </view>
+        </view>
+
+        <view class="border"></view>
+
+        <view class="header-bottom_item">
+          <view>
+            12
+          </view>
+          <view class="ft-25">
+            兑换记录
+          </view>
+        </view>
+      </view>
+   </view>
+   
+    <view class="main">
+
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <view><image src="../../images/icon-home_select.png" mode=""/></view>
+          <view class="ft-20">审核商家</view>
+        </view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+      </view>
+
+     
+
+
+    </view>
+
+</view>

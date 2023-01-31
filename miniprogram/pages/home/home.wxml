@@ -1,2 +1,16 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="homepage">
+  <view class="wrap header">
+    <image src="../../images/qd.png" class="qd-icon" mode="" />
+    <view class="header-right">
+      <view class="integral">
+        积分:19
+      </view>
+      <view class="get-more-points">
+        获取更多积分
+      </view>
+    </view>
+  </view>
+  <view class="main">
+
+  </view>
+</view>

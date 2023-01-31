@@ -1,1 +1,123 @@
 /* pages/mine/mine.wxss */
+.mine{
+  height: 100vh;
+  background-color: rgb(233, 233, 233);
+  padding:20rpx 0;
+}
+.header{
+  border-radius: 15rpx;
+  background-color: white;
+  width: 95%;
+  margin:0 auto;
+}
+
+.header-top{
+  padding:40rpx;
+  border-bottom: 1rpx solid rgb(189, 189, 189);
+}
+
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-userinfo_box{
+  display: flex;
+  gap: 0 30rpx;
+  align-items: center;
+}
+
+.header-userinfo_box image{
+  width:130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+.header-name_box{
+  display: flex;
+  flex-direction: column;
+  gap:15rpx 0;
+}
+
+.header-gold_box{
+  display: flex;
+  flex-direction: column;
+  gap:12rpx 0;
+}
+
+.ft-35{
+  font-size: 35rpx;
+}
+
+.ft-30{
+  font-size: 30rpx;
+}
+
+.ft-25{
+  font-size: 25rpx;
+}
+
+.fc-173170{
+  color: rgb(173, 170, 170);
+}
+
+.fc-24820937{
+  color: rgb(248, 209, 37);
+}
+
+.ft-20{
+  font-size: 26rpx;
+}
+
+.fc-red{
+  color: red;
+}
+
+.header-bottom{
+  display: flex;
+  padding:40rpx;
+  justify-content: space-between;
+}
+
+.header-bottom_item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15rpx 0;
+}
+
+.border{
+  border-right:1rpx solid rgb(206, 206, 206);
+}
+
+.main{
+  background-color: white;
+  width: 95%;
+  margin:30rpx auto;
+  border-radius: 15rpx;
+}
+
+.main-item image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.main-item_box{
+    padding:30rpx;
+    border-bottom: 1rpx solid rgb(230, 230, 230);
+}
+
+.main-item_arrow image{
+  height: 25rpx;
+  width: 40rpx;
+}
+
+.main-item{
+  display: flex;
+  gap: 0 15rpx;
+  align-items: center;
+}
+
+.mt-10{
+  margin-top: 10rpx;
+}
