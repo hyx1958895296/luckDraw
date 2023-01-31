@@ -1,0 +1,1 @@
+"F:\watcherUniApp\微信web开发者工具\cli.bat" cloud functions deploy --e wllyun-dev-3gxie2dud70a3acf --n quickstartFunctions --r --project "D:\wll-luckDraw-wx" --report_first --report
