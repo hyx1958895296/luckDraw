@@ -1,1 +1,32 @@
 /* pages/home/home.wxss */
+.wrap{
+  padding: 0 20rpx;
+}
+.homepage{
+  /* background-color: #d81e06; */
+
+}
+.header{
+  height: 30vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.qd-icon{
+  width:230rpx;
+  height:160rpx;
+  display: inline-block;
+}
+.header-right{
+  display: flex;
+  height: 160rpx;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.integral{
+  font-size: 48rpx;
+}
+.main{
+  height: 70vh;
+}

@@ -53,7 +53,7 @@
           "scene": null
         },
         {
-          "name": "",
+          "name": "抽奖小程序的主页",
           "pathName": "pages/home/home",
           "query": "",
           "launchMode": "default",
