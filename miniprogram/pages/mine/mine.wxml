@@ -15,7 +15,9 @@
       <!-- 头部积分 -->
        <view class="header-gold_box">
          <view class="ft-30">99999 金币</view>
-         <view class="fc-173170">去兑换奖品 ></view>
+         <view class="header-exchange_box fc-173170">
+          <text class="ft-25">去兑换奖品</text>
+          <image src="../../images/arrow-icon.png" mode=""/></view>
        </view>
 
      </view>
@@ -23,8 +25,8 @@
      <!-- 头部下部分 -->
       <view class="header-bottom">
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            36
           </view>
           <view class="ft-25">
             参与抽奖
@@ -34,8 +36,8 @@
       <view class="border"></view>
 
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            19
           </view>
           <view class="ft-25">
             中奖记录
@@ -45,8 +47,8 @@
         <view class="border"></view>
 
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            22
           </view>
           <view class="ft-25">
             兑换记录
@@ -57,18 +59,53 @@
    
     <view class="main">
 
-
       <view class="main-item_box flex-between">
         <view class="main-item ">
-          <view><image src="../../images/icon-home_select.png" mode=""/></view>
-          <view class="ft-20">审核商家</view>
+          <image src="../../images/icon-home_select.png" mode=""/>
+          <text class="ft-20">商家入驻</text>
         </view>
         <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
       </view>
 
-     
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <image src="../../images/icon-home_select.png" mode=""/>
+          <text class="ft-20">审核商家</text>
+        </view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <image src="../../images/icon-home_select.png" mode=""/>
+          <text class="ft-20">商务合作</text>
+        </view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+      </view>
+
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <image src="../../images/icon-home_select.png" mode=""/>
+          <text class="ft-20">常见问题</text>
+        </view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+      </view>
 
 
+      <view class="main-item_box flex-between">
+        <view class="main-item ">
+          <image src="../../images/icon-home_select.png" mode=""/>
+          <text class="ft-20">意见反馈</text>
+        </view>
+        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+      </view>
+    </view>
+
+    <view class="foot mt-160 fc-173170">
+      <text>—— 活动抽奖 —— </text>
+      <view class="ft-18 mt-10">
+        超过2亿人使用的免费抽奖平台
+      </view>
     </view>
 
 </view>
