@@ -1,1 +1,158 @@
 /* pages/mine/mine.wxss */
+.mine{
+  height:calc(100vh - 40rpx);
+  background-color: rgb(233, 233, 233);
+  padding:20rpx 0;
+}
+.header{
+  border-radius: 15rpx;
+  background-color: white;
+  width: 95%;
+  margin:0 auto;
+}
+
+.header-top{
+  padding:40rpx;
+  border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-userinfo_box{
+  display: flex;
+  gap: 0 30rpx;
+  align-items: center;
+}
+
+.header-userinfo_box image{
+  width:130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+}
+
+.header-level_box{
+   background: rgba(209, 59, 39, 0.685) ;
+   padding:8rpx 12rpx;
+   border-radius:20rpx;
+   font-size: 20rpx;
+}
+
+.fc-255{
+  color: rgb(255, 255, 255);
+}
+
+.header-name_box{
+  display: flex;
+  flex-direction: column;
+  gap:15rpx 0;
+}
+
+.header-gold_box{
+  display: flex;
+  flex-direction: column;
+  gap:12rpx 0;
+}
+
+.header-exchange_box image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.header-exchange_box{
+  display: flex;
+  align-items: center;
+}
+
+.ft-35{
+  font-size: 35rpx;
+}
+
+.ft-30{
+  font-size: 30rpx;
+}
+
+.ft-25{
+  font-size: 25rpx;
+}
+
+.fc-173170{
+  color: rgb(173, 170, 170);
+}
+
+.fc-24820937{
+  color: rgb(248, 209, 37);
+}
+
+.ft-20{
+  font-size: 26rpx;
+}
+
+.header-bottom{
+  display: flex;
+  padding:40rpx;
+  justify-content:space-around ;
+}
+
+.header-bottom_item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15rpx 0;
+  font-size: 28rpx;
+}
+
+.fw-600{
+  font-weight: 600;
+}
+
+.border{
+  border-right:1px solid rgb(206, 206, 206);
+}
+
+.main{
+  background-color: white;
+  width: 95%;
+  margin:30rpx auto;
+  border-radius: 15rpx;
+}
+
+.main-item image{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.main-item_box{
+    padding:30rpx;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.main-item_arrow image{
+  height: 25rpx;
+  width: 40rpx;
+}
+
+.main-item{
+  display: flex;
+  gap:0 15rpx;
+  align-items: center;
+}
+
+.mt-10{
+  margin-top: 10rpx;
+}
+
+.foot{
+  text-align: center;
+}
+
+.ft-18{
+  font-size: 18rpx;
+}
+
+.mt-160{
+  margin-top: 160rpx;
+}
