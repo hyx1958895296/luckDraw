@@ -1,0 +1,21 @@
+<!--components/activity/activityItem.wxml-->
+<view class="w">
+  <!-- <text> {{activity.details}}</text> -->
+  <image class="commodity" src="{{activity.commodityImgPath}}" mode=""/>
+  <view class="warp">
+    <view class="title">{{activity.details}}</view>
+    <view class="activity-type">{{activity.activityType}}</view>
+  </view>
+  <view class="warp grid user-w">
+    <view class="flex-jl ">
+      <image class="avator" src="{{activity.avatorPath}}" mode=""/>
+      <text class="name c-919191">{{activity.business}}</text>
+    </view>
+    <view class="btn">
+      <slot></slot>
+    </view>
+  </view>
+  <view class="info">
+    
+  </view>
+</view>
