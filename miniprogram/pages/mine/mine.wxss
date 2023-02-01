@@ -33,6 +33,18 @@
   height: 130rpx;
   border-radius: 50%;
 }
+
+.header-level_box{
+   background: rgba(209, 59, 39, 0.685) ;
+   padding:8rpx 12rpx;
+   border-radius:20rpx;
+   font-size: 20rpx;
+}
+
+.fc-255{
+  color: rgb(255, 255, 255);
+}
+
 .header-name_box{
   display: flex;
   flex-direction: column;
@@ -79,14 +91,10 @@
   font-size: 26rpx;
 }
 
-.fc-red{
-  color: red;
-}
-
 .header-bottom{
   display: flex;
   padding:40rpx;
-  justify-content: space-between;
+  justify-content:space-around ;
 }
 
 .header-bottom_item{

@@ -5,16 +5,18 @@
      
       <!-- 头部用户信息 -->
        <view class="header-userinfo_box">
-         <view><image src="../../images/avator.png" mode=""/></view>
+         <view><image src="{{userInfo.avatarUrl}}" mode=""/></view>
          <view class="header-name_box">
-         <view class="ft-35">名字</view>
-         <view class="ft-20 fc-red">等级：6</view>
+         <view class="ft-35" bindtap="getUserProfile">{{userInfo.nickName}}</view>
+         <view class="header-level_box">
+         <text class="fc-255">白银会员</text>
+         </view>
          </view>
        </view>
       
       <!-- 头部积分 -->
        <view class="header-gold_box">
-         <view class="ft-30">99999 金币</view>
+         <view class="ft-30">0 金币</view>
          <view class="header-exchange_box fc-173170">
           <text class="ft-25">去兑换奖品</text>
           <image src="../../images/arrow-icon.png" mode=""/></view>
@@ -58,44 +60,10 @@
    </view>
    
     <view class="main">
-
-      <view class="main-item_box flex-between">
+      <view wx:for="{{optionList}}" wx:key="index" class="main-item_box flex-between">
         <view class="main-item ">
-          <image src="../../images/icon-home_select.png" mode=""/>
-          <text class="ft-20">商家入驻</text>
-        </view>
-        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
-      </view>
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <image src="../../images/icon-home_select.png" mode=""/>
-          <text class="ft-20">审核商家</text>
-        </view>
-        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
-      </view>
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <image src="../../images/icon-home_select.png" mode=""/>
-          <text class="ft-20">商务合作</text>
-        </view>
-        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
-      </view>
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <image src="../../images/icon-home_select.png" mode=""/>
-          <text class="ft-20">常见问题</text>
-        </view>
-        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
-      </view>
-
-
-      <view class="main-item_box flex-between">
-        <view class="main-item ">
-          <image src="../../images/icon-home_select.png" mode=""/>
-          <text class="ft-20">意见反馈</text>
+          <image src="{{item.icon}}" mode=""/>
+          <text class="ft-20">{{item.title}}</text>
         </view>
         <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
       </view>
