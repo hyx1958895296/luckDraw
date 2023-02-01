@@ -1,7 +1,14 @@
 <!--pages/activity/activity.wxml-->
 
 <view class="warp">
-  <view class="activity activity-frist">
-    
+  <view class="activity-frist">
+    <active activity="{{activityList.for}}">
+     
+    </active>
   </view>
+ <view class="flex">
+  <activity class="activity" wx:for="{{activityList}}" wx:key="index" activity="{{item}}">
+    <btn class="activity-btn" type="{{item.joinType}}"></btn>
+  </activity>
+ </view>
 </view>
