@@ -1,6 +1,6 @@
 /* pages/mine/mine.wxss */
 .mine{
-  height: 100vh;
+  height:calc(100vh - 40rpx);
   background-color: rgb(233, 233, 233);
   padding:20rpx 0;
 }
@@ -13,7 +13,7 @@
 
 .header-top{
   padding:40rpx;
-  border-bottom: 1rpx solid rgb(189, 189, 189);
+  border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .flex-between{
@@ -33,6 +33,18 @@
   height: 130rpx;
   border-radius: 50%;
 }
+
+.header-level_box{
+   background: rgba(209, 59, 39, 0.685) ;
+   padding:8rpx 12rpx;
+   border-radius:20rpx;
+   font-size: 20rpx;
+}
+
+.fc-255{
+  color: rgb(255, 255, 255);
+}
+
 .header-name_box{
   display: flex;
   flex-direction: column;
@@ -43,6 +55,16 @@
   display: flex;
   flex-direction: column;
   gap:12rpx 0;
+}
+
+.header-exchange_box image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.header-exchange_box{
+  display: flex;
+  align-items: center;
 }
 
 .ft-35{
@@ -69,14 +91,10 @@
   font-size: 26rpx;
 }
 
-.fc-red{
-  color: red;
-}
-
 .header-bottom{
   display: flex;
   padding:40rpx;
-  justify-content: space-between;
+  justify-content:space-around ;
 }
 
 .header-bottom_item{
@@ -84,10 +102,15 @@
   flex-direction: column;
   align-items: center;
   gap: 15rpx 0;
+  font-size: 28rpx;
+}
+
+.fw-600{
+  font-weight: 600;
 }
 
 .border{
-  border-right:1rpx solid rgb(206, 206, 206);
+  border-right:1px solid rgb(206, 206, 206);
 }
 
 .main{
@@ -104,7 +127,7 @@
 
 .main-item_box{
     padding:30rpx;
-    border-bottom: 1rpx solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .main-item_arrow image{
@@ -114,10 +137,22 @@
 
 .main-item{
   display: flex;
-  gap: 0 15rpx;
+  gap:0 15rpx;
   align-items: center;
 }
 
 .mt-10{
   margin-top: 10rpx;
+}
+
+.foot{
+  text-align: center;
+}
+
+.ft-18{
+  font-size: 18rpx;
+}
+
+.mt-160{
+  margin-top: 160rpx;
 }

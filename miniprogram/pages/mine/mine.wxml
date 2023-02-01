@@ -5,17 +5,21 @@
      
       <!-- 头部用户信息 -->
        <view class="header-userinfo_box">
-         <view><image src="../../images/avator.png" mode=""/></view>
+         <view><image src="{{userInfo.avatarUrl}}" mode=""/></view>
          <view class="header-name_box">
-         <view class="ft-35">名字</view>
-         <view class="ft-20 fc-red">等级：6</view>
+         <view class="ft-35" bindtap="getUserProfile">{{userInfo.nickName}}</view>
+         <view class="header-level_box">
+         <text class="fc-255">白银会员</text>
+         </view>
          </view>
        </view>
       
       <!-- 头部积分 -->
        <view class="header-gold_box">
-         <view class="ft-30">99999 金币</view>
-         <view class="fc-173170">去兑换奖品 ></view>
+         <view class="ft-30">0 金币</view>
+         <view class="header-exchange_box fc-173170">
+          <text class="ft-25">去兑换奖品</text>
+          <image src="../../images/arrow-icon.png" mode=""/></view>
        </view>
 
      </view>
@@ -23,8 +27,8 @@
      <!-- 头部下部分 -->
       <view class="header-bottom">
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            36
           </view>
           <view class="ft-25">
             参与抽奖
@@ -34,8 +38,8 @@
       <view class="border"></view>
 
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            19
           </view>
           <view class="ft-25">
             中奖记录
@@ -45,8 +49,8 @@
         <view class="border"></view>
 
         <view class="header-bottom_item">
-          <view>
-            12
+          <view class="fw-600">
+            22
           </view>
           <view class="ft-25">
             兑换记录
@@ -56,19 +60,20 @@
    </view>
    
     <view class="main">
-
-
-      <view class="main-item_box flex-between">
+      <view wx:for="{{optionList}}" wx:key="index" class="main-item_box flex-between">
         <view class="main-item ">
-          <view><image src="../../images/icon-home_select.png" mode=""/></view>
-          <view class="ft-20">审核商家</view>
+          <image src="{{item.icon}}" mode=""/>
+          <text class="ft-20">{{item.title}}</text>
         </view>
         <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
       </view>
+    </view>
 
-     
-
-
+    <view class="foot mt-160 fc-173170">
+      <text>—— 活动抽奖 —— </text>
+      <view class="ft-18 mt-10">
+        超过2亿人使用的免费抽奖平台
+      </view>
     </view>
 
 </view>
