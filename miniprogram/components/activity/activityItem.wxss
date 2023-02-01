@@ -36,7 +36,7 @@
 
 .title {
   font-size: 32rpx;
-  padding: 10rpx 0 14rpx;
+  padding: 10rpx 0 4rpx;
 }
 
 .user-w {
@@ -54,6 +54,12 @@
 
 .name {
   /* margin-left: 10rpx; */
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color: #808080;
+}
+
+.time{
+  font-size: 26rpx;
+  gap: 20rpx;
   color: #808080;
 }

@@ -1,19 +1,91 @@
 /* pages/activity/activity.wxss */
-.activity-frist{
-  border:10rpx solid brown;
-} 
+.activity-frist {
+  border: 10rpx solid brown;
+}
 
-.warp{
+.warp {
+  position: relative;
   background-color: rgba(233, 233, 233, 0.747);
 }
 
-.flex{
-  display: flex;
- flex-direction: column; 
- gap: 20rpx;
- padding: 0 20rpx ;
+.activity-all {
+  margin-top: 20rpx;
+  gap: 20rpx;
+  padding: 0 20rpx;
 }
 
-/* .activity{
-  margin-top: 20rpx;
-} */
+.soon {
+  background: 'url(../../images/title-box.png)';
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  background-color: rgb(218, 15, 15);
+  border: 6rpx solid #880000;
+  box-shadow:5rpx 0rpx 10rpx 0rpx #666666;
+}
+
+
+
+
+.flex-jl {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 75% auto;
+}
+
+.commodity {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 40rpx 40rpx 0 0;
+}
+
+.avator {
+  border-radius: 50%;
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.warp {
+  padding: 0 40rpx;
+}
+
+.w {
+  border-radius: 40rpx;
+  background-color: #ffffff;
+}
+
+.title {
+  font-size: 32rpx;
+  padding: 10rpx 0 4rpx;
+}
+
+.user-w {
+  padding: 20rpx 36rpx;
+}
+
+.activity-type {
+  display: inline-block;
+  /* border-radius: 10rpx; */
+  font-size: 26rpx;
+  padding: 4rpx 10rpx;
+  color: rgb(192, 0, 0);
+  background-color: rgba(255, 199, 199, 0.301);
+}
+
+.name {
+  /* margin-left: 10rpx; */
+  font-size: 26rpx;
+  color: #808080;
+}
+
+.time{
+  font-size: 26rpx;
+  gap: 20rpx;
+  color: #808080;
+}
