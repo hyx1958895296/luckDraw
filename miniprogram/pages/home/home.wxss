@@ -67,11 +67,12 @@
 .main {
   column-count:2;
   gap : 30rpx;
-  margin: 30rpx 0;
+  margin-top: 30rpx;
 }
 
 .main-scroll{
   height: calc(100vh - 15vh - 15rpx - 30rpx - 30rpx);
+  overflow: scroll;
   /* height: 50vh; */
 }
 
@@ -144,7 +145,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 30rpx;
-  margin-top: 15rpx;
+  margin: 15rpx 0;
 }
 
 .hr {
