@@ -1,87 +1,73 @@
 <view class="homepage">
-  <view class="wrap header" bindtap="sigiIn">
-    <!-- <image src="../../images/qd.png" class="qd-icon" mode="" /> -->
-    <!-- <view class="header-right">
-      <view class="integral">
-        积分:19
+  <view class="wrap header">
+    <view class="container-header">
+      <view class="align-center">
+        <image src="../../images/qd_icon.png" class="item-icon" mode="" />
+        <view>每日签到</view>
       </view>
-      <view class="get-more-points">
-        获取更多积分
+      <view class="align-center">
+        <image src="../../images/red_envelope.png" class="item-icon" mode="" />
+        <view>天天红包</view>
       </view>
-    </view> -->
+      <view class="align-center">
+        <image src="../../images/luck-draw.png" class="item-icon" mode="" />
+        <view>幸运夺宝</view>
+      </view>
+    </view>
   </view>
   <view class="wrap">
-    <!-- <view class="nav-item-grid">
-      <view class="nav-item-text">猜你感兴趣</view>
-      <view>推荐商品</view>
-      <view>其他</view>
-    </view> -->
     <view class="nav-item-grid">
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}}" bindtap="hr" data-es="0">
+      <navigator url="" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}} " bindtap="hr" data-es="0">
         猜你感兴趣
       </navigator>
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
+      <navigator url="" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
         推荐商品
       </navigator>
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
+      <navigator url="/pages/fye/index" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
         美食
       </navigator>
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 3 ? 'hr' : ''}}" bindtap="hr" data-es="3">
-        饮料
-      </navigator>
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 4 ? 'hr' : ''}}" bindtap="hr" data-es="4">
+      <navigator url="home/pages/guessYouInterested" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 4 ? 'hr' : ''}} nav-to-item" bindtap="hr" data-es="4">
         日用
       </navigator>
-      <navigator url="home/pages/guessYouInterested"
-        open-type="switchTab" 
-        hover-class="other-navigator-hover" 
-        class="{{isHr.target.dataset.es == 5 ? 'hr' : ''}}" bindtap="hr" data-es="5">
-        文娱
-      </navigator>
     </view>
-    <view class="main">
-      <image src="../../images/get-more-score.png" class="get-more_score" mode=""/>
-      <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id">
-        <view class="shop-item-picture">
-          <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
-          <view></view>
-        </view>
-        <view class="coupon">
-          <!-- <image src="../../images/coupon.png" mode=""/> -->
-        </view>
-        <view class="shop-item-title">
-          {{ shopItem.shopItemTitle }}
-        </view>
-        <view>
-          <view wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">
-            <view class="prompt-box">
-              还差{{ shopItem.shopItemPrice - 19 }}积分就能获得此商品
-            </view>
-            <view class="prompt-box-triangle"></view>
+    <view wx:if="{{isHr.target.dataset.es == 0}}">
+      <view class="main">
+        <image src="../../images/get-more-score.png"  class="get-more_score" mode="" bindtap="navagitorToActivity"/>
+        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id">
+          <view class="shop-item-picture">
+            <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
+            <view></view>
           </view>
-          <text class="points-redemption_line" wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">{{ shopItem.shopItemPrice }}</text>
-          <text class="points-redemption" wx:else>{{ shopItem.shopItemPrice }}</text>
-          <text class="points-text">积分</text>
-        </view>
-        <view class="monthly-exchange">
-          月兑    {{ shopItem.yuedui }}
+          <view class="coupon">
+            <view>
+              兑300元优惠券
+            </view>
+            <view>
+
+            </view>
+          </view>
+          <view class="shop-item-title">
+            {{ shopItem.shopItemTitle }}
+          </view>
+          <view>
+            <view wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">
+              <view class="prompt-box">
+                还差{{ shopItem.shopItemPrice - 19 }}积分就能获得此商品
+              </view>
+              <view class="prompt-box-triangle"></view>
+            </view>
+            <text class="points-redemption_line" wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">{{ shopItem.shopItemPrice }}</text>
+            <text class="points-redemption" wx:else>{{ shopItem.shopItemPrice }}</text>
+            <text class="points-text">积分</text>
+          </view>
+          <view class="monthly-exchange">
+            月兑 {{ shopItem.yuedui }}
+          </view>
         </view>
       </view>
-    </view>  
+    </view>
+    <view wx:if="{{isHr.target.dataset.es == 1}}">推荐商品</view>
+    <view wx:if="{{isHr.target.dataset.es == 2}}">美食</view>
+    <view wx:if="{{isHr.target.dataset.es == 3}}"></view>
   </view>
 </view>
