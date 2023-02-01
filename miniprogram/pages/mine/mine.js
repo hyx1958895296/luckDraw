@@ -8,23 +8,28 @@ Page({
     optionList: [{
       id: 1,
       title: "商家入驻",
-      icon: "../../images/icon-settlein.png"
+      icon: "../../images/icon-settlein.png",
+      to:"/pages/merchantAccess/merchantAccess"
     }, {
       id: 2,
       title: "审核商家",
-      icon: "../../images/icon-examine.png"
+      icon: "../../images/icon-examine.png",
+      to:"pages/merchantAccess/merchantAccess"
     }, {
       id: 3,
       title: "商务合作",
-      icon: "../../images/icon-cooperation.png"
+      icon: "../../images/icon-cooperation.png",
+      to:"pages/merchantAccess/merchantAccess"
     }, {
       id: 4,
       title: "常见问题",
-      icon: "../../images/icon-problem.png"
+      icon: "../../images/icon-problem.png",
+      to:"pages/merchantAccess/merchantAccess"
     }, {
       id: 5,
       title: "意见反馈",
-      icon: "../../images/icon-opinion.png"
+      icon: "../../images/icon-opinion.png",
+      to:"pages/merchantAccess/merchantAccess"
     }],
     userInfo: {
       nickName: "未登录",
@@ -42,7 +47,6 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
-              console.log(res);
               _this.setData({
                 userInfo: res.userInfo,
                 hasUserInfo: true
@@ -53,6 +57,12 @@ Page({
           wx.openSetting();
         }
       }
+    })
+  },
+
+  navigateto(e){
+    wx.navigateTo({
+      url:e.currentTarget.dataset.to
     })
   },
 

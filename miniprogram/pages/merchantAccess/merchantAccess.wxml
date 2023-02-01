@@ -1,0 +1,4 @@
+<!--pages/merchantAccess/merchantAccess.wxml-->
+<view class="merchantAccess">
+       商家入驻
+</view>
