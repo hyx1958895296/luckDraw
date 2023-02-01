@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "activity" : "../../components/activity/activityItem",
+    "btn" : "../../components/activity-btn/activityBtn"
+  }
 }

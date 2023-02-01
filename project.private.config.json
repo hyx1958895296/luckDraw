@@ -65,6 +65,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

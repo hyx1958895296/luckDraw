@@ -1,4 +1,19 @@
 /* pages/activity/activity.wxss */
 .activity-frist{
-  background-color: brown;
+  border:10rpx solid brown;
 } 
+
+.warp{
+  background-color: rgba(233, 233, 233, 0.747);
+}
+
+.flex{
+  display: flex;
+ flex-direction: column; 
+ gap: 20rpx;
+ padding: 0 20rpx ;
+}
+
+/* .activity{
+  margin-top: 20rpx;
+} */
