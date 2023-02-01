@@ -1,35 +1,43 @@
-/* pages/home/home.wxss */
 .wrap {
   padding: 0 30rpx;
 }
 
 .homepage {
-  background-color: #d81e06;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64),rgb(250, 51, 51));
 }
 
 .header {
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qiandao.png?sign=f21bab1f420f8ec7a4c5af8c343145fc&t=1675210082");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 
-.qd-icon {
-  width: 230rpx;
-  height: 160rpx;
-  display: inline-block;
-}
-
-.header-right {
+.container-header {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 10vh;
+  border-radius: 10rpx;
   display: flex;
-  height: 160rpx;
   justify-content: space-around;
+  align-items: center;
+  padding:10rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.align-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rpx;
   flex-direction: column;
-  align-items: flex-start;
-  font-weight: 700;
+}
+
+.item-icon{
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .integral {
@@ -46,26 +54,23 @@
   display: inline-block;
 }
 
-.coupon{
+.coupon {
   height: 93rpx;
-  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/coupon.png?sign=52cabbdb9f211ef347dbc883a841800c&t=1675220783");
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/coupon.png?sign=fa06f22725b406564a29cd0a9dd76356&t=1675234080");
   background-size: cover;
 }
 
 .main {
-  margin-top: 30rpx;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  column-gap: 30rpx;
+  column-count:2;
+  gap : 30rpx;
+  margin: 30rpx 0;
 }
 
 .item {
   background-color: white;
   border-radius: 10rpx;
   margin-bottom: 30rpx;
-  /* height: 380rpx; */
+  break-inside:avoid;
 }
 
 .shop-item-picture {
@@ -84,6 +89,7 @@
   color: #c90a74;
   text-decoration: line-through;
 }
+
 .points-redemption {
   font-size: 30rpx;
   color: #c90a74;
@@ -105,7 +111,8 @@
 .item-wrap {
   padding: 10rpx;
 }
-.prompt-box{
+
+.prompt-box {
   height: 30rpx;
   border: 2px solid red;
   border-radius: 10rpx;
@@ -114,7 +121,8 @@
   padding: 4rpx;
   /* color:#c90a74; */
 }
-.prompt-box-triangle{
+
+.prompt-box-triangle {
   width: 0;
   height: 0;
   margin-left: 20rpx;
@@ -122,34 +130,35 @@
   border-bottom: transparent;
   border-top: 16rpx solid red;
 }
-.nav-item-text{
-  height: 45rpx;
-  border-bottom:4rpx solid white;
-  margin-bottom: 8rpx;
 
-}
-.nav-item-grid{
+.nav-item-grid {
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-items: self-end;
-  font-size: 22rpx;
+  font-size: 26rpx;
   margin-top: 15rpx;
 }
-.hr{
-  color: #ffffff; 
+
+.hr {
+  color: #ffffff;
+  font-size: 28rpx;
+  border-bottom:2rpx solid white
 }
-.navigator-hover {
-  color:blue;
-}
+
 .other-navigator-hover {
-  color:white;
+  color: rgb(255, 255, 255);
 }
-.monthly-exchange{
+
+.monthly-exchange {
   font-size: 18rpx;
   color: #969497;
 }
-.get-more_score{
+
+.get-more_score {
   height: 130rpx;
   width: 330rpx;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
 }
