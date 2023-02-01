@@ -154,6 +154,6 @@
   font-size: 18rpx;
 }
 
-.pt-160{
+.ptm-100{
   padding:100rpx 0;
 }

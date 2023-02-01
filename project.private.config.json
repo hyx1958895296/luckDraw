@@ -72,6 +72,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/merchantAccess/merchantAccess",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -4,10 +4,10 @@
      <view class="header-top flex-between">
      
       <!-- 头部用户信息 -->
-       <view class="header-userinfo_box">
+       <view class="header-userinfo_box" bindtap="getUserProfile">
          <view><image src="{{userInfo.avatarUrl}}" mode=""/></view>
          <view class="header-name_box">
-         <view class="ft-35" bindtap="getUserProfile">{{userInfo.nickName}}</view>
+         <view class="ft-35" >{{userInfo.nickName}}</view>
          <view class="header-level_box">
          <text class="fc-255">白银会员</text>
          </view>
@@ -60,8 +60,8 @@
    </view>
    
     <view class="main">
-      <view wx:for="{{optionList}}" wx:key="index" class="main-item_box flex-between">
-        <view class="main-item ">
+      <view wx:for="{{optionList}}"  wx:key="index" class="main-item_box flex-between"  bindtap="navigateto" data-to="{{item.to}}">
+        <view class="main-item" >
           <image src="{{item.icon}}" mode=""/>
           <text class="ft-20">{{item.title}}</text>
         </view>
