@@ -1,6 +1,6 @@
 /* pages/mine/mine.wxss */
 .mine{
-  height:calc(100vh - 40rpx);
+  min-height:calc(100vh - 40rpx);
   background-color: rgb(233, 233, 233);
   padding:20rpx 0;
 }
@@ -118,6 +118,7 @@
   width: 95%;
   margin:30rpx auto;
   border-radius: 15rpx;
+
 }
 
 .main-item image{
@@ -153,6 +154,6 @@
   font-size: 18rpx;
 }
 
-.mt-160{
-  margin-top: 160rpx;
+.pt-160{
+  padding:100rpx 0;
 }
