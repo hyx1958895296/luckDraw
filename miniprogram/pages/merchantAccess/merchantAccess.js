@@ -31,21 +31,40 @@ Page({
     }
   },
 
-  submitstoreInfo() {
+  isBusinessInfo() {
     let {
       storeName,
       phone,
       name,
-      address
+      address,
+      detailedAddress
     } = this.data.settleInForm;
-    if (!storeName.length || !phone.length || !name.length || !address.length || !printingLicenceUrl.length || !detailedAddress.length) {
+    if (!storeName.length || !phone.length || !name.length || !address.length || !this.data.printingLicenceUrl.length || !detailedAddress.length) {
+         return true;
+    }
+  },
+
+  submitstoreInfo() {
+  
+    if (this.isBusinessInfo()) {
       wx.showToast({
         title: '请填写完整的商家信息',
         icon: 'none'
       })
     } else {
       if (this.data.isAgreement) {
-        console.log(this.data.settleInForm);
+        this.data.settleInForm.printingLicenceUrl = this.data.printingLicenceUrl;
+        
+        wx.cloud.callFunction({
+          name: "merchantReview",
+          data: {
+            type: "add",
+            businessInfo: this.data.settleInForm
+          },
+          success(res) {
+            console.log(res);
+          }
+        })
       } else {
         wx.showToast({
           title: '请同意入驻协议',
