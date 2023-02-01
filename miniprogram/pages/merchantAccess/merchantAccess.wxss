@@ -1,0 +1,58 @@
+/* pages/merchantAccess/merchantAccess.wxss */
+.item {
+  display: flex;
+  gap: 30rpx;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 40rpx 35rpx;
+  font-size: 30rpx;
+  align-items: center;
+}
+
+
+
+.item-title{
+  width: 20%;
+}
+
+.item image {
+  height: 180rpx;
+  width: 160rpx;
+  image-rendering:crisp-edges;
+}
+
+.printing image{
+  height: 180rpx;
+  width:200rpx;
+  image-rendering:crisp-edges;
+}
+
+.merchantAccess {
+  background-color: rgba(245, 243, 243, 0.603);
+  min-height: 100vh;
+}
+
+.form {
+  background-color: white;
+  height: 80vh;
+}
+
+.submit-btn_box {
+  padding: 80rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+}
+
+.fc-228228{
+  color: rgb(173, 172, 172);
+}
+
+.fc-green {
+  color: rgb(54, 211, 54);
+}
+
+.fw-600 {
+  font-weight: 600;
+}

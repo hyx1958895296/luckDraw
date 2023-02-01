@@ -1,0 +1,52 @@
+<!--pages/merchantAccess/merchantAccess.wxml-->
+<view class="merchantAccess">
+  <view class="form">
+    <view class="item">
+        <view class="fw-600 item-title">店铺名称</view>
+        <view><input  type="text" bindinput="storeNameInput" placeholder="请输入店铺名称"/>
+        </view>
+      </view>
+      <view class="item">
+        <view class="fw-600 item-title">联系方式</view>
+        <view><input type="text" bindinput="phoneInput"  placeholder="请输入真实手机号"/>
+        </view>
+      </view>
+      <view class="item">
+        <view class="fw-600 item-title">负责人</view>
+        <view><input type="text" bindinput="nameInput" placeholder="请输入姓名"/>
+        </view>
+      </view>
+
+      <view class="item" bindtap="upImage">
+          <view class="item-title item-title">
+          <image src="../../images/upload.png" mode=""/> 
+        </view>
+
+        <view class="printing">
+          <image  wx:if="{{printingLicenceUrl}}" src="{{printingLicenceUrl}}" mode=""/>
+          <view  wx:else class="fc-228228">点击上传营业执照</view>
+        </view>
+       
+      </view>
+
+      <view class="item">
+        <view class="fw-600 item-title">店铺地址</view>
+        <view><input type="text"  bindinput="addressInput"   placeholder="选择地区"/>
+        </view>
+      </view>
+
+      <view class="item">
+        <view><input type="text" bindinput="detailedAddressInput"  placeholder="请输入详细地址"/>
+        </view>
+      </view>
+  </view>
+     
+       <view class="submit-btn_box">  
+         <view>
+           <checkbox-group bindchange="checkboxFn">
+             <checkbox value="true" />同意并认真阅读<text class="fc-green">《商家入驻规则协议》</text>
+           </checkbox-group>
+         </view>
+         <button class="submit-btn" bindtap="submitstoreInfo" type="primary">入驻商家</button>
+       </view>
+</view>
