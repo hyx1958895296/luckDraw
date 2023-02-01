@@ -11,14 +11,58 @@
     </view> -->
   </view>
   <view class="wrap">
-    <view>
-      
+    <!-- <view class="nav-item-grid">
+      <view class="nav-item-text">猜你感兴趣</view>
+      <view>推荐商品</view>
+      <view>其他</view>
+    </view> -->
+    <view class="nav-item-grid">
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}}" bindtap="hr" data-es="0">
+        猜你感兴趣
+      </navigator>
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
+        推荐商品
+      </navigator>
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
+        美食
+      </navigator>
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 3 ? 'hr' : ''}}" bindtap="hr" data-es="3">
+        饮料
+      </navigator>
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 4 ? 'hr' : ''}}" bindtap="hr" data-es="4">
+        日用
+      </navigator>
+      <navigator url="home/pages/guessYouInterested"
+        open-type="switchTab" 
+        hover-class="other-navigator-hover" 
+        class="{{isHr.target.dataset.es == 5 ? 'hr' : ''}}" bindtap="hr" data-es="5">
+        文娱
+      </navigator>
     </view>
     <view class="main">
+      <image src="../../images/get-more-score.png" class="get-more_score" mode=""/>
       <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id">
         <view class="shop-item-picture">
           <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
           <view></view>
+        </view>
+        <view class="coupon">
+          <!-- <image src="../../images/coupon.png" mode=""/> -->
         </view>
         <view class="shop-item-title">
           {{ shopItem.shopItemTitle }}
@@ -33,6 +77,9 @@
           <text class="points-redemption_line" wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">{{ shopItem.shopItemPrice }}</text>
           <text class="points-redemption" wx:else>{{ shopItem.shopItemPrice }}</text>
           <text class="points-text">积分</text>
+        </view>
+        <view class="monthly-exchange">
+          月兑    {{ shopItem.yuedui }}
         </view>
       </view>
     </view>  
