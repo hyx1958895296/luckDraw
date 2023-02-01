@@ -1,5 +1,14 @@
 /**app.wxss**/
 
-.c-919191{
+.c-919191 {
   color: #919191;
+}
+
+.c-ffffff {
+  color: #ffffff;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

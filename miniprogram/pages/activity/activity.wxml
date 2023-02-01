@@ -1,14 +1,17 @@
 <!--pages/activity/activity.wxml-->
-
-<view class="warp">
-  <view class="activity-frist">
-    <active activity="{{activityList.for}}">
-     
-    </active>
+<view class="warp" wx:if="{{isLoaded}}">
+  <view class="soon c-ffffff">
+    即将开奖
   </view>
- <view class="flex">
+  <view class="activity-frist">
+    <activity activity="{{ activityFrist }}">
+      <btn class="activity-btn" type="{{item.joinType}}"></btn>
+    </activity>
+  </view>
+ <view class="flex-column activity-all">
   <activity class="activity" wx:for="{{activityList}}" wx:key="index" activity="{{item}}">
     <btn class="activity-btn" type="{{item.joinType}}"></btn>
   </activity>
+
  </view>
 </view>
