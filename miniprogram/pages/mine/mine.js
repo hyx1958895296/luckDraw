@@ -42,6 +42,7 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
+              console.log(res);
               _this.setData({
                 userInfo: res.userInfo,
                 hasUserInfo: true
@@ -53,7 +54,18 @@ Page({
         }
       }
     })
+  },
 
+  getUserinfo(){
+    wx.cloud.callFunction({
+      name: 'activity',
+      data: {
+       type:"select"
+      },
+      success: res => {
+        console.log(res.result);
+      },
+    })
   },
 
 
@@ -61,7 +73,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+        this.getUserinfo();
   },
 
   /**
