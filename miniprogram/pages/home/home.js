@@ -10,27 +10,38 @@ Page({
         id:1,
         shopItemImage:"../../images/shop1.png",
         shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"34"
+        shopItemPrice:"34",
+        yuedui:"200000+"
       },
       {
         id:2,
         shopItemImage:"../../images/shop1.png",
         shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"2400"
+        shopItemPrice:"2400",
+        yuedui:"200"
       },
       {
         id:3,
         shopItemImage:"../../images/shop1.png",
         shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"2500"
+        shopItemPrice:"2500",
+        yuedui:"2000"
       },
       {
         id:4,
         shopItemImage:"../../images/shop1.png",
         shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25"
+        shopItemPrice:"25",
+        yuedui:"2400"
       },
-    ]
+    ],
+    isHr:0,
+  },
+  hr:function(es){
+    this.setData({
+      isHr:es,
+    })
+    // console.log(this.data.isHr.target.dataset.es);
   },
   //微信签到跳转
   signIn(){
@@ -40,7 +51,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
   },
 
   /**
