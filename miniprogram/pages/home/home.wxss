@@ -1,32 +1,119 @@
 /* pages/home/home.wxss */
-.wrap{
-  padding: 0 20rpx;
+.wrap {
+  padding: 0 30rpx;
 }
-.homepage{
-  /* background-color: #d81e06; */
 
+.homepage {
+  background-color: #d81e06;
 }
-.header{
-  height: 30vh;
+
+.header {
+  height: 20vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qiandao.png?sign=f21bab1f420f8ec7a4c5af8c343145fc&t=1675210082");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
-.qd-icon{
-  width:230rpx;
-  height:160rpx;
+
+.qd-icon {
+  width: 230rpx;
+  height: 160rpx;
   display: inline-block;
 }
-.header-right{
+
+.header-right {
   display: flex;
   height: 160rpx;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   align-items: flex-start;
+  font-weight: 700;
 }
-.integral{
+
+.integral {
   font-size: 48rpx;
 }
-.main{
-  height: 70vh;
+
+.get-more-points {
+  font-size: 30rpx;
+}
+
+.shop-size {
+  width: 200rpx;
+  height: 200rpx;
+  display: inline-block;
+
+}
+
+.main {
+  margin-top: 30rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  column-gap: 30rpx;
+}
+
+.item {
+  background-color: white;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  height: 380rpx;
+}
+
+.shop-item-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop-item-title {
+  font-size: 24rpx;
+  padding: 12rpx 0;
+}
+
+.points-redemption_line {
+  font-size: 30rpx;
+  color: #c90a74;
+  text-decoration: line-through;
+}
+.points-redemption {
+  font-size: 30rpx;
+  color: #c90a74;
+}
+
+.points-text {
+  padding-left: 8rpx;
+  font-size: 18rpx;
+  color: #c90a74;
+  font-weight: bold;
+}
+
+.post_coupon-price {
+  font-size: 18rpx;
+  color: #c90a74;
+  font-weight: bold;
+}
+
+.item-wrap {
+  padding: 10rpx;
+}
+.prompt-box{
+  height: 30rpx;
+  border: 2px solid red;
+  border-radius: 10rpx;
+  margin-left: 15rpx;
+  font-size: 18rpx;
+  padding: 4rpx;
+  /* color:#c90a74; */
+}
+.prompt-box-triangle{
+  width: 0;
+  height: 0;
+  margin-left: 20rpx;
+  border: 10rpx solid transparent;
+  border-bottom: transparent;
+  border-top: 16rpx solid red;
 }

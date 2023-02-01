@@ -5,9 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopList:[
+      {
+        id:1,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"34"
+      },
+      {
+        id:2,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"2400"
+      },
+      {
+        id:3,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"2500"
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25"
+      },
+    ]
+  },
+  //微信签到跳转
+  signIn(){
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
