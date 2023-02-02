@@ -21,7 +21,7 @@ Page({
       id: 3,
       title: "发起抽奖",
       icon: "../../images/icon-examine.png",
-      to:"",
+      to:"/createRaffle/pages/createRaffleType/createRaffleType",
       isShow:false
     },  {
       id: 4,
@@ -63,10 +63,10 @@ Page({
                 userInfo: res.userInfo,
                 hasUserInfo: true
               })
+              _this.getBusinessInfo();
               wx.showToast({
                 title: '登录成功',
               })
-              _this.getBusinessInfo();
             }
           })
         } else {
@@ -106,7 +106,6 @@ Page({
       },
       success(res){
       if(_this.data.examineStatus == "审核通过") return;
-      console.log(res);
       if(res.result.status == 1){
           if(!res.result.data.length) return;
          if(res.result.data[0].status == 1){
@@ -138,7 +137,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+
   },
 
   /**
