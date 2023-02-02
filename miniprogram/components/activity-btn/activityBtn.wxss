@@ -8,7 +8,7 @@
 }
 
 .btn-not{
-  background-color: #a52a2a;
+  background-color: #cc0b0b;
 }
 
 .btn-already{

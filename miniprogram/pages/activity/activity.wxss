@@ -1,19 +1,37 @@
 /* pages/activity/activity.wxss */
-.activity-frist{
-  border:10rpx solid brown;
-} 
-
-.warp{
-  background-color: rgba(233, 233, 233, 0.747);
+.activity-frist {
+  box-shadow: 0rpx 15rpx 15rpx 10rpx #555555;
+  border-radius: 40rpx;
 }
 
-.flex{
-  display: flex;
- flex-direction: column; 
- gap: 20rpx;
- padding: 0 20rpx ;
+.activity {
+  border-radius: 40rpx;
+  box-shadow: 0rpx 3rpx 10rpx 5rpx #686868;
 }
 
-/* .activity{
-  margin-top: 20rpx;
-} */
+.activity-warp {
+  background-color: rgba(223, 222, 222, 0.747);
+  position: relative;
+}
+
+.activity-all {
+  gap: 20rpx;
+}
+
+.soon {
+  border-radius: 50%;
+  position: absolute;
+  right: 4%;
+  top: 20rpx;
+  box-shadow: 5rpx 0rpx 10rpx 0rpx #cfcfcf;
+}
+
+.icon-top{
+  width: 80rpx;
+  height: 80rpx;
+}
+.icon-text{
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+}

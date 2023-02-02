@@ -1,10 +1,14 @@
 <!--components/activity/activityItem.wxml-->
 <view class="w">
-  <!-- <text> {{activity.details}}</text> -->
   <image class="commodity" src="{{activity.commodityImgPath}}" mode=""/>
   <view class="warp">
     <view class="title">{{activity.details}}</view>
+   <view class="flex-jl time">
     <view class="activity-type">{{activity.activityType}}</view>
+    <view>
+      {{startTime}}
+    </view>
+   </view>
   </view>
   <view class="warp grid user-w">
     <view class="flex-jl ">
@@ -15,7 +19,5 @@
       <slot></slot>
     </view>
   </view>
-  <view class="info">
-    
-  </view>
+ 
 </view>

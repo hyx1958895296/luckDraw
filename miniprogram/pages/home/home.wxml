@@ -13,24 +13,28 @@
         <image src="../../images/luck-draw.png" class="item-icon" mode="" />
         <view>幸运夺宝</view>
       </view>
+      <view class="align-center">
+        <view class="fs-34">19</view>
+        <view>积分</view>
+      </view>
     </view>
   </view>
   <view class="wrap">
     <view class="nav-item-grid">
-      <navigator url="" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}} " bindtap="hr" data-es="0">
+      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}} " bindtap="hr" data-es="0">
         猜你感兴趣
       </navigator>
-      <navigator url="" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
+      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
         推荐商品
       </navigator>
-      <navigator url="/pages/fye/index" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
+      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
         美食
       </navigator>
-      <navigator url="home/pages/guessYouInterested" open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 4 ? 'hr' : ''}} nav-to-item" bindtap="hr" data-es="4">
+      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 3 ? 'hr' : ''}} nav-to-item" bindtap="hr" data-es="3">
         日用
       </navigator>
     </view>
-    <view wx:if="{{isHr.target.dataset.es == 0}}">
+    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 0}}">
       <view class="main">
         <image src="../../images/get-more-score.png"  class="get-more_score" mode="" bindtap="navagitorToActivity"/>
         <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id">
@@ -68,6 +72,6 @@
     </view>
     <view wx:if="{{isHr.target.dataset.es == 1}}">推荐商品</view>
     <view wx:if="{{isHr.target.dataset.es == 2}}">美食</view>
-    <view wx:if="{{isHr.target.dataset.es == 3}}"></view>
+    <view wx:if="{{isHr.target.dataset.es == 3}}">日用</view>
   </view>
 </view>

@@ -3,7 +3,7 @@
 }
 
 .homepage {
-  min-height: 100vh;
+  height: 100vh;
   background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64),rgb(250, 51, 51));
 }
 
@@ -29,10 +29,14 @@
 
 .align-center{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 10rpx;
   flex-direction: column;
+}
+
+.fs-34{
+  font-size: 34rpx;
 }
 
 .item-icon{
@@ -63,7 +67,13 @@
 .main {
   column-count:2;
   gap : 30rpx;
-  margin: 30rpx 0;
+  margin-top: 30rpx;
+}
+
+.main-scroll{
+  height: calc(100vh - 15vh - 15rpx - 30rpx - 30rpx);
+  overflow: scroll;
+  /* height: 50vh; */
 }
 
 .item {
@@ -117,9 +127,8 @@
   border: 2px solid red;
   border-radius: 10rpx;
   margin-left: 15rpx;
-  font-size: 18rpx;
+  font-size: 20rpx;
   padding: 4rpx;
-  /* color:#c90a74; */
 }
 
 .prompt-box-triangle {
@@ -132,17 +141,16 @@
 }
 
 .nav-item-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-items: self-end;
-  font-size: 26rpx;
-  margin-top: 15rpx;
+  font-size: 30rpx;
+  margin: 15rpx 0;
 }
 
 .hr {
   color: #ffffff;
-  font-size: 28rpx;
+  font-size: 32rpx;
   border-bottom:2rpx solid white
 }
 
