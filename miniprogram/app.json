@@ -13,9 +13,7 @@
         "pages/createRaffleType/createRaffleType",
         "pages/createRaffle/createRaffle"
       ]
-    }
-  ],
-  "subpackages": [
+    },
     {
       "root": "home",
       "pages": [
