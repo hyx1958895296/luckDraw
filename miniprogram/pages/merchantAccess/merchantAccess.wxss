@@ -36,6 +36,12 @@
   height: 80vh;
 }
 
+.address{
+  font-size: 28rpx;
+  color: rgb(85, 82, 82);
+  font-weight: 600;
+}
+
 .submit-btn_box {
   padding: 80rpx 0;
   display: flex;

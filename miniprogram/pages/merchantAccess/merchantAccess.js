@@ -6,14 +6,22 @@ Page({
    */
   data: {
     printingLicenceUrl: "",
+    localShowImage:"",
     settleInForm: {
       storeName: "",
       phone: "",
       name: "",
-      address: "",
-      detailedAddress: ""
+      address: [],
+      detailedAddress: "",
     },
     isAgreement: false
+  },
+
+  bindRegionChange(e){
+    console.log(e);
+    this.setData({
+      ['settleInForm.address']:e.detail.value
+    })
   },
 
   /**
@@ -24,9 +32,13 @@ Page({
   },
 
   checkboxFn(e) {
-    if (e.detail.value) {
+    if (e.detail.value.length) {
       this.setData({
         isAgreement: true
+      })
+    }else{
+      this.setData({
+        isAgreement: false
       })
     }
   },
@@ -45,16 +57,14 @@ Page({
   },
 
   submitstoreInfo() {
-  
     if (this.isBusinessInfo()) {
       wx.showToast({
-        title: '请填写完整的商家信息',
-        icon: 'none'
+        title: '请填写完整信息',
+        icon: 'error'
       })
     } else {
       if (this.data.isAgreement) {
         this.data.settleInForm.printingLicenceUrl = this.data.printingLicenceUrl;
-        
         wx.cloud.callFunction({
           name: "merchantReview",
           data: {
@@ -62,13 +72,29 @@ Page({
             businessInfo: this.data.settleInForm
           },
           success(res) {
-            console.log(res);
+            if(res.result.status == 1){
+              wx.showToast({
+                title: res.result.msg,
+                icon:"success"
+              })
+             let settime = setTimeout(()=>{
+              clearTimeout(settime);
+                wx.switchTab({
+                  url: '/pages/mine/mine',
+                })
+              },2000)
+            }else{
+               wx.showToast({
+                title: res.result.msg,
+                icon:"error"
+              })
+            }
           }
         })
       } else {
         wx.showToast({
           title: '请同意入驻协议',
-          icon: 'none'
+          icon: 'error'
         })
       }
     }
@@ -82,9 +108,7 @@ Page({
     this.data.settleInForm.phone = e.detail.value;
   },
 
-  addressInput(e) {
-    this.data.settleInForm.address = e.detail.value;
-  },
+
 
   detailedAddressInput(e) {
     this.data.settleInForm.detailedAddress = e.detail.value;
@@ -99,6 +123,9 @@ Page({
     wx.chooseMedia({
       count: 1,
       success(res) {
+        _this.setData({
+          localShowImage:res.tempFiles[0].tempFilePath
+        })
         let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
         let ext = res.tempFiles[0].tempFilePath.slice(po);
         wx.cloud.uploadFile({

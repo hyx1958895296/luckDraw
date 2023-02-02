@@ -60,12 +60,15 @@
    </view>
    
     <view class="main">
-      <view wx:for="{{optionList}}"  wx:key="index" class="main-item_box flex-between"  bindtap="navigateto" data-to="{{item.to}}">
+      <view wx:for="{{optionList}}" wx:if="{{item.isShow}}" wx:key="index" class="main-item_box flex-between"  bindtap="navigateto" data-to="{{item.to}}">
         <view class="main-item" >
           <image src="{{item.icon}}" mode=""/>
           <text class="ft-20">{{item.title}}</text>
         </view>
-        <view class="main-item_arrow"><image src="../../images/arrow-icon.png" mode=""/></view>
+        <view class="main-item_arrow">
+         <text class="ft-20" wx:if="{{item.title == '商家入驻'}}">{{examineStatus}}</text>
+        <image src="../../images/arrow-icon.png" mode=""/>
+        </view>
       </view>
     </view>
 
