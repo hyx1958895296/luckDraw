@@ -5,7 +5,7 @@
     <view class="title">{{activity.details}}</view>
    <view class="flex-jl time">
     <view class="activity-type">{{activity.activityType}}</view>
-    <view>
+    <view class="time-text">
       {{startTime}}
     </view>
    </view>

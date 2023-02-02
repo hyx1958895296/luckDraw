@@ -67,6 +67,14 @@ Page({
     // this.getFristActivity(this.data.activityList)
   },
 
+  // 跳转
+  navigateto(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.to + '?id=12',
+    })
+  },
+
   // get活动列表
   getActivityList() {
     console.log(1);
@@ -79,7 +87,7 @@ Page({
         console.log(res);
         this.setData({
           activityList: res.result.data,
-          isLoaded:true
+          isLoaded: true
         })
       }
     })

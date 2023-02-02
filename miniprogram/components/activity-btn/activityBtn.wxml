@@ -1,3 +1,3 @@
 <!--components/button/activity/activityBtn.wxml-->
-  <view class="c-ffffff btn btn-not" wx:if="{{type == 0}}">点击参加</view>
+  <view class="c-ffb049 btn btn-not" wx:if="{{type == 0}}">点击参加</view>
   <view class="c-ffffff btn btn-already" wx:if="{{type == 1}}">已参加</view>
