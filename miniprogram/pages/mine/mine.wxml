@@ -9,7 +9,7 @@
          <view class="header-name_box">
          <view class="ft-35" >{{userInfo.nickName}}</view>
          <view class="header-level_box">
-         <text class="fc-255">白银会员</text>
+            <text class="fc-255">白银会员</text>
          </view>
          </view>
        </view>

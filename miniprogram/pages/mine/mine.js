@@ -9,45 +9,45 @@ Page({
       id: 1,
       title: "商家入驻",
       icon: "../../images/icon-settlein.png",
-      to:"/pages/merchantAccess/merchantAccess",
-      isShow:true
+      to: "/pages/merchantAccess/merchantAccess",
+      isShow: true
     }, {
       id: 2,
       title: "审核商家",
       icon: "../../images/icon-examine.png",
-      to:"",
-      isShow:false
-    },{
+      to: "",
+      isShow: false
+    }, {
       id: 3,
       title: "发起抽奖",
       icon: "../../images/icon-examine.png",
-      to:"",
-      isShow:false
-    },  {
+      to: "/createRaffle/pages/createRaffleType/createRaffleType",
+      isShow: false
+    }, {
       id: 4,
       title: "商务合作",
       icon: "../../images/icon-cooperation.png",
-      to:"",
-      isShow:true
+      to: "",
+      isShow: true
     }, {
       id: 5,
       title: "常见问题",
       icon: "../../images/icon-problem.png",
-      to:"",
-      isShow:true
+      to: "",
+      isShow: true
     }, {
       id: 6,
       title: "意见反馈",
       icon: "../../images/icon-opinion.png",
-      to:"",
-      isShow:true
+      to: "",
+      isShow: true
     }],
     userInfo: {
       nickName: "未登录",
       avatarUrl: "../../images/icon-defaultavatar.png"
     },
     hasUserInfo: false,
-    examineStatus:""
+    examineStatus: ""
   },
 
   getUserProfile() {
@@ -63,10 +63,14 @@ Page({
                 userInfo: res.userInfo,
                 hasUserInfo: true
               })
+              _this.getBusinessInfo();
               wx.showToast({
                 title: '登录成功',
+                mask:true,
+                duration:2000,
               })
-              _this.getBusinessInfo();
+
+
             }
           })
         } else {
@@ -76,59 +80,50 @@ Page({
     })
   },
 
-  navigateto(e){
-    if(e.currentTarget.dataset.to == "/pages/merchantAccess/merchantAccess"
-    && this.data.examineStatus == "正在审核中"
+  navigateto(e) {
+    if (e.currentTarget.dataset.to == "/pages/merchantAccess/merchantAccess"
+      && this.data.examineStatus == "正在审核中"
     ) {
       wx.showToast({
         title: '信息已在审核中',
-       icon:'error'
+        icon: 'error'
       })
       return;
     };
-    if(!this.data.hasUserInfo) {
+    if (!this.data.hasUserInfo) {
       this.getUserProfile();
-    }else{
+    } else {
       wx.navigateTo({
-        url:e.currentTarget.dataset.to
+        url: e.currentTarget.dataset.to
       })
     }
   },
 
 
-  getBusinessInfo(){
+  getBusinessInfo() {
     let _this = this;
-    if(!this.data.hasUserInfo) return;
+    if (!this.data.hasUserInfo) return;
     wx.cloud.callFunction({
-      name:"merchantReview",
+      name: "merchantReview",
       data: {
         type: "select",
       },
-      success(res){
-      if(_this.data.examineStatus == "审核通过") return;
-      console.log(res);
-      if(res.result.status == 1){
-          if(!res.result.data.length) return;
-         if(res.result.data[0].status == 1){
-           _this.setData({
-             examineStatus:"正在审核中"
-           })
-         }else if(res.result.data[0].status == 2){
-          _this.setData({
-            examineStatus:"审核通过"
-          })
-          let isShowItem = _this.data.optionList.find(item=>item.title == "商家入驻");
-          isShowItem.isShow = false;
-          _this.setData({
-            [`optionList[0]`]:isShowItem
-          })
-          let isShow = _this.data.optionList.find(item=>item.title == "发起抽奖");
-          isShow.isShow = true;
-          _this.setData({
-            [`optionList[2]`]:isShow
-          })
-         }
-      }
+      success(res) {
+        if (_this.data.examineStatus == "审核通过") return;
+        if (res.result.status == 1) {
+          if (!res.result.data.length) return;
+          if (res.result.data[0].status == 1) {
+            _this.setData({
+              examineStatus: "正在审核中"
+            })
+          } else if (res.result.data[0].status == 2) {
+            _this.setData({
+              examineStatus: "审核通过",
+              [`optionList[0].isShow`]: false,
+              [`optionList[2].isShow`]: true
+            })
+          }
+        }
       }
     })
   },
@@ -138,7 +133,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+
   },
 
   /**

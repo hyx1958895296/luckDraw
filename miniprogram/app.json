@@ -3,9 +3,17 @@
     "pages/home/home",
     "pages/activity/activity",
     "pages/mine/mine",
-    "pages/merchantAccess/merchantAccess"
+    "pages/merchantAccess/merchantAccess",
+    "pages/activitydetalis/activitydetalis"
   ],
-  "subpackages": [
+  "subpackages":[
+    {
+      "root": "createRaffle",
+      "pages": [
+        "pages/createRaffleType/createRaffleType",
+        "pages/createRaffle/createRaffle"
+      ]
+    },
     {
       "root": "home",
       "pages": [

@@ -1,0 +1,51 @@
+/* createRaffle/pages/createRaffleType/createRaffleType.wxss */
+.raffle {
+}
+
+.raffle-warp{
+  border-radius: 10rpx;
+  gap: 60rpx;
+  background-color: #ffffff;
+}
+
+.warp{
+  background-color: #dfdfdf80;
+  min-height:calc(100vh - 40rpx) ;
+}
+
+.item {
+  align-items: center;
+}
+
+.content {
+  border-radius: 10rpx;
+  width: 70vw;
+}
+
+
+.detalis {
+  font-size: 26rpx;
+}
+
+.content {
+  background-color: #dfdfdf62;
+}
+
+.draw {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.title{
+  font-weight: 700;
+}
+
+
+.foot{
+  text-align: center;
+}
