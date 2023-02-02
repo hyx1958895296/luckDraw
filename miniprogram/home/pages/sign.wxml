@@ -1,0 +1,24 @@
+<view class="sign-in-box">
+  <view class="header">
+    <view class="header_avatar-score wrap">
+      <image src="{{userInfo.avatarUrl}}" class="avatar" mode=""/>
+      <view class="current-score">
+        当前积分:{{ userInfo.score }}
+      </view> 
+    </view>
+    <view class="qd-text-center">
+      <view></view>
+      <image src="../../images/qd_text.png" class="qd-text" mode=""/>
+    </view>
+  </view>
+  <view class="main wrap">
+    <view class="rili">
+      <view class="message-tips">
+        再签到 <text class="number-text">0</text> 天,就可以额外获得 <text class="number-text">80</text> 积分
+      </view>
+      <view>
+        
+      </view>
+    </view>
+  </view>
+</view>

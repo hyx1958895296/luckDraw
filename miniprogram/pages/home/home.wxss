@@ -4,7 +4,7 @@
 
 .homepage {
   height: 100vh;
-  background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64),rgb(250, 51, 51));
+  background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64));
 }
 
 .header {
@@ -29,7 +29,6 @@
 
 .align-center{
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: 10rpx;
   flex-direction: column;
@@ -68,12 +67,12 @@
   column-count:2;
   gap : 30rpx;
   margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .main-scroll{
   height: calc(100vh - 15vh - 15rpx - 30rpx - 30rpx);
   overflow: scroll;
-  /* height: 50vh; */
 }
 
 .item {
@@ -91,7 +90,8 @@
 
 .shop-item-title {
   font-size: 24rpx;
-  padding: 12rpx 0;
+  padding-top:12rpx ;
+
 }
 
 .points-redemption_line {
