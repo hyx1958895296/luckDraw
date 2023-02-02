@@ -41,16 +41,20 @@ Page({
     this.setData({
       isHr:es,
     })
-    console.log(this.data.isHr.target.dataset.es);
+    // console.log(this.data.isHr.target.dataset.es);
   },
   //微信签到跳转
   signIn(){
   },
   //获取更多积分
   navagitorToActivity(e){
-    console.log('----------我是内容----------')
     wx.switchTab({
       url: '/pages/activity/activity',
+    })
+  },
+  navToSign(e){
+    wx.navigateTo({
+      url: '/home/pages/sign',
     })
   },
   /**

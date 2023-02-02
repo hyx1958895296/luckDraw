@@ -1,0 +1,9 @@
+<!--createRaffle/pages/createRaffleType/createRaffleType.wxml-->
+<view class="warp raffle flex-column">
+  <view class="item">
+    长期活动
+  </view>
+  <view class="item">
+    短期活动
+  </view>
+</view>

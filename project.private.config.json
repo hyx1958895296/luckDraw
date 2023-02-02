@@ -79,6 +79,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activitydetalis/activitydetalis",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createRaffleType/createRaffleType",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

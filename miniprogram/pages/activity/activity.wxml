@@ -1,17 +1,16 @@
 <!--pages/activity/activity.wxml-->
-<scroll-view scroll-y="true"	show-scrollbar="false" 	enhanced="{{true}}" class="activity-warp pt-20" wx:if="{{isLoaded}}">
+<scroll-view scroll-y="true" show-scrollbar="false" enhanced="{{true}}" class="activity-warp pt-20" wx:if="{{isLoaded}}">
   <view class="soon flex-c c-ffffff">
-    <image class="icon-text" src="../../images/text.png" mode=""/>
+    <image class="icon-text" src="../../images/draw.png" mode="" />
   </view>
   <view class="activity-frist mrbl-20">
-    <activity activity="{{ activityFrist }}">
+    <activity activity="{{ activityFrist }}" bindtap="navigateto" data-to="/pages/activitydetalis/activitydetalis">
+      <btn class="activity-btn" type="{{activityFrist.joinType}}"></btn>
+    </activity>
+  </view>
+  <view class="flex-column activity-all plr-20 mt-20">
+    <activity class="activity" wx:for="{{activityList}}" wx:key="index" activity="{{item}}" bindtap="navigateto" data-to="/pages/activitydetalis/activitydetalis">
       <btn class="activity-btn" type="{{item.joinType}}"></btn>
     </activity>
   </view>
- <view class="flex-column activity-all plr-20 mt-20">
-  <activity class="activity" wx:for="{{activityList}}" wx:key="index" activity="{{item}}">
-    <btn class="activity-btn" type="{{item.joinType}}"></btn>
-  </activity>
-
- </view>
 </scroll-view>

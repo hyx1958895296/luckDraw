@@ -1,0 +1,10 @@
+/* createRaffle/pages/createRaffleType/createRaffleType.wxss */
+.raffle{
+  justify-content: center;
+
+}
+
+.item{
+  height: 33vh;
+  background-color: rgb(56, 122, 100);
+}
