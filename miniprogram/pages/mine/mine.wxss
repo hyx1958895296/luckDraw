@@ -39,6 +39,8 @@
    padding:8rpx 12rpx;
    border-radius:20rpx;
    font-size: 20rpx;
+   width: 90rpx;
+   text-align: center;
 }
 
 .fc-255{
