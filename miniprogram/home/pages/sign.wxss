@@ -1,0 +1,65 @@
+.wrap{
+  padding:0 20rpx;
+}
+.sign-in-box{
+  height: 100vh;
+  background-image: linear-gradient(to top, rgb(255, 140, 101), rgb(255, 140, 102),rgb(255, 140, 100));
+  position: relative;
+  z-index: 1;
+}
+.header{
+  height: 33vh;
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qd_bj_image.png?sign=9fe8907ea390298e3ed1756b5f350076&t=1675321399");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 3;
+  position: relative;
+}
+
+.header_avatar-score{
+  display: flex;
+  align-items: center;
+  column-gap: 20rpx;
+}
+
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.current-score{
+  vertical-align: center;
+}
+
+.qd-text-center{
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  align-items:center;
+}
+.qd-text{
+  height: 188rpx;
+  width: 387rpx;
+}
+
+.main{
+  width: 95.5vw;
+  top: 26vh;
+  position: absolute;
+  z-index: 2;
+}
+.rili{
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qd-rili.png");  
+  height: 50vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.message-tips{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 110rpx;
+  color: white;
+}
+.number-text{
+  color: rgb(254, 226, 73);
+}

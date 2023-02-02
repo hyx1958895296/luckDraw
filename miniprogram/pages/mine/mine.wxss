@@ -136,6 +136,13 @@
   width: 40rpx;
 }
 
+.main-item_arrow{
+  display: flex;
+  align-items: center;
+  gap: 0 10rpx;
+  color: rgba(78, 81, 243, 0.89);
+}
+
 .main-item{
   display: flex;
   gap:0 15rpx;
