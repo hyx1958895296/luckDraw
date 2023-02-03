@@ -1,0 +1,41 @@
+/* pages/participateInTheLottery/participateInTheLottery.wxss */
+.nav-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 100rpx;
+  color: rgba(248, 240, 129, 0.973);
+  background-color: rgba(248, 42, 42, 0.781);
+  font-size: 28rpx;
+  align-items: center;
+}
+
+.active {
+  position: absolute;
+  margin-top: -20rpx;
+  margin-left: 100rpx;
+  width: 115rpx;
+  border-bottom:2px solid rgba(248, 240, 129, 0.973);
+}
+
+.transition-l {
+  transition: all ease .4s;
+  margin-left: 538rpx;
+}
+
+.transition-r {
+  transition: all  .4s;
+  margin-right: 538rpx;
+}
+
+.empty{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: rgb(173, 173, 173);
+}
+.empty image{
+  width: 240rpx;
+  height: 180rpx;
+}

@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/merchantAccess/merchantAccess",
     "pages/activitydetalis/activitydetalis",
-    "pages/commonTopics/commonTopics"
+    "pages/commonTopics/commonTopics",
+    "pages/participateInTheLottery/participateInTheLottery"
   ],
   "subpackages":[
     {

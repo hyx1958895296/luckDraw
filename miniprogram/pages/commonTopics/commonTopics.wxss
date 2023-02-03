@@ -14,7 +14,7 @@
 .header-tips{
   border-radius: 8rpx;
   padding:30rpx;
-  background-color:rgba(228, 214, 137, 0.37);
+  background-color:rgba(235, 210, 69, 0.37);
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 }
 
 .input-box{
-   height: 180rpx;
+   height: 190rpx;
    font-size: 26rpx;
 }
 
