@@ -11,7 +11,12 @@ Page({
         shopItemImage:"../../images/shop1.png",
         shopItemTitle:"Nike耐克AJ1男女Air Jordan",
         shopItemPrice:"34",
-        yuedui:200000
+        yuedui:200000,
+        coupon:{
+          preferentialStrength:'300元优惠券',
+          PostCouponPrice:'券后下单79元',
+          BasePrice:'基础价379元'
+        }
       },
       {
         id:2,

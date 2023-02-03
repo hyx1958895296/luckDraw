@@ -15,13 +15,13 @@
 }
 
 .item image {
-  height: 180rpx;
-  width: 160rpx;
+  height: 130rpx;
+  width: 140rpx;
   image-rendering:crisp-edges;
 }
 
 .printing image{
-  height: 180rpx;
+  height: 190rpx;
   width:200rpx;
   image-rendering:crisp-edges;
 }

@@ -1,0 +1,34 @@
+<!--pages/commonTopics/commonTopics.wxml-->
+<view class="common-topics-box">
+    <view class="common-topics">
+      <view class="header-tips">
+      <view>
+        提示：
+      </view>
+      你的意见将反馈给抽奖专业版团队，以帮助我们进一步完善系统
+      </view>
+
+      <view class="main-box">
+        <view class="input-box">
+          <textarea auto-height  placeholder="请写下你的意见或建议"></textarea >
+        </view>
+       <view class="upload-image_box">
+        <view>
+          <image src="../../images/upload.png" mode=""/>
+        </view>
+        <view>
+          上传图片
+        </view>
+       </view>
+
+      </view>
+
+      <view class="phone-box">
+         联系方式  <input type="text" placeholder="请输入你的手机号码"/>
+       </view>  
+    </view>
+
+    <view>
+       <button type="primary">提交</button>
+    </view>
+</view>
