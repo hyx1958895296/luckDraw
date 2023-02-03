@@ -14,7 +14,7 @@
 .header-tips{
   border-radius: 8rpx;
   padding:30rpx;
-  background-color:rgba(209, 198, 138, 0.37);
+  background-color:rgba(228, 214, 137, 0.37);
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
