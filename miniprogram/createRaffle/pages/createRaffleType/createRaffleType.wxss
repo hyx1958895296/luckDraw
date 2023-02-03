@@ -1,10 +1,13 @@
 /* createRaffle/pages/createRaffleType/createRaffleType.wxss */
 .warp {
-  background: linear-gradient(#fc3a37, #fbd3d3);
   min-height: calc(100vh - 120rpx);
   padding-top: 10vh;
 }
 
+.raffle{
+  
+  background: linear-gradient(#fc3a37, #fbd3d3);
+}
 
 .raffle-warp {
   border-radius: 30rpx;

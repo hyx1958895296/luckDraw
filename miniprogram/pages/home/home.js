@@ -57,9 +57,16 @@ Page({
       url: '/pages/activity/activity',
     })
   },
+  //跳转签到页面
   navToSign(e){
     wx.navigateTo({
       url: '/home/pages/sign',
+    })
+  },
+  //跳转商品详情页
+  navToDetail(id){
+    wx.navigateTo({
+      url: '/home/pages/shop/detail',
     })
   },
   /**

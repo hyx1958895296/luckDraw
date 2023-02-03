@@ -1,1 +1,31 @@
 /* home/pages/shop/detail.wxss */
+.wrap{
+  margin: 0 auto;
+  padding:0 30rpx;
+}
+.header{
+  height: 40vh;
+  background-color: red;
+}
+.wraper-radius{
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+.detail-box{
+  background-color: rgb(244,243,238);
+}
+.shop-info{
+  background-color: white;
+  margin: 20rpx 0;
+}
+.base-price{
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+.shop-title{
+  margin: 30rpx 0;
+  font-size: 28rpx;
+}
+.shop-price{
+  font-size: 34rpx;
+}

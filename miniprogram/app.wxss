@@ -31,7 +31,11 @@ view {
 }
 
 .warp {
-  padding: 0 20rpx;
+  width: 98%;
+  margin: 0 auto;
+}
+.warp-radius {
+  border-radius: 20rpx;
 }
 
 .fs-26 {
