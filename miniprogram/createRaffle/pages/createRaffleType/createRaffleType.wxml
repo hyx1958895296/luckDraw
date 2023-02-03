@@ -1,5 +1,6 @@
 <!--createRaffle/pages/createRaffleType/createRaffleType.wxml-->
-<view class="warp raffle pt-20">
+<view class="raffle">
+  <view class="warp  pt-20">
   <view class="flex-c ">
     <view class="raffle-warp ">
       <image class="draw-1" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/c486e9a4e70284630d4d54f5978f845.png?sign=7630e397aaf28a7abd85fd636de5d85b&t=1675391270" mode=""/>
@@ -14,4 +15,5 @@
     <text class="btn-text" >立即发起</text>
     </button>
   </view>
+</view>
 </view>
