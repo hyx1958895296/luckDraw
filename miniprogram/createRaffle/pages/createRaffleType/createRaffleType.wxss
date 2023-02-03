@@ -1,51 +1,43 @@
 /* createRaffle/pages/createRaffleType/createRaffleType.wxss */
-.raffle {
+.warp {
+  min-height: calc(100vh - 120rpx);
+  padding-top: 10vh;
 }
 
-.raffle-warp{
-  border-radius: 10rpx;
-  gap: 60rpx;
-  background-color: #ffffff;
+.raffle{
+  
+  background: linear-gradient(#fc3a37, #fbd3d3);
 }
 
-.warp{
-  background-color: #dfdfdf80;
-  min-height:calc(100vh - 40rpx) ;
+.raffle-warp {
+  border-radius: 30rpx;
+  width: 75%;
+  height: 60vh;
+  border: 1rpx solid #ffffff;
 }
 
-.item {
+.draw-1{
+  width: 100%;
+  height: 100%;
+  border-radius: 30rpx;
+}
+
+.btn-warp{
+  margin-top: 12vh;
+}
+
+.btn{
   align-items: center;
+  width: 80vw !important;
+  border-radius: 50rpx;
+  background-color: #f43c3a;
 }
 
-.content {
-  border-radius: 10rpx;
-  width: 70vw;
+.btn-text{
+  margin-top: 1rpx;
 }
 
-
-.detalis {
-  font-size: 26rpx;
-}
-
-.content {
-  background-color: #dfdfdf62;
-}
-
-.draw {
-  width: 100rpx;
-  height: 100rpx;
-}
-
-.icon {
+.icon-add{
   width: 50rpx;
   height: 50rpx;
-}
-
-.title{
-  font-weight: 700;
-}
-
-
-.foot{
-  text-align: center;
 }

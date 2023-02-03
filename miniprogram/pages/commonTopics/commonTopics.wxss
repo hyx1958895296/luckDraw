@@ -1,0 +1,63 @@
+/* pages/commonTopics/commonTopics.wxss */
+.common-topics-box{
+  height: 100vh;
+  background-color: rgb(231, 231, 231);
+}
+
+.common-topics{
+  width: 95%;
+  margin: auto;
+  padding: 30rpx 0;
+  height: 80vh;
+}
+
+.header-tips{
+  border-radius: 8rpx;
+  padding:30rpx;
+  background-color:rgba(228, 214, 137, 0.37);
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.main-box{
+  margin-top:30rpx;
+  background: white;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+
+.input-box{
+   height: 180rpx;
+   font-size: 26rpx;
+}
+
+.input-box textarea{
+  width: 100%;
+}
+
+.upload-image_box{
+     background-color: rgba(180, 179, 179, 0.281);
+     width: 20%;
+     text-align: center;
+     padding:  30rpx;
+     border-radius:8rpx;
+}
+
+.upload-image_box image{
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.phone-box{
+ background-color: white;
+ margin: 0 auto;
+ padding: 30rpx;
+ margin-top: 40rpx;
+ border-radius: 8rpx;
+ display: flex;
+ gap: 0 20rpx;
+ font-size: 28rpx;
+ align-items: center;
+}

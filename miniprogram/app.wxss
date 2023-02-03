@@ -31,7 +31,11 @@ view {
 }
 
 .warp {
-  padding: 0 40rpx;
+  width: 98%;
+  margin: 0 auto;
+}
+.warp-radius {
+  border-radius: 20rpx;
 }
 
 .fs-26 {
@@ -75,6 +79,9 @@ view {
   margin:0 20rpx;
 }
 
+.mt-40 {
+  margin-top: 40rpx;
+}
 .mt-60 {
   margin-top: 60rpx;
 }
@@ -98,4 +105,12 @@ view {
 
 .c-b3b3b3{
   color: #b3b3b3;
+}
+
+.fw-700{
+  font-weight: 700;
+}
+
+.fs-30{
+  font-size: 30rpx;
 }
