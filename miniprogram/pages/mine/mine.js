@@ -31,15 +31,9 @@ Page({
       isShow: true
     }, {
       id: 5,
-      title: "常见问题",
-      icon: "../../images/icon-problem.png",
-      to: "",
-      isShow: true
-    }, {
-      id: 6,
       title: "意见反馈",
       icon: "../../images/icon-opinion.png",
-      to: "",
+      to: "/pages/commonTopics/commonTopics",
       isShow: true
     }],
     userInfo: {
