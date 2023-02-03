@@ -1,9 +1,44 @@
 <!--createRaffle/pages/createRaffleType/createRaffleType.wxml-->
-<view class="warp raffle flex-column">
-  <view class="item">
-    长期活动
+<view class="warp raffle pt-40">
+ <view class="raffle-warp pd-60 flex-column">
+  <view bindtap="navigateto" data-to="" class="item flex-c long-term mt-60">
+    <view class="content ptb-20 flex-l">
+      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
+      <view>
+        <view class="title">
+          长期活动
+        </view>
+        <view class="detalis c-6b6b6b pt-10">固定时间内循环发起活动</view>
+      </view>
+    </view>
   </view>
-  <view class="item">
-    短期活动
+  <view bindtap="navigateto" data-to="" class="item flex-c short-term ">
+    <view class="content ptb-20 flex-l">
+      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
+      <view>
+        <view class="title">
+          短期活动
+        </view>
+        <view class="detalis c-6b6b6b pt-10">进行一次后下次重新发起</view>
+      </view>
+    </view>
   </view>
+  <view bindtap="navigateto" data-to="" class="item flex-c more ">
+    <view class="content ptb-20 flex-l">
+      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
+      <view>
+        <view class="title">
+          更多玩法
+        </view>
+        <view class="detalis c-6b6b6b pt-10">敬请期待</view>
+      </view>
+    </view>
+  </view>
+ </view>
+ <view class="foot ptm-100 c-b3b3b3">
+      <text>—— 活动抽奖 —— </text>
+      <view class="ft-18 mt-10">
+        超过2亿人使用的免费抽奖平台
+      </view>
+    </view>
 </view>

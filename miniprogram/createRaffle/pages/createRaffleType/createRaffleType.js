@@ -14,6 +14,12 @@ Page({
   onLoad(options) {
 
   },
+  // 跳转
+  navigateto(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.to,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
