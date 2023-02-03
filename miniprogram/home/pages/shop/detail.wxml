@@ -1,0 +1,28 @@
+<view class="detail-box">
+  <!-- rgb(244,243,238) -->
+  <view class="header">
+    轮播图
+  </view>
+  <view class="main wrap">
+    <view class="wraper-radius shop-info">
+      <view class="shop-price">
+        59积分+14.90元
+      </view>
+      <view class="base-price">
+        基础价：29.00元
+      </view>
+      <view class="shop-title">
+        商品标题
+      </view>
+      <view>
+        月兑 5421
+      </view>
+    </view>
+    <view class="wraper-radius shop-info">
+      59积分
+    </view>
+    <view class="wraper-radius shop-info">
+      59积分
+    </view>
+  </view>
+</view>

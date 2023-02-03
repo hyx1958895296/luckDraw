@@ -37,30 +37,15 @@
     <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 0}}">
       <view class="main">
         <image src="../../images/get-more-score.png"  class="get-more_score" mode="" bindtap="navagitorToActivity"/>
-        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id">
+        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id" bindtap="navToDetail">
           <view class="shop-item-picture">
             <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
             <view></view>
-          </view>
-          <view class="coupon">
-            <view>
-              兑300元优惠券
-            </view>
-            <view>
-
-            </view>
           </view>
           <view class="shop-item-title">
             {{ shopItem.shopItemTitle }}
           </view>
           <view>
-            <!-- <view wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">
-              <view class="prompt-box">
-                还差{{ shopItem.shopItemPrice - 19 }}积分就能获得此商品
-              </view>
-              <view class="prompt-box-triangle"></view>
-            </view> -->
-            <!-- <text class="points-redemption_line" wx:if="{{ shopItem.shopItemPrice - 19 < 20 }}">{{ shopItem.shopItemPrice }}</text> -->
             <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
             <text class="points-text">积分</text>
           </view>
