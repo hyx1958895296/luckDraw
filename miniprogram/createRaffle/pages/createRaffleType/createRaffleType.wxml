@@ -1,44 +1,17 @@
 <!--createRaffle/pages/createRaffleType/createRaffleType.wxml-->
-<view class="warp raffle pt-40">
- <view class="raffle-warp pd-60 flex-column">
-  <view bindtap="navigateto" data-to="" class="item flex-c long-term mt-60">
-    <view class="content ptb-20 flex-l">
-      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
-      <view>
-        <view class="title">
-          长期活动
-        </view>
-        <view class="detalis c-6b6b6b pt-10">固定时间内循环发起活动</view>
-      </view>
+<view class="warp raffle pt-20">
+  <view class="flex-c ">
+    <view class="raffle-warp ">
+      <image class="draw-1" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/c486e9a4e70284630d4d54f5978f845.png?sign=7630e397aaf28a7abd85fd636de5d85b&t=1675391270" mode=""/>
     </view>
   </view>
-  <view bindtap="navigateto" data-to="" class="item flex-c short-term ">
-    <view class="content ptb-20 flex-l">
-      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
-      <view>
-        <view class="title">
-          短期活动
-        </view>
-        <view class="detalis c-6b6b6b pt-10">进行一次后下次重新发起</view>
-      </view>
-    </view>
+  <view class="flex-c fw-700 mt-40 fs-30">
+    经典版
   </view>
-  <view bindtap="navigateto" data-to="" class="item flex-c more ">
-    <view class="content ptb-20 flex-l">
-      <image class="draw mlr-20" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/draw.png?sign=ed297ba66ad259a88bead0973e5cd6a6&t=1675344380" mode="" />
-      <view>
-        <view class="title">
-          更多玩法
-        </view>
-        <view class="detalis c-6b6b6b pt-10">敬请期待</view>
-      </view>
-    </view>
+  <view class="btn-warp flex-c">
+    <button class="btn c-ffffff flex-c ptb-20 " bindtap="navigateto" data-to="/createRaffle/pages/createRaffle/createRaffle">
+    <image class="icon-add" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/icon-add%20(1).png?sign=c24a90d722ca5eb48dbbb2c0cfc6894d&t=1675392196" mode=""/>
+    <text class="btn-text" >立即发起</text>
+    </button>
   </view>
- </view>
- <view class="foot ptm-100 c-b3b3b3">
-      <text>—— 活动抽奖 —— </text>
-      <view class="ft-18 mt-10">
-        超过2亿人使用的免费抽奖平台
-      </view>
-    </view>
 </view>
