@@ -1,0 +1,27 @@
+<!--pages/participateInTheLottery/participateInTheLottery.wxml-->
+<view class="main">
+ 
+   <view class="">
+   <view class="nav-box">
+    <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
+        <view data-item="{{item}}"> {{item.title}}</view>
+     </view>
+   </view>
+     <view class="active {{showId == 2 ? 'transition-l' : 'transition-r'}}"></view>
+   </view>
+
+   <view wx:if="{{showId == 1}}">
+    <view class="empty">
+       <view>
+        <image src="../../images/icon-empty.png" mode=""/>
+       </view>
+       <view>
+        暂无参与记录
+       </view>
+       </view>
+   </view>
+
+   <view wx:if="{{showId == 2}}">
+     其他
+   </view>
+</view>
