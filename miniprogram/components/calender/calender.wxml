@@ -16,8 +16,8 @@
       </view>
     </view>
   </view>
-  <view bindtap="signIn">
-    按钮
+  <view class="qd-btn" bindtap="signIn">
+    签到
   </view>
 </view>
 

@@ -1,31 +1,83 @@
 /* home/pages/shop/detail.wxss */
-.wrap{
-  margin: 0 auto;
-  padding:0 30rpx;
-}
 .header{
   height: 40vh;
   background-color: red;
 }
-.wraper-radius{
+.pd-30{
   padding: 30rpx;
-  border-radius: 10rpx;
+}
+.mtb-30{
+  margin: 30rpx 0;
+}
+.mt-40{
+  margin-top: 40rpx;
 }
 .detail-box{
-  background-color: rgb(244,243,238);
+  background-color: #f4f3f8;
+  position: relative;
 }
 .shop-info{
   background-color: white;
   margin: 20rpx 0;
 }
+.arrow_icon{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+}
 .base-price{
   font-size: 26rpx;
   text-decoration: line-through;
+  color: #aaaaaa;
 }
-.shop-title{
-  margin: 30rpx 0;
-  font-size: 28rpx;
+.secondary-title{
+  font-size: 38rpx;
+  font-weight: 600;
+}
+.thirdary-title{
+  font-size:32rpx;
+  color: #727070;
+}
+.thirdary-title-bold{
+  font-size:32rpx;
+  color: #3b3b3b;
+  font-weight: 500;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: flex-start;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .shop-price{
-  font-size: 34rpx;
+  font-size: 40rpx;
+  color:#f76333;
+}
+.yuedui{
+  font-size: 28rpx;
+  color: #a4a4a4;
+}
+.back-top{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50rpx;
+  background-color: white;
+  font-size: 22rpx;
+  color: #8a8a8a;
+  padding:10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4rpx solid #f2f2f2;
+  position: sticky;
+  left:630rpx;
+  bottom: 20vh;
+}
+.back-top-icon{
+  width:40rpx;
 }

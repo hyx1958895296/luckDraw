@@ -63,3 +63,15 @@
   color: #ffffff;
   background-color: rgb(25, 212, 151);
 }
+
+.qd-btn{
+  height: 77rpx;
+  width: 180rpx;
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/sign-in-bj-img.png?sign=3c859b9528af3fd8977cbda99d460ddb&t=1675495614");
+  z-index: 200;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 77rpx;
+  color: white;
+  font-size: 44rpx;
+}

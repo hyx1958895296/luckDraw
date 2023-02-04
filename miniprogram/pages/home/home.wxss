@@ -57,12 +57,6 @@
   display: inline-block;
 }
 
-.coupon {
-  height: 93rpx;
-  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/coupon.png?sign=fa06f22725b406564a29cd0a9dd76356&t=1675234080");
-  background-size: cover;
-}
-
 .main {
   column-count:2;
   gap : 30rpx;
@@ -89,31 +83,19 @@
 }
 
 .shop-item-title {
-  font-size: 24rpx;
+  font-size: 30rpx;
   padding-top:12rpx ;
 
 }
 
-.points-redemption_line {
-  font-size: 30rpx;
-  color: #c90a74;
-  text-decoration: line-through;
-}
-
 .points-redemption {
-  font-size: 30rpx;
+  font-size: 36rpx;
   color: #c90a74;
 }
 
 .points-text {
   padding-left: 8rpx;
-  font-size: 18rpx;
-  color: #c90a74;
-  font-weight: bold;
-}
-
-.post_coupon-price {
-  font-size: 18rpx;
+  font-size: 22rpx;
   color: #c90a74;
   font-weight: bold;
 }
@@ -164,7 +146,7 @@
 }
 
 .get-more_score {
-  height: 130rpx;
+  height: 270rpx;
   width: 330rpx;
   display: flex;
   align-items: flex-start;
