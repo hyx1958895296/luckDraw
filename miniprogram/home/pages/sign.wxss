@@ -52,14 +52,18 @@
   background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qd-rili.png");  
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  height: 60vh;
 }
 .message-tips{
   text-align: center;
   font-size: 30rpx;
-  line-height: 160rpx;
-  /* height: 230rpx; */
+  padding-top: 70rpx;
   color: white;
 }
 .number-text{
   color: rgb(254, 226, 73);
+}
+
+.calender{
+  margin-top: 100rpx;
 }

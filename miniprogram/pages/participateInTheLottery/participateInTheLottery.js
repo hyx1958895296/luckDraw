@@ -1,35 +1,31 @@
-// home/pages/shop/detail.js
+// pages/participateInTheLottery/participateInTheLottery.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+     showId:1,
+     tabList:[{
+       id:1,
+       title:"普通抽奖",
+     },{
+       id:2,
+       title:"其他抽奖",
+     }]
+  },
 
-  },
-  //回到顶部
-  srollViewTop(e){
-    // console.log(e.detail.scrollTop);
-    if (e.detail.scrollTop > 300) {
-      this.setData({
-        Top:false
-      })
-    } else {
-      this.setData({
-        Top:true
-      })
-    }
-  },
-  backTop(){
-    this.setData({
-      top:true
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
 
+  },
+
+  tabFn(e){
+    this.setData({
+      showId:e.target.dataset.item.id,
+    })
   },
 
   /**

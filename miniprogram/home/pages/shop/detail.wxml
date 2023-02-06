@@ -1,0 +1,98 @@
+<scroll-view style="height: 100vh;" scroll-y="true" bindscroll="srollViewTop" scroll-top="{{top}}">
+  <view class="detail-box">
+    <!-- rgb(244,243,238) -->
+    <view class="header">
+      轮播图
+    </view>
+    <view class="main warp">
+      <view class="warp-radius pd-30 shop-info">
+        <view>
+          <view class="shop-price">
+            59积分+14.90元
+          </view>
+          <view class="base-price">
+            基础价：29.00元
+          </view>
+          <view class="mtb-30 secondary-title">
+            商品标题
+          </view>
+          <view class="yuedui">
+            月兑 5421
+          </view>
+        </view>
+        <view></view>
+      </view>
+      <view class="warp-radius pd-30 shop-info">
+        <view class="secondary-title">
+          权益提供方
+        </view>
+        <view class="grid mt-40">
+          <view class="thirdary-title">
+            联系方式
+          </view>
+          <view class="thirdary-title-bold">
+            乐唯诗旗舰店：1565521133367(9:00-18:00)
+          </view>
+        </view>
+      </view>
+      <view class="warp-radius pd-30 shop-info">
+        <view class="secondary-title">
+          兑换条件
+        </view>
+        <view class="grid mt-40">
+          <view class="thirdary-title">
+            兑后须知
+          </view>
+          <view class="thirdary-title-bold">
+            兑后48h内发货，7天无理由退货
+          </view>
+        </view>
+        <view class="grid mt-40">
+          <view class="thirdary-title">
+            城市
+          </view>
+          <view class="thirdary-title-bold">
+            新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海新疆，西藏，青海
+          </view>
+        </view>
+      </view>
+      <view class="warp-radius pd-30 shop-info">
+        <view class="secondary-title flex">
+          <view>
+            产品参数
+          </view>
+          <image src="../../../images/arrow-icon.png" class="arrow_icon" mode=""/>
+        </view>
+        <view class="mt-40">
+          <view class="thirdary-title-bold">
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+          </view>
+        </view>
+      </view>
+      <view class="warp-radius pd-30 shop-info">
+        <view class="secondary-title flex">
+          <view>
+            价格说明
+          </view>
+        </view>
+        <view class="mt-40">
+          <view class="thirdary-title-bold">
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+            兑后48h内发货，7天无理由退货
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="back-top" hidden="{{Top}}" bindtap="backTop">
+  <image src="../../../images/back-top.png" class="back-top-icon" mode=""/>
+    顶部  
+</view>
