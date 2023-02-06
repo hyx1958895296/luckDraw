@@ -17,7 +17,7 @@
         再签到 <text class="number-text">0</text> 天,就可以额外获得 <text class="number-text">80</text> 积分
       </view>
       <view class="calender">
-        <calendar signedList="{{ signedList }}" bindchange="handleChangeMonth" />
+        <calendar signedList="{{ signedList }}" bindchange="handleChangeMonth"/>
       </view>
     </view>
   </view>

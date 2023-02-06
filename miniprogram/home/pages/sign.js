@@ -22,6 +22,14 @@ Page({
       signedList: list
     })
   },
+  //签到的方法
+    signIn(){
+      this.data.formatSignedList.push(this.data.today);
+      this.data.formatSignedList = [...new Set(this.data.formatSignedList)];
+      this.setData({
+        formatSignedList:this.data.formatSignedList
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

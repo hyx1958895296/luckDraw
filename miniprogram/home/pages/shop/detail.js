@@ -7,7 +7,24 @@ Page({
   data: {
 
   },
-
+  //回到顶部
+  srollViewTop(e){
+    // console.log(e.detail.scrollTop);
+    if (e.detail.scrollTop > 300) {
+      this.setData({
+        Top:false
+      })
+    } else {
+      this.setData({
+        Top:true
+      })
+    }
+  },
+  backTop(){
+    this.setData({
+      top:true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
