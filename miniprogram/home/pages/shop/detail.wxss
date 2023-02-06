@@ -1,7 +1,10 @@
 /* home/pages/shop/detail.wxss */
 .header{
   height: 40vh;
-  background-color: red;
+}
+.shop-detail{
+  width: 100vw;
+  height: 40vh;
 }
 .pd-30{
   padding: 30rpx;

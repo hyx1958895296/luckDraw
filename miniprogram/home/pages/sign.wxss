@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   column-gap: 20rpx;
+  padding: 15rpx;
 }
 
 .avatar{

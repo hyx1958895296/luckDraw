@@ -114,6 +114,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "会员页面",
+          "pathName": "mine/pages/member/member",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

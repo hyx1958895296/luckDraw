@@ -7,11 +7,11 @@
       </view>
       <view class="align-center">
         <image src="../../images/red_envelope.png" class="item-icon" mode="" />
-        <view>天天红包</view>
+        <view>商家入驻</view>
       </view>
       <view class="align-center">
         <image src="../../images/luck-draw.png" class="item-icon" mode="" />
-        <view>幸运夺宝</view>
+        <view>参加活动</view>
       </view>
       <view class="align-center">
         <view class="fs-34">19</view>
