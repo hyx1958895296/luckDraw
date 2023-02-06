@@ -1,2 +1,65 @@
-<!--createRaffle/pages/createRaffle/createRaffle.wxml-->
-<text>createRaffle/pages/createRaffle/createRaffle.wxml</text>
+<view class="create-raffle">
+  <view class="warp">
+    <!-- 头部用户信息 -->
+    <view class="user ptb-40 flex-sb ">
+      <view class="flex-l user-avator">
+        <image class="avator mlr-20" src="../../../images/avator.png" mode="" />
+        <view class="c-ffffff">
+          昵称
+        </view>
+      </view>
+      <view class="flex-c icon-warp plr-20">
+        <view>
+          <image src="../../../images/icon-music.png" mode="" class="icon" />
+        </view>
+        <view>
+          <image src="../../../images/icon-picture.png" mode="" class="icon" />
+        </view>
+      </view>
+    </view>
+    <!-- 添加信息 -->
+    <view class="bg-ffffff">
+      <view class="raffle-warp warp-radius">
+        <view class="replace c-ffffff fs-26 flex-c">
+          <image class="icon" src="../../../images/icon-picture.png" mode="" />
+          更换图片
+        </view>
+        <view class="gifts-warp">
+          <image class="gifts" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132" mode="" />
+        </view>
+      </view>
+      <!-- 切换开奖方式 -->
+      <view class="hang p-30 draw-warp flex-sb">
+        <view class="draw-item p-10 {{active == item.id ? 'draw-item_active':''}}" wx:for="{{tab}}" wx:key="index" bindtap="tab" data-id="{{item.id}}">
+          {{item.title}}
+        </view>
+      </view>
+      <view class="" wx:if="{{active=='1'}}">
+        <view class="hang p-30 flex-sb">
+          <view>
+            开奖时间<text class="c-d12418">*</text>
+          </view>
+          <view class="section">
+            <!-- <view class="section__title">多列选择器</view> -->
+            <picker mode="multiSelector"  bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+              <view class="picker">
+                {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}点{{multiArray[2][multiIndex[2]]}}分
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="hang p-30 flex-sb">
+          <view>
+            中奖规则<text class="c-d12418">*</text>
+          </view>
+          <view class="c-919191">
+            随机抽奖
+          </view>
+        </view>
+        <view class="hang p-30">
+          抽奖方式<text class="c-d12418">*</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -100,6 +100,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createRaffle/createRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
