@@ -39,6 +39,48 @@ Page({
         shopItemPrice:"25",
         yuedui:2400
       },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
+      {
+        id:4,
+        shopItemImage:"../../images/shop1.png",
+        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
+        shopItemPrice:"25",
+        yuedui:2400
+      },
     ],
     isHr:0,
   },

@@ -1,0 +1,18 @@
+<view class="member-box">
+  <view class="header">
+    <view class="warp growth">
+      <text class="growth-value">15</text>
+      <text class="growth-value-text">成长值</text>
+    </view>
+    <view class="progress-box warp">
+      <progress percent="15" color="red" backgroundColor="cray" active="true" stroke-width="15" border-radius="20rpx" />
+    </view>
+    <!-- <view class="member-flex mt-20 warp">
+    </view> -->
+  </view>
+  <view class="main">
+    <view class="memeber-rule">
+      会员规则
+    </view>
+  </view>
+</view>

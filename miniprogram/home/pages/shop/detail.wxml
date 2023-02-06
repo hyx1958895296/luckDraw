@@ -2,7 +2,7 @@
   <view class="detail-box">
     <!-- rgb(244,243,238) -->
     <view class="header">
-      轮播图
+      <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/shop-detail.png?sign=cf63f2da4349f3cd1dd5c4d303651e95&t=1675668516" class="shop-detail" mode=""/>
     </view>
     <view class="main warp">
       <view class="warp-radius pd-30 shop-info">
@@ -89,6 +89,11 @@
           </view>
         </view>
       </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="now-redeem">
+      立即兑换
     </view>
   </view>
 </scroll-view>

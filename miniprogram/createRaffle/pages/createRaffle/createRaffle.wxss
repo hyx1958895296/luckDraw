@@ -1,1 +1,123 @@
-/* createRaffle/pages/createRaffle/createRaffle.wxss */
+.create-raffle {
+  background: linear-gradient(#f53f3b, #f53f3b, #ffffff, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1);
+  min-height: 100vh;
+
+}
+
+.avator {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 10rpx;
+}
+
+.user-avator {
+  /* gap: 30rpx; */
+  align-items: center;
+}
+
+.user .icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.icon-warp {
+  align-items: center;
+  gap: 40rpx;
+}
+
+.raffle-warp {
+  position: relative;
+  background-color: #ffffff;
+}
+
+.replace {
+  padding: 15rpx 20rpx;
+  border-radius: 6rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 120rpx;
+  background-color: #92929296;
+}
+
+.replace .icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.gifts {
+  width: 100%;
+  height: 350rpx;
+  border-radius: 20rpx ;
+}
+
+.hang {
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+
+.draw-item_active {
+  border: 1rpx solid #d12418 !important;
+  background-color: #d124182c;
+}
+
+.draw-item {
+  border-radius: 10rpx;
+  border: 1rpx solid #9e9e9e;
+}
+
+.input-box {
+  gap: 10rpx;
+}
+
+.weui-input {
+  width: 230rpx;
+  text-align: right;
+}
+
+.icon-arrow,
+.icon-add ,
+.icon-reduce{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.input{
+  border: 1rpx solid #cccccc;
+  text-align: center;
+}
+
+.input-num{
+  width: 140rpx;
+}
+.input-fen{
+  width: 90rpx;
+}
+
+.addItem{
+  gap:  10rpx;
+}
+
+
+/* 底部 */
+.foot {
+  text-align: center;
+}
+
+.ft-18 {
+  font-size: 18rpx;
+}
+
+.ptm-100 {
+  padding: 100rpx 0;
+}
+
+.nav {
+  width: 95%;
+  position: fixed;
+  bottom: 0;
+}
+
+.nav .btn {
+  background-color: #d12418;
+  border-radius: 50rpx;
+}
