@@ -26,14 +26,16 @@ Page({
     endMultiArray: [],
     endMultiIndex: [0, 0, 0],
     // 是否开启循环抽奖
-    loopChecked:false,
+    loopChecked: false,
     // 是否同意活动协议
-    checked:true,
-    fristPrizeName:'奖品名称',
-    prizeLevel:0,
-    prizeLevelTow:0,
+    checked: true,
+    fristPrizeName: '奖品名称',
+    prizeLevel: 0,
+    prizeLevelTow: 0,
     // 添加奖项
-    drawNum:1
+    drawNum: 1,
+    // 滚动
+    isScroll: true
   },
 
   /**
@@ -44,31 +46,44 @@ Page({
   },
 
   // 是否循环抽奖
-  setChecked(){
+  setChecked() {
     this.setData({
-      loopChecked:!this.data.loopChecked
+      loopChecked: !this.data.loopChecked
     })
   },
 
-   // 跳转
-   navigateto(e) {
+  // 获取焦点事件
+  bindfocus(e) {
+    this.setData({
+      isScroll: false
+    })
+  },
+  // 失去焦点事件
+  closeblur(e) {
+    this.setData({
+      isScroll: true
+    })
+  },
+
+  // 跳转
+  navigateto(e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.to + '?id=12',
     })
   },
 
   // 添加奖品
-  add(){
-    let num = this.data.drawNum+1;
+  add() {
+    let num = this.data.drawNum + 1;
     this.setData({
-      drawNum:num
+      drawNum: num
     })
   },
 
   // picker选择器
-  bindMultiPickerChange (e) {
+  bindMultiPickerChange(e) {
     this.setData({
-      multiIndex:e.detail.value
+      multiIndex: e.detail.value
     })
   },
 
@@ -83,7 +98,7 @@ Page({
       let ri = tempDate.getDate();
       let yue = tempDate.getMonth() + 1;
       let yueRi = yue + '月' + ri + "日";
-      dateArr.push(yueRi);                                                                        
+      dateArr.push(yueRi);
     }
     this.setData({
       multiArray: [

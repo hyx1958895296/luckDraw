@@ -1,4 +1,5 @@
 <view class="create-raffle fs-30">
+  <scroll-view scroll-y="{{isScroll}}" scroll-with-animation="true" style="height: 90vh;">
   <view class="warp pt-40">
     <!-- 头部用户信息 -->
     <!-- <view class="user ptb-40 flex-sb ">
@@ -124,4 +125,5 @@
       发起抽奖
     </view>
   </view>
+  </scroll-view>
 </view>
