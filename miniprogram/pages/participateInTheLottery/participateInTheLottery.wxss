@@ -7,6 +7,7 @@
   background-color: rgba(248, 42, 42, 0.781);
   font-size: 28rpx;
   align-items: center;
+  height: 50rpx;
 }
 
 .active {
@@ -36,6 +37,6 @@
   color: rgb(173, 173, 173);
 }
 .empty image{
-  width: 240rpx;
-  height: 180rpx;
+  width: 200rpx;
+  height: 160rpx;
 }
