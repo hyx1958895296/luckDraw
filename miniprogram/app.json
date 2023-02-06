@@ -17,6 +17,12 @@
       ]
     },
     {
+      "root": "mine",
+      "pages": [
+        "pages/member/member"
+      ]
+    },
+    {
       "root": "home",
       "pages": [
         "pages/sign",
