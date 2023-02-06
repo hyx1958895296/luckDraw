@@ -13,7 +13,8 @@
       "root": "createRaffle",
       "pages": [
         "pages/createRaffleType/createRaffleType",
-        "pages/createRaffle/createRaffle"
+        "pages/createRaffle/createRaffle",
+        "pages/drawMode/drawMode"
       ]
     },
     {

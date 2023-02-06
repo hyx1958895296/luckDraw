@@ -19,10 +19,21 @@ Page({
       id: 4,
       title: '手动开奖',
     }, ],
-    multiArray: [
-
-    ],
+    // 月 日 时 分  当天往后30天
+    multiArray: [],
     multiIndex: [0, 0, 0],
+    // 年 月 日 时 分  当天往后一年
+    endMultiArray: [],
+    endMultiIndex: [0, 0, 0],
+    // 是否开启循环抽奖
+    loopChecked:false,
+    // 是否同意活动协议
+    checked:true,
+    fristPrizeName:'奖品名称',
+    prizeLevel:0,
+    prizeLevelTow:0,
+    // 添加奖项
+    drawNum:1
   },
 
   /**
@@ -32,20 +43,34 @@ Page({
     this.time();
   },
 
+  // 是否循环抽奖
+  setChecked(){
+    this.setData({
+      loopChecked:!this.data.loopChecked
+    })
+  },
+
+   // 跳转
+   navigateto(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.to + '?id=12',
+    })
+  },
+
+  // 添加奖品
+  add(){
+    let num = this.data.drawNum+1;
+    this.setData({
+      drawNum:num
+    })
+  },
+
+  // picker选择器
   bindMultiPickerChange (e) {
-    // console.log(e)
-    // console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
     this.setData({
       multiIndex:e.detail.value
     })
   },
-
-  // bindMultiPickerColumnChange: function (e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     index: e.detail.value
-  //   })
-  // },
 
   // 抽奖时间
   time() {
@@ -60,7 +85,6 @@ Page({
       let yueRi = yue + '月' + ri + "日";
       dateArr.push(yueRi);                                                                        
     }
-    console.log(dateArr);
     this.setData({
       multiArray: [
         dateArr,
