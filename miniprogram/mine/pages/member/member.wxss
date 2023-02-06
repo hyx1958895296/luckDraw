@@ -1,1 +1,34 @@
 /* mine/pages/member/member.wxss */
+.header{
+  height: 50vh;
+  background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64));
+}
+.growth-value{
+  font-size:130rpx;
+  color: white;
+  font-weight: 600;
+}
+.growth-value-text{
+  font-size: 60rpx;
+  font-weight: bold;
+  color: white;
+  margin-left: 10rpx;
+}
+.member-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+.member-text{
+  /* color: #7e87c0; */
+  color: white;
+}
+.growth{
+  padding: 100rpx 0 50rpx 30rpx;
+}
+.memeber-rule{
+  margin: 30rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
