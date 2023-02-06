@@ -2,7 +2,7 @@
   <view class="detail-box">
     <!-- rgb(244,243,238) -->
     <view class="header">
-      轮播图
+      
     </view>
     <view class="main warp">
       <view class="warp-radius pd-30 shop-info">
@@ -90,6 +90,11 @@
         </view>
       </view>
     </view>
+  </view>
+  <view class="footer">
+    <view class="now-redeem">
+      立即兑换
+    </view>-
   </view>
 </scroll-view>
 <view class="back-top" hidden="{{Top}}" bindtap="backTop">
