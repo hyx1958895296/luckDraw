@@ -10,9 +10,9 @@
 
       <view class="main-box">
         <view class="input-box">
-          <textarea auto-height  placeholder="请写下你的意见或建议"></textarea >
+          <textarea auto-height bindinput="setMsg" placeholder="请写下你的意见或建议"></textarea >
         </view>
-       <view class="upload-image_box">
+       <view wx:if="{{!localShowImage.length}}" class="upload-image_box" bindtap="upImage">
         <view>
           <image src="../../images/upload.png" mode=""/>
         </view>
@@ -20,15 +20,17 @@
           上传图片
         </view>
        </view>
-
+        <view wx:if="{{localShowImage.length}}" class="show-image_box">
+          <image wx:for="{{localShowImage}}" wx:key="item" src="{{item.tempFilePath}}" mode=""/>
+        </view>
       </view>
 
       <view class="phone-box">
-         联系方式  <input type="text" placeholder="请输入你的手机号码"/>
+         联系方式  <input type="text" bindinput="setPhoneInput" placeholder="请输入你的手机号码"/>
        </view>  
     </view>
 
     <view>
-       <button type="primary">提交</button>
+       <button type="primary" bindtap="submit">提交</button>
     </view>
 </view>

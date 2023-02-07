@@ -121,6 +121,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/loopDraw/loopDraw",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

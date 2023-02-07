@@ -19,10 +19,30 @@ Page({
       id: 4,
       title: '手动开奖',
     }, ],
-    multiArray: [
-
-    ],
+    // 月 日 时 分  当天往后30天
+    multiArray: [],
     multiIndex: [0, 0, 0],
+    // 是否开启循环抽奖
+    loopChecked: false,
+    // 是否同意活动协议
+    checked: true,
+    fristPrizeName: '奖品名称',
+    prizeLevel: 0,
+    prizeLevelTow: 0,
+    // 添加奖项
+    drawCount: 1,
+    // 滚动
+    isScroll: true,
+    // 上传图片
+    localshowImage:'',
+    replaceImg:'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
+    imageList:[],
+    from:[{
+      peopleCount:'',
+      prizeName:'',
+      prizeCount:'',
+    }],
+    
   },
 
   /**
@@ -32,20 +52,66 @@ Page({
     this.time();
   },
 
-  bindMultiPickerChange (e) {
-    // console.log(e)
-    // console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+  // 是否循环抽奖
+  setChecked() {
     this.setData({
-      multiIndex:e.detail.value
+      loopChecked: !this.data.loopChecked
     })
   },
 
-  // bindMultiPickerColumnChange: function (e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     index: e.detail.value
-  //   })
-  // },
+  // 获取焦点事件
+  bindfocus(e) {
+    this.setData({
+      isScroll: false
+    })
+  },
+  // 失去焦点事件
+  closeblur(e) {
+    this.setData({
+      isScroll: true
+    })
+  },
+
+  // 跳转
+  navigateto(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.to ,
+    })
+  },
+
+  // 添加奖品
+  add() {
+    let count = this.data.drawCount + 1;
+    this.setData({
+      drawCount: count,
+      from:this.data.from.concat({
+        peopleCount:'',
+        prizeName:'',
+        prizeCount:'',
+      })
+    })
+  },
+
+  // input
+  bindKeyInput(e){
+    console.log(e)
+    this.data.from.forEach((item,index) => {
+      console.log(this.data.from[e.target.id]);
+      console.log(e.target.id);
+      this.data.from[e.target.id] == e.detail.value
+    });
+    console.log(this.data.from)
+    this.setData({
+        from:this.data.from
+    });
+  },
+
+  // picker选择器
+  bindMultiPickerChange(e) {
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
 
   // 抽奖时间
   time() {
@@ -58,9 +124,8 @@ Page({
       let ri = tempDate.getDate();
       let yue = tempDate.getMonth() + 1;
       let yueRi = yue + '月' + ri + "日";
-      dateArr.push(yueRi);                                                                        
+      dateArr.push(yueRi);
     }
-    console.log(dateArr);
     this.setData({
       multiArray: [
         dateArr,
@@ -68,6 +133,41 @@ Page({
         ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']
       ]
     })
+  },
+
+  // 上传活动封面
+  upImage() {
+    let _this = this;
+    let arr = [];
+    wx.chooseMedia({
+      count: 1,
+      success(res) {
+        _this.setData({
+          localshowImage: res.tempFiles,
+        });
+        res.tempFiles.forEach(image => {
+          let po = image.tempFilePath.lastIndexOf(".");
+          let ext = image.tempFilePath.slice(po);
+          wx.cloud.uploadFile({
+            cloudPath: new Date().getTime() + ext,
+            filePath: image.tempFilePath,
+            success(res){
+              if(!res.fileID) return;
+              arr.push(res.fileID);
+              _this.setData({
+                replaceImg:res.fileID
+              });
+              console.log(1)
+              console.log(res);
+            }
+          })
+        })
+      }
+    })
+  },
+  // 上传商品图片
+  upShopImage(index) {
+  console.log(index)
   },
 
   // tab切换

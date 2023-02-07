@@ -37,6 +37,17 @@
   width: 100%;
 }
 
+.show-image_box{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.show-image_box image{
+  width: 169rpx;
+  height:190rpx;
+}
+
 .upload-image_box{
      background-color: rgba(180, 179, 179, 0.281);
      width: 20%;
