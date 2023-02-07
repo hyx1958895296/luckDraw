@@ -14,7 +14,8 @@
       "pages": [
         "pages/createRaffleType/createRaffleType",
         "pages/createRaffle/createRaffle",
-        "pages/drawMode/drawMode"
+        "pages/drawMode/drawMode",
+        "pages/loopDraw/loopDraw"
       ]
     },
     {
