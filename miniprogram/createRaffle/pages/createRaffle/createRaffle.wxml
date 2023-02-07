@@ -63,12 +63,12 @@
       <!-- 添加奖项 -->
       <view class="bg-ffffff warp-radius mt-40">
         <view wx:for="{{drawCount}}" wx:key="index">
-          <view class="addItem hang p-30 flex-c align-c ">
-            <input class="input input-num" bindinput="bindKeyInput" type="digit" name="p" id="{{index}}" placeholder="100" />
+          <view class="addItem hang p-30 flex-c align-c ">                                                                              
+            <input class="input input-num" bindinput="bindKeyInputPeople" type="digit" id="{{index}}" placeholder="100" />
             <text>人</text> 
-            <input class="input ml-40 " type="digit" placeholder="请输入奖品" />
+            <input class="input ml-40 " bindinput="bindKeyInputPrize" type="digit" id="{{index}}" placeholder="请输入奖品" />
             <text>x</text>
-            <input class="input input-fen" type="digit" placeholder="5" />
+            <input class="input input-fen" bindinput="bindKeyInputCount" type="digit" id="{{index}}" placeholder="5" />
             <text>份</text>
           </view>
 
@@ -81,11 +81,11 @@
 
       <view class="bg-ffffff warp-radius mt-40">
         <view class=" p-30 flex-l img-warp">
-          <view wx:for="{{drawCount}}" wx:key="index" bindtap="upShopImage({{index}})">
+          <view wx:for="{{from}}" wx:key="index" >
             <view class="flex-c ptb-20" >
-              100人
+              {{item.peopleCount ? item.peopleCount : '100'}}人
             </view>
-            <view class="img-box flex-column c-6b6b6b">
+            <view class="img-box flex-column c-6b6b6b" bindtap="upShopImage">
               推荐上传
               <view>
                 正方形

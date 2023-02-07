@@ -15,7 +15,13 @@
 
 .date-item{
   height: 100rpx;
-  width: 155rpx;
+  width: 151rpx;
+  border: 1rpx solid #f2f2f2;
+}
+
+.date-item_active{
+  border: 1rpx solid #d12418;
+  background-color: #ffeeec;
 }
 
 .btn-warp{
@@ -30,7 +36,27 @@
 }
 
 .btn-pop_cancel{
-  
+  border: 1rpx solid #000000;
+}
+
+.btn-pop_keep{
+  border: 1rpx solid #d12418;
+  background-color: #d12418;
+}
+
+.hang{
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.details{
+  background-color: #fdf8e5;
+  line-height: 50rpx;
+}
+
+.btn-warp_loop{
+  gap: 30rpx;
+  position: fixed;
+  bottom: 0;
 }
 
 
