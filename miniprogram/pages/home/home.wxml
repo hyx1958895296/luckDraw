@@ -20,24 +20,58 @@
     </view>
   </view>
   <view class="wrap">
-    <view class="nav-item-grid">
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}} " bindtap="hr" data-es="0">
+    <view class="list-warp p-20 bg-ffffff mt-40">
+      <view class="nav-item-grid fs-30 ">
+      <view open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'c-d12418 fs-34': ''}}" bindtap="hr" data-es="0">
         猜你感兴趣
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
+        <view class="flex-c" wx:if="{{ isHr.target.dataset.es == 0 }}">
+          <view class="border-line">
+            
+          </view>
+          <view>
+            
+          </view>
+        </view>
+      </view>
+      <view open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'c-d12418 fs-34' : ''}}" bindtap="hr" data-es="1">
         推荐商品
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
+        <view class="flex-c" wx:if="{{ isHr.target.dataset.es == 1 }}">
+          <view class="border-line">
+            
+          </view>
+          <view>
+            
+          </view>
+        </view>
+      </view>
+      <view open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr c-d12418 fs-34' : ''}}" bindtap="hr" data-es="2">
         美食
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 3 ? 'hr' : ''}} nav-to-item" bindtap="hr" data-es="3">
+        <view class="flex-c" wx:if="{{ isHr.target.dataset.es == 2 }}">
+          <view class="border-line">
+            
+          </view>
+          <view>
+            
+          </view>
+        </view>
+      </view>
+      <view open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 3 ? 'hr c-d12418 fs-34' : ''}} nav-to-item" bindtap="hr" data-es="3">
         日用
-      </navigator>
+        <view class="flex-c" wx:if="{{ isHr.target.dataset.es == 3 }}">
+          <view class="border-line">
+            
+          </view>
+          <view>
+            
+          </view>
+        </view>
+      </view>
     </view>
-    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 0}}">
-      <view class="main">
+    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 0}}" bindtap="getShopList">
+      <view class="main" wx:for="{{ shopList }}" wx:for-item="shopItem"
+       wx:key="index">
         <image src="../../images/get-more-score.png"  class="get-more_score" mode="" bindtap="navagitorToActivity"/>
-        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id" bindtap="navToDetail">
+        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem._id" bindtap="navToDetail">
           <view class="shop-item-picture">
             <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
             <view></view>
@@ -50,13 +84,14 @@
             <text class="points-text">积分</text>
           </view>
           <view class="monthly-exchange">
-            月兑 {{ shopItem.yuedui }}
+            月兑 {{ shopItem.monthlyExchange }}
           </view>
         </view>
       </view>
     </view>
-    <view wx:if="{{isHr.target.dataset.es == 1}}">推荐商品</view>
-    <view wx:if="{{isHr.target.dataset.es == 2}}">美食</view>
-    <view wx:if="{{isHr.target.dataset.es == 3}}">日用</view>
+    </view>
+    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 1}}">推荐商品</view>
+    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 2}}">美食</view>
+    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 3}}">日用</view>
   </view>
 </view>
