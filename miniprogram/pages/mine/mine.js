@@ -38,7 +38,8 @@ Page({
     }],
     userInfo: {
       nickName: "未登录",
-      avatarUrl: "../../images/icon-defaultavatar.png"
+      avatarUrl: "../../images/icon-defaultavatar.png",
+      goldCoin:0
     },
     hasUserInfo: false,
     examineStatus: ""
@@ -58,6 +59,8 @@ Page({
                 hasUserInfo: true
               })
               _this.getBusinessInfo();
+              _this.addUserInfo();
+              _this.selectUserInfo();
               wx.showToast({
                 title: '登录成功',
                 mask:true,
@@ -70,6 +73,16 @@ Page({
         }
       }
     })
+  },
+
+  switchTab(e){
+    if (!this.data.hasUserInfo) {
+      this.getUserProfile();
+    } else {
+      wx.switchTab({
+        url: e.currentTarget.dataset.to
+      })
+    }
   },
 
   navigateto(e) {
@@ -91,6 +104,32 @@ Page({
     }
   },
 
+  addUserInfo(){
+    wx.cloud.callFunction({
+      name:"user",
+      data:{
+        type:"add",
+        userInfo:this.data.userInfo
+      }
+    })
+  },
+
+  selectUserInfo(){
+    let _this = this;
+    wx.cloud.callFunction({
+      name:"user",
+      data:{
+        type:"select",
+      },
+      success(res){
+           if(res.result.status == 1){
+            _this.setData({
+               userInfo:res.result.data
+             })
+           }
+      }
+    })
+  },
 
   getBusinessInfo() {
     let _this = this;
@@ -125,7 +164,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
   },
 
   /**
@@ -140,6 +179,7 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
+ 
   },
 
   /**
