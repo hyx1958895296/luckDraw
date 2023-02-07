@@ -3,9 +3,8 @@
 }
 
 .homepage {
-  height: 100%;
-  background-image: linear-gradient(to top, rgba(231, 222, 222, 0.8), rgb(224, 69, 64));
-  /* background-color:linear-gradient(to top,#f53f3b, #f53f3b, #ffffff, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1); */
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #f53f3b, #f53f3b, #ffffff, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1);
 }
 
 .header {
@@ -22,25 +21,26 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding:20rpx;
+  padding: 20rpx;
   font-size: 26rpx;
   font-weight: 500;
-  margin-top:60rpx;
+  margin-top: 60rpx;
   box-sizing: border-box;
+  /* color: white; */
 }
 
-.align-center{
+.align-center {
   display: flex;
   align-items: center;
   gap: 10rpx;
   flex-direction: column;
 }
 
-.fs-34{
+.fs-34 {
   font-size: 34rpx;
 }
 
-.item-icon{
+.item-icon {
   width: 48rpx;
   height: 48rpx;
 }
@@ -60,14 +60,14 @@
 }
 
 .main {
-  column-count:2;
-  gap : 30rpx;
+  column-count: 2;
+  gap: 30rpx;
   margin-top: 30rpx;
   margin-bottom: 30rpx;
 }
 
-.main-scroll{
-  height: calc(100vh - 15vh - 15rpx - 30rpx - 30rpx);
+.main-scroll {
+  height: calc(100vh - 15vh - 15rpx - 30rpx - 30rpx - 80rpx);
   overflow: scroll;
 }
 
@@ -75,7 +75,7 @@
   background-color: white;
   border-radius: 10rpx;
   margin-bottom: 30rpx;
-  break-inside:avoid;
+  break-inside: avoid;
 }
 
 .shop-item-picture {
@@ -86,7 +86,7 @@
 
 .shop-item-title {
   font-size: 30rpx;
-  padding-top:12rpx ;
+  padding-top: 12rpx;
 
 }
 
@@ -128,14 +128,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 30rpx;
-  padding: 60rpx 0 30rpx 0;
+  /* font-size: 30rpx; */
+  /* padding: 60rpx 0 30rpx 0; */
 }
 
-.hr {
-  color: #ffffff;
-  font-size: 32rpx;
-  border-bottom:2rpx solid white
+.list-warp {
+  border-radius: 50rpx 50rpx 0 0;
+}
+
+/* .hr { */
+  /* color: #ffffff; */
+  /* font-size: 32rpx; */
+  /* height: 50rpx; */
+  /* border-bottom: 10rpx solid rgb(247, 62, 62); */
+/* } */
+
+.border-line{
+  width: 30%;
+  border-bottom: 10rpx solid red;
+  text-align: center;
+  transition: all ease .8s;
 }
 
 .other-navigator-hover {
