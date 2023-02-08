@@ -22,9 +22,6 @@ Page({
     // 月 日 时 分  当天往后30天
     multiArray: [],
     multiIndex: [0, 0, 0],
-    // 年 月 日 时 分  当天往后一年
-    endMultiArray: [],
-    endMultiIndex: [0, 0, 0],
     // 是否开启循环抽奖
     loopChecked: false,
     // 是否同意活动协议
@@ -33,9 +30,19 @@ Page({
     prizeLevel: 0,
     prizeLevelTow: 0,
     // 添加奖项
-    drawNum: 1,
+    drawCount: 1,
     // 滚动
-    isScroll: true
+    isScroll: true,
+    // 上传图片
+    localshowImage: '',
+    replaceImg: 'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
+    imageList: [],
+    from: [{
+      peopleCount: '',
+      prizeName: '',
+      prizeCount: '',
+    }],
+
   },
 
   /**
@@ -68,16 +75,63 @@ Page({
   // 跳转
   navigateto(e) {
     wx.navigateTo({
-      url: e.currentTarget.dataset.to + '?id=12',
+      url: e.currentTarget.dataset.to,
     })
   },
 
   // 添加奖品
   add() {
-    let num = this.data.drawNum + 1;
+    let count = this.data.drawCount + 1;
     this.setData({
-      drawNum: num
+      drawCount: count,
+      from: this.data.from.concat({
+        peopleCount: '',
+        prizeName: '',
+        prizeCount: '',
+      })
     })
+  },
+
+  // input  人数
+  bindKeyInputPeople(e) {
+    console.log(e)
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].peopleCount = e.detail.value
+    }
+    console.log(this.data.from)
+    this.setData({
+      from: arr
+    });
+    console.log(this.data.from)
+  },
+  // input  奖品
+  bindKeyInputPrize(e) {
+    console.log(e)
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].prizeName = e.detail.value
+    }
+    console.log(this.data.from)
+    this.setData({
+      from: arr
+    });
+    console.log(this.data.from)
+  },
+  // input  份
+  bindKeyInputCount(e) {
+    console.log(e)
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].prizeCount = e.detail.value
+    }
+    console.log(this.data.from);
+    console.log('------------arr');
+    console.log(arr)
+    this.setData({
+      from: arr
+    });
+    console.log(this.data.from)
   },
 
   // picker选择器
@@ -107,6 +161,41 @@ Page({
         ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']
       ]
     })
+  },
+
+  // 上传活动封面
+  upImage() {
+    let _this = this;
+    let arr = [];
+    wx.chooseMedia({
+      count: 1,
+      success(res) {
+        _this.setData({
+          localshowImage: res.tempFiles,
+        });
+        res.tempFiles.forEach(image => {
+          let po = image.tempFilePath.lastIndexOf(".");
+          let ext = image.tempFilePath.slice(po);
+          wx.cloud.uploadFile({
+            cloudPath: new Date().getTime() + ext,
+            filePath: image.tempFilePath,
+            success(res) {
+              if (!res.fileID) return;
+              arr.push(res.fileID);
+              _this.setData({
+                replaceImg: res.fileID
+              });
+              console.log(1)
+              console.log(res);
+            }
+          })
+        })
+      }
+    })
+  },
+  // 上传商品图片
+  upShopImage() {
+    console.log()
   },
 
   // tab切换

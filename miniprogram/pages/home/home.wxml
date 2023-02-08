@@ -13,50 +13,52 @@
         <image src="../../images/luck-draw.png" class="item-icon" mode="" />
         <view>参加活动</view>
       </view>
-      <view class="align-center">
-        <view class="fs-34">19</view>
-        <view>积分</view>
+      <view class="align-center-8">
+        <view class="integral">19</view>
+        <view class="integral-text">积分</view>
       </view>
     </view>
   </view>
-  <view class="wrap">
-    <view class="nav-item-grid">
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 0 ? 'hr' : ''}} " bindtap="hr" data-es="0">
-        猜你感兴趣
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 1 ? 'hr' : ''}}" bindtap="hr" data-es="1">
-        推荐商品
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 2 ? 'hr' : ''}}" bindtap="hr" data-es="2">
-        美食
-      </navigator>
-      <navigator open-type="switchTab" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == 3 ? 'hr' : ''}} nav-to-item" bindtap="hr" data-es="3">
-        日用
-      </navigator>
+  <view class="list-warp p-20 mt-40">
+    <view open-type="switchTab" wx:for="{{ tabListData }}" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == item.index ? 'c-d12418 fs-34': ''}}" bindtap="hr" data-es="{{item.index}}">
+      {{ item.title }}
     </view>
-    <view class="main-scroll" wx:if="{{isHr.target.dataset.es == 0}}">
-      <view class="main">
-        <image src="../../images/get-more-score.png"  class="get-more_score" mode="" bindtap="navagitorToActivity"/>
-        <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem.id" bindtap="navToDetail">
-          <view class="shop-item-picture">
-            <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
-            <view></view>
-          </view>
-          <view class="shop-item-title">
-            {{ shopItem.shopItemTitle }}
-          </view>
-          <view>
-            <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
-            <text class="points-text">积分</text>
-          </view>
-          <view class="monthly-exchange">
-            月兑 {{ shopItem.yuedui }}
+  </view>
+  <view class="page-section page-section-spacing swiper warp">
+    <swiper class="swiper" current="{{index}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper-item wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
+        <view class="main warp">
+          <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
+          <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem._id" bindtap="navToDetail">
+            <view class="shop-item-picture">
+              <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
+              <view></view>
+            </view>
+            <view class="shop-item-title">
+              {{ shopItem.shopItemTitle }}
+            </view>
+            <view>
+              <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
+              <text class="points-text">积分</text>
+            </view>
+            <view class="monthly-exchange">
+              月兑 {{ shopItem.monthlyExchange }}
+            </view>
           </view>
         </view>
-      </view>
-    </view>
-    <view wx:if="{{isHr.target.dataset.es == 1}}">推荐商品</view>
-    <view wx:if="{{isHr.target.dataset.es == 2}}">美食</view>
-    <view wx:if="{{isHr.target.dataset.es == 3}}">日用</view>
+        <view class="flex-c c-919191 fs-30">
+          我也是有底线的
+        </view>
+      </swiper-item>
+      <swiper-item>
+        qq
+      </swiper-item>
+      <swiper-item>
+        qq
+      </swiper-item>
+      <swiper-item>
+        qq
+      </swiper-item>
+    </swiper>
   </view>
 </view>

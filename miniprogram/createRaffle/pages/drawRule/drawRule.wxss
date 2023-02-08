@@ -1,0 +1,46 @@
+/* createRaffle/pages/drawRule/drawRule.wxss */
+.draw-rule-box{
+  padding: 0 42rpx;
+  box-sizing: border-box;
+}
+.first-title{
+  font-size: 58rpx;
+  margin: 48rpx 0;
+}
+.hr{
+  border-bottom: 6rpx solid #6b6b6b;
+  box-shadow: darkgrey 0rpx 0rpx 30rpx 0px ;
+  margin-top:80rpx ;
+}
+.active-draw-business-number{
+  font-size:38rpx;
+}
+.main{
+  padding: 0 64rpx;
+}
+.lottery-method{
+  padding: 80rpx 0;
+  font-size: 38rpx;
+  font-weight: 500;
+}
+.first-mode{
+  height: 64rpx;
+  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/kj-bji.png?sign=ae12c63ef5858bc0d58499ff689343a9&t=1675755515");
+  background-repeat: no-repeat;
+  line-height: 64rpx;
+}
+.serial-number{
+  padding: 0 10rpx;
+}
+.first-mode-title{
+  padding-left: 15rpx;
+  color: white;
+}
+.first-mode-content{
+  padding: 80rpx 0;
+  font-size: 38rpx;
+  font-weight: 500;
+}
+.active-time{
+  padding-left: 30rpx;
+}

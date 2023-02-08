@@ -1,0 +1,94 @@
+/* createRaffle/pages/loopDraw/loopDraw.wxss */
+.loop-draw {
+  min-height: 100vh;
+}
+
+.icon-arrow {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.date-warp{
+  gap: 24rpx;
+  flex-wrap: wrap;
+}
+
+.date-item{
+  height: 100rpx;
+  width: 151rpx;
+  border: 1rpx solid #f2f2f2;
+}
+
+.date-item_active{
+  border: 1rpx solid #d12418;
+  background-color: #ffeeec;
+}
+
+.btn-warp{
+  border-top:1rpx solid #dadada ;
+  gap: 20rpx;
+}
+
+.btn-pop{
+  border-radius:50rpx ;
+  width: 100%;
+  border: 1rpx solid #cccccc;
+}
+
+.btn-pop_cancel{
+  border: 1rpx solid #000000;
+}
+
+.btn-pop_keep{
+  border: 1rpx solid #d12418;
+  background-color: #d12418;
+}
+
+.hang{
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.details{
+  background-color: #fdf8e5;
+  line-height: 50rpx;
+}
+
+.btn-warp_loop{
+  gap: 30rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+
+/* 弹窗 */
+.pop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100;
+  opacity: 0;
+  background: rgba(10, 10, 10, 0.6);
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  background-color: #f8f8f8;
+  border-radius: 10rpx;
+  width: 100%;
+  height: 37vh;
+  position: fixed;
+  bottom: 0;
+}
+
+

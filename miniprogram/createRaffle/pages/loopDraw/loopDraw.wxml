@@ -1,0 +1,84 @@
+<view class="loop-draw bg-f2f2f2">
+  <view class="warp">
+    <view class="flex-sb align-c p-30">
+      <view class="fw-700 fs-36">
+        循环开奖时间设置
+      </view>
+      <view class="c-d12418 fs-26">
+        什么是循环开奖？
+      </view>
+    </view>
+    <view class="bg-ffffff warp-radius">
+      <view class="p-30 hang flex-sb">
+        <view>
+          开奖时间
+        </view>
+        <view>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker c-919191 flex-c">
+              {{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}
+              <image class="icon-arrow" src="../../../images/arrow-icon.png" mode="" />
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="p-30 hang flex-sb align-c">
+        <view>
+          循环开奖周期
+        </view>
+        <view>
+          <view class="flex-c align-c c-919191" bindtap="showModal">
+            去设置
+            <image class="icon-arrow" src="../../../images/arrow-icon.png" mode="" />
+          </view>
+        </view>
+      </view>
+      <!-- 弹窗 -->
+      <view class="pop {{show==true?'show':''}}" bindtap="hideModal">
+        <view class="panel" catchtap>
+          <view class="flex-c p-30 fw-700 fs-36">
+            循环开奖周期
+          </view>
+          <view class="flex-l date-warp p-30">
+            <view class="c-6b6b6b bg-f2f2f2 date-item flex-c align-c warp-radius {{item.active?'date-item_active c-d12418 ':''}}" wx:for="{{dateList}}" wx:key="index" bindtap="active" data-item="{{index}}">
+              {{item.title}}
+            </view>
+          </view>
+          <view class="flex-c btn-warp align-c warp pt-30">
+            <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="hideModal">
+              取消
+            </view>
+            <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="hideModal">
+              保存
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="p-30  flex-sb">
+        <view>
+          循环次数
+        </view>
+        <view>
+          <picker mode="multiSelector" bindchange="bindMultiPickerChangeCount" value="{{multiIndexCount}}" range="{{multiArrayCount}}">
+            <view class="picker c-919191 flex-c">
+              {{multiIndexCount?multiIndexCount+'次':'去设置'}}
+              <image class="icon-arrow" src="../../../images/arrow-icon.png" mode="" />
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="details c-6b6b6b p-30" wx:if="{{multiIndexCount}}">
+        共{{multiIndexCount}}期抽奖，{{}}{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}自动开奖，活动于{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}结束
+      </view>
+    </view>
+  </view>
+    <view class="flex-c btn-warp_loop align-c warp p-30 bg-ffffff">
+      <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
+        取消
+      </view>
+      <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
+        保存
+      </view>
+    </view>
+</view>

@@ -126,13 +126,20 @@ view {
   padding: 30rpx;
 }
 
+.pt-30 {
+  padding-top: 30rpx;
+}
+
 .p-20 {
   padding: 20rpx;
 }
 
-
 .ft-18 {
   font-size: 18rpx;
+}
+
+.fs-0{
+  font-size: 0;
 }
 
 .ptm-100 {
@@ -153,6 +160,10 @@ view {
 
 .bg-ffffff{
   background-color: #ffffff;
+}
+
+.bg-f2f2f2{
+  background-color: #f2f2f2;
 }
 
 .c-d12418{

@@ -5,91 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopList:[
-      {
-        id:1,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"34",
-        yuedui:200000,
-        coupon:{
-          preferentialStrength:'300元优惠券',
-          PostCouponPrice:'券后下单79元',
-          BasePrice:'基础价379元'
-        }
-      },
-      {
-        id:2,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"2400",
-        yuedui:200
-      },
-      {
-        id:3,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"2500",
-        yuedui:2000
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-      {
-        id:4,
-        shopItemImage:"../../images/shop1.png",
-        shopItemTitle:"Nike耐克AJ1男女Air Jordan",
-        shopItemPrice:"25",
-        yuedui:2400
-      },
-    ],
+    shopList:[],
     isHr:0,
+    tabListData:[{
+      index:0,
+      title:'猜你感兴趣'
+    },
+    {
+      index:1,
+      title:'我喜欢'
+    },
+    {
+      index:2,
+      title:'美食'
+    },
+    {
+      index:3,
+      title:'日用'
+    }
+    ],
+    index:0
   },
   hr:function(es){
+    // console.log(es);
     this.setData({
       isHr:es,
+      index:es.currentTarget.dataset.es
     })
     // console.log(this.data.isHr.target.dataset.es);
   },
+
+
   //微信签到跳转
   signIn(){
   },
@@ -110,12 +56,30 @@ Page({
     wx.navigateTo({
       url: '/home/pages/shop/detail',
     })
+    wx.cloud.callFunction({
+      name:''
+    })
   },
+  // 获取商品列表接口
+    getShopList(){
+      wx.cloud.callFunction({
+        name:'shop',
+        data:{
+          type:'select'
+        },
+        success:res=>{
+          console.log(res);
+          this.setData({
+            shopList:res.result.data
+          })
+        }
+      })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getShopList();
   },
 
   /**
