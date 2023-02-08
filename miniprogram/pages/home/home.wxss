@@ -145,7 +145,6 @@
 }
 
 .list-warp {
-  /* border-radius: 50rpx 50rpx 20rpx 20rpx; */
   display: flex;
   justify-content: space-between;
   align-items: center;
