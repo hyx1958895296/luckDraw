@@ -5,11 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    multiArray: [
-
-    ],
+    // 开奖时间
+    multiArray: [],
     multiIndex: [0, 0],
-    dateList:['每周一','每周二','每周三','每周四','每周五','每周六','每周日'],
+    //  循环次数
+    multiArrayCount: [],
+    multiIndexCount: '',
+    dateList: [{
+        active: false,
+        title: '每周一',
+      },
+      {
+        active: false,
+        title: '每周二',
+      },
+      {
+        active: false,
+        title: '每周三',
+      },
+      {
+        active: false,
+        title: '每周四',
+      },
+      {
+        active: false,
+        title: '每周五',
+      },
+      {
+        active: false,
+        title: '每周六',
+      },
+      {
+        active: false,
+        title: '每周日',
+      },
+      {
+        active: false,
+        title: '全选',
+      },
+    ]
   },
 
   // 弹窗
@@ -24,11 +58,60 @@ Page({
     })
   },
 
+  // 选择item
+  active(e) {
+    let index = e.target.dataset.item;
+    let item =  this.data.dateList[index];
+    let allIndex = 0;
+    this.data.dateList.forEach((item,index)=> {
+      if(item.title == "全选"){
+        allIndex= index;
+      }
+    });
+    if(item.title != "全选"){
+      if(item.active){
+        this.setData({
+          [`dateList[${index}].active`] : false,
+          [`dateList[${allIndex}].active`] : false,
+        })
+      }else{
+        this.setData({
+          [`dateList[${index}].active`] : true
+        })
+        let is = this.data.dateList.find(item=> item.active == false && item.title!= '全选');
+        if(is == undefined){
+          this.setData({
+            [`dateList[${allIndex}].active`] : true,
+          })
+        }
+      }
+    }else{
+       if(item.active){
+        this.data.dateList.forEach((item,index) => {
+          this.setData({
+            [`dateList[${index}].active`] : false
+          })
+        });
+       }else{
+        this.data.dateList.forEach((item,index) => {
+          this.setData({
+            [`dateList[${index}].active`] : true
+          })
+        });  
+       }
+    }
+  },
 
   // picker选择器
   bindMultiPickerChange(e) {
     this.setData({
-      multiIndex: e.detail.value
+      multiIndex: e.detail.value,
+    })
+  },
+  bindMultiPickerChangeCount(e) {
+    console.log(e)
+    this.setData({
+      multiIndexCount:Number(e.detail.value)+2
     })
   },
 
@@ -42,10 +125,18 @@ Page({
     for (let index = 0; index < 60; index++) {
       minutes.push(index + '分')
     }
+    let count = [];
+    for (let index = 2; index < 29; index++) {
+      count.push(index+'次')    
+    }
+    console.log(count)
     this.setData({
       multiArray: [
         hours,
         minutes
+      ],
+      multiArrayCount:[
+        count
       ]
     })
 

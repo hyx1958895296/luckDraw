@@ -34,15 +34,15 @@ Page({
     // 滚动
     isScroll: true,
     // 上传图片
-    localshowImage:'',
-    replaceImg:'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
-    imageList:[],
-    from:[{
-      peopleCount:'',
-      prizeName:'',
-      prizeCount:'',
+    localshowImage: '',
+    replaceImg: 'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
+    imageList: [],
+    from: [{
+      peopleCount: '',
+      prizeName: '',
+      prizeCount: '',
     }],
-    
+
   },
 
   /**
@@ -75,7 +75,7 @@ Page({
   // 跳转
   navigateto(e) {
     wx.navigateTo({
-      url: e.currentTarget.dataset.to ,
+      url: e.currentTarget.dataset.to,
     })
   },
 
@@ -84,26 +84,54 @@ Page({
     let count = this.data.drawCount + 1;
     this.setData({
       drawCount: count,
-      from:this.data.from.concat({
-        peopleCount:'',
-        prizeName:'',
-        prizeCount:'',
+      from: this.data.from.concat({
+        peopleCount: '',
+        prizeName: '',
+        prizeCount: '',
       })
     })
   },
 
-  // input
-  bindKeyInput(e){
+  // input  人数
+  bindKeyInputPeople(e) {
     console.log(e)
-    this.data.from.forEach((item,index) => {
-      console.log(this.data.from[e.target.id]);
-      console.log(e.target.id);
-      this.data.from[e.target.id] == e.detail.value
-    });
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].peopleCount = e.detail.value
+    }
     console.log(this.data.from)
     this.setData({
-        from:this.data.from
+      from: arr
     });
+    console.log(this.data.from)
+  },
+  // input  奖品
+  bindKeyInputPrize(e) {
+    console.log(e)
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].prizeName = e.detail.value
+    }
+    console.log(this.data.from)
+    this.setData({
+      from: arr
+    });
+    console.log(this.data.from)
+  },
+  // input  份
+  bindKeyInputCount(e) {
+    console.log(e)
+    let arr = this.data.from;
+    if(arr[e.target.id]){
+      arr[e.target.id].prizeCount = e.detail.value
+    }
+    console.log(this.data.from);
+    console.log('------------arr');
+    console.log(arr)
+    this.setData({
+      from: arr
+    });
+    console.log(this.data.from)
   },
 
   // picker选择器
@@ -151,11 +179,11 @@ Page({
           wx.cloud.uploadFile({
             cloudPath: new Date().getTime() + ext,
             filePath: image.tempFilePath,
-            success(res){
-              if(!res.fileID) return;
+            success(res) {
+              if (!res.fileID) return;
               arr.push(res.fileID);
               _this.setData({
-                replaceImg:res.fileID
+                replaceImg: res.fileID
               });
               console.log(1)
               console.log(res);
@@ -166,8 +194,8 @@ Page({
     })
   },
   // 上传商品图片
-  upShopImage(index) {
-  console.log(index)
+  upShopImage() {
+    console.log()
   },
 
   // tab切换
