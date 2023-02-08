@@ -123,7 +123,7 @@
           "scene": null
         },
         {
-          "name": "开奖",
+          "name": "",
           "pathName": "createRaffle/pages/loopDraw/loopDraw",
           "query": "",
           "launchMode": "default",

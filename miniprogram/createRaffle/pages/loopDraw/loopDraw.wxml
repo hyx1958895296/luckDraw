@@ -74,10 +74,10 @@
     </view>
   </view>
     <view class="flex-c btn-warp_loop align-c warp p-30 bg-ffffff">
-      <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="">
+      <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
         取消
       </view>
-      <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="">
+      <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
         保存
       </view>
     </view>

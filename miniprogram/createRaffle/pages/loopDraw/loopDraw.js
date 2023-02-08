@@ -102,6 +102,13 @@ Page({
     }
   },
 
+   // 跳转
+   navigateto(e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.to,
+    })
+  },
+
   // picker选择器
   bindMultiPickerChange(e) {
     this.setData({
