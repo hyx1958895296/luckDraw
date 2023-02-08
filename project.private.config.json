@@ -121,6 +121,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/commonTopics/commonTopics",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/participateInTheLottery/participateInTheLottery",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activitydetalis/activitydetalis",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

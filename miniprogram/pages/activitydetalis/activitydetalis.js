@@ -5,14 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   isListofprizes:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options.id)
+    
+  },
+
+  showListofprizes(){
+    if(this.data.isListofprizes){
+      this.setData({
+        isListofprizes:false
+       })
+    }else{
+      this.setData({
+        isListofprizes:true
+       })
+    }
+    
   },
 
   /**
