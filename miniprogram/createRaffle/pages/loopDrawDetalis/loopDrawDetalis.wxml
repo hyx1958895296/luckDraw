@@ -1,2 +1,72 @@
-<!--createRaffle/pages/loopDrawDetalis/loopDrawDetalis.wxml-->
-<text>createRaffle/pages/loopDrawDetalis/loopDrawDetalis.wxml</text>
+<view class="look-draw-details-box">
+  <view class="first-title">
+    什么是循环抽奖？
+  </view>
+  <view class="header">
+    <text class="active-name">活动抽奖</text>
+    <text class="active-draw-shopper-number">活动抽奖商家号</text>
+    <view class="active-draw-time">
+      2022-12-27 10:30
+    </view>
+  </view>
+  <view class="second-content">
+    <view class="display-inline-block">
+      <view class="second-title">
+        循环抽奖是指：
+      </view>
+      <view class="display-inline-block">
+        抽奖可设置多次定期开奖，即1个周期开1次奖 (可设置每天1开、每3天1开，每周1开等)，发起人无需发布多个抽奖。
+      </view>
+    </view>
+    <view class="display-inline-block">
+      <view class="second-title">
+        应用抽奖举例：
+      </view>
+      <view class="display-inline-block">
+        小明开了一家水果店，搭建了5个自己的客户微信群，他每天想要在群里发布1个活动，让微信群活跃，顺便吸引一些客户到店消费。但是每天都要发布抽奖太麻烦，没有时间。但[循环抽奖]可以解决这个问题。
+      </view>
+      <view class="mtb-80 display-inline-block">
+        小明可发布一个抽奖，设置每天10点开一次奖，老的抽奖开奖后，系统就自动发布新-期的抽奖，群里的客户在参与当前抽奖的时候，也可以顺便预约下一期的抽奖，一直持续参与。
+      </view>
+      <view>
+        这样就解决了每天都要发抽奖，且客户可以长期参与活动问题
+      </view>
+    </view>
+    <view class="display-inline-block">
+      <view class="mtb-80 ">
+        下面给大家逐一解释：
+      </view>
+      <view class="mtb-48 display-inline-block">
+        1、<text class="second-title">开奖时间：</text>
+        <text>抽奖开奖的固定时间，比如你设置了10点，抽奖就会在相对应周期当天10点开奖。</text>
+      </view>
+      <view>
+        <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/explain.jpg?sign=5311856f5ca6920e030334519e3e2a6a&t=1675841732" class="mb-48 intr-picture" mode=""/>
+        <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/explain.jpg?sign=5311856f5ca6920e030334519e3e2a6a&t=1675841732" class="intr-picture" mode=""/>
+      </view>
+      <view class="mtb-48 display-inline-block">
+        2、<text class="second-title">循环开奖周期：</text>
+        <text>1个抽奖循环的周期，可选择每周的其中某天开奖，也可以[全选]，即每天开1次奖。</text>
+      </view>
+      <view>
+        <image class="mb-48 second-iamge" 
+        src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/second-left.jpg?sign=68890432de10a3f8755f1f33d19175d1&t=1675847621" mode=""/>
+        <image class="pl-50 mb-48 second-iamge" 
+        src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/second-right.jpg?sign=4e4db5084da9f2e88d936470b9c04d34&t=1675847845" mode=""/>
+      </view>
+      <view class="mtb-48">
+        3、<text class="second-title">循环次数</text>
+        <text>即这个抽奖循环开奖的次数</text>
+      </view>
+      <view class="mtb-80">
+        比如:截图中的循环开奖周期是(每周一]，循环次数是4次，那么这个抽奖将有4期，每周一10点开奖，活动奖持续到四周后当天10点结束。
+      </view>
+      <view>
+        <image class="mb-48 second-iamge" 
+        src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/third.jpg?sign=eb3c4f0bdbaaf92b1bb3dd95aa432158&t=1675849205" mode=""/>
+        <image class="pl-50 mb-48 second-iamge" 
+        src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/fourth.jpg?sign=b0cb0047e494953211426b1673981341&t=1675849223" mode=""/>
+      </view>
+    </view>
+  </view>
+</view>

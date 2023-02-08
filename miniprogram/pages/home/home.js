@@ -7,34 +7,29 @@ Page({
   data: {
     shopList:[],
     isHr:0,
-    tabListData:[{
-      index:0,
-      title:'猜你感兴趣'
-    },
-    {
-      index:1,
-      title:'我喜欢'
-    },
-    {
-      index:2,
-      title:'美食'
-    },
-    {
-      index:3,
-      title:'日用'
-    }
-    ],
-    index:0
+    tabListData:[],
+    current:0,
   },
-  hr:function(es){
-    // console.log(es);
+  hr(es){
     this.setData({
       isHr:es,
-      index:es.currentTarget.dataset.es
+      current:es.currentTarget.dataset.es
     })
-    // console.log(this.data.isHr.target.dataset.es);
+    //调用商品列表接口
+    wx.cloud.callFunction({
+      name:'shop',
+      data:{
+        type:'select',
+        categoryId:this.data.current
+      },
+      success:res=>{
+        console.log(res);
+        this.setData({
+          shopList:res.result.data
+        })
+      }
+    })
   },
-
 
   //微信签到跳转
   signIn(){
@@ -63,17 +58,22 @@ Page({
   // 获取商品列表接口
     getShopList(){
       wx.cloud.callFunction({
-        name:'shop',
+        name:'category',
         data:{
           type:'select'
         },
         success:res=>{
           console.log(res);
           this.setData({
-            shopList:res.result.data
+            tabListData :res.result.data,
           })
         }
       })
+    },
+    //
+  //获取类目接口
+    getCategray(id){
+      
     },
   /**
    * 生命周期函数--监听页面加载

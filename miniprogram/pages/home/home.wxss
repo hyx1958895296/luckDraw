@@ -161,6 +161,7 @@
 
 .other-navigator-hover {
   color: rgb(255, 255, 255);
+  font-size: 34rpx;
 }
 
 .monthly-exchange {
@@ -174,4 +175,9 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 30rpx;
+}
+
+.hr{
+  font-size: 40rpx;
+  color: red;
 }
