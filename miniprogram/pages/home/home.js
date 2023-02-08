@@ -7,11 +7,30 @@ Page({
   data: {
     shopList:[],
     isHr:0,
+    tabListData:[{
+      index:0,
+      title:'猜你感兴趣'
+    },
+    {
+      index:1,
+      title:'我喜欢'
+    },
+    {
+      index:2,
+      title:'美食'
+    },
+    {
+      index:3,
+      title:'日用'
+    }
+    ],
+    index:0
   },
   hr:function(es){
     // console.log(es);
     this.setData({
       isHr:es,
+      index:es.currentTarget.dataset.es
     })
     // console.log(this.data.isHr.target.dataset.es);
   },

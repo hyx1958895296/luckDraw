@@ -1,2 +1,29 @@
-<!--createRaffle/pages/drawRule/drawRule.wxml-->
-<text>createRaffle/pages/drawRule/drawRule.wxml</text>
+<view class="draw-rule-box">
+  <view class="header">
+    <view class="first-title">开奖方式介绍</view>
+    <view class="active-draw-business-number c-d12418">
+     <text>活动抽奖商家号</text> 
+     <text class="active-time c-6b6b6b">2022-12-28  15:46</text>  
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="main">
+    <view class="lottery-method">
+      开奖方式为俩种，分别为满人开奖、循环开奖开奖方式，他们都有各自优势
+    </view>
+    <view class="first-mode">
+      <text class="serial-number">01</text>
+      <text class="first-mode-title">满人开奖</text>
+    </view>
+    <view class="first-mode-content">
+      在指定时间内按照人数开奖，如果指定时间内未达到人数系统化也会系统开奖，如果达到人数则立马开奖。
+    </view>
+    <view class="first-mode">
+      <text class="serial-number">02</text>
+      <text class="first-mode-title">循环开奖</text>
+    </view>
+    <view class="first-mode-content">
+      循环开奖，是指发起人可以设置多次定期开奖，一个周期开一次奖。例如一个月4期抽奖，每周1开。用户可以参与当前这期的抽奖，还能预约下一期的抽奖，持续参与
+    </view>
+  </view>
+</view>

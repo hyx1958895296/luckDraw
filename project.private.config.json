@@ -88,8 +88,8 @@
           "scene": null
         },
         {
-          "name": "",
-          "pathName": "createRaffle/pages/createRaffleType/createRaffleType",
+          "name": "开奖规则页面",
+          "pathName": "createRaffle/pages/drawRule/drawRule",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -110,7 +110,7 @@
         },
         {
           "name": "",
-          "pathName": "createRaffle/pages/createRaffle/createRaffle",
+          "pathName": "createRaffle/pages/drawMode/drawMode",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -123,7 +123,7 @@
           "scene": null
         },
         {
-          "name": "",
+          "name": "开奖",
           "pathName": "createRaffle/pages/loopDraw/loopDraw",
           "query": "",
           "launchMode": "default",
