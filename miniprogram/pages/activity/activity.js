@@ -5,6 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabList:[{
+      id:1,
+      title:"未开奖",
+    },{
+      id:2,
+      title:"已开始",
+    }],
+    showId:1,
     activityList: [
       // {
       //   commodityImgPath: '../../images/test-activity.png',
@@ -65,6 +73,12 @@ Page({
     this.getActivityList();
 
     // this.getFristActivity(this.data.activityList)
+  },
+
+  tabFn(e){
+    this.setData({
+      showId:e.target.dataset.item.id,
+    })
   },
 
   // 跳转

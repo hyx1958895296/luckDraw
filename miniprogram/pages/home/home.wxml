@@ -20,12 +20,12 @@
     </view>
   </view>
   <view class="list-warp p-20 mt-40">
-    <view open-type="switchTab" wx:for="{{ tabListData }}" hover-class="other-navigator-hover" class="{{isHr.target.dataset.es == item.index ? 'c-d12418 fs-34': ''}}" bindtap="hr" data-es="{{item.index}}">
+    <view open-type="switchTab" wx:for="{{ tabListData }}" hover-class="other-navigator-hover" class="{{current == item_id ? 'fz-26' : 'c-d12418 fs-34'}}" bindtap="hr" data-es="{{item._id}}">
       {{ item.title }}
     </view>
   </view>
   <view class="page-section page-section-spacing swiper warp">
-    <swiper class="swiper" current="{{index}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <swiper class="swiper" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <swiper-item wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
         <view class="main warp">
           <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
@@ -51,6 +51,32 @@
         </view>
       </swiper-item>
       <swiper-item>
+        <swiper-item wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
+        <view class="main warp">
+          <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
+          <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem._id" bindtap="navToDetail">
+            <view class="shop-item-picture">
+              <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
+              <view></view>
+            </view>
+            <view class="shop-item-title">
+              {{ shopItem.shopItemTitle }}
+            </view>
+            <view>
+              <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
+              <text class="points-text">积分</text>
+            </view>
+            <view class="monthly-exchange">
+              月兑 {{ shopItem.monthlyExchange }}
+            </view>
+          </view>
+        </view>
+        <view class="flex-c c-919191 fs-30">
+          我也是有底线的
+        </view>
+      </swiper-item>
+      </swiper-item>
+      <!-- <swiper-item>
         qq
       </swiper-item>
       <swiper-item>
@@ -58,7 +84,7 @@
       </swiper-item>
       <swiper-item>
         qq
-      </swiper-item>
+      </swiper-item> -->
     </swiper>
   </view>
 </view>
