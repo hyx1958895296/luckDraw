@@ -1,6 +1,16 @@
 <!--pages/activity/activity.wxml-->
 <view class="activity">
-  <view  class="activity-warp warp pt-20" wx:if="{{isLoaded}}">
+  <view>
+   <view class="nav-box">
+    <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
+        <view data-item="{{item}}"> {{item.title}}</view>
+     </view>
+   </view>
+     <view class="active {{showId == 2 ? 'transition-l' : 'transition-r'}}"></view>
+   </view>
+   
+   <view wx:if="{{showId == 1}}">
+    <view  class="activity-warp warp pt-20" wx:if="{{isLoaded}}">
   <!-- <view class="soon flex-c c-ffffff">
     <image class="icon-text" src="../../images/draw.png" mode="" />
   </view> -->
@@ -15,4 +25,12 @@
     </activity>
   </view>
 </view>
+   </view>
+
+   <view wx:if="{{showId == 2}}">
+     
+   </view>
+
+
+  
 </view>
