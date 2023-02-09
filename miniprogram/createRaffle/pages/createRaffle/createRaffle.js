@@ -22,6 +22,10 @@ Page({
     // 月 日 时 分  当天往后30天
     multiArray: [],
     multiIndex: [0, 0, 0],
+    isStart:true,
+    // 月 日 时 分  活动开始时间往后30天
+    multiArrayEnd: [],
+    multiIndexEnd: [0, 0, 0],
     // 是否开启循环抽奖
     loopChecked: false,
     // 是否同意活动协议
@@ -42,7 +46,6 @@ Page({
       prizeName: '',
       prizeCount: '',
     }],
-
   },
 
   /**
@@ -50,6 +53,8 @@ Page({
    */
   onLoad(options) {
     this.time();
+    this.endTime();
+    console.log(options)
   },
 
   // 是否循环抽奖
@@ -89,6 +94,15 @@ Page({
         prizeName: '',
         prizeCount: '',
       })
+    })
+  },
+
+  // 减少奖品
+  reduce(index) {
+    let count = this.data.drawCount - 1;
+    this.setData({
+      drawCount: count,
+      from: this.data.from.splice(index,1)
     })
   },
 
@@ -139,29 +153,66 @@ Page({
     this.setData({
       multiIndex: e.detail.value
     })
+    this.endTime(this.data.multiIndex[0]+1);
+    this.setData({
+      isStart:false
+    })
+  },
+  bindMultiPickerChangeEnd(e) {
+    this.setData({
+      multiIndexEnd: e.detail.value
+    });
   },
 
-  // 抽奖时间
-  time() {
+  // 结束抽奖时间
+  endTime(e) {
     let nowDate = new Date();
     let dateArr = [];
-    dateArr.push(nowDate.getMonth() + 1 + '月' + nowDate.getDate() + '日')
-    for (let i = 0; i < 30; i++) {
+    dateArr.push(nowDate.getFullYear()+'年'+(nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日')
+    for (let i = 0; i < 31+e; i++) {
       let tempDate = nowDate.setDate(nowDate.getDate() + 1);
       tempDate = new Date(tempDate);
       let ri = tempDate.getDate();
       let yue = tempDate.getMonth() + 1;
-      let yueRi = yue + '月' + ri + "日";
+      let nian = tempDate.getFullYear();
+      let yueRi = nian + '年' + yue + '月' + ri + "日";
       dateArr.push(yueRi);
     }
+
+    let index = 1;
+    index = e?e:index
+
     this.setData({
-      multiArray: [
-        dateArr,
+      multiArrayEnd: [
+        dateArr.slice(index),
         ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
         ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']
       ]
     })
   },
+
+ // 开始抽奖时间
+ time() {
+  let nowDate = new Date();
+  let dateArr = [];
+  dateArr.push(nowDate.getFullYear()+'年'+(nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日')
+  for (let i = 0; i < 30; i++) {
+    let tempDate = nowDate.setDate(nowDate.getDate() + 1);
+    tempDate = new Date(tempDate);
+    let ri = tempDate.getDate();
+    let yue = tempDate.getMonth() + 1;
+    let nian = tempDate.getFullYear();
+    let yueRi = nian + '年' + yue + '月' + ri + "日";
+    dateArr.push(yueRi);
+  }
+  this.setData({
+    multiArray: [
+      dateArr,
+      ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55']
+    ]
+  });
+},
 
   // 上传活动封面
   upImage() {
@@ -194,14 +245,34 @@ Page({
     })
   },
   // 上传商品图片
-  upShopImage() {
-    console.log()
-  },
-
-  // tab切换
-  tab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
+  upShopImage(e) {
+    console.log(e.currentTarget.dataset.index)
+    let _this = this;
+    let arr = [];
+    wx.chooseMedia({
+      count: 1,
+      success(res) {
+        _this.setData({
+          localshowImage: res.tempFiles,
+        });
+        res.tempFiles.forEach(image => {
+          let po = image.tempFilePath.lastIndexOf(".");
+          let ext = image.tempFilePath.slice(po);
+          wx.cloud.uploadFile({
+            cloudPath: new Date().getTime() + ext,
+            filePath: image.tempFilePath,
+            success(res) {
+              if (!res.fileID) return;
+              arr.push(res.fileID);
+              _this.setData({
+                [`from[${e.currentTarget.dataset.index}].img`]: res.fileID ,
+              });
+              console.log(1)
+              console.log(res);
+            }
+          })
+        })
+      }
     })
   },
 

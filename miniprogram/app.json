@@ -17,7 +17,8 @@
         "pages/drawMode/drawMode",
         "pages/loopDraw/loopDraw",
         "pages/drawRule/drawRule",
-        "pages/loopDrawDetalis/loopDrawDetalis"
+        "pages/loopDrawDetalis/loopDrawDetalis",
+        "pages/addLoopDraw/addLoopDraw"
       ]
     },
     {

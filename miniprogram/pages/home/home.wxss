@@ -175,3 +175,8 @@
   align-items: flex-start;
   margin-bottom: 30rpx;
 }
+
+.hr{
+  font-size: 40rpx;
+  color: red;
+}

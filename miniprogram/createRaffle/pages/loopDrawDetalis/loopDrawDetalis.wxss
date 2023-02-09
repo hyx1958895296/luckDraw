@@ -1,1 +1,51 @@
-/* createRaffle/pages/loopDrawDetalis/loopDrawDetalis.wxss */
+.look-draw-details-box{
+  padding: 0 42rpx;
+  box-sizing: border-box;
+}
+.mtb-80{
+  margin: 80rpx 0;
+}
+.color-a1a1a1{
+  color: #a1a1a1;
+} 
+.mtb-48{
+  margin: 48rpx 0;
+}
+.pl-50{
+  padding-left: 50rpx;
+}
+.display-inline-block{
+  display: inline-block;
+}
+.first-title{
+  font-size: 56rpx;
+  margin: 48rpx 0;
+}
+.active-name{
+  color: #595959;
+  padding-right: 20rpx;
+}
+.active-draw-shopper-number{
+  color: #818e9d;
+}
+.active-draw-time{
+  margin-top: 36rpx;
+  color: #6d6d6d;
+}
+.second-title{
+  margin: 86rpx 0;
+  color: #f82e2f;
+  font-weight: 600;
+  font-size: 38rpx;
+}
+.intr-picture{
+  padding:0 40rpx;
+  width: 660rpx;
+  box-sizing: border-box;
+}
+.mb-48{
+  margin-bottom:48rpx;
+}
+.second-iamge{
+  width: 300rpx;
+}

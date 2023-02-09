@@ -123,6 +123,13 @@
           "scene": null
         },
         {
+          "name": "循环抽奖页面",
+          "pathName": "createRaffle/pages/loopDrawDetalis/loopDrawDetalis",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "",
           "pathName": "pages/commonTopics/commonTopics",
           "query": "",
@@ -139,6 +146,13 @@
         {
           "name": "",
           "pathName": "createRaffle/pages/loopDraw/loopDraw",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createRaffle/createRaffle",
           "query": "",
           "launchMode": "default",
           "scene": null
