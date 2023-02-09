@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 1,
     tab: [{
       id: 1,
       title: '定时开奖',
@@ -19,6 +18,8 @@ Page({
       id: 4,
       title: '手动开奖',
     }, ],
+    // 活动名称
+    activityName:'',
     // 月 日 时 分  当天往后30天
     multiArray: [],
     multiIndex: [0, 0, 0],
@@ -103,6 +104,14 @@ Page({
     this.setData({
       drawCount: count,
       from: this.data.from.splice(index,1)
+    })
+  },
+
+  // input name
+  bindKeyInputName(e){
+    console.log(e)
+    this.setDate({
+      activityName:e.detail.value
     })
   },
 
@@ -264,16 +273,29 @@ Page({
             success(res) {
               if (!res.fileID) return;
               arr.push(res.fileID);
-              _this.setData({
+              this.setData({
                 [`from[${e.currentTarget.dataset.index}].img`]: res.fileID ,
               });
-              console.log(1)
               console.log(res);
+              console.log(this.data.from);
             }
           })
         })
       }
     })
+  },
+
+  // 创建活动
+  create(){
+    if(!this.data.activityName){
+      wx.showToast({
+        title: '请输入活动名称',
+        icon: 'error',
+        duration: 2000
+       });
+    }else if( mu ){
+
+    }
   },
 
   /**

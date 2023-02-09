@@ -24,7 +24,9 @@
     {
       "root": "mine",
       "pages": [
-        "pages/member/member"
+        "pages/member/member",
+        "pages/reviewMerchants/reviewMerchants",
+        "pages/MerchantDetails/MerchantDetails"
       ]
     },
     {
