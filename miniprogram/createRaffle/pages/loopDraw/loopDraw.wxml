@@ -28,7 +28,7 @@
         </view>
         <view>
           <view class="flex-c align-c c-919191" bindtap="showModal">
-            去设置
+            {{activeText?activeText:'去设置'}}
             <image class="icon-arrow" src="../../../images/arrow-icon.png" mode="" />
           </view>
         </view>
@@ -48,7 +48,7 @@
             <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="hideModal">
               取消
             </view>
-            <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="hideModal">
+            <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="keep">
               保存
             </view>
           </view>
@@ -69,16 +69,16 @@
         </view>
       </view>
       <view class="details c-6b6b6b p-30" wx:if="{{multiIndexCount}}">
-        共{{multiIndexCount}}期抽奖，{{}}{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}自动开奖，活动于{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}结束
+        共{{multiIndexCount * activeArr.length}}期抽奖，{{activeText}}{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}自动开奖，活动于{{endDate}}{{(multiArray[0][multiIndex[0]])}}{{multiArray[1][multiIndex[1]]}}结束
       </view>
     </view>
   </view>
-    <view class="flex-c btn-warp_loop align-c warp p-30 bg-ffffff">
-      <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
-        取消
-      </view>
-      <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle">
-        保存
-      </view>
+  <view class="flex-c btn-warp_loop align-c warp p-30 bg-ffffff">
+    <view class="btn-pop btn-pop_cancel flex-c p-20" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle/createRaffle">
+      取消
     </view>
+    <view class="btn-pop btn-pop_keep flex-c p-20 c-ffffff" bindtap="navigateto" data-to="/createRaffle/pages/createRaffle/createRaffle?count={{multiIndexCount}}&activeArr={{[activeArr]}}&endTime={{endDate}}">
+      保存
+    </view>
+  </view>
 </view>

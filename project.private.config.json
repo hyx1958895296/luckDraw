@@ -152,6 +152,13 @@
         },
         {
           "name": "",
+          "pathName": "createRaffle/pages/createRaffle/createRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "pages/home/home",
           "query": "",
           "launchMode": "default",

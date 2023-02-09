@@ -15,12 +15,29 @@
         </view>
         <view class="hang p-30 flex-sb">
           <view>
-            到时间人未满自动开奖<text class="c-d12418">*</text>
+            活动开始时间<text class="c-d12418">*</text>
           </view>
           <view class="section">
             <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
               <view class="picker c-d12418">
                 {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}点{{multiArray[2][multiIndex[2]]}}分
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="hang p-30 flex-sb">
+          <view>
+            到时间人未满自动开奖<text class="c-d12418">*</text>
+          </view>
+          <view class="section">
+            <picker mode="multiSelector" disabled="{{isStart}}" bindchange="bindMultiPickerChangeEnd" value="{{multiIndexEnd}}" range="{{multiArrayEnd}}">
+              <view class="c-d12418" wx:if="{{!isStart}}">
+                {{multiArrayEnd[0][multiIndexEnd[0]]}}{{multiArrayEnd[1][multiIndexEnd[1]]}}点{{multiArrayEnd[2][multiIndexEnd[2]]}}分
+              </view>
+              <view class="c-d12418" wx:if="{{isStart}}">
+                请先选择开始时间
+              </view>
+              <view class="picker c-d12418">
               </view>
             </picker>
           </view>
@@ -63,13 +80,20 @@
       <!-- 添加奖项 -->
       <view class="bg-ffffff warp-radius mt-40">
         <view wx:for="{{drawCount}}" wx:key="index">
-          <view class="addItem hang p-30 flex-c align-c ">                                                                              
-            <input class="input input-num" bindinput="bindKeyInputPeople" type="digit" id="{{index}}" placeholder="100" />
-            <text>人</text> 
-            <input class="input ml-40 " bindinput="bindKeyInputPrize" type="digit" id="{{index}}" placeholder="请输入奖品" />
-            <text>x</text>
-            <input class="input input-fen" bindinput="bindKeyInputCount" type="digit" id="{{index}}" placeholder="5" />
-            <text>份</text>
+          <view class=" hang  flex-c align-c p-30">
+            <view class="flex-c align-c  addItem">
+              <input class="input input-num" bindinput="bindKeyInputPeople" type="digit" id="{{index}}" placeholder="{{(index+1) * 100}}" />
+              <text>人</text>
+              <input class="input ml-40 " bindinput="bindKeyInputPrize" type="digit" id="{{index}}" placeholder="请输入奖品" />
+              <text>x</text>
+              <input class="input input-fen" bindinput="bindKeyInputCount" type="digit" id="{{index}}" placeholder="{{(index+1) * 5}}" />
+              <text>份</text>
+            </view>
+            <view class="fs-0" wx:if="{{index!=0}}" bindtap="reduce" data-index="{{index}}">
+              <image class="icon-reduce" src="../../../images/icon-reduce.png" mode=""/>
+            </view>
+            <view class="fs-0 icon-reduce" wx:if="{{index == 0}}">
+            </view>
           </view>
 
         </view>
@@ -81,20 +105,21 @@
 
       <view class="bg-ffffff warp-radius mt-40">
         <view class=" p-30 flex-l img-warp">
-          <view wx:for="{{from}}" wx:key="index" >
-            <view class="flex-c ptb-20" >
-              {{item.peopleCount ? item.peopleCount : '100'}}人
+          <view wx:for="{{drawCount}}" wx:key="index">
+            <view class="flex-c ptb-20">
+              {{item.peopleCount ? item.peopleCount : (index+1) * 100}}人
             </view>
-            <view class="img-box flex-column c-6b6b6b" bindtap="upShopImage">
+            <view wx:if="{{!item.img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
               推荐上传
               <view>
                 正方形
               </view>
               （200*200）
             </view>
+            <view wx:if="{{item.img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
+              <image class="img-box" src="{{item.img}}" mode="" />
+            </view>
           </view>
-          
-
         </view>
         <view class="p-30 c-6b6b6b fs-26">
           提示：请按照添加奖项的顺序添加
