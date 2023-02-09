@@ -124,6 +124,20 @@
         },
         {
           "name": "",
+          "pathName": "pages/commonTopics/commonTopics",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/participateInTheLottery/participateInTheLottery",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
           "pathName": "createRaffle/pages/loopDraw/loopDraw",
           "query": "",
           "launchMode": "default",
@@ -132,6 +146,13 @@
         {
           "name": "",
           "pathName": "createRaffle/pages/createRaffle/createRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/home/home",
           "query": "",
           "launchMode": "default",
           "scene": null

@@ -1,1 +1,217 @@
 /* pages/activitydetalis/activitydetalis.wxss */
+.activity-details {
+  background: rgba(28, 5, 58, 0.918);
+  min-height: 100vh;
+}
+
+.header image {
+  width: 100%;
+  height: 200rpx;
+  image-rendering: crisp-edges;
+}
+
+.listOfPrizes-box {
+  margin: 0 auto;
+  width: 95%;
+  border-radius: 15rpx;
+  background-color: rgba(245, 245, 245, 0.966);
+  padding: 30rpx 0;
+}
+
+.listofprizes-main{
+  margin:0 auto;
+  width:95%;
+  overflow:auto;
+  display: flex;
+  gap: 0 20rpx;
+}
+
+.listofprizes-titile {
+  background-color: rgb(241, 225, 177);
+  width: 50%;
+  padding: 20rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  text-align: center;
+  color: rgb(196, 68, 68);
+  font-weight: 600;
+}
+
+.listOfPrizes-item {
+  background-color: #ffffff;
+  margin: 40rpx auto;
+  border-radius: 10rpx;
+  gap: 0 30rpx;
+  display: flex;
+  padding:30rpx 20rpx;
+  align-items: center;
+}
+
+.listOfPrizes-item image {
+  width: 160rpx;
+  height: 180rpx;
+  border-radius: 15rpx;
+}
+
+.people-number_box {
+  background-color: rgb(241, 219, 151);
+  padding: 4rpx 10rpx;
+  font-size: 22rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  color: rgb(196, 68, 68);
+  align-items: center;
+}
+
+.shopinfo-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  width: 260rpx;
+  height: 100%;
+}
+
+.shop-number {
+  font-size: 26rpx;
+  color: rgb(238, 19, 19);
+  font-weight: 600;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.countdown-box {
+  margin: 40rpx auto;
+  width: 87%;
+  border-radius: 15rpx;
+  background-color: rgba(245, 245, 245, 0.966);
+  padding: 30rpx;
+}
+
+.countdown-titile {
+  background-color: rgb(241, 225, 177);
+  width: 50%;
+  padding: 20rpx;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  text-align: center;
+  color: rgb(196, 68, 68);
+  font-weight: 600;
+}
+
+.countdown-countent{
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+  color: rgb(224, 45, 45);
+  font-size: 24rpx;
+  align-items: flex-end;
+  gap: 0 10rpx;
+}
+
+.countdown-countent-active{
+  padding: 10rpx 20rpx;
+  background-color: rgb(223, 76, 19);
+  border-radius: 10rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+
+.raffle-button {
+  background-color: rgb(221, 221, 221);
+  width: 280rpx;
+  margin: 0 auto;
+  height: 270rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(228, 63, 63);
+  font-weight: 600;
+}
+
+.progress-box{
+  margin-top: 30rpx;
+}
+
+.progress-people{
+  font-size: 26rpx;
+  color: rgba(230, 110, 110, 0.904);
+}
+
+.ft-28{
+  font-size: 28rpx;
+}
+
+.ptm-80{
+  padding:80rpx 0;
+}
+
+.fc-173170{
+  color: rgb(173, 170, 170);
+}
+
+.ft-18{
+  font-size: 18rpx;
+}
+
+.foot{
+  text-align: center;
+  height: 160rpx;
+}
+
+.invitation-btn{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60rpx;
+  color: #db6464;
+  font-weight: 600;
+}
+
+.ft-22{
+  font-size: 22rpx;
+}
+
+@keyframes from-raffle{
+  20%{
+    margin-top: 10rpx;
+  }
+  40%{
+    margin-top: 20rpx;
+  }
+  60%{
+    margin-top: 30rpx;
+  }
+  80%{
+    margin-top: 40rpx;
+  }
+  100%{
+    margin-top: 50rpx;
+  }
+}
+
+.activity-rules{
+  position: fixed;
+  color: rgb(0, 0, 0);
+  right: 0;
+  top: 8%;
+  background-color: rgba(129, 129, 128, 0.548);
+  padding: 10rpx 10rpx;
+  border-radius: 15rpx 60rpx 60rpx 15rpx;
+  animation-name:from-raffle;
+  animation-duration: .6s;
+  animation-fill-mode:forwards;
+  font-size: 28rpx;
+}
+
+.raffle-box{
+  position: fixed;
+  background-color: #cf4242;
+  bottom: 0;
+   padding: 32rpx 0;
+   text-align: center;
+   color: #ffffff;
+   width: 100%;
+   font-size: 34rpx;
+}
