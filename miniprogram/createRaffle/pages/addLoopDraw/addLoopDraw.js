@@ -5,7 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
+    addLoopDraw:true,
+    deleteLoopDraw:true,
+    listLoopDraw:[
+      {
+        id:1,
+        periodsNumber:2,
+        status:'未开始',
+        startTime:'2023-02-13 10:00',
+        drawPrizeTime:'2023-02-20 10:00'
+      },
+      {
+        id:1,
+        periodsNumber:1,
+        status:'',
+        startTime:'2023-02-13 10:00',
+        drawPrizeTime:'2023-02-20 10:00'
+      },
+  ]
+  },
 
+  add(){
+    this.setData({
+      addLoopDraw:false
+    })
+  },
+  delete(id){
+    this.setData({
+      deleteLoopDraw:false
+    })
   },
 
   /**

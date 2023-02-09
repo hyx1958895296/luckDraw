@@ -1,2 +1,114 @@
-<!--createRaffle/pages/addLoopDraw/addLoopDraw.wxml-->
-<text>createRaffle/pages/addLoopDraw/addLoopDraw.wxml</text>
+<view class="add-loop-draw-box">
+  <view class="warp pd-60">
+    <view class="first-column add-third-stage" bindtap="add">
+      <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/add.png?sign=d4f1f3fad86374369dc992bc53facba0&t=1675912987" class="add_icon" mode="" />
+      <text class="picture-text-center">添加第三期</text>
+    </view>
+    <view class="mt-40 second-column">
+      <view class="flex-space-bet">
+        <view class="fz-44">
+          第 <text class="number-periods fz-44">2</text> 期
+        </view>
+        <view class="un-start">
+          未开始
+        </view>
+      </view>
+      <view class="fz-34 color-8e8e8e pd-48 flex-space-bet">
+        <view>
+          开始时间
+        </view>
+        <view>
+          2023-02-13 10:00
+        </view>
+      </view>
+      <view class="fz-34 color-8e8e8e pd-30 flex-space-bet">
+        <view>
+          开奖时间
+        </view>
+        <view>
+          2023-02-20 10:00
+        </view>
+      </view>
+    </view>
+    <view class="pd-36 query-detail">
+      <view bindtap="delete">
+        删除该期
+      </view>
+    </view>
+
+    <view class="mt-40 second-column">
+      <view class="flex-space-bet">
+        <view class="fz-44">
+          第 <text class="number-periods fz-44">1</text> 期
+        </view>
+        <view class="already-conduct">
+          进行中
+        </view>
+      </view>
+      <view class="fz-34 color-8e8e8e pd-48 flex-space-bet">
+        <view>
+          开始时间
+        </view>
+        <view>
+          2023-02-08 10:00
+        </view>
+      </view>
+      <view class="fz-34 color-8e8e8e pd-30 flex-space-bet">
+        <view>
+          开奖时间
+        </view>
+        <view>
+          2023-02-13 10:00
+        </view>
+      </view>
+    </view>
+    <view class="pd-36 query-detail">
+      <view bindtap="delete">
+        删除该期
+      </view>
+    </view>
+  </view>
+
+  <view class="model-box" wx:if="{{ deleteLoopDraw == false }}">
+    <view class="delete">
+      <view class="exit">
+        ×
+      </view>
+      <view class="ok-delete">
+        确认删除
+      </view>
+      <view class="delete-content">
+        删除后，不可恢复该期抽奖，确认删除吗?
+      </view>
+      <view class="btn">
+        <view class="cancle-btn">
+          取消
+        </view>
+        <view class="ok-delete-btn">
+          确认删除
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="model-box" wx:if="{{ addLoopDraw == false }}">
+    <view class="delete">
+      <view class="exit">
+        ×
+      </view>
+      <view class="ok-delete">
+        确认删除
+      </view>
+      <view class="delete-content">
+        删除后，不可恢复该期抽奖，确认删除吗?
+      </view>
+      <view class="btn">
+        <view class="cancle-btn">
+          取消
+        </view>
+        <view class="ok-delete-btn">
+          确认删除
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

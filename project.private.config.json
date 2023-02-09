@@ -144,8 +144,8 @@
           "scene": null
         },
         {
-          "name": "",
-          "pathName": "createRaffle/pages/loopDraw/loopDraw",
+          "name": "添加loopdraw",
+          "pathName": "createRaffle/pages/addLoopDraw/addLoopDraw",
           "query": "",
           "launchMode": "default",
           "scene": null
