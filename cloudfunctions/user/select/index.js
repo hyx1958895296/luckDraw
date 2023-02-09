@@ -16,7 +16,6 @@ let {
  let selectResult = await db.collection('userInfo').where({
   openid: OPENID,
 }).get();
-console.log(selectResult);
 if (selectResult.data.length) {
    return {
       status:1,
