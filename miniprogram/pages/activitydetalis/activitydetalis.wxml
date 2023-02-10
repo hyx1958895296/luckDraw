@@ -50,7 +50,7 @@
 
     <view class="progress-box">
      <text class="progress-people">距离500人的奖池进度：</text>
-      <progress backgroundColor="black" show-info activeColor="rgb(223, 76, 19)" percent="81" active stroke-width="10" />
+      <progress backgroundColor="black" show-info activeColor="rgb(223, 76, 19)" percent="99" active stroke-width="10" />
     </view>
 
     <view class="ft-28">

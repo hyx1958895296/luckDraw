@@ -7,6 +7,7 @@ const db = cloud.database();
 
 // 查询数据库集合云函数入口函数
 exports.main = async (event, context) => {
+  console.log(event);
   // 返回数据库查询结果
   let {
     OPENID
@@ -20,6 +21,8 @@ exports.main = async (event, context) => {
   let createResult = await db.collection("activity").add({
     data: event.activityInfo
   })
+  
+  console.log(createResult);
 
   if(createResult._id){
       res.status = 1;

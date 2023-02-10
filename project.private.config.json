@@ -184,6 +184,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/loopActivityDetails/loopActivityDetails",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

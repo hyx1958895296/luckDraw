@@ -16,10 +16,10 @@
       
       <!-- 头部积分 -->
        <view class="header-gold_box" data-to="/pages/home/home" bindtap="switchTab">
-         <view class="ft-30">{{userInfo.goldCoin}} 金币</view>
+         <view class="ft-30">{{userInfo.goldCoin}}9999 金币</view>
          <view class="header-exchange_box fc-173170">
           <text class="ft-25">去兑换奖品</text>
-          <image src="../../images/arrow-icon.png" mode=""/></view>
+          <image  src="../../images/arrow-icon.png" mode=""/></view>
        </view>
 
      </view>

@@ -6,7 +6,8 @@
     "pages/merchantAccess/merchantAccess",
     "pages/activitydetalis/activitydetalis",
     "pages/commonTopics/commonTopics",
-    "pages/participateInTheLottery/participateInTheLottery"
+    "pages/participateInTheLottery/participateInTheLottery",
+    "pages/loopActivityDetails/loopActivityDetails"
   ],
   "subpackages":[
     {
