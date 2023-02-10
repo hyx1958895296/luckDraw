@@ -2,7 +2,9 @@
 <View class="activity-details">
   
    <view class="activity-rules">
-     活动规则
+     <view>
+      活动规则
+     </view>
    </view>
 
   <view class="header">
@@ -50,11 +52,11 @@
 
     <view class="progress-box">
      <text class="progress-people">距离500人的奖池进度：</text>
-      <progress backgroundColor="black" show-info activeColor="rgb(223, 76, 19)" percent="99" active stroke-width="10" />
+      <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{people/500*100}}" active stroke-width="10" />
     </view>
 
     <view class="ft-28">
-      已经有<text>{{500*0.81}}</text>人参加了活动
+      已经有<text>{{people}}</text>人参加了活动
      </view>
 
      <view class="invitation-btn">
@@ -68,7 +70,7 @@
   </view>
 
   <view class="raffle-button_box">
-    <view class="raffle-button">
+    <view class="raffle-button" bindtap="luckDraw">
       参与抽奖
     </view>
   </view>

@@ -1,2 +1,40 @@
-<!--home/pages/userHobby/userHobby.wxml-->
-<text>home/pages/userHobby/userHobby.wxml</text>
+<view class="user-hobby pt-20">
+  <view class="warp">
+    <view class="ad warp-radius pb-60">
+      <view class="flex-end fs-34  pt-30 mr-30 c-b5b5b5">
+        跳过
+      </view>
+      <view class="ad-title fb fs-46 mt-90">
+        让我们更了解你，推荐更精准
+      </view>
+    </view>
+    <view class=" pb-40  mb-20 ml-30 mr-30">
+      <view class="option-title c-gray mb-20 fs-38 fb">
+        选择性别
+      </view>
+      <view class="flex-sb">
+        <view class="sex-item flex-cen fs-30 pt-30 pb-30 pl-70 pr-60 mr-10 female-box">
+          <image src="../../../images/icon-avatar_female.png" mode="" class="icon-female mr-10" />
+          我是女的
+        </view>
+        <view class="sex-item flex-cen fs-30 pt-30 pb-30 pl-70 pr-60">
+          <image src="../../../images/icon-avatar_male.png" mode="" class="icon-male mr-10" />
+          我是男的
+        </view>
+      </view>
+    </view>
+    <view class="mt-20 mb-20 ml-30 mr-30">
+      <view class="option-title c-gray mb-20 fs-38 fb">
+        选择兴趣
+      </view>
+      <view class="flex-column" wx:for="{{hobbyArr}}" wx:key="index">
+        <view class="hobby-item  mb-20 fs-30 pt-30 pb-30 pl-60 star-box">
+          <image src="{{item.iconUrl}}" mode="" class="icon-hobby mr-10" />
+          {{item.title}}
+        </view>
+        <view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

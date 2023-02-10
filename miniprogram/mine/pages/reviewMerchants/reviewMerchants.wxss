@@ -1,1 +1,59 @@
-/* mine/pages/reviewMerchants/reviewMerchants.wxss */
+.pl-40{
+  padding-left: 40rpx;
+}
+.shopper-list{
+  height: 100vh;
+  background-color: #fcfcfc;
+}
+.title{
+  padding: 32rpx 20rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.hr{
+  border-top: 6rpx solid #e9e9e9;
+}
+.shopper-list-item{
+  padding: 40rpx 0rpx;
+  border-bottom: 6rpx solid #e9e9e9;
+  display: flex;
+  align-items: center;
+}
+.item-flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30rpx;
+}
+.item-image{
+  width: 186rpx;
+  height: 124rpx;
+}
+.right-flex{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.examine-failed{
+  padding: 8rpx;
+  background-color: crimson;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+}
+.examine-mid{
+  padding: 8rpx;
+  background-color: blue;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+}
+.examine-reviewed{
+  padding: 8rpx;
+  background-color: green;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+}

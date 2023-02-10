@@ -133,6 +133,7 @@
 .delete-content {
   font-size: 32rpx;
   padding: 40rpx 0;
+  text-align: center;
 }
 
 .btn {

@@ -4,6 +4,7 @@
   min-height: 100vh;
 }
 
+
 .header image {
   width: 98%;
   height: 200rpx;
@@ -31,6 +32,10 @@
   overflow:auto;
   display: flex;
   gap: 0 20rpx;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 .listofprizes-titile {
@@ -127,7 +132,7 @@
 .raffle-button {
   background-color: rgb(221, 221, 221);
   width: 280rpx;
-  margin: 0 auto;
+  margin:100rpx auto;
   height: 270rpx;
   border-radius: 50%;
   display: flex;
@@ -210,6 +215,8 @@
   animation-duration: .6s;
   animation-fill-mode:forwards;
   font-size: 28rpx;
+  color: white;
+
 }
 
 .raffle-box{

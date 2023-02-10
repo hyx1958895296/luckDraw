@@ -5,7 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    listItem:[
+      {
+        id:1,
+        itemImage:'../../../images/detailImage.png',
+        itemTitle:'商家1',
+        status:1,
+        itemdate:'2022-03-13'
+      },
+      {
+        id:2,
+        itemImage:'../../../images/detailImage.png',
+        itemTitle:'商家2',
+        status:2,
+        itemdate:'2022-03-13'
+      },
+      {
+        id:3,
+        itemImage:'../../../images/detailImage.png',
+        itemTitle:'商家3',
+        status:3,
+        itemdate:'2022-03-13'
+      },
+      {
+        id:4,
+        itemImage:'../../../images/detailImage.png',
+        itemTitle:'商家4',
+        status:1,
+        itemdate:'2022-03-13'
+      },
+      {
+        id:5,
+        itemImage:'../../../images/detailImage.png',
+        itemTitle:'商家',
+        status:2,
+        itemdate:'2022-03-13'
+      },
+    ]
   },
 
   /**
