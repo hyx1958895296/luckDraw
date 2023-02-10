@@ -1,1 +1,13 @@
-/* home/pages/userHobby/userHobby.wxss */
+.skip{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80rpx;
+}
+.wrap{
+  padding:0 20rpx;
+}
+.ad-text{
+  margin-top: 30rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+}
