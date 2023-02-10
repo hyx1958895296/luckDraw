@@ -1,2 +1,11 @@
-<!--home/pages/userHobby/userHobby.wxml-->
-<text>home/pages/userHobby/userHobby.wxml</text>
+<view class="user-hobby-box wrap">
+<view class="ad">
+  <view class="skip fs-34 c-b3b3b3">
+    跳过
+  </view>
+  <view class="ad-text">
+    让我们更了解你，推荐更精准
+  </view>
+</view>
+  
+</view>

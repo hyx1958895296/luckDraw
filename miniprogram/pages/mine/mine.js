@@ -124,6 +124,7 @@ Page({
       },
       success(res){
            if(res.result.status == 1){
+             console.log(res.result.data);
             _this.setData({
                userInfo:res.result.data
              })
