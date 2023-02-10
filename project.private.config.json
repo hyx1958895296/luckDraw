@@ -191,6 +191,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createLoopRaffle/createLoopRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/loopActivityDetails/loopActivityDetails",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

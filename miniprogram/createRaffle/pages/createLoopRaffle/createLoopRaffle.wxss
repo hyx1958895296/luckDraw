@@ -37,21 +37,6 @@
   border-bottom: 1rpx solid #f1f1f1;
 }
 
-
-.draw-item_active {
-  border: 1rpx solid #d12418 !important;
-  background-color: #d124182c;
-}
-
-.draw-item {
-  border-radius: 10rpx;
-  border: 1rpx solid #9e9e9e;
-}
-
-.input-box {
-  gap: 10rpx;
-}
-
 .weui-input {
   width: 230rpx;
   text-align: right;

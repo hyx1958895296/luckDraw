@@ -4,7 +4,7 @@
       <view class="fw-700 fs-36">
         循环开奖时间设置
       </view>
-      <view class="c-d12418 fs-26">
+      <view class="c-d12418 fs-26" bindtap="navigateto" data-to="/createRaffle/pages/loopDrawDetalis/loopDrawDetalis">
         什么是循环开奖？
       </view>
     </view>

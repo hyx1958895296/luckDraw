@@ -6,7 +6,8 @@
     "pages/merchantAccess/merchantAccess",
     "pages/activitydetalis/activitydetalis",
     "pages/commonTopics/commonTopics",
-    "pages/participateInTheLottery/participateInTheLottery"
+    "pages/participateInTheLottery/participateInTheLottery",
+    "pages/loopActivityDetails/loopActivityDetails"
   ],
   "subpackages":[
     {
@@ -14,6 +15,7 @@
       "pages": [
         "pages/createRaffleType/createRaffleType",
         "pages/createRaffle/createRaffle",
+        "pages/createLoopRaffle/createLoopRaffle",
         "pages/drawMode/drawMode",
         "pages/loopDraw/loopDraw",
         "pages/drawRule/drawRule",
@@ -33,7 +35,8 @@
       "root": "home",
       "pages": [
         "pages/sign",
-        "pages/shop/detail"
+        "pages/shop/detail",
+        "pages/userHobby/userHobby"
       ]
     }
   ],
