@@ -83,9 +83,9 @@ Page({
 
   // 跳转
   navigateto(e) {
-    console.log(e)
+    console.log(e);
     wx.navigateTo({
-      url: e.currentTarget.dataset.to + '?id=12',
+      url: `/pages/activitydetalis/activitydetalis?id=${e.currentTarget.dataset.to._id}`,
     })
   },
 
@@ -98,7 +98,7 @@ Page({
         type: 'select'
       },
       success: res => {
-        console.log(res);
+        console.log( 'res' , res);
         this.setData({
           activityList: res.result.data,
           isLoaded: true

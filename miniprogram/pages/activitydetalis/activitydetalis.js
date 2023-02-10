@@ -5,14 +5,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-   isListofprizes:false
+   isListofprizes:false,
+   people:498,
+   activityId:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+     this.data.activityId = options.id; 
+  },
+
+  luckDraw(){
+    console.log(this.data.activityId);
+    wx.cloud.callFunction({
+      name:"raffleRecord",
+      data:{
+        type:"create",
+        raffleRecordInfo:{
+          activityId:this.data.activityId
+        }
+      },
+       success(res){
+               if(res.result.status == 1){
+                    wx.showToast({
+                      title: res.result.msg,
+                      icon:"success"
+                    })
+               }else{
+                wx.showToast({
+                  title: res.result.msg,
+                  icon:"success"
+                })
+               }
+       }
+    })
   },
 
   showListofprizes(){
