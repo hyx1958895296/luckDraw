@@ -87,7 +87,7 @@
               <image class="img-box" src="{{from[item].img}}" mode="" />
             </view>
           </view>
-        </view>
+        </view> 
         <view class="p-30 c-6b6b6b fs-26">
           提示：请按照添加奖项的顺序添加
         </view>
