@@ -15,8 +15,11 @@
         <view class="examine-failed" wx:if="{{shopperItem.status == 1}}">
           未审核
         </view>
-        <view class="examine-reviewed" wx:else>
-          {{ shopperItem.status == 2 ? '审核中' : '审核过' }}
+        <view class="examine-mid" wx:if = "{{ shopperItem.status == 2 }}">
+          审核中
+        </view>
+        <view class="examine-reviewed" wx:if="{{shopperItem.status == 3}}">
+          审核过
         </view>
       </view>
       <view>
