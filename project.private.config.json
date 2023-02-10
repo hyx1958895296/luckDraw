@@ -186,6 +186,20 @@
           "scene": null
         },
         {
+          "name": "商家列表",
+          "pathName": "mine/pages/reviewMerchants/reviewMerchants",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createLoopRaffle/createLoopRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "",
           "pathName": "pages/loopActivityDetails/loopActivityDetails",
           "query": "",

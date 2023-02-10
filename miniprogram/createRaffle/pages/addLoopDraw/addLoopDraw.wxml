@@ -96,17 +96,22 @@
         ×
       </view>
       <view class="ok-delete">
-        确认删除
+        添加第8期
       </view>
       <view class="delete-content">
-        删除后，不可恢复该期抽奖，确认删除吗?
+        <view>
+          开始时间：2023-03-20
+        </view>
+        <view>
+          开奖时间：2023-03-20
+        </view>
       </view>
       <view class="btn">
         <view class="cancle-btn">
           取消
         </view>
         <view class="ok-delete-btn">
-          确认删除
+          确认添加
         </view>
       </view>
     </view>

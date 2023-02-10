@@ -1,2 +1,27 @@
-<!--mine/pages/reviewMerchants/reviewMerchants.wxml-->
-<text>mine/pages/reviewMerchants/reviewMerchants.wxml</text>
+<view class="shopper-list">
+  <view class="title">
+    商家列表
+  </view>
+  <view class="hr"></view>
+  <view class="warp shopper-list-item" wx:for="{{ listItem }}" wx:for-item="shopperItem" wx:key="shopItem.id">
+    <view class="item-image">
+      <image src="{{ shopperItem.itemImage }}" class="item-image" mode="" />
+    </view>
+    <view class="right-flex">
+      <view class="item-flex-column">
+        <view>
+          {{ shopperItem.itemTitle }}
+        </view>
+        <view class="examine-failed" wx:if="{{shopperItem.status == 1}}">
+          未审核
+        </view>
+        <view class="examine-reviewed" wx:else>
+          {{ shopperItem.status == 2 ? '审核中' : '审核过' }}
+        </view>
+      </view>
+      <view>
+        {{ shopperItem.itemdate }}
+      </view>
+    </view>
+  </view>
+</view>
