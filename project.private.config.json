@@ -144,8 +144,8 @@
           "scene": null
         },
         {
-          "name": "",
-          "pathName": "createRaffle/pages/loopDraw/loopDraw",
+          "name": "添加loopdraw",
+          "pathName": "createRaffle/pages/addLoopDraw/addLoopDraw",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -188,6 +188,13 @@
         {
           "name": "",
           "pathName": "createRaffle/pages/createLoopRaffle/createLoopRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/loopActivityDetails/loopActivityDetails",
           "query": "",
           "launchMode": "default",
           "scene": null

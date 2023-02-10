@@ -222,3 +222,30 @@
    width: 100%;
    font-size: 34rpx;
 }
+
+.loop-activity_box{
+  display: flex;
+  gap: 15rpx;
+  margin-top: 25rpx;
+}
+.loop-activity_item{
+  display: flex;
+  flex-direction: column;
+  gap:8rpx;
+  background-color: rgba(218, 218, 218, 0.74);
+  border-radius: 15rpx;
+  padding: 35rpx 25rpx;
+  align-items: center;
+  font-size: 23rpx;
+  color: #756f6f;
+}
+
+.activity-item_active{
+  color: rgb(223, 78, 78);
+  font-size: 23rpx;
+  background-color: rgba(236, 160, 160, 0.575);
+}
+
+.fw-600{
+  font-weight: 600;
+}
