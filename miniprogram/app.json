@@ -35,7 +35,8 @@
       "root": "home",
       "pages": [
         "pages/sign",
-        "pages/shop/detail"
+        "pages/shop/detail",
+        "pages/userHobby/userHobby"
       ]
     }
   ],
