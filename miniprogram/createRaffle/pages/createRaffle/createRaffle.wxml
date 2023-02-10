@@ -10,7 +10,7 @@
             <text class="c-d12418">*</text>
           </view>
           <view>
-            <input class="weui-input" type="digit" placeholder="请填写活动名称" />
+            <input class="weui-input" type="digit" bindinput="bindKeyInputName" placeholder="请填写活动名称" />
           </view>
         </view>
         <view class="hang p-30 flex-sb">
@@ -156,7 +156,7 @@
       </view>
     </view>
     <view class="nav p-20 bg-ffffff">
-      <view class="btn p-30 c-ffffff flex-c">
+      <view class="btn p-30 c-ffffff flex-c" bindtap="create">
         发起抽奖
       </view>
     </view>
