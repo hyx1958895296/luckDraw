@@ -60,6 +60,10 @@ view {
 .fs-30 {
   font-size: 30rpx;
 }
+.fs-34 {
+  font-size: 34rpx;
+}
+
 
 .fs-36 {
   font-size: 36rpx;
