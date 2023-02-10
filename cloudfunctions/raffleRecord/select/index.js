@@ -26,13 +26,8 @@ exports.main = async (event, context) => {
    if(selectResult.data.length){
           res.msg = "已参加过此活动"
    }else{
-    let createResult = await db.collection("raffleRecord").add({
-      data: event.raffleRecordInfo
-    })
-    if(createResult._id){
-        res.status = 1;
-        res.msg = "参与抽奖成功"
-    }
+       res.status = 1;
+       res.msg = "该活动可以参加";
    }
  
   return res;

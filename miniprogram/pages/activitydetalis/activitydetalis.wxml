@@ -70,7 +70,7 @@
   </view>
 
   <view class="raffle-button_box">
-    <view class="raffle-button" bindtap="luckDraw">
+    <view class="{{isLuckDraw == false ? 'raffle-button_none' : 'raffle-button'}}" bindtap="luckDraw">
       参与抽奖
     </view>
   </view>
