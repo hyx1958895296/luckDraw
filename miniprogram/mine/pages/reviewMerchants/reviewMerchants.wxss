@@ -36,7 +36,24 @@
   justify-content: space-around;
   align-items: center;
 }
-.examine{
-  padding: 5rpx;
-  border: 2rpx solid red;
+.examine-failed{
+  padding: 8rpx;
+  background-color: crimson;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+}
+.examine-mid{
+  padding: 8rpx;
+  background-color: blue;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
+}
+.examine-reviewed{
+  padding: 8rpx;
+  background-color: green;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: white;
 }

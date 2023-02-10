@@ -11,7 +11,7 @@
       </view>
       <view class="align-center">
         <image src="../../images/luck-draw.png" class="item-icon" mode="" />
-        <view>参加活动</view>
+        <view>参加活动1</view>
       </view>
       <view class="align-center-8">
         <view class="integral">19</view>
