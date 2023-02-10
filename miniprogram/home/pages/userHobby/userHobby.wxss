@@ -1,8 +1,7 @@
 .ad {
-  background-image: url(https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230210163536.jpg?sign=7137701441fa5af2fecd8b76d35f1497&t=1676019868);
+  background-image: url(https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E5%B7%A6%E4%B8%8A%E8%A7%92%E4%B8%A4%E4%B8%AA%E7%90%83.png?sign=c39b245936023741bbb0274f8db14950&t=1676037769);
   background-repeat: no-repeat;
-  background-size: contain;
-  object-fit: cover;
+  background-size: 50%;
 }
 
 .wrap {
@@ -124,4 +123,7 @@
 .flex-end {
   display: flex;
   justify-content: flex-end;
+}
+.pb-60{
+  padding-bottom: 60rpx;
 }

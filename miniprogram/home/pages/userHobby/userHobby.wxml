@@ -1,6 +1,6 @@
 <view class="user-hobby pt-20">
   <view class="warp">
-    <view class="ad warp-radius">
+    <view class="ad warp-radius pb-60">
       <view class="flex-end fs-34  pt-30 mr-30 c-b5b5b5">
         跳过
       </view>
@@ -8,7 +8,7 @@
         让我们更了解你，推荐更精准
       </view>
     </view>
-    <view class="pt-40 pb-40 mt-20 mb-20 ml-30 mr-30">
+    <view class=" pb-40  mb-20 ml-30 mr-30">
       <view class="option-title c-gray mb-20 fs-38 fb">
         选择性别
       </view>
