@@ -184,6 +184,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "createRaffle/pages/createLoopRaffle/createLoopRaffle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
