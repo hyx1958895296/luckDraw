@@ -57,7 +57,8 @@ Page({
               _this.setData({
                 userInfo: res.userInfo,
                 hasUserInfo: true
-              })
+              });
+              console.log(_this.data.userInfo);
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();

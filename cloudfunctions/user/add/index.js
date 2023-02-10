@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
     openid: OPENID,
   }).get();
   if (!selectResult.data.length) {
+      event.userInfo.avatarUrl = "cloud://wllyun-dev-3gxie2dud70a3acf.776c-wllyun-dev-3gxie2dud70a3acf-1316269736/avator.png";
       event.userInfo.goldCoin = 0;
       await db.collection("userInfo").add({
       data: event.userInfo
