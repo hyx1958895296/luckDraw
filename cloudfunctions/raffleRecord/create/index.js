@@ -26,6 +26,10 @@ exports.main = async (event, context) => {
    if(selectResult.data.length){
           res.msg = "已参加过此活动"
    }else{
+     if(!event.raffleRecordInfo.activityId) {
+       res.msg = "活动id为空";
+       return;
+     }
     let createResult = await db.collection("raffleRecord").add({
       data: event.raffleRecordInfo
     })
