@@ -31,6 +31,18 @@ Page({
       url: '/home/pages/sign',
     })
   },
+  //跳转参加活动页面
+  navToActivity(e){
+    wx.switchTab({
+      url: '/pages/activity/activity',
+    })
+  },
+  //跳转商家入驻页面
+  navToMerchantAccess(e){
+    wx.navigateTo({
+      url: '/pages/merchantAccess/merchantAccess',
+    })
+  },
   //跳转商品详情页
   navToDetail(id){
     // let _this = this;
@@ -66,6 +78,7 @@ Page({
           this.setData({
             tabListData :res.result.data,
           })
+          console.log(res);
         }
     })
   },

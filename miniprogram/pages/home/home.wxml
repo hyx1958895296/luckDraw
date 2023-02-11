@@ -5,11 +5,11 @@
         <image src="../../images/qd.png" class="item-icon" mode="" />
         <view>每日签到</view>
       </view>
-      <view class="align-center">
+      <view class="align-center"  bindtap="navToMerchantAccess">
         <image src="../../images/shopperzhu.png" class="item-icon" mode="" />
         <view>商家入驻</view>
       </view>
-      <view class="align-center">
+      <view class="align-center" bindtap="navToActivity">
         <image src="../../images/add-active.png" class="item-icon" mode="" />
         <view>参加活动</view>
       </view>
@@ -26,7 +26,7 @@
   </view>
   <view wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
     <view class="main warp">
-      <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
+      <image src="../../images/get-more-score.png" class="get-more_score" mode="aspectFill" bindtap="navagitorToActivity" />
       <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
         <view class="shop-item-picture">
           <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />

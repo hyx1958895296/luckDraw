@@ -52,7 +52,7 @@
 
 .integral {
   font-size: 44rpx;
-  font-weight: 600;
+  font-weight: 800;
   color: #ff7f00;
 }
 
@@ -172,6 +172,7 @@
 .get-more_score {
   height: 270rpx;
   width: 330rpx;
+  border-radius: 10rpx;
   display: flex;
   align-items: flex-start;
   margin-bottom: 30rpx;
