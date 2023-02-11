@@ -13,17 +13,22 @@ Page({
   },
 
   handleTabChange(e) {
-    let { current } = e.target.dataset;
-    if (this.data.currentTab == current || current === undefined) return;
+    console.log(e)
+    // let { current } = e.target.dataset.current;
+    // if (this.data.currentTab == current || current === undefined) return;
     this.setData({
-      currentTab: current,
+      currentTab: e.target.dataset.current,
     });
+    this.getShopList(e.target.dataset.id)
+
   },
   handleSwiperChange(e) {
     this.setData({
       currentTab: e.detail.current,
     });
     this.getScrollLeft();
+    console.log(e);
+    this.getShopList(this.data.tabListData[e.detail.current]._id)
   },
   getScrollLeft() {
     const query = wx.createSelectorQuery();
@@ -97,36 +102,35 @@ Page({
   },
 
   //获取类目接口
-  getCategray(){
-    wx.cloud.callFunction({
+ async getCategray(){
+   const res = await wx.cloud.callFunction({
       name:'category',
        data:{
          type:'select'
         },
-        success:res=>{
-          console.log(res)
-          this.setData({
-            tabListData :res.result.data,
-          })
-          console.log(res);
-        }
-    })
+      })
+      this.setData({
+        tabListData :res.result.data,
+      })
   },
 
   //调用商品列表接口
-  getShopList(categoryId){
-    wx.cloud.callFunction({
-      name:'shop',
-      data:{
-        type:'select',
-        categoryId:categoryId
-      },
-      success:res=>{
-        this.setData({
-          shopList:res.result.data
-        })
-      }
-    })
+  async getShopList(categoryId){
+    const res = await wx.cloud.callFunction({
+        name:'shop',
+        data:{
+          type:'select',
+          categoryId:categoryId
+        },
+        // success:res=>{
+        //   this.setData({
+        //     shopList:res.result.data
+        //   })
+        // }
+      })
+      this.setData({
+        shopList:res.result.data
+      })
   },
 
   //商品详情接口
@@ -148,15 +152,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getCategray();
+  async onLoad(options) {
+    await this.getCategray();
+    console.log(this.data.tabListData);
+    await this.getShopList(this.data.tabListData[0]._id);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
   },
 
   /**
