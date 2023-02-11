@@ -25,10 +25,6 @@
   border-radius: 30rpx;
 }
 
-.btn-warp{
-  /* margin-top: ; */
-}
-
 .btn{
   align-items: center;
   width: 80vw !important;
