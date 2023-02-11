@@ -15,8 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
-     this.data.activityId = options.id; 
+     this.data.activityId = options.id;
      this.isLuckDraw();
   
   },
@@ -47,7 +46,13 @@ Page({
 
   luckDraw(){
    let _this = this;
-   if(!this.data.isLuckDraw) return;
+   if(!this.data.isLuckDraw) {
+     wx.showToast({
+       title: '你已经参加过此活动',
+       icon:"none"
+     })
+     return;
+   };
     wx.cloud.callFunction({
       name:"raffleRecord",
       data:{
@@ -68,7 +73,7 @@ Page({
                }else{
                 wx.showToast({
                   title: res.result.msg,
-                  icon:"success"
+                  icon:"error"
                 })
                }
        }
