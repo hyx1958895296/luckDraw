@@ -1,11 +1,14 @@
-/* components/activity/activityItem.wxss */
-
 
 .flex-jl {
   display: flex;
   justify-content: left;
   align-items: center;
   gap: 10rpx;
+}
+
+.activity-name{
+  font-size: 34rpx;
+  font-weight: 700;
 }
 
 .grid {
@@ -35,13 +38,13 @@
 }
 
 .title {
-  font-size: 32rpx;
-  
+  font-size: 30rpx;
   padding: 10rpx 0 4rpx;
+  color: #808080;
 }
 
 .user-w {
-  padding: 20rpx 36rpx;
+  padding: 10rpx 36rpx 20rpx;
 }
 
 .activity-type {
