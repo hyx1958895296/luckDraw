@@ -1,5 +1,5 @@
 <!--pages/activity/activity.wxml-->
-<view class="activity">
+<view class="activity bg-f2f2f2">
   <view>
     <view class="nav-box">
       <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
@@ -12,7 +12,7 @@
   <view wx:if="{{showId == 1}}">
     <view class="activity-warp warp pt-20" wx:if="{{isLoaded}}">
       <view class="flex-column activity-all plr-20 mt-20">
-        <activity class="activity-item" wx:for="{{activityList}}" wx:key="index" activity="{{item}}" bindtap="navigateto" data-to="{{item}}">
+        <activity class="activity-item" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
           <btn class="activity-btn" type="{{item.joinType}}"></btn>
         </activity>
       </view>
