@@ -118,6 +118,10 @@ view {
   margin-top: 60rpx;
 }
 
+.mt-80 {
+  margin-top: 80rpx;
+}
+
 .plr-20 {
   padding: 0 20rpx;
 }

@@ -13,11 +13,8 @@ Component({
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
-      console.log(this.data.activityInfo);
       let startTime = this.handleTime(this.data.activityInfo.startTimeStamp);
       let endTime = this.handleTime(this.data.activityInfo.endTimeStamp);
-      console.log(startTime);
-      console.log(endTime);
       this.setData({
         startTime: startTime,
         endTime: endTime

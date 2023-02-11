@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopDetail:[]
+    shopDetail:{}
   },
   //回到顶部
   srollViewTop(e){
@@ -45,17 +45,26 @@ Page({
   },
    //商品详情接口
    getShopDetail(detailId){
+    console.log(111);
     wx.cloud.callFunction({
       name:"shop",
       data:{
         type:'details',
         shopId:detailId
       },success:res=>{
+        // console.log(res);
+        // console.log(this);
+        // this.data.shopDetail=res.result.data;
+        // console.log(this.data.shopDetail);
+        // console.log(res.result.data);
         this.setData({
           shopDetail:res.result.data
         })
+        console.log(this.data.shopDetail);
+        // console.log(res);
       }
     })
+    console.log(1111);
   },
 
   /**

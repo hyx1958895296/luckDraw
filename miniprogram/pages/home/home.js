@@ -7,14 +7,44 @@ Page({
   data: {
     shopList:[],
     tabListData:[],
+    currentTab: 0,
+    sleft: "", //横向滚动条位置
+    list: [1, 2, 3, 4, 5, 6, 7, 22, 32],//测试列表
   },
 
-  hr(shopId){
-    this.getShopList(shopId.currentTarget.dataset.id);
+  handleTabChange(e) {
+    let { current } = e.target.dataset;
+    if (this.data.currentTab == current || current === undefined) return;
     this.setData({
-      id:shopId.currentTarget.dataset.id
-    })
+      currentTab: current,
+    });
   },
+  handleSwiperChange(e) {
+    this.setData({
+      currentTab: e.detail.current,
+    });
+    this.getScrollLeft();
+  },
+  getScrollLeft() {
+    const query = wx.createSelectorQuery();
+    query.selectAll(".item").boundingClientRect();
+    query.exec((res) => {
+      let num = 0;
+      for (let i = 0; i < this.data.currentTab; i++) {
+        num += res[0][i].width;
+      }
+      this.setData({
+        sleft: Math.ceil(num),
+      });
+    });
+  },
+
+  // hr(shopId){
+  //   this.getShopList(shopId.currentTarget.dataset.id);
+  //   this.setData({
+  //     id:shopId.currentTarget.dataset.id
+  //   })
+  // },
 
   //微信签到跳转
   signIn(){
@@ -29,6 +59,18 @@ Page({
   navToSign(e){
     wx.navigateTo({
       url: '/home/pages/sign',
+    })
+  },
+  //跳转参加活动页面
+  navToActivity(e){
+    wx.switchTab({
+      url: '/pages/activity/activity',
+    })
+  },
+  //跳转商家入驻页面
+  navToMerchantAccess(e){
+    wx.navigateTo({
+      url: '/pages/merchantAccess/merchantAccess',
     })
   },
   //跳转商品详情页
@@ -66,6 +108,7 @@ Page({
           this.setData({
             tabListData :res.result.data,
           })
+          console.log(res);
         }
     })
   },
