@@ -5,49 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabList:[{
-      id:1,
-      title:"未开奖",
-    },{
-      id:2,
-      title:"已开始",
+    tabList: [{
+      id: 1,
+      title: "未开奖",
+    }, {
+      id: 2,
+      title: "已开始",
     }],
-    showId:1,
-    activityList: [
-      // {
-      //   commodityImgPath: '../../images/test-activity.png',
-      //   details: '参与抽奖就有机会获得iPhone14一台',
-      //   business: '小鹿韩餐',
-      //   startTime: '2024/2/3/22:00',
-      //   endTime: '2024/2/5/22:00',
-      //   avatorPath: '../../images/avator.png',
-      //   activityType: '助力',
-      //   joinType: '0'
-
-      // },
-      // {
-      //   commodityImgPath: '../../images/test-activity.png',
-      //   details: '参与抽奖就有机会获得iPhone14一台',
-      //   business: '小鹿韩餐',
-      //   startTime: '2023/1/31/22:00',
-      //   endTime: '2023/2/1/22:00',
-      //   avatorPath: '../../images/avator.png',
-      //   activityType: '助力',
-      //   joinType: '1'
-
-      // },
-      // {
-      //   commodityImgPath: '../../images/test-activity.png',
-      //   details: '参与抽奖就有机会获得iPhone14一台',
-      //   business: '小鹿韩餐',
-      //   startTime: '2023/1/31/10:00',
-      //   endTime: '2024/2/5/22:00',
-      //   avatorPath: '../../images/avator.png',
-      //   activityType: '助力',
-      //   joinType: '0'
-
-      // },
-    ],
+    showId: 1,
+    activityList: [],
     activityFrist: {
       commodityImgPath: '../../images/test-activity.png',
       details: '参与抽奖就有机会获得iPhone14一台',
@@ -60,10 +26,6 @@ Page({
     },
     // 优化首次进入时页面闪烁
     isLoaded: false,
-    // articleDetails:{
-    //   subscription:1000,
-    //   likes:2000,
-    // }
   },
 
   /**
@@ -75,9 +37,9 @@ Page({
     // this.getFristActivity(this.data.activityList)
   },
 
-  tabFn(e){
+  tabFn(e) {
     this.setData({
-      showId:e.target.dataset.item.id,
+      showId: e.target.dataset.item.id,
     })
   },
 
@@ -91,14 +53,13 @@ Page({
 
   // get活动列表
   getActivityList() {
-    console.log(1);
     wx.cloud.callFunction({
       name: 'activity',
       data: {
         type: 'select'
       },
       success: res => {
-        console.log( 'res' , res);
+        console.log('res', res);
         this.setData({
           activityList: res.result.data,
           isLoaded: true
@@ -106,15 +67,6 @@ Page({
       }
     })
   },
-
-  // 获取即将开始的活动
-  // getFristActivity () {
-  //   params = params.sort((a,b)=>Number(a.startTime.split('/')[0]) - Number(b.startTime.split('/')[0]))
-  //   .sort((a,b)=>Number(a.startTime.split('/')[1]) - Number(b.startTime.split('/')[1]))
-  //   // .sort((a,b)=>Number(a.startTime.split('/')[2]) - Number(b.startTime.split('/')[2]))
-  //   console.log(params[0].startTime.split('/'));
-  //   console.log(params)
-  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

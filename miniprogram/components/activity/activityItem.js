@@ -1,24 +1,23 @@
-// components/activity/activityItem.js
 Component({
   /**
    * 组件的属性列表
    */
   // 父组件的参数
   properties: {
-    activity: Object
+    activityInfo: Object
   },
+
+
+
 
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
-      console.log(this.data.activity.startTime);
-      let tiem = this.data.activity.startTime.slice(0, 4) + '年' +
-        (this.data.activity.startTime.slice(5, 7).replace(/^0/, '')) + '月'+
-        (this.data.activity.startTime.slice(8,10).replace(/^0/, ''))+'日'+
-        (this.data.activity.startTime.slice(11,19)).replace(/^0/,'')+'开始';
-      console.log(tiem)
+      let startTime = this.handleTime(this.data.activityInfo.startTimeStamp);
+      let endTime = this.handleTime(this.data.activityInfo.endTimeStamp);
       this.setData({
-        startTime: tiem
+        startTime: startTime,
+        endTime: endTime
       })
 
     },
@@ -27,17 +26,32 @@ Component({
     },
   },
 
+
   /**
    * 组件的初始数据
    */
   data: {
     startTime: '',
+    endTime: ''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    handleTime(time) {
+      let newTime = new Date(time).getFullYear() +
+        '年' +
+        (new Date(time).getMonth() + 1) +
+        '月' +
+        new Date(time).getDate() +
+        '日' +
+        new Date(time).getHours() +
+        '点' +
+        new Date(time).getMinutes() +
+        '分';
 
+      return newTime
+    },
   },
 })

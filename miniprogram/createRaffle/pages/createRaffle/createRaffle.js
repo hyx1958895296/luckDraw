@@ -7,6 +7,10 @@ Page({
   data: {
     // 活动名称
     activityName: '',
+    // 用户头像
+    avatarUrl: '',
+    // 用户头像
+    storeName: '',
     // 月 日 时 分  当天往后30天
     multiArray: [],
     multiIndex: [0, 0, 0],
@@ -43,6 +47,7 @@ Page({
   onLoad(options) {
     this.time();
     this.endTime();
+    this.getUserInfo()
     console.log(options)
   },
 
@@ -150,20 +155,25 @@ Page({
     let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
     let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
     let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
+    let yearEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
+    let monthEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
+    let dayEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
+    let timeStampEnd = new Date(yearEnd + '-' + monthEnd + '-' + dayEnd).getTime();
     this.setData({
-      startTimeStamp:timeStamp
+      endTimeStamp: timeStampEnd,
+      startTimeStamp: timeStamp
     });
   },
   bindMultiPickerChangeEnd(e) {
     this.setData({
       multiIndexEnd: e.detail.value
     });
-    let year = this.data.multiArray[0][e.detail.value[0]].split('年', )[0];
-    let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
-    let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
+    let year = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
+    let month = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
+    let day = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
     let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
     this.setData({
-      endTimeStamp:timeStamp
+      endTimeStamp: timeStamp
     });
   },
 
@@ -323,28 +333,60 @@ Page({
       }
     };
     if (isCreate) {
-      this.createActivity()
+      // 调用发起活动的接口
+      this.createActivity();
+
     }
   },
 
   // 创建活动接口
   createActivity(options) {
-    console.log(111)
     wx.cloud.callFunction({
       name: "activity",
       data: {
         type: "create",
         activityInfo: {
+          storeName: this.data.storeName,
+          avatarUrl: this.data.avatarUrl,
           activityName: this.data.activityName,
-          startTimeStamp:this.data.startTimeStamp,
-          endTimeStamp:this.data.endTimeStamp,
-          activityCover:this.data.replaceImg,
-          prizelist:this.data.from,
+          startTimeStamp: this.data.startTimeStamp,
+          endTimeStamp: this.data.endTimeStamp,
+          activityCover: this.data.replaceImg,
+          prizelist: this.data.from,
         }
       },
       success(res) {
-        console.log(res);
         console.log('创建了活动');
+        wx.showToast({
+          title: '发起成功！',
+          icon: 'success',
+          duration: 2000
+        });
+
+        setTimeout(() => {
+          // 创建成功跳转到活动页面
+          wx.switchTab({
+            url: '/pages/activity/activity',
+          })
+        }, 2000);
+      }
+    })
+  },
+
+  // 获取用户信息
+  getUserInfo() {
+    let _this = this;
+    wx.cloud.callFunction({
+      name: 'user',
+      data: {
+        type: 'select',
+      },
+      success(res) {
+        console.log(res);
+        _this.setData({
+          avatarUrl: res.result.data.avatarUrl,
+          storeName: res.result.data.nickName,
+        })
       }
     })
   },
