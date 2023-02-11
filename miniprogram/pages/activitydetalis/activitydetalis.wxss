@@ -129,6 +129,19 @@
   font-size: 30rpx;
 }
 
+.raffle-button_none{
+  background-color: rgb(221, 221, 221);
+  width: 280rpx;
+  margin:100rpx auto;
+  height: 270rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(136, 134, 134);
+  font-weight: 600;
+}
+
 .raffle-button {
   background-color: rgb(221, 221, 221);
   width: 280rpx;
@@ -138,7 +151,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(228, 63, 63);
+  color: rgb(199, 92, 92);
   font-weight: 600;
 }
 

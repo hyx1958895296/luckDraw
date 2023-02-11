@@ -7,18 +7,47 @@ Page({
   data: {
    isListofprizes:false,
    people:498,
-   activityId:""
+   activityId:"",
+   isLuckDraw:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    
      this.data.activityId = options.id; 
+     this.isLuckDraw();
+  
+  },
+
+  isLuckDraw(){
+    let _this = this;
+    wx.cloud.callFunction({
+      name:"raffleRecord",
+      data:{
+        type:"select",
+        raffleRecordInfo:{
+          activityId:this.data.activityId
+        }
+      },
+       success(res){
+               if(res.result.status == 1){
+                _this.setData({
+                  isLuckDraw:true
+                })
+               }else{
+                _this.setData({
+                  isLuckDraw:false
+                })
+               }
+       }
+    })
   },
 
   luckDraw(){
-    console.log(this.data.activityId);
+   let _this = this;
+   if(!this.data.isLuckDraw) return;
     wx.cloud.callFunction({
       name:"raffleRecord",
       data:{
@@ -29,6 +58,9 @@ Page({
       },
        success(res){
                if(res.result.status == 1){
+                _this.setData({
+                  isLuckDraw:false
+                })
                     wx.showToast({
                       title: res.result.msg,
                       icon:"success"

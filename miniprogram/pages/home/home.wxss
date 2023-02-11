@@ -53,6 +53,7 @@
 .integral {
   font-size: 44rpx;
   font-weight: 600;
+  color: #ff7f00;
 }
 
 .get-more-points {
@@ -146,7 +147,7 @@
 
 .list-warp {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 20rpx;
   font-size: 30rpx;

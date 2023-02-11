@@ -2,16 +2,16 @@
   <view class="wrap header">
     <view class="container-header">
       <view class="align-center" bindtap="navToSign">
-        <image src="../../images/qd_icon.png" class="item-icon" mode="" />
+        <image src="../../images/qd.png" class="item-icon" mode="" />
         <view>每日签到</view>
       </view>
       <view class="align-center">
-        <image src="../../images/red_envelope.png" class="item-icon" mode="" />
+        <image src="../../images/shopperzhu.png" class="item-icon" mode="" />
         <view>商家入驻</view>
       </view>
       <view class="align-center">
-        <image src="../../images/luck-draw.png" class="item-icon" mode="" />
-        <view>参加活动1</view>
+        <image src="../../images/add-active.png" class="item-icon" mode="" />
+        <view>参加活动</view>
       </view>
       <view class="align-center-8">
         <view class="integral">19</view>
@@ -20,14 +20,14 @@
     </view>
   </view>
   <view class="list-warp p-20 mt-40">
-    <view open-type="switchTab" wx:for="{{ tabListData }}" hover-class="other-navigator-hover" bindtap="hr"  data-es="{{ item._id }}" data-index="{{index}}" class="{{index == current ? 'hhh' :''}}">
-      {{ item.title }}
+    <view open-type="switchTab" bindtap="hr" wx:for="{{ tabListData }}" wx:for-item="tabItem" wx:key="_id" data-id="{{ tabItem._id }}" class="hhh">
+      {{ tabItem.title }}
     </view>
   </view>
   <view wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
     <view class="main warp">
       <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
-      <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem._id" bindtap="navToDetail">
+      <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
         <view class="shop-item-picture">
           <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
           <view></view>
