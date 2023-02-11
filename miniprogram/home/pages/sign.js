@@ -10,14 +10,38 @@ Page({
       score:20
     },
   },
-
+  getUserProfile() {
+    let _this = this;
+    if (this.data.hasUserInfo) return;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting["scope.userInfo"]) {
+          wx.getUserProfile({
+            desc: '用户授权',
+            success: (res) => {
+              _this.setData({
+                userInfo: res.userInfo,
+                hasUserInfo: true
+              });
+              wx.showToast({
+                title: '登录成功',
+                mask:true,
+                duration:2000,
+              })
+            }
+          })
+        } else {
+          wx.openSetting();
+        }
+      }
+    })
+  },
   //日历逻辑
     // 切换月 设置已签到的日期
   handleChangeMonth(event) {
   	// 传过来的日期格式为 2022/6
     let yearMonth = event.detail.date
     let list = []
-
     this.setData({
       signedList: list
     })
