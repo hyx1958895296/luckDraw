@@ -5,7 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hobbyArr:[
+      {
+        id:1,
+        iconUrl:'../../../images/icon-star.png',
+        title:'明星粉圈'
+      },
+      {
+        id:2,
+        iconUrl:'../../../images/icon-film.png',
+        title:'影视'
+      },
+      {
+        id:3,
+        iconUrl:'../../../images/icon-musical.png',
+        title:'音乐'
+      },
+      {
+        id:4,
+        iconUrl:'../../../images/icon-parental.png',
+        title:'亲子'
+      },
 
+    ]
   },
 
   /**

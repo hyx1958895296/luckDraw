@@ -96,6 +96,7 @@
 .header-bottom{
   display: flex;
   padding:40rpx;
+
   justify-content:space-around ;
 }
 
@@ -103,8 +104,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15rpx 0;
+  gap:6rpx 0;
   font-size: 28rpx;
+}
+
+.header-bottom_item image{
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .fw-600{

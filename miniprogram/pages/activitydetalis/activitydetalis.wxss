@@ -4,6 +4,7 @@
   min-height: 100vh;
 }
 
+
 .header image {
   width: 98%;
   height: 200rpx;
@@ -31,6 +32,10 @@
   overflow:auto;
   display: flex;
   gap: 0 20rpx;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 .listofprizes-titile {
@@ -124,16 +129,29 @@
   font-size: 30rpx;
 }
 
-.raffle-button {
+.raffle-button_none{
   background-color: rgb(221, 221, 221);
   width: 280rpx;
-  margin: 0 auto;
+  margin:100rpx auto;
   height: 270rpx;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(228, 63, 63);
+  color: rgb(136, 134, 134);
+  font-weight: 600;
+}
+
+.raffle-button {
+  background-color: rgb(221, 221, 221);
+  width: 280rpx;
+  margin:100rpx auto;
+  height: 270rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(199, 92, 92);
   font-weight: 600;
 }
 
@@ -210,6 +228,8 @@
   animation-duration: .6s;
   animation-fill-mode:forwards;
   font-size: 28rpx;
+  color: white;
+
 }
 
 .raffle-box{

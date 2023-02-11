@@ -8,7 +8,7 @@
          <view><image src="{{userInfo.avatarUrl}}" mode=""/></view>
          <view class="header-name_box">
          <view class="ft-35" >{{userInfo.nickName}}</view>
-         <view class="header-level_box">
+         <view class="header-level_box" wx:if="{{hasUserInfo}}">
             <text class="fc-255">白银会员</text>
          </view>
          </view>
@@ -28,7 +28,7 @@
       <view class="header-bottom">
         <view class="header-bottom_item" data-to="/pages/participateInTheLottery/participateInTheLottery" bindtap="navigateto">
           <view class="fw-600">
-            36
+            <image src="../../images/icon-prize_mine.png" mode=""/>
           </view>
           <view class="ft-25">
             参与抽奖
@@ -38,7 +38,7 @@
       <view class="border"></view>
         <view class="header-bottom_item">
           <view class="fw-600">
-            19
+            <image src="../../images/icon-record_mine.png" mode=""/>
           </view>
           <view class="ft-25">
             中奖记录
@@ -49,7 +49,7 @@
 
         <view class="header-bottom_item">
           <view class="fw-600">
-            22
+            <image src="../../images/icon-exchange_mine.png" mode=""/>
           </view>
           <view class="ft-25">
             兑换记录

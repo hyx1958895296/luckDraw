@@ -31,6 +31,10 @@ Page({
       prizeCount: '',
       img: ''
     }],
+    // 开始时间戳
+    startTimeStamp: '',
+    // 结束时间戳
+    endTimeStamp: '',
   },
 
   /**
@@ -136,16 +140,30 @@ Page({
   bindMultiPickerChange(e) {
     this.setData({
       multiIndex: e.detail.value
-    })
+    });
     this.endTime(this.data.multiIndex[0] + 1);
     this.setData({
       isEnd: false,
       isStart: true,
-    })
+    });
+    let year = this.data.multiArray[0][e.detail.value[0]].split('年', )[0];
+    let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
+    let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
+    let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
+    this.setData({
+      startTimeStamp:timeStamp
+    });
   },
   bindMultiPickerChangeEnd(e) {
     this.setData({
       multiIndexEnd: e.detail.value
+    });
+    let year = this.data.multiArray[0][e.detail.value[0]].split('年', )[0];
+    let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
+    let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
+    let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
+    this.setData({
+      endTimeStamp:timeStamp
     });
   },
 
@@ -313,13 +331,20 @@ Page({
   createActivity(options) {
     console.log(111)
     wx.cloud.callFunction({
-      name:"activity",
-      data:{
-        type:"create"
+      name: "activity",
+      data: {
+        type: "create",
+        activityInfo: {
+          activityName: this.data.activityName,
+          startTimeStamp:this.data.startTimeStamp,
+          endTimeStamp:this.data.endTimeStamp,
+          activityCover:this.data.replaceImg,
+          prizelist:this.data.from,
+        }
       },
-      success(res){
-          console.log(res);
-          console.log('创建了活动');
+      success(res) {
+        console.log(res);
+        console.log('创建了活动');
       }
     })
   },

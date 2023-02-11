@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-   isListofprizes:false
+   isListofprizes:false,
+   people:498,
+   activityId:"",
+   isLuckDraw:true
   },
 
   /**
@@ -13,6 +16,63 @@ Page({
    */
   onLoad(options) {
     
+     this.data.activityId = options.id; 
+     this.isLuckDraw();
+  
+  },
+
+  isLuckDraw(){
+    let _this = this;
+    wx.cloud.callFunction({
+      name:"raffleRecord",
+      data:{
+        type:"select",
+        raffleRecordInfo:{
+          activityId:this.data.activityId
+        }
+      },
+       success(res){
+               if(res.result.status == 1){
+                _this.setData({
+                  isLuckDraw:true
+                })
+               }else{
+                _this.setData({
+                  isLuckDraw:false
+                })
+               }
+       }
+    })
+  },
+
+  luckDraw(){
+   let _this = this;
+   if(!this.data.isLuckDraw) return;
+    wx.cloud.callFunction({
+      name:"raffleRecord",
+      data:{
+        type:"create",
+        raffleRecordInfo:{
+          activityId:this.data.activityId
+        }
+      },
+       success(res){
+               if(res.result.status == 1){
+                _this.setData({
+                  isLuckDraw:false
+                })
+                    wx.showToast({
+                      title: res.result.msg,
+                      icon:"success"
+                    })
+               }else{
+                wx.showToast({
+                  title: res.result.msg,
+                  icon:"success"
+                })
+               }
+       }
+    })
   },
 
   showListofprizes(){

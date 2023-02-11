@@ -12,6 +12,7 @@ exports.main = async (event, context) => {
   let {
     OPENID
   } = cloud.getWXContext();
+  console.log(OPENID);
   let res = {
     status:0,
     msg:"发起抽奖失败，请重试",

@@ -55,8 +55,8 @@
             （如不上传则使用下方默认封面）
           </view>
         </view>
-        <view class="replace c-ffffff fs-26 flex-c" >
-          <image class="icon" src="../../../images/icon-picture.png" mode="" />
+        <view class="replace c-ffffff fs-26 flex-c"  bindtap="upImage" >
+          <image class="icon"  src="../../../images/icon-picture.png" mode="" />
           点击更换
         </view>
         <view class="gifts-warp p-30" bindtap="upImage">
