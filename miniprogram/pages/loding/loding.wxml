@@ -1,0 +1,19 @@
+<view class="loding">
+  <view id="cssLoader" class="main-wrap">
+  <view class="child-common child1"></view>
+  <view class="child-common child2"></view>
+  <view class="child-common child3"></view>
+  <view class="child-common child4"></view>
+  <view class="child-common child5"></view>
+  <view class="child-common child6"></view>
+  <view class="child-common child7"></view>
+  <view class="child-common child8"></view>
+  <view class="child-common child9"></view>
+  <view class="child-common child10"></view>
+</view>
+<view>
+  拼命加载中....
+</view>
+</view>
+
+

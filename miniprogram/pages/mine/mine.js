@@ -42,7 +42,8 @@ Page({
       goldCoin:0
     },
     hasUserInfo: false,
-    examineStatus: ""
+    examineStatus: "",
+    isLoding:false
   },
 
   getUserProfile() {
@@ -54,18 +55,26 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
+             
               _this.data.userInfo = res.userInfo;
               _this.setData({
-                hasUserInfo: true
+                hasUserInfo: true,
+                isLoding:true
               });
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
-              wx.showToast({
-                title: '登录成功',
-                mask:true,
-                duration:2000,
-              })
+              let loding = setTimeout(()=>{
+                _this.setData({
+                  isLoding:false
+                })
+                clearTimeout(loding);
+                wx.showToast({
+                  title: '登录成功',
+                  mask:true,
+                  duration:2000,
+                });
+              },1800);
             }
           })
         } else {
