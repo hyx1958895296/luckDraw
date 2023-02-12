@@ -51,7 +51,7 @@ Page({
       },
       success: res => {
         console.log('res', res.result.data[50]);
-        this.countDown(res.result.data[50].endTimeStamp);
+        // this.countDown(res.result.data[50].endTimeStamp);
         this.setData({
           activityList: res.result.data,
           isLoaded: true
@@ -81,30 +81,30 @@ Page({
 
   // },
 
-  tow(n) {
-    return n >= 0 && n < 10 ? '0' + n : '' + n;
-  },
-  // 倒计时
-  countDown(endTime) {
-    // 活动时间的秒数
-    let second = Math.floor((endTime - new Date().getTime()) / 1000);
-    // console.log('second', second);
-    // 一天的秒数是86400 活动时间的秒数 / 86400 = 活动时间的天数
-    let day = Math.floor(second / 86400);
-    //余数代表剩下的秒数；
-    second = second % 86400;
-    //整数部分代表小时；
-    let hour = Math.floor(second / 3600);
-    //余数代表 剩下的秒数；
-    second %= 3600;
-    var minute = Math.floor(second / 60);
-    second %= 60;
-    let str = this.tow(day) + '天' +
-      this.tow(hour) + '小时' +
-      this.tow(minute) + '分钟' +
-      this.tow(second) + '秒';
-    console.log(str)
-  },
+  // tow(n) {
+  //   return n >= 0 && n < 10 ? '0' + n : '' + n;
+  // },
+  // // 倒计时
+  // countDown(endTime) {
+  //   // 活动时间的秒数
+  //   let second = Math.floor((endTime - new Date().getTime()) / 1000);
+  //   // console.log('second', second);
+  //   // 一天的秒数是86400 活动时间的秒数 / 86400 = 活动时间的天数
+  //   let day = Math.floor(second / 86400);
+  //   //余数代表剩下的秒数；
+  //   second = second % 86400;
+  //   //整数部分代表小时；
+  //   let hour = Math.floor(second / 3600);
+  //   //余数代表 剩下的秒数；
+  //   second %= 3600;
+  //   var minute = Math.floor(second / 60);
+  //   second %= 60;
+  //   let str = this.tow(day) + '天' +
+  //     this.tow(hour) + '小时' +
+  //     this.tow(minute) + '分钟' +
+  //     this.tow(second) + '秒';
+  //   console.log(str)
+  // },
 
 
   /**
@@ -116,14 +116,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    let _this = this;
-    _this.data.timer = setInterval(() => {
-      _this.countDown(_this.data.activityList[50].endTimeStamp)
-    }, 1000)
+    // let _this = this;
+    // _this.data.timer = setInterval(() => {
+    //   _this.countDown(_this.data.activityList[50].endTimeStamp)
+    // }, 1000)
 
-    _this.setData({
-      timer: _this.data.timer
-    })
+    // _this.setData({
+    //   timer: _this.data.timer
+    // })
 
   },
 
@@ -131,10 +131,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-    clearInterval(this.data.timer);
-    this.setData({
-      timer: null
-    });
+    // clearInterval(this.data.timer);
+    // this.setData({
+    //   timer: null
+    // });
   },
 
   /**
