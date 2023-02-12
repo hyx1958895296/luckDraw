@@ -3,14 +3,14 @@
     商家列表
   </view>
   <view class="hr"></view>
-  <view class="warp shopper-list-item" wx:for="{{ listItem }}" wx:for-item="shopperItem" wx:key="shopItem.id">
+  <view class="warp shopper-list-item" wx:for="{{ businuessList }}" wx:for-item="shopperItem" wx:key="shopItem._id">
     <view class="item-image">
-      <image src="{{ shopperItem.itemImage }}" class="item-image" mode="" />
+      <image src="{{ shopperItem.printingLicenceUrl }}" class="item-image" mode="" />
     </view>
     <view class="right-flex">
       <view class="item-flex-column">
         <view>
-          {{ shopperItem.itemTitle }}
+          {{ shopperItem.storeName }}
         </view>
         <view class="examine-failed" wx:if="{{shopperItem.status == 1}}">
           未审核
@@ -23,7 +23,8 @@
         </view>
       </view>
       <view>
-        {{ shopperItem.itemdate }}
+        <!-- {{ shopperItem.itemdate }} -->
+        2033-20-03
       </view>
     </view>
   </view>

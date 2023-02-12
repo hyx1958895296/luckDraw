@@ -1,2 +1,3 @@
-<!--mine/pages/MerchantDetails/MerchantDetails.wxml-->
-<text>mine/pages/MerchantDetails/MerchantDetails.wxml</text>
+<view class="review-merchant-detail-box">
+  
+</view>
