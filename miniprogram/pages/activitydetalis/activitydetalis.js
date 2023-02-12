@@ -5,92 +5,109 @@ Page({
    * 页面的初始数据
    */
   data: {
-   isListofprizes:false,
-   people:498,
-   activityId:"",
-   isLuckDraw:true
+    isListofprizes: false,
+    people: 498,
+    activityId: "",
+    isLuckDraw: true,
+    activityInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-     this.data.activityId = options.id;
-     this.isLuckDraw();
-  
+    this.data.activityId = options.id;
+    this.isLuckDraw();
+    this.getActivityDetails();
   },
 
-  isLuckDraw(){
+  getActivityDetails() {
     let _this = this;
     wx.cloud.callFunction({
-      name:"raffleRecord",
-      data:{
-        type:"select",
-        raffleRecordInfo:{
-          activityId:this.data.activityId
-        }
-      },
-       success(res){
-               if(res.result.status == 1){
-                _this.setData({
-                  isLuckDraw:true
-                })
-               }else{
-                _this.setData({
-                  isLuckDraw:false
-                })
-               }
-       }
+      name: "activity",
+      data: {
+        type: "detail",
+        activityId: this.data.activityId
+      }, success(res) {
+        console.log(res);
+        _this.setData({
+          activityInfo:res.result.data
+        })
+      }
     })
   },
 
-  luckDraw(){
-   let _this = this;
-   if(!this.data.isLuckDraw) {
-     wx.showToast({
-       title: '你已经参加过此活动',
-       icon:"none"
-     })
-     return;
-   };
+  isLuckDraw() {
+    let _this = this;
     wx.cloud.callFunction({
-      name:"raffleRecord",
-      data:{
-        type:"create",
-        raffleRecordInfo:{
-          activityId:this.data.activityId
+      name: "raffleRecord",
+      data: {
+        type: "select",
+        raffleRecordInfo: {
+          activityId: this.data.activityId
         }
       },
-       success(res){
-               if(res.result.status == 1){
-                _this.setData({
-                  isLuckDraw:false
-                })
-                    wx.showToast({
-                      title: res.result.msg,
-                      icon:"success"
-                    })
-               }else{
-                wx.showToast({
-                  title: res.result.msg,
-                  icon:"error"
-                })
-               }
-       }
+      success(res) {
+        if (res.result.status == 1) {
+          _this.setData({
+            isLuckDraw: true
+          })
+        } else {
+          _this.setData({
+            isLuckDraw: false
+          })
+        }
+      }
     })
   },
 
-  showListofprizes(){
-    if(this.data.isListofprizes){
+  luckDraw() {
+    let _this = this;
+    if (!this.data.isLuckDraw) {
+      wx.showToast({
+        title: '你已经参加过此活动',
+        icon: "none"
+      })
+      return;
+    };
+    wx.cloud.callFunction({
+      name: "raffleRecord",
+      data: {
+        type: "create",
+        raffleRecordInfo: {
+          activityId: this.data.activityId
+        }
+      },
+      success(res) {
+        if (res.result.status == 1) {
+          _this.setData({
+            isLuckDraw: false
+          })
+          wx.showToast({
+            title: res.result.msg,
+            icon: "success"
+          })
+        } else {
+          wx.showToast({
+            title: res.result.msg,
+            icon: "error"
+          })
+        }
+      }
+    })
+  },
+
+  showListofprizes() {
+    if (this.data.isListofprizes) {
       this.setData({
-        isListofprizes:false
-       })
-    }else{
+        isListofprizes: false
+      })
+    } else {
       this.setData({
-        isListofprizes:true
-       })
+        isListofprizes: true
+      })
     }
-    
+
   },
 
   /**

@@ -18,13 +18,13 @@
 
    <view class="listofprizes-main">
 
-    <view class="listOfPrizes-item">
+    <view class="listOfPrizes-item" wx:for="{{activityInfo.prizelist}}" wx:key="index">
       <view>
-        <image src="../../images/test-activity.png" mode="" />
+        <image src="{{item.img}}" mode="" />
       </view>
       <view class="shopinfo-box">
-        <view><text class="people-number_box">满1000人</text> 苹果1苹果14Pro苹果14Pro</view>
-          <view class="shop-number">数量：1份</view>
+        <view><text class="people-number_box">满{{item.peopleCount}}人</text> {{activityName}}</view>
+          <view class="shop-number">数量：{{prizeCount}}份</view>
       </view>
     </view>
 
