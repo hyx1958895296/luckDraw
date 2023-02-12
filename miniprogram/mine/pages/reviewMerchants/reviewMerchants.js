@@ -1,54 +1,31 @@
 // mine/pages/reviewMerchants/reviewMerchants.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    listItem:[
-      {
-        id:1,
-        itemImage:'../../../images/detailImage.png',
-        itemTitle:'商家1',
-        status:1,
-        itemdate:'2022-03-13'
-      },
-      {
-        id:2,
-        itemImage:'../../../images/detailImage.png',
-        itemTitle:'商家2',
-        status:2,
-        itemdate:'2022-03-13'
-      },
-      {
-        id:3,
-        itemImage:'../../../images/detailImage.png',
-        itemTitle:'商家3',
-        status:3,
-        itemdate:'2022-03-13'
-      },
-      {
-        id:4,
-        itemImage:'../../../images/detailImage.png',
-        itemTitle:'商家4',
-        status:1,
-        itemdate:'2022-03-13'
-      },
-      {
-        id:5,
-        itemImage:'../../../images/detailImage.png',
-        itemTitle:'商家',
-        status:2,
-        itemdate:'2022-03-13'
-      },
-    ]
+    businuessList:[],
   },
 
+
+  businuessListFn(){
+    wx.cloud.callFunction({
+          name:"business-info",
+          data:{
+            type:'select',
+          },success:res=>{
+            this.setData({
+              businuessList:res.result.data
+            })
+            console.log(res);
+          }
+        })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.businuessListFn();
   },
 
   /**

@@ -3,15 +3,16 @@
   background-repeat: no-repeat;
   background-size: 50%;
 }
-
-.wrap {
-  padding: 0 20rpx;
+.back{
+  float: left;
+  text-indent: 30rpx;
 }
-
 .ad-title {
   text-indent: 30rpx;
 }
-
+.skip{
+  float: right;
+}
 .sex-item {
   border: rgb(234, 234, 234) 6rpx solid;
   border-radius: 16rpx;
@@ -38,6 +39,16 @@
   height: 50rpx;
 }
 
+.sex-active_female {
+  background-color: rgb(255, 154, 154);
+  color: black;
+}
+
+.sex-active_male {
+  background-color: rgba(167, 237, 255, 0.568);
+  color: black;
+}
+
 .pt-30 {
   padding-top: 30rpx;
 }
@@ -48,6 +59,9 @@
 
 .pb-40 {
   padding-bottom: 40rpx;
+}
+.pb-10{
+  padding-bottom: 10rpx;
 }
 
 .c-b5b5b5 {
@@ -103,7 +117,10 @@
 }
 
 .pl-70 {
-  padding-left: 60rpx;
+  padding-left: 70rpx;
+}
+.pr-70{
+  padding-right: 70rpx;
 }
 
 .pr-60 {
@@ -124,6 +141,54 @@
   display: flex;
   justify-content: flex-end;
 }
-.pb-60{
+
+.pb-60 {
   padding-bottom: 60rpx;
+}
+
+.pl-20 {
+  padding-left: 20rpx;
+}
+
+.pr-20 {
+  padding-right: 20rpx;
+}
+
+.fc-868686 {
+  color: #868686;
+}
+/* .icon-checked{
+  width: 40rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 0rpx;
+  top:0rpx;
+} */
+.hobby-list{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 54rpx;
+}
+.hobby-item{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.save{
+  position: fixed;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d12418;
+}
+.hobby-item_active{
+  background-color: #fa4a3d;
+  color: #ffffff;
 }
