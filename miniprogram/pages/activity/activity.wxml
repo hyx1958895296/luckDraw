@@ -16,6 +16,7 @@
   </view>
 
   <view wx:if="{{showId == 2}}">
+    <image src="" mode="" />
   </view>
 
 
