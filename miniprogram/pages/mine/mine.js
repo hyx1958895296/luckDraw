@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const app = getApp();
 Page({
 
   /**
@@ -63,6 +64,7 @@ Page({
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
+              app.globalData.isLoding = true;
               let loding = setTimeout(()=>{
                 _this.setData({
                   isLoding:false

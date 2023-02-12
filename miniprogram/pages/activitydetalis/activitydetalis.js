@@ -1,4 +1,5 @@
 // pages/activitydetalis/activitydetalis.js
+const app = getApp();
 Page({
 
   /**
@@ -9,7 +10,7 @@ Page({
     activityId: "",
     isLuckDraw: true,
     activityInfo:{},
-    isLoding:true
+    isLoding:true,
   },
 
   /**
@@ -45,6 +46,7 @@ Page({
 
   isLuckDraw() {
     let _this = this;
+    if(!app.globalData.isLoding) return;
     wx.cloud.callFunction({
       name: "raffleRecord",
       data: {
@@ -67,8 +69,48 @@ Page({
     })
   },
 
+  addUserInfo(){
+    wx.cloud.callFunction({
+      name:"user",
+      data:{
+        type:"add",
+        userInfo:this.data.userInfo
+      }
+    })
+  },
+
+  isLogin() {
+    let _this = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting["scope.userInfo"]) {
+          wx.getUserProfile({
+            desc: '用户授权',
+            success: (res) => {
+              _this.data.userInfo = res.userInfo;
+              app.globalData.isLoding = true;
+              _this.addUserInfo();
+              _this.isLuckDraw();
+              wx.showToast({
+                title: '登录成功',
+                mask:true,
+                duration:2000,
+              });
+            }
+          })
+        } else {
+          wx.openSetting();
+        }
+      }
+    })
+  },
+
   luckDraw() {
     let _this = this;
+    if(!app.globalData.isLoding){
+       this.isLogin();
+       return;
+    }
     if (!this.data.isLuckDraw) {
       wx.showToast({
         title: '你已经参加过此活动',
