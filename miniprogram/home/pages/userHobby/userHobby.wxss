@@ -13,6 +13,9 @@
 .skip{
   float: right;
 }
+.option-title{
+  font-weight: bold;
+}
 .sex-item {
   border: rgb(234, 234, 234) 6rpx solid;
   border-radius: 16rpx;
@@ -52,7 +55,22 @@
 .pt-30 {
   padding-top: 30rpx;
 }
-
+.pt-pb_30{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.pl-pr_60{
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+.mt-mb_20{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.ml-mr-30{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
 .pt-40 {
   padding-top: 40rpx;
 }
@@ -156,6 +174,9 @@
 
 .fc-868686 {
   color: #868686;
+}
+.c-red{
+  color: red;
 }
 /* .icon-checked{
   width: 40rpx;

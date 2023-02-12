@@ -5,14 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    businessDetail:[]
+  },
 
+  getBusinessDetail(){
+    wx.cloud.callFunction({
+      name:"business-info",
+      data:{
+        type:'select',
+      },success:res=>{
+        this.setData({
+          businessDetail:res.result.data
+        })
+        console.log(res);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getBusinessDetail()
   },
 
   /**

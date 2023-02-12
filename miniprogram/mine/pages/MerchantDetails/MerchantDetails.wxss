@@ -1,1 +1,61 @@
 /* mine/pages/MerchantDetails/MerchantDetails.wxss */
+.item {
+  display: flex;
+  gap: 30rpx;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 40rpx 35rpx;
+  font-size: 30rpx;
+  align-items: center;
+}
+
+
+
+.item-title{
+  width: 20%;
+}
+
+.item image {
+  height: 130rpx;
+  width: 140rpx;
+  image-rendering:crisp-edges;
+}
+
+.printing image{
+  height: 190rpx;
+  width:200rpx;
+  image-rendering:crisp-edges;
+}
+
+.merchantAccess {
+  background-color: rgba(245, 243, 243, 0.603);
+  min-height: 100vh;
+}
+
+.form {
+  background-color: white;
+  height: 80vh;
+}
+
+.address{
+  font-size: 28rpx;
+  color: rgb(85, 82, 82);
+  font-weight: 600;
+}
+
+.flex-around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.approved{
+  padding: 15rpx;
+  background-color: aqua;
+  border-radius:10rpx;
+}
+
+.no-approved{
+  padding: 15rpx;
+  background-color: gray;
+  border-radius:10rpx;
+}

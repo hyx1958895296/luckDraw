@@ -1,5 +1,6 @@
 <!--pages/activitydetalis/activitydetalis.wxml-->
-<View class="activity-details">
+<loding wx:if="{{isLoding}}"></loding>
+<view wx:else class="activity-details">
 
   <view class="activity-rules">
     <view>
@@ -8,7 +9,7 @@
   </view>
 
   <view class="header">
-    <image src="../../images/banner.png" mode="" />
+    <image src="{{activityInfo.activityCover}}" mode="" />
   </view>
 
   <view class="listOfPrizes-box">
@@ -55,7 +56,7 @@
     </view>
   </view>
 
-  <view class="raffle-box">
+  <view class="raffle-box" bindtap="luckDraw">
     点击参与抽奖
   </view>
 
@@ -71,4 +72,4 @@
       超过2亿人使用的免费抽奖平台
     </view>
   </view>
-</View>
+</view>
