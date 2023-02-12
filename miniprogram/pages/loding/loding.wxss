@@ -1,0 +1,108 @@
+/*loader1 css begins*/
+.loding{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  gap: 30rpx;
+  font-size: 34rpx;
+}
+
+.main-wrap {
+  display: flex;
+  justify-content:center;
+  align-items:center;    
+}
+
+#cssLoader.main-wrap .child-common
+{
+  width: 8px;
+  height: 50px;
+  /*margin-right:5px;*/
+  margin-right:3px;
+  background-color: rgb(238, 116, 116);
+  -webkit-animation: animate1 1.2s infinite;
+  animation: animate1 1.2s infinite;
+  float: left;
+}
+
+#cssLoader.main-wrap .child1
+{
+ margin-right: 3px;
+} 
+
+#cssLoader.main-wrap .child10
+{
+-webkit-animation-delay: 0.9s;
+animation-delay: 0.9s;  
+}
+
+#cssLoader.main-wrap .child9
+{
+ -webkit-animation-delay: 0.8s;
+animation-delay: 0.8s;  
+}
+
+#cssLoader.main-wrap .child8
+{
+ -webkit-animation-delay: 0.7s;
+animation-delay: 0.7s;  
+}
+
+#cssLoader.main-wrap .child7
+{
+ -webkit-animation-delay: 0.6s;
+animation-delay: 0.6s;  
+}
+
+#cssLoader.main-wrap .child6
+{
+ -webkit-animation-delay: 0.5s;
+animation-delay: 0.5s;  
+}
+
+#cssLoader.main-wrap .child5
+{
+ -webkit-animation-delay: 0.4s;
+animation-delay: 0.4s;
+}
+
+#cssLoader.main-wrap .child4
+{
+ -webkit-animation-delay: 0.3s;
+animation-delay: 0.3s;    
+}
+
+#cssLoader.main-wrap .child3
+{
+ -webkit-animation-delay: 0.2s;
+animation-delay: 0.2s;  
+}
+
+#cssLoader.main-wrap .child2
+{
+ -webkit-animation-delay: 0.1s;
+animation-delay: 0.1s;
+}
+
+@-webkit-keyframes animate1 {
+
+50% {
+  -ms-transform: scaleY(0); 
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+
+}
+}
+
+@keyframes animate1 {
+50% {
+  -ms-transform: scaleY(0); 
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+}
+}
+/*loader1 css ends*/
+
+

@@ -1,11 +1,11 @@
 <!--pages/activitydetalis/activitydetalis.wxml-->
 <View class="activity-details">
-  
-   <view class="activity-rules">
-     <view>
+
+  <view class="activity-rules">
+    <view>
       活动规则
-     </view>
-   </view>
+    </view>
+  </view>
 
   <view class="header">
     <image src="../../images/banner.png" mode="" />
@@ -16,31 +16,21 @@
       奖品列表
     </view>
 
-   <view class="listofprizes-main">
+    <view class="listofprizes-main">
 
-    <view class="listOfPrizes-item" wx:for="{{activityInfo.prizelist}}" wx:key="index">
-      <view>
-        <image src="{{item.img}}" mode="" />
+      <view class="listOfPrizes-item" wx:for="{{activityInfo.prizelist}}" wx:key="index                            ">
+        <view>
+          <image src="{{item.img}}" mode="" />
+        </view>
+        <view class="shopinfo-box">
+          <view><text class="people-number_box">满{{item.peopleCount}}人</text> {{item.prizeName}}</view>
+          <view class="shop-number">数量：{{item.prizeCount}}份</view>
+        </view>
       </view>
-      <view class="shopinfo-box">
-        <view><text class="people-number_box">满{{item.peopleCount}}人</text> {{activityName}}</view>
-          <view class="shop-number">数量：{{prizeCount}}份</view>
-      </view>
+
     </view>
-
-    <view class="listOfPrizes-item">
-      <view>
-        <image src="../../images/test-activity.png" mode="" />
-      </view>
-      <view class="shopinfo-box">
-        <view><text class="people-number_box">满1000人</text> 苹果14Pro苹果14Pro苹果14Pro</view>
-          <view class="shop-number">数量：1份</view>
-      </view>
-    </view>
-
-   </view>
   </view>
- 
+
 
   <view class="countdown-box">
     <view class="countdown-titile">
@@ -51,18 +41,18 @@
     </view>
 
     <view class="progress-box">
-     <text class="progress-people">距离500人的奖池进度：</text>
+      <text class="progress-people">距离500人的奖池进度：</text>
       <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{people/500*100}}" active stroke-width="10" />
     </view>
 
     <view class="ft-28">
       已经有<text>{{people}}</text>人参加了活动
-     </view>
+    </view>
 
-     <view class="invitation-btn">
-        <view>邀请好友参加抽奖活动</view>
-        <view class="ft-22">（邀请好友越多中奖概率越高）</view>
-     </view>
+    <view class="invitation-btn">
+      <view>邀请好友参加抽奖活动</view>
+      <view class="ft-22">（邀请好友越多中奖概率越高）</view>
+    </view>
   </view>
 
   <view class="raffle-box">
@@ -76,9 +66,9 @@
   </view>
 
   <view class="foot ptm-80 fc-173170">
-      <text>—— 活动抽奖 —— </text>
-      <view class="ft-18 mt-10">
-        超过2亿人使用的免费抽奖平台
-      </view>
+    <text>—— 活动抽奖 —— </text>
+    <view class="ft-18 mt-10">
+      超过2亿人使用的免费抽奖平台
     </view>
+  </view>
 </View>

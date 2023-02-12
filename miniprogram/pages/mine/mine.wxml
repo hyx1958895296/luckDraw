@@ -1,5 +1,6 @@
 <!--pages/mine/mine.wxml-->
-<view class="mine">
+<loding wx:if="{{isLoding}}"></loding>
+<view wx:else class="mine">
    <view class="header">
      <view class="header-top flex-between">
      
@@ -77,5 +78,4 @@
         超过2亿人使用的免费抽奖平台
       </view>
     </view>
-
 </view>
