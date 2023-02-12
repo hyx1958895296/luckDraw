@@ -12,18 +12,16 @@ exports.main = async (event, context) => {
   let {
     OPENID
   } = cloud.getWXContext();
-  console.log(OPENID);
   let res = {
     status:0,
     msg:"发起抽奖失败，请重试",
     data:[]
   }
   event.activityInfo.openid = OPENID;
+  console.log(event.activityInfo);
   let createResult = await db.collection("activity").add({
     data: event.activityInfo
   })
-  
-  console.log(createResult);
 
   if(createResult._id){
       res.status = 1;

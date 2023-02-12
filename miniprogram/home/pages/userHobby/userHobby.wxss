@@ -189,6 +189,6 @@
   background-color: #d12418;
 }
 .hobby-item_active{
-  background-color: rgb(181, 241, 186);
-  color: black;
+  background-color: #fa4a3d;
+  color: #ffffff;
 }
