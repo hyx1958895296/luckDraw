@@ -74,8 +74,7 @@ Page({
                   mask:true,
                   duration:2000,
                 });
-              },2000);
- 
+              },1800);
             }
           })
         } else {
