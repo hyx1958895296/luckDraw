@@ -6,7 +6,6 @@ Page({
    */
   data: {
     isListofprizes: false,
-    people: 498,
     activityId: "",
     isLuckDraw: true,
     activityInfo:{},
@@ -30,6 +29,7 @@ Page({
         type: "detail",
         activityId: this.data.activityId
       }, success(res) {
+        console.log(res);
         _this.setData({
           activityInfo:res.result.data
         })
@@ -93,6 +93,7 @@ Page({
             title: res.result.msg,
             icon: "success"
           })
+          _this.getActivityDetails();
         } else {
           wx.showToast({
             title: res.result.msg,

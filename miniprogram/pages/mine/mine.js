@@ -55,7 +55,6 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
-             
               _this.data.userInfo = res.userInfo;
               _this.setData({
                 hasUserInfo: true,

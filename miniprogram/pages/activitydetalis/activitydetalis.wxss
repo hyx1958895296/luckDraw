@@ -9,6 +9,7 @@
   width: 98%;
   height: 200rpx;
   image-rendering: crisp-edges;
+  object-fit: cover;
   border-radius: 15rpx;
 }
 
@@ -166,6 +167,13 @@
 
 .ft-28{
   font-size: 28rpx;
+}
+
+.activity-people_font{
+  color: rgb(216, 27, 27);
+  padding:  0 5rpx;
+  font-weight: 600;
+  font-size: 36rpx;
 }
 
 .ptm-80{
