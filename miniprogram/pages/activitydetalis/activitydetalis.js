@@ -9,7 +9,8 @@ Page({
     people: 498,
     activityId: "",
     isLuckDraw: true,
-    activityInfo:{}
+    activityInfo:{},
+    isLoding:true
   },
 
   /**
@@ -29,9 +30,14 @@ Page({
         type: "detail",
         activityId: this.data.activityId
       }, success(res) {
-        console.log(res);
         _this.setData({
           activityInfo:res.result.data
+        })
+        let loding = setTimeout(()=>{
+            _this.setData({
+               isLoding:false
+            },2000)
+            clearTimeout(loding);
         })
       }
     })
