@@ -8,7 +8,7 @@
 }
 
 .btn-not{
-  background-color: #1a0a0a;
+  background-color: #d12418;
 }
 
 .btn-already{
@@ -16,5 +16,5 @@
 }
 
 .c-ffb049{
-  color: #ffb049;
+  color: #fff4e5;
 }

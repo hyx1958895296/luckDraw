@@ -5,6 +5,7 @@
 .homepage {
   height: 100vh;
   background-image: linear-gradient(to bottom, #f53f3b, #f53f3b, #ffffff, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1);
+  padding:0 30rpx;
 }
 
 .header {
@@ -52,7 +53,8 @@
 
 .integral {
   font-size: 44rpx;
-  font-weight: 600;
+  font-weight: 800;
+  color: #ff7f00;
 }
 
 .get-more-points {
@@ -60,13 +62,14 @@
 }
 
 .shop-size {
-  width: 200rpx;
-  height: 200rpx;
+  width: 300rpx;
+  height: 300rpx;
   display: inline-block;
 }
 
 .main {
   column-count: 2;
+  break-inside: avoid;
   gap: 30rpx;
   margin-top: 30rpx;
   margin-bottom: 30rpx;
@@ -86,10 +89,14 @@
 }
 
 .item {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10rpx;
   margin-bottom: 30rpx;
   break-inside: avoid;
+}
+
+.border-eeece4{
+  border:2rpx solid #eeece4;
 }
 
 .shop-item-picture {
@@ -99,7 +106,7 @@
 }
 
 .shop-item-title {
-  font-size: 30rpx;
+  font-size: 34rpx;
   padding-top: 12rpx;
 
 }
@@ -146,7 +153,7 @@
 
 .list-warp {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   gap: 20rpx;
   font-size: 30rpx;
@@ -171,9 +178,11 @@
 .get-more_score {
   height: 270rpx;
   width: 330rpx;
+  border-radius: 10rpx;
   display: flex;
   align-items: flex-start;
   margin-bottom: 30rpx;
+  -webkit-column-break-inside:avoid;
 }
 
 .hr{
@@ -183,4 +192,104 @@
 .hhh{
   font-size: 40rpx;
   color: #f1f1f1;
+}
+
+
+
+/* page {
+  background-color: #ffa500;
+  height: 100%;
+} */
+.head {
+  height: 90rpx;
+  color: #333;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+  box-sizing: border-box;
+}
+.head-title {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+.head-title::after {
+  content: '';
+  position: absolute;
+  z-index: 99;
+  width: 15px;
+  height: 15px;
+  margin-left: -15rpx;
+  border-top: 3px solid #333;
+  border-right: 3px solid #333;
+  border-top-right-radius: 100%;
+  transform: rotate(-225deg);
+  left: 50%;
+  bottom: 3px;
+}
+.container {
+  margin-top: 40rpx;
+  height: 79vh;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+.container-head {
+  width: 100%;
+  height: 90rpx;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}
+.container-head-sc {
+  height: 50rpx;
+  border-radius: 25rpx;
+  background: #eeece4;
+  color: #333;
+  white-space: nowrap;
+}
+.container-head-sc .item {
+  padding: 0 20rpx;
+  min-width: 90rpx;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  display: inline-block;
+  /* 引起高度塌陷 */
+  vertical-align: top;
+  height: 50rpx;
+}
+.container-head-sc .active {
+  color: #ffffff;
+  font-weight: bold;
+  background: orange;
+  border-radius: 25rpx;
+}
+/* swiper默认高度为150px */
+.container-swiper {
+  height: calc(100% - 110rpx);
+}
+.container-swiper-sc {
+  height: 100%;
+}
+.container-swiper-sc .items {
+  padding: 0 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.container-swiper-sc .items .item-img {
+  width: 30vw;
+  height: 30vw;
+  margin-right: 2.8%;
+  margin-bottom: 10rpx;
+  flex-shrink: 0;
+}
+.container-swiper-sc .items .item-img:nth-child(3n+3) {
+  margin-right: 0;
+}
+/* 隐藏scroll-view的滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }

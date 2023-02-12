@@ -1,38 +1,16 @@
-/* pages/activity/activity.wxss */
-.activity-frist {
-  box-shadow: 0rpx 15rpx 15rpx 10rpx #acacac;
-  border-radius: 20rpx;
+
+.activity {
+  min-height: 100vh;
 }
+
 .activity-item{
   border-radius: 20rpx;
 }
-
-.activity {
-  background-color: rgba(223, 222, 222, 0.747);
-}
-
-
 
 .activity-all {
   gap: 20rpx;
 }
 
-/* .soon {
-  border-radius: 50%;
-  position: absolute;
-  right: 4%;
-  top: 20rpx;
-} */
-
-.icon-top{
-  width: 80rpx;
-  height: 80rpx;
-}
-.icon-text{
-  border-radius: 50%;
-  width: 150rpx;
-  height: 150rpx;
-}
 
 .nav-box {
   display: flex;

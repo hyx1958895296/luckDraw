@@ -54,11 +54,10 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
+              _this.data.userInfo = res.userInfo;
               _this.setData({
-                userInfo: res.userInfo,
                 hasUserInfo: true
               });
-              console.log(_this.data.userInfo);
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
@@ -166,7 +165,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+
   },
 
   /**

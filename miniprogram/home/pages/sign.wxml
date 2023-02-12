@@ -1,7 +1,7 @@
 <view class="sign-in-box">
   <view class="header">
     <view class="header_avatar-score wrap" bindtap="getUserProfile">
-      <image src="{{userInfo.avatarUrl}}" class="avatar" mode=""/>
+      <image src="{{userInfo.avatarUrl}}" class="avatar" bindtap="getUserProfile" mode=""/>
       <view class="current-score">
         当前积分:{{ userInfo.score }}
       </view> 

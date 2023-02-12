@@ -1,17 +1,17 @@
 <view class="homepage">
-  <view class="wrap header">
+  <view class="header">
     <view class="container-header">
       <view class="align-center" bindtap="navToSign">
-        <image src="../../images/qd_icon.png" class="item-icon" mode="" />
+        <image src="../../images/qd.png" class="item-icon" mode="" />
         <view>每日签到</view>
       </view>
-      <view class="align-center">
-        <image src="../../images/red_envelope.png" class="item-icon" mode="" />
+      <view class="align-center" bindtap="navToMerchantAccess">
+        <image src="../../images/shopperzhu.png" class="item-icon" mode="" />
         <view>商家入驻</view>
       </view>
-      <view class="align-center">
-        <image src="../../images/luck-draw.png" class="item-icon" mode="" />
-        <view>参加活动1</view>
+      <view class="align-center" bindtap="navToActivity">
+        <image src="../../images/add-active.png" class="item-icon" mode="" />
+        <view>参加活动</view>
       </view>
       <view class="align-center-8">
         <view class="integral">19</view>
@@ -19,33 +19,46 @@
       </view>
     </view>
   </view>
-  <view class="list-warp p-20 mt-40">
-    <view open-type="switchTab" wx:for="{{ tabListData }}" hover-class="other-navigator-hover" bindtap="hr"  data-es="{{ item._id }}" data-index="{{index}}" class="{{index == current ? 'hhh' :''}}">
-      {{ item.title }}
-    </view>
+  <!-- <view class="list-warp p-20 mt-40">
+    
   </view>
   <view wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
-    <view class="main warp">
-      <image src="../../images/get-more-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
-      <view class="item item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="shopItem._id" bindtap="navToDetail">
-        <view class="shop-item-picture">
-          <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
-          <view></view>
-        </view>
-        <view class="shop-item-title">
-          {{ shopItem.shopItemTitle }}
-        </view>
-        <view>
-          <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
-          <text class="points-text">积分</text>
-        </view>
-        <view class="monthly-exchange">
-          月兑 {{ shopItem.monthlyExchange }}
-        </view>
-      </view>
+   
+  </view> -->
+  <scroll-view scroll-y class="container">
+    <view class="container-head flex-row">
+      <scroll-view scroll-x class="container-head-sc" scroll-left="{{sleft}}" scroll-with-animation="true">
+        <view class="item {{currentTab == index ?'active':''}}" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}" >{{ tabItem.title }}</view>
+      </scroll-view>
     </view>
-    <view class="flex-c c-919191 fs-30">
-      我也是有底线的
-    </view>
-  </view>
+
+    <swiper current="{{currentTab}}" bindchange="handleSwiperChange" class="container-swiper warp">
+      <swiper-item class="flex-column j_c" wx:for="{{tabListData}}" wx:key='index'>
+        <scroll-view scroll-y class="container-swiper-sc">
+          <view class="main">
+            <image src="../../images/get-more-score.png" class="get-more_score" mode="aspectFill" bindtap="navagitorToActivity" />
+            <view class="item border-eeece4 item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
+              <view class="shop-item-picture">
+                <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
+                <view></view>
+              </view>
+              <view class="shop-item-title">
+                {{ shopItem.shopItemTitle }}
+              </view>
+              <view>
+                <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
+                <text class="points-text">积分</text>
+              </view>
+              <view class="monthly-exchange">
+                月兑 {{ shopItem.monthlyExchange }}
+              </view>
+            </view>
+          </view>
+          <view class="flex-c c-919191 fs-30">
+            我也是有底线的
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </scroll-view>
 </view>

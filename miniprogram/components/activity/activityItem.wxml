@@ -1,23 +1,28 @@
 <!--components/activity/activityItem.wxml-->
 <view class="w">
-  <image class="commodity" src="{{activity.commodityImgPath}}" mode=""/>
+  <image class="commodity" src="{{activityInfo.activityCover}}" mode="" />
   <view class="warp">
-    <view class="title">{{activity.details}}</view>
-   <view class="flex-jl time">
-    <view class="activity-type">{{activity.activityType}}</view>
-    <view class="time-text">
-      {{startTime}}
+    <view class="activity-name">
+      {{activityInfo.activityName}}
     </view>
-   </view>
+    <view class="time">
+      <!-- <view class="activity-type">{{activityInfo.activityType}}</view> -->
+      <view class="time-text mt-20">
+        开始时间 <text class="c-d12418">{{startTime}}</text>
+      </view>
+      <!-- <view class="time-text mt-20">
+      结束时间 <text class="c-d12418">{{endTime}}</text>
+    </view> -->
+    </view>
   </view>
   <view class="warp grid user-w">
     <view class="flex-jl ">
-      <image class="avator" src="{{activity.avatorPath}}" mode=""/>
-      <text class="name c-919191">{{activity.business}}</text>
+      <image class="avator" src="{{activityInfo.avatarUrl}}" mode="" />
+      <view class="title">{{activityInfo.storeName}}赞助</view>
     </view>
     <view class="btn">
       <slot></slot>
     </view>
   </view>
- 
+
 </view>
