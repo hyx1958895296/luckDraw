@@ -1,5 +1,6 @@
 <!--pages/activitydetalis/activitydetalis.wxml-->
-<View class="activity-details">
+<loding wx:if="{{isLoding}}"></loding>
+<view wx:else class="activity-details">
 
   <view class="activity-rules">
     <view>
@@ -8,7 +9,7 @@
   </view>
 
   <view class="header">
-    <image src="../../images/banner.png" mode="" />
+    <image src="{{activityInfo.activityCover}}" mode="" />
   </view>
 
   <view class="listOfPrizes-box">
@@ -18,7 +19,7 @@
 
     <view class="listofprizes-main">
 
-      <view class="listOfPrizes-item" wx:for="{{activityInfo.prizelist}}" wx:key="index                            ">
+      <view class="listOfPrizes-item" wx:for="{{activityInfo.prizelist}}" wx:key="index">
         <view>
           <image src="{{item.img}}" mode="" />
         </view>
@@ -42,11 +43,15 @@
 
     <view class="progress-box">
       <text class="progress-people">距离500人的奖池进度：</text>
-      <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{people/500*100}}" active stroke-width="10" />
+      <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{activityInfo.peopleCount/500*100}}" active stroke-width="10" />
     </view>
 
-    <view class="ft-28">
-      已经有<text>{{people}}</text>人参加了活动
+    <view class="ft-28" wx:if="{{activityInfo.peopleCount !== 0}}">
+      现有<text class="activity-people_font">{{activityInfo.peopleCount}}</text>人参加了活动
+    </view>
+
+    <view class="ft-28"  wx:if="{{activityInfo.peopleCount == 0}}">
+      暂时还没有人参加活动 , 赶快参加吧
     </view>
 
     <view class="invitation-btn">
@@ -55,13 +60,15 @@
     </view>
   </view>
 
-  <view class="raffle-box">
-    点击参与抽奖
+  <view class="raffle-box" bindtap="luckDraw">
+     <text wx:if="{{isLuckDraw}}">点击参与抽奖</text>
+      <text wx:else>已经参加过此活动</text>
   </view>
 
   <view class="raffle-button_box">
     <view class="{{isLuckDraw == false ? 'raffle-button_none' : 'raffle-button'}}" bindtap="luckDraw">
-      参与抽奖
+      <text wx:if="{{isLuckDraw}}">参与抽奖</text>
+      <text wx:else>已参加</text>
     </view>
   </view>
 
@@ -71,4 +78,4 @@
       超过2亿人使用的免费抽奖平台
     </view>
   </view>
-</View>
+</view>

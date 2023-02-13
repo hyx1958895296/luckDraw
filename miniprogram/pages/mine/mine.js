@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const app = getApp();
 Page({
 
   /**
@@ -55,7 +56,6 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
-             
               _this.data.userInfo = res.userInfo;
               _this.setData({
                 hasUserInfo: true,
@@ -64,6 +64,7 @@ Page({
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
+              app.globalData.isLoding = true;
               let loding = setTimeout(()=>{
                 _this.setData({
                   isLoding:false
@@ -74,7 +75,7 @@ Page({
                   mask:true,
                   duration:2000,
                 });
-              },1800);
+              },2000);
             }
           })
         } else {

@@ -1,3 +1,59 @@
 <view class="review-merchant-detail-box">
-  
+  <view class="form" wx:for="{{ businessDetail }}" wx:for-item="detailItem" wx:key="detailItem._id">
+    <view class="item">
+      <view class="fw-600 item-title">店铺名称</view>
+      <view>
+        {{ detailItem.storeName }}
+      </view>
+    </view>
+    <view class="item">
+      <view class="fw-600 item-title">联系方式</view>
+      <view>
+        {{ detailItem.phone }}
+      </view>
+    </view>
+    <view class="item">
+      <view class="fw-600 item-title">负责人</view>
+      <view>
+        {{ detailItem.name }}
+      </view>
+    </view>
+    <view class="item" bindtap="upImage">
+      <view class="item-title item-title">
+        <image src="../../../images/upload.png" mode="" />
+      </view>
+
+      <view class="printing">
+        <image src="{{ detailItem.printingLicenceUrl }}" mode=""/>
+      </view>
+
+    </view>
+
+    <view class="item">
+      <view class="fw-600 item-title">店铺地址</view>
+      <view>
+        <picker mode="region" bindchange="bindRegionChange">
+          <view wx:if="{{detailItem.address.length}}" class="address">
+            {{ detailItem.address[0] }}-{{ detailItem.address[1] }}-{{ detailItem.address[2] }}
+          </view>
+          <view wx:else class="fc-228228">
+            请输入地址
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="item">
+      <view>
+        {{ detailItem.detailedAddress }}
+      </view>
+    </view>
+  </view>
+  <view class="flex-around">
+    <view class="approved">
+      审核通过
+    </view>
+    <view class="no-approved">
+      审核不过
+    </view>
+  </view>
 </view>
