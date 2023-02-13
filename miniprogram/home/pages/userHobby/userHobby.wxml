@@ -13,7 +13,7 @@
         让我们更了解你，推荐更精准
       </view>
     </view>
-    <view class=" pb-40  mb-20 ml-mr-30">
+    <!-- <view class=" pb-40  mb-20 ml-mr-30">
       <view class="mb-20">
         <text class="option-title c-gray fs-38  mr-10">
         选择性别</text>
@@ -29,7 +29,7 @@
           我是男的
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="mt-mb_20 ml-mr-30">
       <view class="option-title c-gray mb-20 fs-38 fb">
         选择兴趣
