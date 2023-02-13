@@ -42,11 +42,12 @@
     </view>
 
     <view class="progress-box">
-      <text class="progress-people">距离500人的奖池进度：</text>
+      <text class="progress-people">距离{{newJackpot.peopleCount}}人的奖池进度：</text>
       <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{activityInfo.peopleCount/500*100}}" active stroke-width="10" />
     </view>
+  
 
-    <view class="ft-28" wx:if="{{activityInfo.peopleCount !== 0}}">
+    <view class="ft-28" wx:if="{{activityInfo.peopleCount != 0}}">
       现有<text class="activity-people_font">{{activityInfo.peopleCount}}</text>人参加了活动
     </view>
 
