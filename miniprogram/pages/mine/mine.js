@@ -49,7 +49,7 @@ Page({
 
   getUserProfile() {
     let _this = this;
-    if (this.data.hasUserInfo) return;
+    if (app.globalData.isLogin) return;
     wx.getSetting({
       success(res) {
         if (res.authSetting["scope.userInfo"]) {
@@ -61,10 +61,10 @@ Page({
                 hasUserInfo: true,
                 isLoding:true
               });
+              app.globalData.isLogin = true;
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
-              app.globalData.isLoding = true;
               let loding = setTimeout(()=>{
                 _this.setData({
                   isLoding:false
@@ -126,6 +126,7 @@ Page({
 
   selectUserInfo(){
     let _this = this;
+    if(!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name:"user",
       data:{
@@ -143,7 +144,7 @@ Page({
 
   getBusinessInfo() {
     let _this = this;
-    if (!this.data.hasUserInfo) return;
+    if (!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name: "merchantReview",
       data: {
@@ -179,7 +180,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+   
   },
 
   /**
@@ -194,7 +195,7 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
- 
+    this.selectUserInfo();
   },
 
   /**

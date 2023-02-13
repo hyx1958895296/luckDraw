@@ -11,6 +11,8 @@ Page({
     isLuckDraw: true,
     activityInfo:{},
     isLoding:true,
+    prizelist:[],
+    newJackpot:{}
   },
 
   /**
@@ -30,23 +32,30 @@ Page({
         type: "detail",
         activityId: this.data.activityId
       }, success(res) {
-        console.log(res);
+        let activityInfo = res.result.data;
+        activityInfo.prizelist.sort((a,b)=>{return a.peopleCount-b.peopleCount});
+        let peopleNumber =  
+        activityInfo.prizelist.find(item=>activityInfo.peopleCount<item.peopleCount);
+       if(peopleNumber == undefined){ 
+         peopleNumber = activityInfo.prizelist[activityInfo.prizelist.length-1]
+        }
         _this.setData({
-          activityInfo:res.result.data
+          activityInfo:activityInfo,
+          newJackpot:peopleNumber
         });
         let loding = setTimeout(()=>{
             _this.setData({
                isLoding:false
             })
             clearTimeout(loding);
-        },2000)
+        },1000)
       }
     })
   },
 
   isLuckDraw() {
     let _this = this;
-    if(!app.globalData.isLoding) return;
+    if(!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name: "raffleRecord",
       data: {
@@ -88,7 +97,7 @@ Page({
             desc: '用户授权',
             success: (res) => {
               _this.data.userInfo = res.userInfo;
-              app.globalData.isLoding = true;
+              app.globalData.isLogin = true;
               _this.addUserInfo();
               _this.isLuckDraw();
               wx.showToast({
@@ -107,7 +116,7 @@ Page({
 
   luckDraw() {
     let _this = this;
-    if(!app.globalData.isLoding){
+    if(!app.globalData.isLogin){
        this.isLogin();
        return;
     }

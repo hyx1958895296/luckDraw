@@ -38,7 +38,6 @@ Page({
   },
   // 跳转
   navigateto(e) {
-    console.log(e)
     wx.navigateTo({
       url: e.currentTarget.dataset.to,
     })

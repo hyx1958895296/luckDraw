@@ -7,9 +7,6 @@ Component({
     activityInfo: Object
   },
 
-
-
-
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行
