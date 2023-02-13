@@ -25,7 +25,6 @@ Page({
 
   // swiper 滑动事件
   eventhandle(e){
-    console.log(e);
     this.setData({
       active:e.detail.current
     })
