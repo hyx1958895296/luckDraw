@@ -14,7 +14,9 @@ App({
       });
     }
 
-    this.globalData = {};
+    this.globalData = {
+      isLogin:false
+    };
   },
   
 });
