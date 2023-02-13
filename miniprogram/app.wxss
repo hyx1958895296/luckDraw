@@ -205,6 +205,11 @@ view {
   padding: 20rpx 0;
 }
 
+.ptb_30{
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
 .ptb-100 {
   padding: 100rpx 0;
 }
@@ -215,6 +220,11 @@ view {
 
 .plr-40 {
   padding: 0rpx 40rpx;
+}
+
+.plr_60{
+  padding-left: 60rpx;
+  padding-right: 60rpx;
 }
 
 /* margin */
