@@ -116,9 +116,9 @@
         </view>
       </view>
       <!-- 底部 -->
-      <view class="foot ptm-100 c-b3b3b3">
+      <view class="foot ptb-100 c-b3b3b3">
         <text>—— 活动抽奖 —— </text>
-        <view class="ft-18 mt-20">
+        <view class="fs-18 mt-20">
           超过2亿人使用的免费抽奖平台
         </view>
       </view>
