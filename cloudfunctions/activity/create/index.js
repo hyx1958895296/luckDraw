@@ -18,6 +18,7 @@ exports.main = async (event, context) => {
     data:[]
   }
   event.activityInfo.openid = OPENID;
+  event.activityInfo.status = 1;
   event.activityInfo.peopleCount = 0;
   let createResult = await db.collection("activity").add({
     data: event.activityInfo

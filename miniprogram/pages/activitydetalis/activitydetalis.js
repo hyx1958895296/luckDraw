@@ -33,13 +33,13 @@ Page({
         console.log(res);
         _this.setData({
           activityInfo:res.result.data
-        })
+        });
         let loding = setTimeout(()=>{
             _this.setData({
                isLoding:false
-            },2000)
+            })
             clearTimeout(loding);
-        })
+        },2000)
       }
     })
   },

@@ -11,9 +11,17 @@ exports.main = async (event, context) => {
    let selectResult = await db.collection('business-info').where({
     openid: OPENID,
   }).get();
+  if(selectResult.data.length){
     return {
       status:1,
-      msg:"",
-      data:selectResult.data
+      msg:"success",
+      data:selectResult.data[0]
     }
+  }else{
+    return {
+      status:0,
+      msg:"error",
+      data:{}
+    }
+  }
 };
