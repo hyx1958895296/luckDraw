@@ -7,7 +7,7 @@ Page({
   data: {
     tabList: [{
       id: 1,
-      title: "未开奖",
+      title: "未开始",
     }, {
       id: 2,
       title: "已开始",

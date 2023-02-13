@@ -9,13 +9,13 @@
           跳过
         </view>
       </view>
-      <view class="ad-title fb fs-46 mt-90">
+      <view class="ad-title fw-b fs-46 mt-90">
         让我们更了解你，推荐更精准
       </view>
     </view>
     <!-- <view class=" pb-40  mb-20 ml-mr-30">
       <view class="mb-20">
-        <text class="option-title c-gray fs-38  mr-10">
+        <text class="option-title c-808080 fs-38  mr-10">
         选择性别</text>
         <text class="sex-tip fs-26 c-red">(只能设置一次)</text>
       </view>     
@@ -30,12 +30,12 @@
         </view>
       </view>
     </view> -->
-    <view class="mt-mb_20 ml-mr-30">
-      <view class="option-title c-gray mb-20 fs-38 fb">
+    <view class="mtb_20 mlr-30">
+      <view class="option-title c-808080 mb-20 fs-38 fw-b">
         选择兴趣
       </view>
       <view class="hobby-list" >
-        <view class="hobby-item {{item.isSelected?'hobby-item_active':''}} fc-868686  fs-30 pt-pb_30 pl-pr_60"  wx:for="{{hobbyList}}"  wx:key="index" bindtap="hobbySelect" data-index='{{index}}' >
+        <view class="hobby-item {{item.isSelected?'hobby-item_active':''}} fc-868686  fs-30 ptb-30 plr-60"  wx:for="{{hobbyList}}"  wx:key="index" bindtap="hobbySelect" data-index='{{index}}'>
           <!-- <image src="{{item.iconUrl}}" mode="" class="icon-hobby mr-10" /> -->
           {{item.title}}
           <!-- <image src="{{item.isSelected ? '../../../images/icon-checked.png' : ''}}" mode="" class="icon-checked"/> -->

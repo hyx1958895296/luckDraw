@@ -28,7 +28,7 @@
 
 .merchantAccess {
   background-color: rgba(245, 243, 243, 0.603);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .form {

@@ -72,9 +72,9 @@
       </view>
     </view>
 
-    <view class="foot ptm-100 fc-173170">
+    <view class="foot ptb-100 fc-173170">
       <text>—— 活动抽奖 —— </text>
-      <view class="ft-18 mt-10">
+      <view class="fs-18 mt-10">
         超过2亿人使用的免费抽奖平台
       </view>
     </view>

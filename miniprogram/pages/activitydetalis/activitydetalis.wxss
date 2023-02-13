@@ -1,13 +1,13 @@
 /* pages/activitydetalis/activitydetalis.wxss */
 .activity-details {
-  background:linear-gradient(#f53f3b,#f53f3b,#d16565,#ee8787,#e58686,#d68181,#f1f1f1);
+  background:linear-gradient(#e7514f,#dd5e5c,#d16565,#ee8787,#e58686,#d68181,#f1f1f1);
   min-height: 100vh;
 }
 
 
 .header image {
   width: 98%;
-  height: 200rpx;
+  height: 300rpx;
   image-rendering: crisp-edges;
   object-fit: cover;
   border-radius: 15rpx;
@@ -184,7 +184,7 @@
   color: rgb(173, 170, 170);
 }
 
-.ft-18{
+.fs-18{
   font-size: 18rpx;
 }
 

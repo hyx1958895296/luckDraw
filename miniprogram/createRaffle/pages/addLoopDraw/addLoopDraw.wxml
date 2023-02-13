@@ -1,5 +1,5 @@
 <view class="add-loop-draw-box">
-  <view class="warp pd-60">
+  <view class="warp pb-60">
     <view class="first-column add-third-stage" bindtap="add">
       <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/add.png?sign=d4f1f3fad86374369dc992bc53facba0&t=1675912987" class="add_icon" mode="" />
       <text class="picture-text-center">添加第三期</text>

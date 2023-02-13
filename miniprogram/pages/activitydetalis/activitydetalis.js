@@ -12,7 +12,9 @@ Page({
     activityInfo:{},
     isLoding:true,
     prizelist:[],
-    newJackpot:{}
+    newJackpot:{},
+    timer: null,
+    countDown:[]
   },
 
   /**
@@ -22,6 +24,38 @@ Page({
     this.data.activityId = options.id;
     this.isLuckDraw();
     this.getActivityDetails();
+  },
+
+  tow(n) {
+    return n >= 0 && n < 10 ? '0' + n : '' + n;
+  },
+  // 倒计时
+  countDown(endTime) {
+    // 活动时间的秒数
+    let second = Math.floor((endTime - new Date().getTime()) / 1000);
+    // console.log('second', second);
+    // 一天的秒数是86400 活动时间的秒数 / 86400 = 活动时间的天数
+    let day = Math.floor(second / 86400);
+    //余数代表剩下的秒数；
+    second = second % 86400;
+    //整数部分代表小时；
+    let hour = Math.floor(second / 3600);
+    //余数代表 剩下的秒数；
+    second %= 3600;
+    var minute = Math.floor(second / 60);
+    second %= 60;
+    let countDownArr = [];
+    countDownArr[0] = this.tow(day);
+    countDownArr[1] =  this.tow(hour);
+    countDownArr[2] =  this.tow(minute);
+    countDownArr[3] =  this.tow(second);
+    // let str = this.tow(day) + '天' +
+    //   this.tow(hour) + '小时' +
+    //   this.tow(minute) + '分钟' +
+    //   this.tow(second) + '秒';
+      this.setData({
+        countDown:countDownArr
+      })
   },
 
   getActivityDetails() {
@@ -48,7 +82,7 @@ Page({
                isLoding:false
             })
             clearTimeout(loding);
-        },1000)
+        },1500)
       }
     })
   },
@@ -179,14 +213,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+   setInterval(() => {
+      this.countDown(this.data.activityInfo.endTimeStamp)
+    }, 1000)
 
+    this.setData({
+      timer: this.data.timer
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    clearInterval(this.data.timer);
   },
 
   /**
