@@ -1,6 +1,7 @@
 <!--mine/pages/setName/setName.wxml-->
 <view class="box-change_name">
-  <view class="name">
-    <input type="text"/>{{}}
+  <view class="name mlr-30 mt-20 pd-10">
+    <input type="text" value="{{name}}" />
+    <button></button>
   </view>
 </view>

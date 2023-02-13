@@ -205,7 +205,7 @@ view {
   padding: 20rpx 0;
 }
 
-.ptb_30{
+.ptb-30{
   padding-top: 30rpx;
   padding-bottom: 30rpx;
 }
@@ -222,7 +222,7 @@ view {
   padding: 0rpx 40rpx;
 }
 
-.plr_60{
+.plr-60{
   padding-left: 60rpx;
   padding-right: 60rpx;
 }
@@ -272,7 +272,7 @@ view {
   margin: 0 20rpx;
 }
 
-.mtb_20{
+.mtb-20{
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
