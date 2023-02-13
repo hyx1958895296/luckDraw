@@ -2,5 +2,6 @@
 <view class="box-change_name">
   <view class="name mlr-30 mt-20 pd-10">
     <input type="text" value="{{name}}" />
+    <button></button>
   </view>
 </view>
