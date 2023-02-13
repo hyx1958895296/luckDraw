@@ -15,7 +15,6 @@ Page({
         title:'循环抽奖',
         jumpUrl:'/createRaffle/pages/createLoopRaffle/createLoopRaffle'
       },
-      {}
     ],
     indicatorDots: true,
     autoplay: false,
