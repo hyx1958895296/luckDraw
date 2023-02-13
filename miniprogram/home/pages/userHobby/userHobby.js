@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 用户兴趣列表
     hobbyList:[
       {
         id:1,
@@ -49,28 +50,35 @@ Page({
         isSelected:false
       },
     ],
+    // 用户性别
     sexIndex:'0',
+    // 判断路径
     pathChoose:false
   },
+  // 选择性别
   sexSelect(e){
     this.setData({sexIndex:e.currentTarget.dataset.sexindex})
   },
-  
+  // 选择兴趣
   hobbySelect(e){
-    var index=e.currentTarget.dataset.index;
-    var item=this.data.hobbyList[index];
+    let index=e.currentTarget.dataset.index;
+    let item=this.data.hobbyList[index];
+    // 选中状态与未选中状态切换
     item.isSelected=!item.isSelected;
     this.setData({
       hobbyList:this.data.hobbyList
     })
-    
   },
+  // 保存
   save(){
+    // 返回上一级页面
     wx.navigateBack({
       delta: 1
     })
   },
+  // 跳过
   skip(){
+    // 跳转
     wx.switchTab({
       url: '/pages/home/home',
     })
