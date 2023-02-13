@@ -1,7 +1,9 @@
 <!--mine/pages/setName/setName.wxml-->
 <view class="box-change_name">
-  <view class="name mlr-30 mt-20 pd-10">
-    <input type="text" value="{{name}}" />
-    <button></button>
+  <view class="mlr-30 ptb-40 flex-sb">
+    <input type="text" value="{{name}}" class="ipt-name fs-36 pl-20" bindinput="nameInput"/>
+    <view class="btn-save fs-36 plr-20" bindtap="save">
+      保存
+    </view>
   </view>
 </view>

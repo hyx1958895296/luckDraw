@@ -1,7 +1,7 @@
 <view class="user-hobby pt-20">
   <view class="warp pl-20 pr-20 pb-40">
     <view class="ad warp-radius pb-60">
-      <view class="fs-34  pt-30 mr-30 c-b5b5b5" >
+      <view class="fs-34  pt-30  c-b5b5b5" >
       <view class="back" wx:if="{{pathChoose}}">
         返回
       </view>
@@ -31,7 +31,7 @@
       </view>
     </view> -->
     <view class="mtb_20 mlr-30">
-      <view class="option-title c-808080 mb-20 fs-38 fw-b">
+      <view class="option-title c-808080 mtb-20 fs-38 fw-b">
         选择兴趣
       </view>
       <view class="hobby-list" >

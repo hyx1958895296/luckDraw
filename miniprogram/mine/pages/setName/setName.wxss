@@ -9,6 +9,9 @@
 .pd-10{
   padding-bottom: 10rpx;
 }
-.name{
-  border-bottom: 2rpx solid #f3f2f2;
+.ipt-name{
+  border-bottom: 2rpx solid #b3b3b3;
+}
+.btn-save{
+  background-color: #34a334;
 }

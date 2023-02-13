@@ -11,17 +11,20 @@ Page({
     },
     sex:['男','女']
   },
+  // 回显用户姓名
   setName(e){
     wx.navigateTo({
-      // url: '../../pages/setName/setName?name='+e.currentTarget.dataset.name,
-      url: '../../pages/setName/setName?name='+this.data.options.name,
+      url: '../../pages/setName/setName?name='+e.currentTarget.dataset.name,
+      // url: '../../pages/setName/setName?name='+this.data.options.name,
     })
   },
+  // 跳转到用户兴趣界面
   setHobby(){
     wx.navigateTo({
       url: '../../../home/pages/userHobby/userHobby',
     })
   },
+  // 上传图片
   changeImage(){
     let _this=this;
     wx.chooseImage({
@@ -37,9 +40,8 @@ Page({
       }
     })
   },
+  // 选择性别
   bindPickerChange: function(e) {
-    console.log(e)
-   
     let _this = this; 
     wx.showModal({
       title: '提示',
@@ -56,13 +58,13 @@ Page({
       }
     })
   },
- 
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+   this.setData({
+    'options.name':options.name
+   })
   },
 
   /**
