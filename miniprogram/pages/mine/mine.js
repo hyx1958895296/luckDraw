@@ -124,55 +124,49 @@ Page({
     })
   },
 
-  selectUserInfo(){
+  async selectUserInfo(){ 
     let _this = this;
     if(!app.globalData.isLogin) return;
-    wx.cloud.callFunction({
+    let res = await wx.cloud.callFunction({
       name:"user",
       data:{
         type:"select",
-      },
-      success(res){
-           if(res.result.status == 1){
-            _this.setData({
-               userInfo:res.result.data
-             })
-           }
       }
-    })
+    });
+    if(res.result.status == 1){
+      _this.setData({
+         userInfo:res.result.data
+       })
+     }
   },
 
-  getBusinessInfo() {
+  async getBusinessInfo() {
     let _this = this;
     if (!app.globalData.isLogin) return;
-    wx.cloud.callFunction({
+   let res = await  wx.cloud.callFunction({
       name: "merchantReview",
       data: {
         type: "select",
-      },
-      success(res) {
-        console.log(res);
-        if (_this.data.examineStatus == "审核通过") return;
-        if (res.result.status == 1) {
-          if (!res.result.data.status) return;
-          if (res.result.data.status == 1) {
-            _this.setData({
-              examineStatus: "正在审核中"
-            })
-          } else if (res.result.data.status == 2) {
-            _this.setData({
-              examineStatus: "审核通过",
-              [`optionList[0].isShow`]: false,
-              [`optionList[2].isShow`]: true
-            })
-          }else if(res.result.data.status == 3){
-            _this.setData({
-              examineStatus: "审核未通过"
-            })
-          }
-        }
       }
-    })
+    });
+    if (_this.data.examineStatus == "审核通过") return;
+    if (res.result.status == 1) {
+      if (res.result.data.status == 1) {
+        _this.setData({
+          examineStatus: "正在审核中"
+        })
+      } else if (res.result.data.status == 2) {
+        _this.setData({
+          examineStatus: "审核通过",
+          [`optionList[0].isShow`]: false,
+          [`optionList[2].isShow`]: true
+        })
+      }else if(res.result.data.status == 3){
+        _this.setData({
+          examineStatus: "审核未通过"
+        })
+      }
+    }
   },
 
 
