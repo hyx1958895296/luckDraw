@@ -1,0 +1,33 @@
+<!--mine/pages/userInfo/userInfo.wxml-->
+<view class="personal-info bgc-ffffff">
+  <view class="box-personal_info ml-mr_30 mt-20">
+    <view class="personal-info_item  info-avatar pb-20">
+      <text class="info-item_title fs-36">头像</text>
+      <view class="info-item_content" bindtap="changeImage">
+        <image src="{{options.avatarUrl}}" mode="" class="icon-avatar"/>
+        <image src="../../../images/icon-arrow_right.png" mode="" class="icon-arrow_right"/>
+      </view>
+    </view>
+    <view class="personal-info_item pt-pb_40">
+        <text class="info-item_title fs-36">名字</text>
+        <view class="info-item_content" bindtap="setName">
+          <text class="mr-20 c-6c6c6c fs-36">{{options.name}}</text>
+          <image src="../../../images/icon-arrow_right.png" mode="" class="icon-arrow_right"/>
+        </view>
+      </view>
+    <view class="personal-info_item pt-pb_40">
+        <text class="info-item_title fs-36">性别</text>
+        <view class="info-item_content">
+          <text class="mr-20 c-6c6c6c fs-36">{{options.sex}}</text>
+          <image src="../../../images/icon-arrow_right.png" mode="" class="icon-arrow_right"/>
+        </view>
+      </view>
+      <view class="personal-info_item bd-none pt-pb_40">
+        <text class="info-item_title fs-36">兴趣爱好</text>
+        <view class="info-item_content" bindtap="setHobby">
+          <text class="mr-20 c-6c6c6c fs-36">去设置</text>
+          <image src="../../../images/icon-arrow_right.png" mode="" class="icon-arrow_right"/>
+        </view>
+      </view>
+  </view>
+</view>

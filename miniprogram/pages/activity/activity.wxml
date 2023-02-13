@@ -1,3 +1,7 @@
+<!-- loding -->
+<loding wx:if="{{isLoding}}"></loding>
+
+<!-- 活动列表 -->
 <view class="activity bg-f2f2f2">
   <view class="nav-box">
     <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
@@ -5,17 +9,33 @@
     </view>
   </view>
   <view class="active {{showId == 2 ? 'transition-l' : 'transition-r'}}"></view>
-  <view wx:if="{{showId == 1}}">
+  <view wx:if="{{showId == 1}}" class="pd-60">
     <view class="activity-warp warp pt-20" wx:if="{{isLoaded}}">
       <view class="flex-column activity-all plr-20 mt-20">
-        <activity class="activity-item" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
+        <activity class="activity-item " wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
           <btn class="activity-btn" type="{{item.joinType}}"></btn>
         </activity>
       </view>
     </view>
+    <view class="flex-column ptb-100" wx:if="{{!activityList}}">
+    <view class="flex-c mt-80">
+      <image class="icon-none" src="../../images/icon-none.png" mode="" />
+    </view>
+    <view class="flex-c mt-60 c-919191">
+      空空如也~~
+    </view>
+   </view>
   </view>
 
   <view wx:if="{{showId == 2}}">
+   <view class="flex-column ptb-100" wx:if="{{isShow}}">
+    <view class="flex-c mt-80">
+      <image class="icon-none" src="../../images/icon-none.png" mode="" />
+    </view>
+    <view class="flex-c mt-60 c-919191">
+      空空如也~~
+    </view>
+   </view>
   </view>
 
 

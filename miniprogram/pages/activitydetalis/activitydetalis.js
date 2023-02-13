@@ -1,4 +1,5 @@
 // pages/activitydetalis/activitydetalis.js
+const app = getApp();
 Page({
 
   /**
@@ -6,10 +7,12 @@ Page({
    */
   data: {
     isListofprizes: false,
-    people: 498,
     activityId: "",
     isLuckDraw: true,
-    activityInfo:{}
+    activityInfo:{},
+    isLoding:true,
+    prizelist:[],
+    newJackpot:{}
   },
 
   /**
@@ -29,16 +32,30 @@ Page({
         type: "detail",
         activityId: this.data.activityId
       }, success(res) {
-        console.log(res);
+        let activityInfo = res.result.data;
+        activityInfo.prizelist.sort((a,b)=>{return a.peopleCount-b.peopleCount});
+        let peopleNumber =  
+        activityInfo.prizelist.find(item=>activityInfo.peopleCount<item.peopleCount);
+       if(peopleNumber == undefined){ 
+         peopleNumber = activityInfo.prizelist[activityInfo.prizelist.length-1]
+        }
         _this.setData({
-          activityInfo:res.result.data
-        })
+          activityInfo:activityInfo,
+          newJackpot:peopleNumber
+        });
+        let loding = setTimeout(()=>{
+            _this.setData({
+               isLoding:false
+            })
+            clearTimeout(loding);
+        },1000)
       }
     })
   },
 
   isLuckDraw() {
     let _this = this;
+    if(!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name: "raffleRecord",
       data: {
@@ -61,8 +78,48 @@ Page({
     })
   },
 
+  addUserInfo(){
+    wx.cloud.callFunction({
+      name:"user",
+      data:{
+        type:"add",
+        userInfo:this.data.userInfo
+      }
+    })
+  },
+
+  isLogin() {
+    let _this = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting["scope.userInfo"]) {
+          wx.getUserProfile({
+            desc: '用户授权',
+            success: (res) => {
+              _this.data.userInfo = res.userInfo;
+              app.globalData.isLogin = true;
+              _this.addUserInfo();
+              _this.isLuckDraw();
+              wx.showToast({
+                title: '登录成功',
+                mask:true,
+                duration:2000,
+              });
+            }
+          })
+        } else {
+          wx.openSetting();
+        }
+      }
+    })
+  },
+
   luckDraw() {
     let _this = this;
+    if(!app.globalData.isLogin){
+       this.isLogin();
+       return;
+    }
     if (!this.data.isLuckDraw) {
       wx.showToast({
         title: '你已经参加过此活动',
@@ -87,6 +144,7 @@ Page({
             title: res.result.msg,
             icon: "success"
           })
+          _this.getActivityDetails();
         } else {
           wx.showToast({
             title: res.result.msg,

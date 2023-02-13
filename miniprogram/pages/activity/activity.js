@@ -5,31 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabList:[{
-      id:1,
-      title:"未开奖",
-    },{
-      id:2,
-      title:"已开始",
+    tabList: [{
+      id: 1,
+      title: "未开奖",
+    }, {
+      id: 2,
+      title: "已开始",
     }],
-    showId:1,
+    showId: 1,
     activityList: [],
     // 优化首次进入时页面闪烁
     isLoaded: false,
-     // 定时器
-     timer: null,
+    // 定时器
+    timer: null,
+    // loding
+    isLoding:true,
+    // 是否有数据
+    isShow:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getActivityList();
+   onLoad(options) {
+     this.getActivityList();
+     
   },
 
-  tabFn(e){
+  tabFn(e) {
     this.setData({
-      showId:e.target.dataset.item.id,
+      showId: e.target.dataset.item.id,
     })
   },
 
@@ -41,24 +46,27 @@ Page({
   },
 
   // get活动列表
-  getActivityList() {
-    wx.cloud.callFunction({
+  async getActivityList() {
+    const res = await wx.cloud.callFunction({
       name: 'activity',
       data: {
         type: 'select'
       },
-      success: res => {
-        console.log('res', res.result.data[50]);
-        // this.countDown(res.result.data[50].endTimeStamp);
-        this.setData({
-          activityList: res.result.data,
-          isLoaded: true
-        })
-      }
     })
+    this.setData({
+      activityList: res.result.data,
+      isLoaded: true
+    })
+                    
+    let lodingTimer = setTimeout(()=>{
+      this.setData({
+        isLoding:false
+      })      
+      clearTimeout(lodingTimer)
+    },1000)
   },
 
-//时间戳转化日期
+  //时间戳转化日期
   // formatDate(str) {
   //   //Date.now()        //时间戳
   //   let date = new Date(str); //获取系统时间
@@ -119,7 +127,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
- // let _this = this;
+     this.getActivityList();
+    // let _this = this;
     // _this.data.timer = setInterval(() => {
     //   _this.countDown(_this.data.activityList[50].endTimeStamp)
     // }, 1000)
@@ -133,7 +142,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-// clearInterval(this.data.timer);
+    // clearInterval(this.data.timer);
     // this.setData({
     //   timer: null
     // });

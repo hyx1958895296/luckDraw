@@ -29,7 +29,9 @@
       "pages": [
         "pages/member/member",
         "pages/reviewMerchants/reviewMerchants",
-        "pages/MerchantDetails/MerchantDetails"
+        "pages/MerchantDetails/MerchantDetails",
+        "pages/userInfo/userInfo",
+        "pages/setName/setName"
       ]
     },
     {

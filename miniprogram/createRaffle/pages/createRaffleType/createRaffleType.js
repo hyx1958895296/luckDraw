@@ -15,7 +15,6 @@ Page({
         title:'循环抽奖',
         jumpUrl:'/createRaffle/pages/createLoopRaffle/createLoopRaffle'
       },
-      {}
     ],
     indicatorDots: true,
     autoplay: false,
@@ -26,7 +25,6 @@ Page({
 
   // swiper 滑动事件
   eventhandle(e){
-    console.log(e);
     this.setData({
       active:e.detail.current
     })
@@ -40,7 +38,6 @@ Page({
   },
   // 跳转
   navigateto(e) {
-    console.log(e)
     wx.navigateTo({
       url: e.currentTarget.dataset.to,
     })

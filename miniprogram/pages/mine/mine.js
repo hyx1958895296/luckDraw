@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const app = getApp();
 Page({
 
   /**
@@ -48,19 +49,19 @@ Page({
 
   getUserProfile() {
     let _this = this;
-    if (this.data.hasUserInfo) return;
+    if (app.globalData.isLogin) return;
     wx.getSetting({
       success(res) {
         if (res.authSetting["scope.userInfo"]) {
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
-             
               _this.data.userInfo = res.userInfo;
               _this.setData({
                 hasUserInfo: true,
                 isLoding:true
               });
+              app.globalData.isLogin = true;
               _this.getBusinessInfo();
               _this.addUserInfo();
               _this.selectUserInfo();
@@ -74,7 +75,7 @@ Page({
                   mask:true,
                   duration:2000,
                 });
-              },1800);
+              },2000);
             }
           })
         } else {
@@ -125,6 +126,7 @@ Page({
 
   selectUserInfo(){
     let _this = this;
+    if(!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name:"user",
       data:{
@@ -132,7 +134,6 @@ Page({
       },
       success(res){
            if(res.result.status == 1){
-             console.log(res.result.data);
             _this.setData({
                userInfo:res.result.data
              })
@@ -143,25 +144,30 @@ Page({
 
   getBusinessInfo() {
     let _this = this;
-    if (!this.data.hasUserInfo) return;
+    if (!app.globalData.isLogin) return;
     wx.cloud.callFunction({
       name: "merchantReview",
       data: {
         type: "select",
       },
       success(res) {
+        console.log(res);
         if (_this.data.examineStatus == "审核通过") return;
         if (res.result.status == 1) {
-          if (!res.result.data.length) return;
-          if (res.result.data[0].status == 1) {
+          if (!res.result.data.status) return;
+          if (res.result.data.status == 1) {
             _this.setData({
               examineStatus: "正在审核中"
             })
-          } else if (res.result.data[0].status == 2) {
+          } else if (res.result.data.status == 2) {
             _this.setData({
               examineStatus: "审核通过",
               [`optionList[0].isShow`]: false,
               [`optionList[2].isShow`]: true
+            })
+          }else if(res.result.data.status == 3){
+            _this.setData({
+              examineStatus: "审核未通过"
             })
           }
         }
@@ -174,7 +180,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+   
   },
 
   /**
@@ -189,7 +195,7 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
- 
+    this.selectUserInfo();
   },
 
   /**
