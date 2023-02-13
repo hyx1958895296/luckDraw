@@ -38,12 +38,12 @@
       开奖倒计时
     </view>
     <view class="countdown-countent">
-      <text class="countdown-countent-active">04</text> 天 <text class="countdown-countent-active">19</text> 时 <text class="countdown-countent-active">7</text> 分 <text class="countdown-countent-active">14</text> 秒
+      <text class="countdown-countent-active">{{countDown[0]}}</text> 天 <text class="countdown-countent-active">{{countDown[1]}}</text> 时 <text class="countdown-countent-active">7</text> {{countDown[2]}} <text class="countdown-countent-active">{{countDown[3]}}</text> 秒
     </view>
 
     <view class="progress-box">
       <text class="progress-people">距离{{newJackpot.peopleCount}}人的奖池进度：</text>
-      <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{activityInfo.peopleCount/500*100}}" active stroke-width="10" />
+      <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{activityInfo.peopleCount/newJackpot.peopleCount*100}}" active stroke-width="10" />
     </view>
   
 
