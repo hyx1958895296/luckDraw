@@ -8,7 +8,7 @@
         <image src="../../images/qd.png" class="item-icon" mode="" />
         <view>每日签到</view>
       </view>
-      <view class="align-center" bindtap="navToMerchantAccess">
+      <view class="align-center" bindtap="navToMerchantAccess" wx:for="{{ merchantReview }}" wx:for-item="reviewItem" wx:key="reviewItem._id" wx:if="{{ reviewItem.status == 3 }}">
         <image src="../../images/shopperzhu.png" class="item-icon" mode="" />
         <view>商家入驻</view>
       </view>
