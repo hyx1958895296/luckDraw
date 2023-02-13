@@ -7,6 +7,7 @@ Page({
   data: {
     shopList:[],
     tabListData:[],
+    merchantReview:[],
     currentTab: 0,
     sleft: "", //横向滚动条位置
     list: [1, 2, 3, 4, 5, 6, 7, 22, 32],//测试列表
@@ -45,13 +46,6 @@ Page({
     });
   },
 
-  // hr(shopId){
-  //   this.getShopList(shopId.currentTarget.dataset.id);
-  //   this.setData({
-  //     id:shopId.currentTarget.dataset.id
-  //   })
-  // },
-
   //微信签到跳转
   signIn(){
   },
@@ -74,32 +68,28 @@ Page({
     })
   },
   //跳转商家入驻页面
-  navToMerchantAccess(e){
-    wx.navigateTo({
-      url: '/pages/merchantAccess/merchantAccess',
+  navToMerchantAccess(){
+    // wx.navigateTo({
+    //   url: '/pages/merchantAccess/merchantAccess',
+    // })
+    wx.cloud.callFunction({
+      name:'merchantReview',
+      data:{
+        type:'select',
+      },
+      success:res=>{
+        console.log(res);
+        this.setData({
+          merchantReview:res.result.data
+        })
+      }
     })
   },
   //跳转商品详情页
   navToDetail(id){
-    // let _this = this;
     wx.navigateTo({
       url:'/home/pages/shop/detail?id='+id.currentTarget.dataset.id,
-      // events: {
-      //   // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-      //   acceptDataFromOpenedPage: function(data) {
-      //     console.log(data)
-      //   },
-      //   someEvent: function(data) {
-      //     console.log(data)
-      //   }
-      // },
-      // success: function(res) {
-      //   // 通过 eventChannel 向被打开页面传送数据
-      //   res.eventChannel.emit('acceptDataFromOpenerPage', { shopDetail: _this.data.shopDetail})
-      // }
     })
-    // console.log(id.currentTarget.dataset.id);
-    // this.getShopDetail(id.currentTarget.dataset.id);
   },
 
   //获取类目接口
@@ -135,22 +125,6 @@ Page({
       })
   },
 
-  //商品详情接口
-  // getShopDetail(detailId){
-  //   wx.cloud.callFunction({
-  //     name:"shop",
-  //     data:{
-  //       type:'details',
-  //       shopId:detailId
-  //     },success:res=>{
-  //       this.setData({
-  //         shopDetail:res.result.data
-  //       })
-  //       console.log(res);
-  //     }
-  //   })
-  // },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -172,7 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.navToMerchantAccess();
   },
 
   /**
