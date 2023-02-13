@@ -15,7 +15,6 @@ Page({
     wx.navigateTo({
       // url: '../../pages/setName/setName?name='+e.currentTarget.dataset.name,
       url: '../../pages/setName/setName?name='+this.data.options.name,
-
     })
   },
   setHobby(){
@@ -39,15 +38,18 @@ Page({
     })
   },
   bindPickerChange: function(e) {
-    this.setData({
-      index: e.detail.value
-    })
+    console.log(e)
+   
+    let _this = this; 
     wx.showModal({
       title: '提示',
       content: '性别只能选择一次,请慎重',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          console.log('用户点击确定');
+          _this.setData({
+            index: e.detail.value
+          })
         } else if (res.cancel) {
           console.log('用户点击取消');
         }
