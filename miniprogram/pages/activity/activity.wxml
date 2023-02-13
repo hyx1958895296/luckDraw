@@ -9,11 +9,13 @@
     </view>
   </view>
   <view class="active {{showId == 2 ? 'transition-l' : 'transition-r'}}"></view>
-  <view wx:if="{{showId == 1}}" class="pd-60">
-    <view class="activity-warp warp pt-20" wx:if="{{isLoaded}}">
+  <view wx:if="{{showId == 1}}" class="pb-60">
+    <view class="activity-warp warp " wx:if="{{isLoaded}}">
       <view class="flex-column activity-all plr-20 mt-20">
-        <activity class="activity-item " wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
-          <btn class="activity-btn" type="{{item.joinType}}"></btn>
+        <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
+        <view>
+          
+        </view>
         </activity>
       </view>
     </view>

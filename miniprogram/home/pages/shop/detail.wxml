@@ -7,7 +7,7 @@
       <view class="warp-radius pd-30 shop-info">
         <view>
           <view class="shop-price">
-            {{ shopDetail.shopItemPrice }}元
+            {{ shopDetail.shopItemPrice }}积分
           </view>
           <view class="base-price">
             基础价：29.00元

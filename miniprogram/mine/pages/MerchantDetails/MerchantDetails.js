@@ -5,14 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    businessDetail:[]
+    businessDetail:[],
+    dialogReviewOk:false,
+    dialogReviewNoOk:false
   },
-
-  getBusinessDetail(){
+//获取商家详情列表接口
+  getBusinessDetail(id){
     wx.cloud.callFunction({
       name:"business-info",
       data:{
         type:'select',
+        openid:''
       },success:res=>{
         this.setData({
           businessDetail:res.result.data
@@ -22,11 +25,25 @@ Page({
     })
   },
 
+  dialogReviewOkNoFn(){
+    this.data.dialogReviewNoOk = true;
+    // this.setData({
+    //   dialogReviewOk = true
+    // })
+  },
+
+  dialogReviewOkFn(){
+    console.log(111);
+    // wx.showToast({
+    //   title: '审核已通过',
+    //   duration:1000
+    // })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getBusinessDetail()
+    this.getBusinessDetail(options.id);
   },
 
   /**

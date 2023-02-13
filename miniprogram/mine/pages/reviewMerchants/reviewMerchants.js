@@ -7,6 +7,11 @@ Page({
     businuessList:[],
   },
 
+  navigateToReviewDetail(id){
+    wx.navigateTo({
+      url:'/mine/pages/MerchantDetails/MerchantDetails?id='+id.currentTarget.dataset.id,
+    })
+  },
 
   businuessListFn(){
     wx.cloud.callFunction({

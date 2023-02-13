@@ -15,7 +15,7 @@
     </view>
     <!-- <view class=" pb-40  mb-20 ml-mr-30">
       <view class="mb-20">
-        <text class="option-title c-gray fs-38  mr-10">
+        <text class="option-title c-808080 fs-38  mr-10">
         选择性别</text>
         <text class="sex-tip fs-26 c-red">(只能设置一次)</text>
       </view>     
@@ -31,7 +31,7 @@
       </view>
     </view> -->
     <view class="mt-mb_20 ml-mr-30">
-      <view class="option-title c-gray mb-20 fs-38 fb">
+      <view class="option-title c-808080 mb-20 fs-38 fb">
         选择兴趣
       </view>
       <view class="hobby-list" >

@@ -184,7 +184,7 @@
   color: rgb(173, 170, 170);
 }
 
-.ft-18{
+.fs-18{
   font-size: 18rpx;
 }
 
