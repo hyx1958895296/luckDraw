@@ -20,11 +20,11 @@
     </view>
     <view class="item" bindtap="upImage">
       <view class="item-title item-title">
-        <image src="../../../images/upload.png" mode="" />
+        商家头像
       </view>
 
       <view class="printing">
-        <image src="{{ detailItem.printingLicenceUrl }}" mode=""/>
+        <image src="{{ detailItem.printingLicenceUrl }}" mode="" />
       </view>
 
     </view>
@@ -49,11 +49,17 @@
     </view>
   </view>
   <view class="flex-around">
-    <view class="approved">
+    <view class="approved" bindtap="dialogReviewOkFn">
       审核通过
     </view>
-    <view class="no-approved">
-      审核不过
+    <view class="no-approved" bindtap="dialogReviewNoOkFn">
+      未审核通过
+    </view>
+  </view>
+  <!-- 弹窗 -->
+  <view class="dialog">
+    <view class="loading">
+      
     </view>
   </view>
 </view>

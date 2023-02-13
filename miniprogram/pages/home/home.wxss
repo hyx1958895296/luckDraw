@@ -35,15 +35,12 @@
   gap: 10rpx;
   flex-direction: column;
 }
-.align-center-8{
-  display: flex;
+.grid-center{
+  display: grid;
   align-items: center;
-  gap: 6rpx;
-  flex-direction: column;
-}
-
-.fs-34 {
-  font-size: 34rpx;
+  justify-items:center;
+  grid-template-rows: 44rpx;
+  gap: 10rpx;
 }
 
 .item-icon {
@@ -71,8 +68,6 @@
   column-count: 2;
   break-inside: avoid;
   gap: 30rpx;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
 }
 
 .swiper{
@@ -176,7 +171,7 @@
 }
 
 .get-more_score {
-  height: 270rpx;
+  height: 170rpx;
   width: 330rpx;
   border-radius: 10rpx;
   display: flex;
@@ -189,17 +184,7 @@
   font-size: 40rpx;
   color: red;
 }
-.hhh{
-  font-size: 40rpx;
-  color: #f1f1f1;
-}
 
-
-
-/* page {
-  background-color: #ffa500;
-  height: 100%;
-} */
 .head {
   height: 90rpx;
   color: #333;
@@ -258,6 +243,7 @@
   /* 引起高度塌陷 */
   vertical-align: top;
   height: 50rpx;
+  width: 44%;
 }
 .container-head-sc .active {
   color: #ffffff;
@@ -292,4 +278,12 @@
   width: 0;
   height: 0;
   color: transparent;
+}
+
+.bottom-line{
+  padding: 20vh 0 80rpx 0;
+}
+
+.fs-34 {
+  font-size: 34rpx;
 }
