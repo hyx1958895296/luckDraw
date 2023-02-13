@@ -10,6 +10,7 @@ Page({
     currentTab: 0,
     sleft: "", //横向滚动条位置
     list: [1, 2, 3, 4, 5, 6, 7, 22, 32],//测试列表
+    isLoding:true
   },
 
   handleTabChange(e) {
@@ -122,12 +123,13 @@ Page({
           type:'select',
           categoryId:categoryId
         },
-        // success:res=>{
-        //   this.setData({
-        //     shopList:res.result.data
-        //   })
-        // }
       })
+      let loding = setTimeout(()=>{
+        this.setData({
+          isLoding:false
+        })
+        clearTimeout(loding);
+      },1000)
       this.setData({
         shopList:res.result.data
       })
@@ -156,12 +158,14 @@ Page({
     await this.getCategray();
     console.log(this.data.tabListData);
     await this.getShopList(this.data.tabListData[0]._id);
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
+    
   },
 
   /**

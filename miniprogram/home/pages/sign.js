@@ -1,6 +1,6 @@
 // home/pages/sign.js
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -10,32 +10,72 @@ Page({
       score:20
     },
   },
-  getUserProfile() {
-    let _this = this;
-    if (this.data.hasUserInfo) return;
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting["scope.userInfo"]) {
-          wx.getUserProfile({
-            desc: '用户授权',
-            success: (res) => {
-              _this.setData({
-                userInfo: res.userInfo,
-                hasUserInfo: true
-              });
-              wx.showToast({
-                title: '登录成功',
-                mask:true,
-                duration:2000,
-              })
-            }
-          })
-        } else {
-          wx.openSetting();
-        }
-      }
-    })
-  },
+
+    //获取登录信息
+    // getUserProfile(){
+    //   let _this = this
+    //   wx.getSetting({
+    //     success(res) {
+    //       if (res.authSetting["scope.userInfo"]) {
+    //         wx.getUserProfile({
+    //           desc: '用户授权',
+    //           success: (res) => {
+               
+    //             _this.data.userInfo = res.userInfo;
+    //             _this.setData({
+    //               hasUserInfo: true,
+    //               isLoding:true
+    //             });
+    //             _this.getBusinessInfo();
+    //             _this.addUserInfo();
+    //             _this.selectUserInfo();
+    //             let loding = setTimeout(()=>{
+    //               _this.setData({
+    //                 isLoding:false
+    //               })
+    //               clearTimeout(loding);
+    //               wx.showToast({
+    //                 title: '登录成功',
+    //                 mask:true,
+    //                 duration:2000,
+    //               });
+    //             },1800);
+    //           }
+    //         })
+    //       } else {
+    //         wx.openSetting();
+    //       }
+    //     }
+    //   })
+    // },
+
+    // addUserInfo(){
+    //   wx.cloud.callFunction({
+    //     name:"user",
+    //     data:{
+    //       type:"add",
+    //       userInfo:this.data.userInfo
+    //     }
+    //   })
+    // },
+
+    // selectUserInfo(){
+    //   let _this = this;
+    //   wx.cloud.callFunction({
+    //     name:"user",
+    //     data:{
+    //       type:"select",
+    //     },
+    //     success(res){
+    //          if(res.result.status == 1){
+    //            console.log(res.result.data);
+    //           _this.setData({
+    //              userInfo:res.result.data
+    //            })
+    //          }
+    //     }
+    //   })
+    // },
   //日历逻辑
     // 切换月 设置已签到的日期
   handleChangeMonth(event) {

@@ -1,3 +1,6 @@
+<lodin wx:if="{{ isLoding }}">
+
+</lodin>
 <view class="homepage">
   <view class="header">
     <view class="container-header">
@@ -13,21 +16,15 @@
         <image src="../../images/add-active.png" class="item-icon" mode="" />
         <view>参加活动</view>
       </view>
-      <view class="align-center-8">
+      <view class="grid-center">
         <view class="integral">19</view>
         <view class="integral-text">积分</view>
       </view>
     </view>
   </view>
-  <!-- <view class="list-warp p-20 mt-40">
-    
-  </view>
-  <view wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="index">
-   
-  </view> -->
   <scroll-view scroll-y class="container">
     <view class="container-head flex-row">
-      <scroll-view scroll-x class="container-head-sc" scroll-left="{{sleft}}" scroll-with-animation="true">
+      <scroll-view scroll-x class="container-head-sc flex-sb" scroll-left="{{sleft}}" scroll-with-animation="true">
         <view class="item {{currentTab == index ?'active':''}}" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}" >{{ tabItem.title }}</view>
       </scroll-view>
     </view>
@@ -36,7 +33,7 @@
       <swiper-item class="flex-column j_c" wx:for="{{tabListData}}" wx:key='index'>
         <scroll-view scroll-y class="container-swiper-sc">
           <view class="main">
-            <image src="../../images/get-more-score.png" class="get-more_score" mode="aspectFill" bindtap="navagitorToActivity" />
+            <image src="../../images/get-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
             <view class="item border-eeece4 item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
               <view class="shop-item-picture">
                 <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
@@ -54,7 +51,7 @@
               </view>
             </view>
           </view>
-          <view class="flex-c c-919191 fs-30">
+          <view class="flex-c c-919191 fs-30 bottom-line">
             我也是有底线的
           </view>
         </scroll-view>
