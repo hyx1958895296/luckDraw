@@ -1,11 +1,8 @@
 /* mine/pages/userInfo/userInfo.wxss */
-.bgc-fffffff{
-  color: #ffffff;
-}
 .mt-20{
   margin-top: 20rpx;
 }
-.ml-mr_30{
+.mlr-30{
   margin-left: 30rpx;
   margin-right: 30rpx;
 }
@@ -13,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2rpx solid #e4e4e4;
+  border-bottom: 2rpx solid #f3f2f2;
   padding-bottom: 10rpx;
 }
 .pb-20{
@@ -30,7 +27,7 @@
 .icon-avatar{
   width: 120rpx;
   height: 120rpx;
-  border-radius: 10%;
+  border-radius: 15%;
   margin-right: 20rpx;
 }
 .info-item_content{
