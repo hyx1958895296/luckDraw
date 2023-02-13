@@ -205,7 +205,7 @@ view {
   padding: 20rpx 0;
 }
 
-.ptb_30{
+.ptb-30{
   padding-top: 30rpx;
   padding-bottom: 30rpx;
 }
