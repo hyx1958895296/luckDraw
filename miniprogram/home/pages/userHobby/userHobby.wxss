@@ -114,8 +114,8 @@
   font-weight: bold;
 }
 
-.c-gray {
-  color: gray;
+.c-808080 {
+  color: #808080;
 }
 
 .mb-20 {

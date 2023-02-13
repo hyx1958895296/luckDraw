@@ -34,7 +34,18 @@ view {
   justify-content: left;
 }
 
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .align-c {
+  align-items: center;
+}
+
+.flex-cen {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -47,8 +58,20 @@ view {
   color: #b3b3b3;
 }
 
+.c-b5b5b5 {
+  color: #b5b5b5;
+}
+
 .c-919191 {
   color: #919191;
+}
+
+.fc-868686 {
+  color: #868686;
+}
+
+.c-808080 {
+  color: #808080;
 }
 
 .c-6b6b6b {
@@ -61,6 +84,10 @@ view {
 
 .c-d12418 {
   color: #d12418;
+}
+
+.c-red{
+  color: red;
 }
 
 /* 字体大小 */
@@ -88,9 +115,17 @@ view {
   font-size: 36rpx;
 }
 
+.fs-46 {
+  font-size: 46rpx;
+}
+
 /* 字体粗细 */
 .fw-700 {
   font-weight: 700;
+}
+
+.fw-b {
+  font-weight: bold;
 }
 
 /* padding */
@@ -122,7 +157,43 @@ view {
   padding-top: 40rpx;
 }
 
-.pd-60 {
+.pl-20 {
+  padding-left: 20rpx;
+}
+
+.pl-60 {
+  padding-left: 60rpx;
+}
+
+.pl-70 {
+  padding-left: 70rpx;
+}
+
+.pr-20 {
+  padding-right: 20rpx;
+}
+
+.pr-60 {
+  padding-right: 60rpx;
+}
+
+.pr-70{
+  padding-right: 70rpx;
+}
+
+.pb-10{
+  padding-bottom: 10rpx;
+}
+
+.pb-30 {
+  padding-bottom: 30rpx;
+}
+
+.pb-40 {
+  padding-bottom: 40rpx;
+}
+
+.pb-60 {
   padding-bottom: 60rpx;
 }
 
@@ -163,12 +234,42 @@ view {
   margin-top: 80rpx;
 }
 
+.mt-90 {
+  margin-top: 90rpx;
+}
+
+.mr-10 {
+  margin-right: 10rpx;
+}
+
+.mr-30 {
+  margin-right: 30rpx;
+}
+
+.ml-30 {
+  margin-left: 30rpx;
+}
+
 .ml-40 {
   margin-left: 40rpx;
 }
 
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
 .mlr-20 {
   margin: 0 20rpx;
+}
+
+.mtb_20{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.mlr-30{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
 }
 
 .mrbl-20 {
