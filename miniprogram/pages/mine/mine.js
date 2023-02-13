@@ -49,7 +49,7 @@ Page({
 
   getUserProfile() {
     let _this = this;
-    if (this.data.hasUserInfo) return;
+    if (app.globalData.isLoding) return;
     wx.getSetting({
       success(res) {
         if (res.authSetting["scope.userInfo"]) {
@@ -126,6 +126,7 @@ Page({
 
   selectUserInfo(){
     let _this = this;
+    if(app.globalData.isLoding) return;
     wx.cloud.callFunction({
       name:"user",
       data:{
@@ -194,7 +195,7 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
- 
+    this.selectUserInfo();
   },
 
   /**
