@@ -154,11 +154,11 @@ Page({
     let year = this.data.multiArray[0][e.detail.value[0]].split('年', )[0];
     let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
     let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
+    let timeStamp = new Date(year + '-' + month + '-' + day + ' 08:00:00').getTime();
     let yearEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
     let monthEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
     let dayEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStampEnd = new Date(yearEnd + '-' + monthEnd + '-' + dayEnd).getTime();
+    let timeStampEnd = new Date(yearEnd + '-' + monthEnd + '-' + dayEnd + ' 18:00:00').getTime();
     this.setData({
       endTimeStamp: timeStampEnd,
       startTimeStamp: timeStamp
@@ -171,7 +171,7 @@ Page({
     let year = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
     let month = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
     let day = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStamp = new Date(year + '-' + month + '-' + day).getTime();
+    let timeStamp = new Date(year + '-' + month + '-' + day + ' 18:00:00').getTime();
     this.setData({
       endTimeStamp: timeStamp
     });
