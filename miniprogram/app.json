@@ -21,7 +21,8 @@
         "pages/loopDraw/loopDraw",
         "pages/drawRule/drawRule",
         "pages/loopDrawDetalis/loopDrawDetalis",
-        "pages/addLoopDraw/addLoopDraw"
+        "pages/addLoopDraw/addLoopDraw",
+        "pages/test/test"
       ]
     },
     {
