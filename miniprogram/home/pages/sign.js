@@ -11,9 +11,9 @@ Page({
   },
 
     //获取登录逻辑
-    getUserProfile(){
+    async getUserProfile(){
       let _this = this;
-      wx.getUserProfile({
+      let res = await wx.getUserProfile({
         desc: '签到登录',
         success:res=>{
           this.setData({
@@ -23,22 +23,16 @@ Page({
           app.globalData.isLogin = true;
           _this.addUserInfo();
           _this.selectUserInfo();
-          let loding = setTimeout(()=>{
-            _this.setData({
-              isLoding:false
-            })
-            clearTimeout(loding);
-            wx.showToast({
-              title: '登录成功',
-              mask:true,
-              duration:2000,
-            });
-          },2000);
+          wx.showToast({
+            title: '登录成功',
+            mask:true,
+            duration:2000,
+          });
         }
       })
     },
-    addUserInfo(){
-      wx.cloud.callFunction({
+    async addUserInfo(){
+      let res = await wx.cloud.callFunction({
         name:"user",
         data:{
           type:"add",
@@ -47,9 +41,9 @@ Page({
       })
     },
 
-    selectUserInfo(){
+    async selectUserInfo(){
       let _this = this;
-      wx.cloud.callFunction({
+      let res = await wx.cloud.callFunction({
         name:'user',
         data:{
           type:'select'
@@ -85,8 +79,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getUserProfile();
+  async onLoad(options) {
+    await this.getUserProfile();  
   },
 
   /**

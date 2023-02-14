@@ -1,7 +1,7 @@
 <lodin wx:if="{{ isLoding }}">
 
 </lodin>
-<view class="homepage">
+<view class="page-home">
   <view class="header">
     <view class="container-header">
       <view class="align-center" bindtap="navToSign">
@@ -16,28 +16,28 @@
         <image src="../../images/add-active.png" class="item-icon" mode="" />
         <view>参加活动</view>
       </view>
-      <view class="grid-center">
+      <view class="grid-center" wx:if="{{ isLogin }}">
         <view class="integral">19</view>
         <view class="integral-text">积分</view>
       </view>
     </view>
   </view>
   <scroll-view scroll-y class="container">
-    <view class="container-head flex-row">
+    <view class="container-head ">
       <scroll-view scroll-x class="container-head-sc flex-sb" scroll-left="{{sleft}}" scroll-with-animation="true">
-        <view class="item {{currentTab == index ?'active':''}}" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}" >{{ tabItem.title }}</view>
+        <view class="item {{currentTab == index ?'active':''}}" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}">{{ tabItem.title }}</view>
       </scroll-view>
     </view>
 
     <swiper current="{{currentTab}}" bindchange="handleSwiperChange" class="container-swiper warp">
-      <swiper-item class="flex-column j_c" wx:for="{{tabListData}}" wx:key='index'>
+      <swiper-item class="flex-column" wx:for="{{tabListData}}" wx:key='index'>
         <scroll-view scroll-y class="container-swiper-sc">
           <view class="main">
-            <image src="../../images/get-score.png" class="get-more_score" mode="" bindtap="navagitorToActivity" />
+            <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" class="get-more_score" mode="" bindtap="navagitorToActivity" />
             <view class="item border-eeece4 item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
               <view class="shop-item-picture">
                 <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
-                <view></view>
+                <!-- <view></view> -->
               </view>
               <view class="shop-item-title">
                 {{ shopItem.shopItemTitle }}

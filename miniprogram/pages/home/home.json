@@ -1,5 +1,10 @@
 {
   "usingComponents": {
     "lodin":"../loding/loding"
-  }
+  },
+  "navigationBarTitleText":"首页",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f53f3b",
+  "backgroundTextStyle": "light"
+  
 }

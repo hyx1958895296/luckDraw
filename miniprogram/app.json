@@ -72,5 +72,10 @@
       "iconPath":"./images/icon-mine.png",
       "selectedIconPath":"./images/icon-mine_select.png"
     }]
+  },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"你的位置将用于小程序位置接口的展示"
+    }
   }
 }
