@@ -39,7 +39,8 @@
       "pages": [
         "pages/sign",
         "pages/shop/detail",
-        "pages/userHobby/userHobby"
+        "pages/userHobby/userHobby",
+        "pages/redeemPrizes/redeemPrizes"
       ]
     }
   ],

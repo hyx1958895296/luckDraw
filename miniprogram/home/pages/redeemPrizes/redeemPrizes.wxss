@@ -1,0 +1,71 @@
+/* home/pages/redeemPrizes/redeemPrizes.wxss */
+.bg-9c183c{
+  background-color: #9c183c;
+}
+.icon-avatar{
+  width: 178rpx;
+  height: 178rpx;
+}
+.icon-avatar{
+  border-radius: 50%;
+}
+.fs-38{
+  font-size: 38rpx;
+}
+.ptb-36{
+  padding:36rpx 0;
+}
+.c-f30d4c{
+  color: #f30d4c;
+}
+.c-8c95a5{
+  color: #8c95a5;
+}
+.fs-28{
+  font-size: 28rpx;
+}
+.plr-96{
+  padding: 0 96rpx;
+}
+.receive-address_content{
+  text-align: center;
+}
+.prize-info,.cs,.exchange-detail{
+  border-bottom: 2rpx dashed #cbcbcb;
+}
+.c-8d8986{
+  color: #8d8986;
+}
+
+.red-dot_left{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: -35rpx;
+  bottom: -15rpx;
+}
+.red-dot_right{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: -35rpx;
+  bottom: -15rpx;
+}
+.prize-info{
+  position: relative;
+}
+.exchange-detail{
+  position: relative;
+}
+.exchange-name{
+  width: 30%;
+}
+.exchange-content{
+  width: 70%;
+}
+.icon-cs{
+  width: 40rpx;
+  height: 40rpx;
+}

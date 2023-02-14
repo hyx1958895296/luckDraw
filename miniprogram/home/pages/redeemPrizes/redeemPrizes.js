@@ -1,35 +1,19 @@
-// mine/pages/setName/setName.js
+// home/pages/redeemPrizes/redeemPrizes.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:''
-  },
-  
-  nameInput(e){
-    this.setData({
-      name:e.detail.value
-    })
-  },
-  save(){
-    wx.navigateTo({
-      url: '../userInfo/userInfo?name='+this.data.name,
-    })
-    
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
-    this.setData({
-      name:options.name
-    })
+
   },
-  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

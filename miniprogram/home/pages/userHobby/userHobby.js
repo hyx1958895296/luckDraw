@@ -53,7 +53,7 @@ Page({
     // 用户性别
     sexIndex:'0',
     // 判断路径
-    pathChoose:false
+    pathChoose:true
   },
   // 选择性别
   sexSelect(e){

@@ -1,0 +1,75 @@
+<!--home/pages/redeemPrizes/redeemPrizes.wxml-->
+<view class="redeem-prize plr-20 bg-9c183c">
+  <view class="box-redeem_prize  bg-ffffff pt-20">
+    <view class="mlr-20 prize-info">
+      <view class="box-avatar flex-cen">
+        <image src="../../../images/avator.png" mode="" class="icon-avatar" />
+      </view>
+      <view class="flex-cen fw-b fs-38 ptb-36">
+        某某某商品
+      </view>
+      <view class="flex-cen c-f30d4c fs-36 fw-700">
+        兑奖码：49995270120
+      </view>
+      <view class="receive-info  c-8c95a5 mtb-20">
+
+        <view class="receive-address_title flex-cen fs-38 fs-b">
+          领取地址:
+        </view>
+        <view class="receive-address_content flex-cen plr-96 fs-28">
+          某某某某某某某某某某某某 某某某某某某某某
+        </view>
+        <view class="red-dot_left bg-9c183c">
+        </view>
+        <view class="red-dot_right bg-9c183c">
+        </view>
+      </view>
+    </view>
+    <view class="exchange-detail ptb-40 mlr-20">
+      <view class="fs-38 fw-b">
+        兑换卷详情
+      </view>
+      <view class="flex-sb c-8d8986 fs-36 mt-20">
+        <view class="exchange-name">
+          兑换日期
+        </view>
+        <view class="exchange-content">
+          2021.06.04 00：00至2021.07.04 00：00
+        </view>
+      </view>
+      <view class="flex-sb c-8d8986 mt-20 fs-36">
+        <view class="exchange-name">
+          领取须知
+        </view>
+        <view class="exchange-content mr-30">
+          兑奖请前往兑奖地址兑换，请于兑奖日期期限内前往兑奖！过期兑奖码无效，如有疑问请联系商家客服。兑奖码最终解释权归商家所有。
+          
+        </view>
+      </view>
+      <view class="red-dot_left bg-9c183c">
+      </view>
+      <view class="red-dot_right bg-9c183c">
+      </view>
+    </view>
+    <view class="cs flex-sb align-c mlr-20 ptb-20">
+      <view class="fs-38 fw-b">
+        客服电话
+      </view>
+      <view class="c-8c95a5 fs-36 flex-cen">
+        <text class="mr-10">0325168546</text>
+        <text class="mr-10">|</text>
+        <image src="../../../images/icon-cs.png" mode="" class="icon-cs"/>
+      </view>
+    </view>
+    <view class="mlr-20 ptb-20 fs-38 ">
+      <view class="fs-38 fw-b">
+        关于我们
+      </view>
+      <view class="mt-20 fs-36">
+        关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+      </view>
+    </view>
+
+  </view>
+
+</view>
