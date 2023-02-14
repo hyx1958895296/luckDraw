@@ -9,12 +9,12 @@ Page({
     isListofprizes: false,
     activityId: "",
     isLuckDraw: true,
-    activityInfo:{},
-    isLoding:true,
-    prizelist:[],
-    newJackpot:{},
+    activityInfo: {},
+    isLoding: true,
+    prizelist: [],
+    newJackpot: {},
     timer: null,
-    countDown:[]
+    countDown: []
   },
 
   /**
@@ -46,51 +46,53 @@ Page({
     second %= 60;
     let countDownArr = [];
     countDownArr[0] = this.tow(day);
-    countDownArr[1] =  this.tow(hour);
-    countDownArr[2] =  this.tow(minute);
-    countDownArr[3] =  this.tow(second);
+    countDownArr[1] = this.tow(hour);
+    countDownArr[2] = this.tow(minute);
+    countDownArr[3] = this.tow(second);
     // let str = this.tow(day) + '天' +
     //   this.tow(hour) + '小时' +
     //   this.tow(minute) + '分钟' +
     //   this.tow(second) + '秒';
-      this.setData({
-        countDown:countDownArr
-      })
+    this.setData({
+      countDown: countDownArr
+    })
   },
 
-  getActivityDetails() {
+  async getActivityDetails() {
     let _this = this;
-    wx.cloud.callFunction({
+    let res = await wx.cloud.callFunction({
       name: "activity",
       data: {
         type: "detail",
         activityId: this.data.activityId
-      }, success(res) {
-        let activityInfo = res.result.data;
-        activityInfo.prizelist.sort((a,b)=>{return a.peopleCount-b.peopleCount});
-        let peopleNumber =  
-        activityInfo.prizelist.find(item=>activityInfo.peopleCount<item.peopleCount);
-       if(peopleNumber == undefined){ 
-         peopleNumber = activityInfo.prizelist[activityInfo.prizelist.length-1]
-        }
-        _this.setData({
-          activityInfo:activityInfo,
-          newJackpot:peopleNumber
-        });
-        let loding = setTimeout(()=>{
-            _this.setData({
-               isLoding:false
-            })
-            clearTimeout(loding);
-        },1500)
       }
     })
+    if (res.result.status == 1) {
+      let activityInfo = res.result.data;
+      activityInfo.prizelist.sort((a, b) => {
+        return a.peopleCount - b.peopleCount
+      });
+      let peopleNumber = activityInfo.prizelist.find(item => activityInfo.peopleCount < item.peopleCount);
+      if (peopleNumber == undefined) {
+        peopleNumber = activityInfo.prizelist[activityInfo.prizelist.length - 1]
+      }
+      _this.setData({
+        activityInfo: activityInfo,
+        newJackpot: peopleNumber
+      });
+      let loding = setTimeout(() => {
+        _this.setData({
+          isLoding: false
+        })
+        clearTimeout(loding);
+      }, 1500)
+    };
   },
 
-  isLuckDraw() {
+  async isLuckDraw() {
     let _this = this;
-    if(!app.globalData.isLogin) return;
-    wx.cloud.callFunction({
+    if (!app.globalData.isLogin) return;
+    let res = await wx.cloud.callFunction({
       name: "raffleRecord",
       data: {
         type: "select",
@@ -98,31 +100,29 @@ Page({
           activityId: this.data.activityId
         }
       },
-      success(res) {
-        if (res.result.status == 1) {
-          _this.setData({
-            isLuckDraw: true
-          })
-        } else {
-          _this.setData({
-            isLuckDraw: false
-          })
-        }
-      }
     })
+    if (res.result.status == 1) {
+      _this.setData({
+        isLuckDraw: true
+      })
+    } else {
+      _this.setData({
+        isLuckDraw: false
+      })
+    }
   },
 
-  addUserInfo(){
+  addUserInfo() {
     wx.cloud.callFunction({
-      name:"user",
-      data:{
-        type:"add",
-        userInfo:this.data.userInfo
+      name: "user",
+      data: {
+        type: "add",
+        userInfo: this.data.userInfo
       }
     })
   },
 
-  isLogin() {
+   isLogin() {
     let _this = this;
     wx.getSetting({
       success(res) {
@@ -136,8 +136,8 @@ Page({
               _this.isLuckDraw();
               wx.showToast({
                 title: '登录成功',
-                mask:true,
-                duration:2000,
+                mask: true,
+                duration: 2000,
               });
             }
           })
@@ -148,11 +148,11 @@ Page({
     })
   },
 
-  luckDraw() {
+  async luckDraw() {
     let _this = this;
-    if(!app.globalData.isLogin){
-       this.isLogin();
-       return;
+    if (!app.globalData.isLogin) {
+      this.isLogin();
+      return;
     }
     if (!this.data.isLuckDraw) {
       wx.showToast({
@@ -161,7 +161,8 @@ Page({
       })
       return;
     };
-    wx.cloud.callFunction({
+
+   let res = await wx.cloud.callFunction({
       name: "raffleRecord",
       data: {
         type: "create",
@@ -169,24 +170,22 @@ Page({
           activityId: this.data.activityId
         }
       },
-      success(res) {
-        if (res.result.status == 1) {
-          _this.setData({
-            isLuckDraw: false
-          })
-          wx.showToast({
-            title: res.result.msg,
-            icon: "success"
-          })
-          _this.getActivityDetails();
-        } else {
-          wx.showToast({
-            title: res.result.msg,
-            icon: "error"
-          })
-        }
-      }
-    })
+    });
+    if (res.result.status == 1) {
+      _this.setData({
+        isLuckDraw: false
+      })
+      wx.showToast({
+        title: res.result.msg,
+        icon: "success"
+      })
+      _this.getActivityDetails();
+    } else {
+      wx.showToast({
+        title: res.result.msg,
+        icon: "error"
+      })
+    }
   },
 
   showListofprizes() {
@@ -199,7 +198,6 @@ Page({
         isListofprizes: true
       })
     }
-
   },
 
   /**
@@ -213,7 +211,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-   setInterval(() => {
+    setInterval(() => {
       this.countDown(this.data.activityInfo.endTimeStamp)
     }, 1000)
 

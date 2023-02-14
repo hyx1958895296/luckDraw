@@ -189,7 +189,7 @@
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  gap: 54rpx;
+  gap: 38rpx;
 }
 .hobby-item{
   position: relative;

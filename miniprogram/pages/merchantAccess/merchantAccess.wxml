@@ -17,7 +17,7 @@
       </view>
     </view>
 
-    <view class="item" bindtap="upImage">
+    <view class="item" bindtap="upLoadImage">
       <view class="item-title item-title">
         <image src="../../images/upload.png" mode="" />
       </view>

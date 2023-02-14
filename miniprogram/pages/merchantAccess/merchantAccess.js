@@ -18,7 +18,6 @@ Page({
   },
 
   bindRegionChange(e){
-    console.log(e);
     this.setData({
       ['settleInForm.address']:e.detail.value
     })
@@ -43,7 +42,7 @@ Page({
     }
   },
 
-  isBusinessInfo() {
+  checkBusinessInfo() {
     let {
       storeName,
       phone,
@@ -56,8 +55,8 @@ Page({
     }
   },
 
-  submitstoreInfo() {
-    if (this.isBusinessInfo()) {
+  async submitstoreInfo() {
+    if (this.checkBusinessInfo()) {
       wx.showToast({
         title: '请填写完整信息',
         icon: 'error'
@@ -65,32 +64,23 @@ Page({
     } else {
       if (this.data.isAgreement) {
         this.data.settleInForm.printingLicenceUrl = this.data.printingLicenceUrl;
-        wx.cloud.callFunction({
+        let res = await  wx.cloud.callFunction({
           name: "merchantReview",
           data: {
             type: "add",
             businessInfo: this.data.settleInForm
           },
-          success(res) {
-            if(res.result.status == 1){
-              wx.showToast({
-                title: res.result.msg,
-                icon:"success"
-              })
-             let settime = setTimeout(()=>{
-              clearTimeout(settime);
-                wx.switchTab({
-                  url: '/pages/mine/mine',
-                })
-              },2000)
-            }else{
-               wx.showToast({
-                title: res.result.msg,
-                icon:"error"
-              })
-            }
-          }
         })
+        if(res.result.status == 1){
+          wx.switchTab({
+            url: '/pages/mine/mine',
+          })
+        }else{
+           wx.showToast({
+            title: res.result.msg,
+            icon:"error"
+          })
+        }
       } else {
         wx.showToast({
           title: '请同意入驻协议',
@@ -118,7 +108,7 @@ Page({
     this.data.settleInForm.name = e.detail.value;
   },
 
-  upImage() {
+  upLoadImage() {
     let _this = this;
     wx.chooseMedia({
       count: 1,

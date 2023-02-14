@@ -7,6 +7,18 @@ Page({
   data: {
     name:''
   },
+  
+  nameInput(e){
+    this.setData({
+      name:e.detail.value
+    })
+  },
+  save(){
+    wx.navigateTo({
+      url: '../userInfo/userInfo?name='+this.data.name,
+    })
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -17,6 +29,7 @@ Page({
       name:options.name
     })
   },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
