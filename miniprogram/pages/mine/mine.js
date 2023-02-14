@@ -173,8 +173,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-   
+ async onLoad(options) {
+    let res = await  wx.cloud.callFunction({
+        name:"activity",
+        data:{
+          type:"update"
+        }
+      })
+      console.log(res);
   },
 
   /**
