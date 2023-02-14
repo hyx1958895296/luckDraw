@@ -76,6 +76,12 @@ Page({
       delta: 1
     })
   },
+  // 返回
+  returnPage(){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   // 跳过
   skip(){
     // 跳转
@@ -87,7 +93,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
+   
   },
 
   /**

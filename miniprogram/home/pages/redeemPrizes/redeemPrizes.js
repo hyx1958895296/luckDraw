@@ -5,14 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    phoneNumber:'15233633902'
   },
-
+  callPhone(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.phoneNumber
+    });
+    // wx.chooseContact();
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+  
   },
 
   /**
