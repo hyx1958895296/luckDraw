@@ -13,5 +13,8 @@
   border-bottom: 2rpx solid #b3b3b3;
 }
 .btn-save{
-  background-color: #34a334;
+  border-radius: 8rpx;
+  background-color: #05c160;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
