@@ -2,5 +2,6 @@
   "usingComponents": {
     "activity" : "../../components/activity/activityItem",
     "loding":"../loding/loding"
-  }
+  },
+  "navigationBarTitleText": "活动列表"
 }

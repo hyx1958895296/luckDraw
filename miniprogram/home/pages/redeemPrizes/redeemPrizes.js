@@ -1,34 +1,24 @@
-// mine/pages/setName/setName.js
+// home/pages/redeemPrizes/redeemPrizes.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:''
+    phoneNumber:'15233633902'
   },
-  
-  nameInput(e){
-    this.setData({
-      name:e.detail.value
-    })
+  callPhone(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.phoneNumber
+    });
+    // wx.chooseContact();
   },
-  save(){
-    wx.navigateTo({
-      url: '../userInfo/userInfo?name='+this.data.name,
-    })
-    
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      name:options.name
-    })
-  },
   
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,6 @@
 /* pages/activitydetalis/activitydetalis.wxss */
 .activity-details {
-  background:linear-gradient(#e7514f,#dd5e5c,#d16565,#ee8787,#e58686,#d68181,#f1f1f1);
+  background:linear-gradient(#e7514f,#dd5e5c,#d16565,#ee8787,#e58686,#dab2b2,#f1f1f1);
   min-height: 100vh;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .fc-173170{
-  color: rgb(173, 170, 170);
+  color: rgb(128, 120, 120);
 }
 
 .fs-18{

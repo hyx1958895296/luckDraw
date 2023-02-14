@@ -1,0 +1,25 @@
+/* .tabs{
+} */
+/* 文字横向 */
+.tabs_title {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 每个文字居中，且占1份 */
+.title_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 15rpx 0;
+  border-bottom: 5rpx solid #bbbbbb00;
+}
+
+/* 选中样式 */
+.active {
+  color: #bbbbbb;
+  border-bottom: 5rpx solid currentColor;
+}
+
+/* .tabs_content{} */
