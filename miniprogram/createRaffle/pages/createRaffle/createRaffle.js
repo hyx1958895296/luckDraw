@@ -335,12 +335,11 @@ Page({
     if (isCreate) {
       // 调用发起活动的接口
       this.createActivity();
-
     }
   },
 
   // 创建活动接口
-  createActivity(options) {
+  createActivity() {
     wx.cloud.callFunction({
       name: "activity",
       data: {
@@ -356,7 +355,6 @@ Page({
         }
       },
       success(res) {
-        console.log('创建了活动');
         wx.showToast({
           title: '发起成功！',
           icon: 'success',
@@ -368,7 +366,7 @@ Page({
           wx.switchTab({
             url: '/pages/activity/activity',
           })
-        }, 2000);
+        }, 1000);
       }
     })
   },
