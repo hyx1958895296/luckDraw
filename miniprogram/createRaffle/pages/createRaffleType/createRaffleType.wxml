@@ -6,20 +6,24 @@
       <block wx:for="{{swiperList}}" wx:key="index">
         <swiper-item class="swiper-item">
           <view class="swiper-item {{item}}">
-            <view class="flex-c ">
+            <view class="flex-c fw-700 fs-30">
+              {{item.title}}
+            </view>
+            <view class="flex-c mt-20 mb-20">
               <view class="raffle-warp ">
                 <image class="draw-1" src="{{item.url}}" mode="" />
               </view>
             </view>
-            <view class="flex-c fw-700 mt-40 fs-30">
-              {{item.title}}
+            <view class="detail fs-26 c-6b6b6b">
+              {{item.detail}}
             </view>
+            
           </view>
         </swiper-item>
       </block>
     </swiper>
     <view class="btn-warp mt-80 flex-c">
-      <button class="btn c-ffffff flex-c ptb-20 " bindtap="navigateto" data-to="{{swiperList[active].jumpUrl}}">
+      <button class="btn c-ffffff flex-c ptb-20 " bindtap="navigateto">
         <image class="icon-add" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/icon-add%20(1).png?sign=c24a90d722ca5eb48dbbb2c0cfc6894d&t=1675392196" mode="" />
         <text class="btn-text">立即发起</text>
       </button>

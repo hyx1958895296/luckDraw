@@ -5,12 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabList: [{
+    tabsList: [{
+      id: 0,
+      value: "未开始",
+    }, {
       id: 1,
-      title: "未开始",
+      value: "已开始",
     }, {
       id: 2,
-      title: "已开始",
+      value: "已结束",
     }],
     showId: 1,
     activityList: [],

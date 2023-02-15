@@ -26,10 +26,10 @@ Page({
     isScroll: true,
     // 上传活动封面图片
     localshowImage: '',
-    replaceImg: 'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
+    activityCover: 'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
     imageList: [],
     // 添加奖品信息
-    from: [{
+    prizelist: [{
       peopleCount: '',
       prizeName: '',
       prizeCount: '',
@@ -76,7 +76,7 @@ Page({
     let count = this.data.drawCount + 1;
     this.setData({
       drawCount: count,
-      from: this.data.from.concat({
+      prizelist: this.data.prizelist.concat({
         peopleCount: '',
         prizeName: '',
         prizeCount: '',
@@ -90,7 +90,7 @@ Page({
     let count = this.data.drawCount - 1;
     this.setData({
       drawCount: count,
-      from: this.data.from.splice(index, 1)
+      prizelist: this.data.prizelist.splice(index, 1)
     })
   },
 
@@ -103,42 +103,42 @@ Page({
 
   // input  人数
   bindKeyInputPeople(e) {
-    let arr = this.data.from;
+    let arr = this.data.prizelist;
     if (arr[e.target.id]) {
       arr[e.target.id].peopleCount = e.detail.value
     }
-    console.log(this.data.from)
+    console.log(this.data.prizelist)
     this.setData({
-      from: arr
+      prizelist: arr
     });
   },
   // input  奖品
   bindKeyInputPrize(e) {
     console.log(e)
-    let arr = this.data.from;
+    let arr = this.data.prizelist;
     if (arr[e.target.id]) {
       arr[e.target.id].prizeName = e.detail.value
     }
-    console.log(this.data.from)
+    console.log(this.data.prizelist)
     this.setData({
-      from: arr
+      prizelist: arr
     });
-    console.log(this.data.from)
+    console.log(this.data.prizelist)
   },
   // input  份
   bindKeyInputCount(e) {
     console.log(e)
-    let arr = this.data.from;
+    let arr = this.data.prizelist;
     if (arr[e.target.id]) {
       arr[e.target.id].prizeCount = e.detail.value
     }
-    console.log(this.data.from);
+    console.log(this.data.prizelist);
     console.log('------------arr');
     console.log(arr)
     this.setData({
-      from: arr
+      prizelist: arr
     });
-    console.log(this.data.from)
+    console.log(this.data.prizelist)
   },
 
   // picker选择器
@@ -258,7 +258,7 @@ Page({
               if (!res.fileID) return;
               arr.push(res.fileID);
               _this.setData({
-                replaceImg: res.fileID
+                activityCover: res.fileID
               });
             }
           })
@@ -287,7 +287,7 @@ Page({
               if (!res.fileID) return;
               arr.push(res.fileID);
               _this.setData({
-                [`from[${e.currentTarget.dataset.index}].img`]: res.fileID,
+                [`prizelist[${e.currentTarget.dataset.index}].img`]: res.fileID,
               });
             }
           })
@@ -314,8 +314,8 @@ Page({
       });
       isCreate = false;
     };
-    for (let index = 0; index < this.data.from.length; index++) {
-      if (!this.data.from[index].peopleCount && !this.data.from[index].prizeCount && !this.data.from[index].prizeName && !this.data.from[index].img) {
+    for (let index = 0; index < this.data.prizelist.length; index++) {
+      if (!this.data.prizelist[index].peopleCount && !this.data.prizelist[index].prizeCount && !this.data.prizelist[index].prizeName && !this.data.prizelist[index].img) {
         wx.showToast({
           title: '请填写完整奖品信息',
           icon: 'error',
@@ -323,7 +323,7 @@ Page({
         });
         isCreate = false;
       }
-      if (!this.data.from[index].img) {
+      if (!this.data.prizelist[index].img) {
         wx.showToast({
           title: '请上传奖品图片',
           icon: 'error',
@@ -350,8 +350,8 @@ Page({
           activityName: this.data.activityName,
           startTimeStamp: this.data.startTimeStamp,
           endTimeStamp: this.data.endTimeStamp,
-          activityCover: this.data.replaceImg,
-          prizelist: this.data.from,
+          activityCover: this.data.activityCover,
+          prizelist: this.data.prizelist,
         }
       },
       success(res) {
