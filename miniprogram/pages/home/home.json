@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "lodin":"../loding/loding"
+    "loding":"../loding/loding",
+    "tabs":"../../components/tabs/tabs"
   },
   "navigationBarTitleText":"首页",
   "enablePullDownRefresh": true,

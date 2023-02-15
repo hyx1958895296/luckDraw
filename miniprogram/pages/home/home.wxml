@@ -1,57 +1,133 @@
+<view class="page-home bg-f53f3b">
+  <loding wx:if="{{ isLoding }}">
+
+  </loding>
+  <view class="box-page_home warp ptb-30">
+    <view class="header flex-sa bg-ffffff p-20">
+      <view class="item">
+        <view class="flex-cen">
+          <image src="../../images/icon-sign.png" class="item-icon ptb-10" mode="" />
+        </view>
+        <view class="fs-30">
+          每日签到
+        </view>
+      </view>
+      <view class="item">
+        <view class="flex-cen">
+          <image src="../../images/icon-event.png" class="item-icon ptb-10" mode="" />
+        </view>
+        <view class="fs-30">
+          参加活动
+        </view>
+      </view>
+      <view class="item">
+        <view class="flex-cen">
+          <image src="../../images/icon-business.png" class="item-icon ptb-10" mode="" />
+        </view>
+        <view class="fs-30">
+          商家入驻
+        </view>
+      </view>
+      <view class="item">
+        <view class="flex-cen">
+          <image src="../../images/icon-event.png" class="item-icon ptb-10" mode="" />
+        </view>
+        <view class="fs-30">
+          积分
+        </view>
+      </view>
+    </view>
+    <view class="content ptb-20">
+      <!-- <tabs tabsList="{{tabsList}}" class="tab" bindtabsItemChange="getTabsItemChange">
+      </tabs> -->
+      <tabs rewrite-tabs_title="rewrite-tabs_title" bor-radius="bor-radius" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
+        <view slot="0">
+          <view class="activity-warp warp " wx:if="{{isLoaded}}">
+            <view class="flex-column activity-all  ">
+              <activity class="activity-item mt-20" wx:for="{{tabListData}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
+                <view>
+                </view>
+              </activity>
+            </view>
+            <view class="fs-30 c-919191 flex-c p-30">
+              我也是有底线哒
+            </view>
+          </view>
+
+          <view class="flex-column ptb-100" wx:if="{{!activityList}}">
+            <view class="flex-c mt-80">
+              <image class="icon-none" src="../../images/icon-none.png" mode="" />
+            </view>
+            <view class="flex-c mt-60 c-919191">
+              空空如也~~
+            </view>
+          </view>
+        </view>
+      </tabs>
+      <view>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 
+
+<view class="page-home bgc-f53f3b"> 
 <lodin wx:if="{{ isLoding }}">
 
-</lodin>
-<view class="page-home">
-  <view class="header">
-    <view class="container-header">
-      <view class="align-center" bindtap="navToSign">
+</lodin> 
+<view class="box-page_home warp pt-40">
+  <view class="header fs-26">
+    <view class="container-header flex-sa align-c p-20 bg-ffffff fw-500">
+      <view class="align-center flex-cen" bindtap="navToSign">
         <image src="../../images/qd.png" class="item-icon" mode="" />
         <view>每日签到</view>
       </view>
-      <view class="align-center" bindtap="navToMerchantAccess" wx:for="{{ merchantReview }}" wx:for-item="reviewItem" wx:key="reviewItem._id" wx:if="{{ reviewItem.status == 3 }}">
+      <view class="align-center flex-cen" bindtap="navToMerchantAccess" wx:for="{{ merchantReview }}" wx:for-item="reviewItem" wx:key="index" wx:if="{{ reviewItem.status == 3 }}">
         <image src="../../images/shopperzhu.png" class="item-icon" mode="" />
         <view>商家入驻</view>
       </view>
-      <view class="align-center" bindtap="navToActivity">
+      <view class="align-center flex-cen" bindtap="navToActivity">
         <image src="../../images/add-active.png" class="item-icon" mode="" />
         <view>参加活动</view>
       </view>
       <view class="grid-center" wx:if="{{ isLogin }}">
-        <view class="integral">19</view>
+        <view class="c-ff7f00 fs-44 fw-800">19</view>
         <view class="integral-text">积分</view>
       </view>
     </view>
   </view>
-  <scroll-view scroll-y class="container">
-    <view class="container-head ">
-      <scroll-view scroll-x class="container-head-sc flex-sb" scroll-left="{{sleft}}" scroll-with-animation="true">
-        <view class="item {{currentTab == index ?'active':''}}" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}">{{ tabItem.title }}</view>
+  <scroll-view scroll-y class="container mt-40 plr-20">
+    <view class="container-head flex-cen fs-26 ptb-10">
+      <scroll-view scroll-x class="container-head_sc c-333 flex-sb plr-10" scroll-left="{{sleft}}" scroll-with-animation="true">
+        <view class="item {{currentTab == index ?'active':''}} ptb-10 bg-ffffff" data-current="{{index}}" catchtap="handleTabChange" wx:key="list" wx:for="{{tabListData}}" wx:for-item="tabItem" data-id="{{tabItem._id}}">{{ tabItem.title }}</view>
       </scroll-view>
     </view>
 
-    <swiper current="{{currentTab}}" bindchange="handleSwiperChange" class="container-swiper warp">
-      <swiper-item class="flex-column" wx:for="{{tabListData}}" wx:key='index'>
-        <scroll-view scroll-y class="container-swiper-sc">
+    <swiper current="{{currentTab}}" bindchange="handleSwiperChange" class="swiper mt-20">
+      <swiper-item class="flex-column swiper-item" wx:for="{{tabListData}}" wx:key='index'>
+        <scroll-view scroll-y class="container-swiper_sc">
           <view class="main">
             <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" class="get-more_score" mode="" bindtap="navagitorToActivity" />
             <view class="item border-eeece4 item-wrap" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
-              <view class="shop-item-picture">
+              <view class="shop-item_picture">
                 <image src="{{ shopItem.shopItemImage }}" class="shop-size" mode="" />
-                <!-- <view></view> -->
+             
               </view>
               <view class="shop-item-title">
                 {{ shopItem.shopItemTitle }}
               </view>
               <view>
-                <text class="points-redemption">{{ shopItem.shopItemPrice }}</text>
-                <text class="points-text">积分</text>
+                <text class="points-redemption c-c90a74 fs-36">{{ shopItem.shopItemPrice }}</text>
+                <text class="fs-22 pl-8 c-c90a74 fw-b">积分</text>
               </view>
               <view class="monthly-exchange">
                 月兑 {{ shopItem.monthlyExchange }}
               </view>
             </view>
           </view>
-          <view class="flex-c c-919191 fs-30 bottom-line">
+          <view class="flex-c c-919191 fs-30 ptb-10vh">
             我也是有底线的
           </view>
         </scroll-view>
@@ -59,3 +135,4 @@
     </swiper>
   </scroll-view>
 </view>
+</view> -->

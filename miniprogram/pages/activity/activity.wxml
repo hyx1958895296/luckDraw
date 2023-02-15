@@ -41,7 +41,6 @@
  -->
  <tabs tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
   <view slot="0">
-
     <view class="activity-warp warp " wx:if="{{isLoaded}}">
       <view class="flex-column activity-all  ">
         <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
