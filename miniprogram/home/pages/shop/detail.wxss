@@ -1,8 +1,14 @@
 /* home/pages/shop/detail.wxss */
+
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+ }
 .header{
   height: 40vh;
 }
-.shop-detail{
+.page-detail_index{
   width: 100vw;
   height: 40vh;
 }
@@ -41,7 +47,7 @@
   font-size:32rpx;
   color: #727070;
 }
-.thirdary-title-bold{
+.thirdary-title_color-3b3b3b{
   font-size:32rpx;
   color: #3b3b3b;
   font-weight: 500;
@@ -60,7 +66,7 @@
   font-size: 40rpx;
   color:#f76333;
 }
-.yuedui{
+.monthly-exchange{
   font-size: 28rpx;
   color: #a4a4a4;
 }
@@ -82,20 +88,20 @@
   bottom: 20vh;
   box-sizing: border-box;
 }
-.back-top-icon{
-  width:40rpx;
+.icon-back_top{
+  width:30rpx;
 }
 .footer{
   background-color: white;
-  /* width: 100vw; */
 }
-.now-redeem{
-  background-color: #f9e0a7;
+.immediately-exchange{
+  background-color: #f53f3b;
   width: 100vw;
   padding: 25rpx 0;
   font-weight: 500;
   font-size: 34rpx;
   text-align: center;
   position: fixed;
+  color: white;
   bottom:0;
 }

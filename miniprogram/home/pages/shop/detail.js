@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopDetail:{}
+    shopDetail:{},
+    Top:false
   },
   //回到顶部
   srollViewTop(e){
@@ -25,11 +26,48 @@ Page({
       top:true
     })
   },
+  
+  onAuthLocation(){
+    wx.authorize({
+      scope: 'scope.userLocation',
+      success: (res) => {
+          console.log('成功：' , res)
+      },
+      fail: (res) => {
+          console.log('失败：', res)
+      },
+    })
+    this.onGetLocation();
+    if(!this.onGetLocation()){
+      this.gotoSetting();
+    }
+  },
+
+  //地图 ————获取经纬度方法
+  onGetLocation(){
+    wx.getLocation({
+      success: (res) => {
+          console.log('成功：', res)
+      },
+      fail: (res) => {
+          console.log('失败：', res)
+      }
+    })
+  },
+
+  //拒绝后再次授权，打开授权面板
+  gotoSetting() {
+    wx.openSetting({
+        success: (res) => {
+            console.log(res)
+        }
+    })
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options.id);
+    // console.log(options.id);
     this.getShopDetail(options.id);
     // const eventChannel = this.getOpenerEventChannel()
     // eventChannel.on('acceptDataFromOpenerPage', function(data) {

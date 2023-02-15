@@ -1,32 +1,35 @@
 /* components/calender/calender.wxss */
-.flex-wrap{
+.flex-wrap {
   display: flex;
   flex-wrap: wrap;
 }
-.calendar-header{
+
+.calendar-header {
   text-align: center;
+  margin-bottom: 30rpx;
 }
-.icon-operate{
+
+.icon-operate {
   display: inline-block;
   color: #666666;
 }
-.disabled{
+
+.disabled {
   color: #999999;
 }
-.calender-header-date{
+
+.calender-header-date {
   display: inline-block;
   margin: 0 40rpx;
 }
 
-.calendar-body{
-  margin: 40rpx;
-}
-.days-col{
+.days-col {
   margin: 10rpx 0;
-  width: 14.28%;
+  width: 14%;
   text-align: center;
 }
-.days-col-text{
+
+.days-col-text {
   display: block;
   margin: auto;
   width: 60rpx;
@@ -36,20 +39,24 @@
   border-radius: 50%;
   font-size: 28rpx;
 }
-.is-signed .days-col-text{
+
+.is-signed .days-col-text {
   background-color: rgb(233, 236, 15);
   color: #000;
 }
-.is-today .days-col-text{
+
+.is-today .days-col-text {
   background-color: rgb(25, 212, 151, 0.2);
   color: rgb(25, 212, 151);
 }
-.is-checked .days-col-text{
+
+.is-checked .days-col-text {
   background-color: rgb(25, 212, 151);
   color: #ffffff;
 }
+
 .icon-signed {
-  margin: -14rpx auto 0;
+  margin: -14rpx auto;
   width: 30rpx;
   height: 30rpx;
   line-height: 30rpx;
@@ -57,18 +64,24 @@
   border-radius: 50%;
   font-size: 22rpx;
 }
-.is-signed .icon-signed{
+
+.is-signed .icon-signed {
   color: #ffffff;
   background-color: rgb(25, 212, 151);
 }
-.qd-btn{
+
+.qd-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+  width: 90vw;
   height: 77rpx;
-  margin-top: 100rpx;
-  text-align: center;
-  line-height: 77rpx;
   border-radius: 50rpx;
   color: white;
   font-size: 44rpx;
   font-weight: 600;
-  background-image: linear-gradient(to top,#ff9063,#fd532a);
+  background-image: linear-gradient(to top, #ff9063, #fd532a);
 }

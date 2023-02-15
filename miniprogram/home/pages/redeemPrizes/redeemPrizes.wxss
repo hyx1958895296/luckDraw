@@ -2,6 +2,9 @@
 .bg-9c183c{
   background-color: #9c183c;
 }
+.redeem-prize{
+  min-height: 100vh;
+}
 .icon-avatar{
   width: 178rpx;
   height: 178rpx;
@@ -36,6 +39,10 @@
 .c-8d8986{
   color: #8d8986;
 }
+.icon-split{
+  width: 36rpx;
+  height: 48rpx;
+}
 
 .red-dot_left{
   width: 30rpx;
@@ -53,10 +60,7 @@
   right: -35rpx;
   bottom: -15rpx;
 }
-.prize-info{
-  position: relative;
-}
-.exchange-detail{
+.prize-info,.exchange-detail,.cs{
   position: relative;
 }
 .exchange-name{

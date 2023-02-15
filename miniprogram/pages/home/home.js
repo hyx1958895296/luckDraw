@@ -1,4 +1,5 @@
 // pages/home/home.js
+const app = getApp();
 Page({
 
   /**
@@ -10,8 +11,10 @@ Page({
     merchantReview:[],
     currentTab: 0,
     sleft: "", //横向滚动条位置
-    list: [1, 2, 3, 4, 5, 6, 7, 22, 32],//测试列表
-    isLoding:true
+    isLoding:false,
+    isLogin:app.globalData.isLogin,//本页面登录状态
+    loading: false, //是否展示 “正在加载” 字样
+    loaded: false //是否展示 “已加载全部” 字样
   },
 
   handleTabChange(e) {
@@ -45,6 +48,7 @@ Page({
       });
     });
   },
+
 
   //微信签到跳转
   signIn(){
@@ -107,22 +111,27 @@ Page({
 
   //调用商品列表接口
   async getShopList(categoryId){
-    const res = await wx.cloud.callFunction({
+      await wx.cloud.callFunction({
         name:'shop',
         data:{
           type:'select',
           categoryId:categoryId
         },
-      })
-      let loding = setTimeout(()=>{
-        this.setData({
-          isLoding:false
-        })
-        clearTimeout(loding);
-      },1000)
-      this.setData({
-        shopList:res.result.data
-      })
+        success: res => {
+          // 请求成功后停止刷新加载的动画
+          wx.hideNavigationBarLoading();
+          // 停止下拉刷新
+          wx.stopPullDownRefresh();
+          if (res.result.data.length > 0 || res.result.data.status == 1) {
+            this.setData({
+              shopList : res.result.data
+            })
+          } else if(res.result.data.status == 0){
+            // 没有数据了
+            console.log('没有数据了');
+          }
+        }
+    })
   },
 
   /**
@@ -130,9 +139,8 @@ Page({
    */
   async onLoad(options) {
     await this.getCategray();
-    console.log(this.data.tabListData);
+    // console.log(this.data.tabListData);
     await this.getShopList(this.data.tabListData[0]._id);
-    
   },
 
   /**
@@ -167,14 +175,32 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    // 在当前页面显示导航条加载动画
+    wx.showNavigationBarLoading();
+    // 下拉刷新后，清空商品列表数组
+    this.setData({
+      shopList: [],
+    });
+    // 重新发起请求
+    if(this.data.tabListData[0]._id){
+      this.getShopList(this.data.tabListData[0]._id);
+      wx.showToast({
+        title: '刷新成功',
+        duration: 1000,
+      })
+    }else{
+      wx:wx.showToast({
+        title: '刷新失败',
+        duration: 1000,
+      })
+    }
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    console.log("上拉加载....");
   },
 
   /**

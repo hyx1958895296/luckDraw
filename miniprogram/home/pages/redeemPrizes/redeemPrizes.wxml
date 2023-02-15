@@ -1,6 +1,6 @@
 <!--home/pages/redeemPrizes/redeemPrizes.wxml-->
-<view class="redeem-prize plr-20 bg-9c183c">
-  <view class="box-redeem_prize  bg-ffffff pt-20">
+<view class="redeem-prize  bg-9c183c">
+  <view class="box-redeem_prize  bg-ffffff warp pt-20">
     <view class="mlr-20 prize-info">
       <view class="box-avatar flex-cen">
         <image src="../../../images/avator.png" mode="" class="icon-avatar" />
@@ -12,7 +12,6 @@
         兑奖码：49995270120
       </view>
       <view class="receive-info  c-8c95a5 mtb-20">
-
         <view class="receive-address_title flex-cen fs-38 fs-b">
           领取地址:
         </view>
@@ -25,25 +24,23 @@
         </view>
       </view>
     </view>
-    <view class="exchange-detail ptb-40 mlr-20">
+    <view class="exchange-detail ptb-20  mlr-20">
       <view class="fs-38 fw-b">
         兑换卷详情
       </view>
-      <view class="flex-sb c-8d8986 fs-36 mt-20">
+      <view class="flex-sb c-8c95a5 fs-36 mt-20">
         <view class="exchange-name">
           兑换日期
         </view>
-        <view class="exchange-content">
-          2021.06.04 00：00至2021.07.04 00：00
+        <view class="exchange-content">2021.06.04 00:00至2021.07.04 00:00
         </view>
       </view>
-      <view class="flex-sb c-8d8986 mt-20 fs-36">
+      <view class="flex-sb c-8c95a5 mt-20 fs-36">
         <view class="exchange-name">
           领取须知
         </view>
-        <view class="exchange-content mr-30">
+        <view class="exchange-content">
           兑奖请前往兑奖地址兑换，请于兑奖日期期限内前往兑奖！过期兑奖码无效，如有疑问请联系商家客服。兑奖码最终解释权归商家所有。
-          
         </view>
       </view>
       <view class="red-dot_left bg-9c183c">
@@ -56,16 +53,20 @@
         客服电话
       </view>
       <view class="c-8c95a5 fs-36 flex-cen">
-        <text class="mr-10">0325168546</text>
-        <text class="mr-10">|</text>
-        <image src="../../../images/icon-cs.png" mode="" class="icon-cs"/>
+        <text class="fs-36" bindtap="callPhone">{{phoneNumber}}</text>
+        <image src="../../../images/icon-split.png" mode="" class="icon-split"/>
+        <image src="../../../images/icon-cs.png" mode="" class="icon-cs" bindtap="callPhone"/>
       </view>
+      <view class="red-dot_left bg-9c183c">
+        </view>
+        <view class="red-dot_right bg-9c183c">
+        </view>
     </view>
     <view class="mlr-20 ptb-20 fs-38 ">
       <view class="fs-38 fw-b">
         关于我们
       </view>
-      <view class="mt-20 fs-36">
+      <view class="mt-20 fs-36 c-8c95a5">
         关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
       </view>
     </view>
