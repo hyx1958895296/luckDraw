@@ -12,12 +12,12 @@
   </view>
   <view class="main sign-in_wrap">
     <view class="calender">
-      <view class="message-tips">
+      <!-- <view class="message-tips">
         <view>
           再签到 <text class="sign-in_number">0</text> 天,就可以额外获得 <text class="sign-in_number">80</text> 积分
         </view>
         <view></view>
-      </view>
+      </view> -->
       <view class="calender-container">
         <calendar signedList="{{ signedList }}" bindchange="handleChangeMonth"/>
       </view>
