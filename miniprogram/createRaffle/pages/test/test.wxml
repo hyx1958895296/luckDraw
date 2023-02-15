@@ -1,1 +1,1 @@
-<tabs tabs="{{tabsList}}" bindtabsItemChange="getTabsItemChange"></tabs>
+<tabs tabsList="{{tabsList}}" bindtabsItemChange="getTabsItemChange"></tabs>

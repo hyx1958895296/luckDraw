@@ -30,7 +30,7 @@
 .plr-96{
   padding: 0 96rpx;
 }
-.receive-address_content{
+.address-content{
   text-align: center;
 }
 .prize-info,.cs,.exchange-detail{
@@ -49,16 +49,16 @@
   height: 30rpx;
   border-radius: 50%;
   position: absolute;
-  left: -35rpx;
-  bottom: -15rpx;
+  left: -16rpx;
+  bottom: -16rpx;
 }
 .red-dot_right{
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
   position: absolute;
-  right: -35rpx;
-  bottom: -15rpx;
+  right: -16rpx;
+  bottom: -16rpx;
 }
 .prize-info,.exchange-detail,.cs{
   position: relative;

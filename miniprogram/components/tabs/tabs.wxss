@@ -1,13 +1,17 @@
-/* .tabs{
-} */
+
 /* 文字横向 */
-.tabs_title {
+.tabs-title{
   display: flex;
   justify-content: space-around;
+  color: #999999;
+  border-bottom: 1rpx solid #dddddd;
 }
 
+
+
 /* 每个文字居中，且占1份 */
-.title_item {
+.tabs-title_item {
+  font-size: 34rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,8 +22,12 @@
 
 /* 选中样式 */
 .active {
-  color: #bbbbbb;
-  border-bottom: 5rpx solid currentColor;
+  color: #c71717;
+  border-bottom: 10rpx solid currentColor;
 }
 
-/* .tabs_content{} */
+.swiper,.swiper-item{
+  background-color: #f2f2f2;
+  height: calc(100vh - 90rpx);
+  overflow-y: scroll;
+}
