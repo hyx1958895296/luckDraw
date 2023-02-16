@@ -15,6 +15,7 @@ Page({
     }],
     isLoaded: false,
     shopList:[],
+
     tabListData:[],
     // merchantReview:[],
     // currentTab: 0,
@@ -35,6 +36,7 @@ Page({
     });
     this.getShopList(e.target.dataset.id)
 
+
   },
   handleSwiperChange(e) {
     this.setData({
@@ -43,6 +45,7 @@ Page({
     this.getScrollLeft();
     console.log(e);
     this.getShopList(this.data.tabListData[e.detail.current]._id)
+
   },
   getScrollLeft() {
     const query = wx.createSelectorQuery();
@@ -113,8 +116,15 @@ Page({
          type:'select'
         },
       })
+      let arr = res.result.data.map(item=>JSON.stringify(item).
+      replace(/title/g,'value')).
+      map(item=>JSON.parse(item)).
+      forEach((item,index) => {
+        item['id'] = index;
+       console.log(item);
+      });
       this.setData({
-        tabListData :res.result.data,
+        tabListData :arr
       })
       console.log(this.data.tabListData);
   },
@@ -138,6 +148,7 @@ Page({
           shopList : res.result.data
         })
         console.log(this.data.shopList);
+
       } else if(res.result.data.status == 0){
         // 没有数据了
         console.log('没有数据了');
@@ -147,14 +158,16 @@ Page({
     
 
   },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
     await this.getCategray();
-    // console.log(this.data.tabListData);
-    await this.getShopList(this.data.tabListData[0]._id);
+    console.log(this.data.tabListData);
+
+    this.getShopList('f28436a263e369be0211b58d0a4115a6');
   },
 
   /**
@@ -199,10 +212,12 @@ Page({
     // 下拉刷新后，清空商品列表数组
     this.setData({
       shopList: [],
+
     });
     // 重新发起请求
     if(this.data.tabListData[0]._id){
       this.getShopList(this.data.tabListData[0]._id);
+
       wx.showToast({
         title: '刷新成功',
         duration: 1000,

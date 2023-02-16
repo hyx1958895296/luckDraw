@@ -1,8 +1,7 @@
 // components/Tabs/Tabs.js
 Component({
   // 预留给页面对样式重写
-  externalClasses: ['rewrite-tabs_title', 'bor-radius'],
-
+  externalClasses:['rewrite-tabs_title','bor-radius','bgc-fff'],
   /**
    * 组件的属性列表
     传入给组件的数据
