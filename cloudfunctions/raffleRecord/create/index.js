@@ -1,5 +1,4 @@
 const cloud = require('wx-server-sdk');
-const util = require('../util/index');
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -21,7 +20,6 @@ exports.main = async (event, context) => {
     data:[]
   }
    event.raffleRecordInfo.openid = OPENID;
-   event.createTime = util.getDate();
    let selectResult = await db.collection("raffleRecord").where({
        openid:event.raffleRecordInfo.openid,
        activityId:event.raffleRecordInfo.activityId

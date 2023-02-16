@@ -34,36 +34,44 @@
 
 
   <view class="countdown-box">
-    <view class="countdown-titile">
-      开奖倒计时
+    <view class="countdown-titile" wx:if="{{activityInfo.status == 1}}">
+      活动还未开始
     </view>
-    <view class="countdown-countent">
-      <text class="countdown-countent-active">{{countDown[0]}}</text> 天 <text class="countdown-countent-active">{{countDown[1]}}</text> 时 <text class="countdown-countent-active">7</text> {{countDown[2]}} <text class="countdown-countent-active">{{countDown[3]}}</text> 秒
+
+    <view class="countdown-titile" wx:if="{{activityInfo.status == 3}}">
+      活动已经结束
+    </view>
+
+    <view wx:if="{{activityInfo.status == 2}}">
+      <view class="countdown-titile">
+        开奖倒计时
+      </view>
+      <view class="countdown-countent">
+        <text class="countdown-countent-active">{{countDown[0]}}</text> 天 <text class="countdown-countent-active">{{countDown[1]}}</text> 时 <text class="countdown-countent-active">7</text> {{countDown[2]}} <text class="countdown-countent-active">{{countDown[3]}}</text> 秒
+      </view>
     </view>
 
     <view class="progress-box">
       <text class="progress-people">距离{{newJackpot.peopleCount}}人的奖池进度：</text>
       <progress backgroundColor="black" show-info duration="10" activeColor="rgb(223, 76, 19)" percent="{{activityInfo.peopleCount/newJackpot.peopleCount*100}}" active stroke-width="10" />
     </view>
-  
 
     <view class="ft-28" wx:if="{{activityInfo.peopleCount != 0}}">
       现有<text class="activity-people_font">{{activityInfo.peopleCount}}</text>人参加了活动
     </view>
 
-    <view class="ft-28"  wx:if="{{activityInfo.peopleCount == 0}}">
+    <view class="ft-28" wx:if="{{activityInfo.peopleCount == 0}}">
       暂时还没有人参加活动 , 赶快参加吧
     </view>
 
     <view class="invitation-btn">
       <view>邀请好友参加抽奖活动</view>
-      <view class="ft-22">（邀请好友越多中奖概率越高）</view>
     </view>
   </view>
 
   <view class="raffle-box" bindtap="luckDraw">
-     <text wx:if="{{isLuckDraw}}">点击参与抽奖</text>
-      <text wx:else>已经参加过此活动</text>
+    <text wx:if="{{isLuckDraw}}">点击参与抽奖</text>
+    <text wx:else>已经参加过此活动</text>
   </view>
 
   <view class="raffle-button_box">

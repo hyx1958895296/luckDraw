@@ -1,6 +1,6 @@
 <!-- tabs切换 -->
-<view class="tabs">
-  <view class="tabs-title">
+<view class="tabs ">
+  <view class="tabs-title rewrite-tabs_title bor-radius">
     <view wx:for="{{tabsList}}" wx:key="index" bindtap="active" data-item="{{item}}">
       <view class="tabs-title_item {{current == index ? 'active' : ''}} ">
         {{item.value}}
@@ -9,7 +9,7 @@
   </view>
 
   <view class="tabs-container">
-    <swiper  class="swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="eventhandle">
+    <swiper  class="swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  bindchange="pagechange">
         <swiper-item  class="swiper-item" style="height: 100%;" wx:for="{{tabsList}}" wx:key="index">
             <slot name="{{item.id}}"></slot>
         </swiper-item>
