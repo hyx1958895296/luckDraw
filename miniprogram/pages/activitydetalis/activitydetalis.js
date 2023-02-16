@@ -174,7 +174,6 @@ Page({
       this.isLogin();
       return;
     }   
-    console.log(this.data.activityInfo);
     if(this.data.activityInfo.status == 1){
        wx.showToast({
          title: '活动还未开始',
