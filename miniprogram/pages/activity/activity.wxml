@@ -2,8 +2,8 @@
 <loding wx:if="{{isLoding}}"></loding>
 
 <!-- 活动列表 -->
-<view class="activity bg-f2f2f2">
-  <view class="nav-box">
+<view class="activity bg-f2f2f2" wx:if="{{!isLoding}}">
+  <!-- <view class="nav-box">
     <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
       <view data-item="{{item}}"> {{item.title}}</view>
     </view>
@@ -38,7 +38,30 @@
       </view>
     </view>
   </view>
+ -->
+ <tabs tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
+  <view slot="0">
+    <view class="activity-warp warp " wx:if="{{isLoaded}}">
+      <view class="flex-column activity-all  ">
+        <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
+          <view>
+          </view>
+        </activity>
+      </view>
+      <view class="fs-30 c-919191 flex-c p-30">
+        我也是有底线哒
+      </view>
+    </view>
 
-
+    <view class="flex-column ptb-100" wx:if="{{!activityList}}">
+      <view class="flex-c mt-80">
+        <image class="icon-none" src="../../images/icon-none.png" mode="" />
+      </view>
+      <view class="flex-c mt-60 c-919191">
+        空空如也~~
+      </view>
+    </view>
+  </view>
+ </tabs>
 
 </view>

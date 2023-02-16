@@ -187,9 +187,9 @@
 } */
 .hobby-list{
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 38rpx;
+  gap: 46rpx;
 }
 .hobby-item{
   position: relative;
@@ -200,7 +200,6 @@
 .save{
   position: fixed;
   bottom: 0;
-  color: white;
   width: 100%;
   padding-top: 30rpx;
   padding-bottom: 30rpx;
@@ -210,6 +209,6 @@
   background-color: #d12418;
 }
 .hobby-item_active{
-  background-color: #fa4a3d;
+  background-color: #d12418;
   color: #ffffff;
 }

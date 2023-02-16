@@ -60,7 +60,7 @@
           点击更换
         </view>
         <view class="gifts-warp p-30" bindtap="upImage">
-          <image class="gifts" src="{{replaceImg}}" mode="" />
+          <image class="gifts" src="{{activityCover}}" mode="" />
         </view>
       </view>
 
@@ -94,17 +94,17 @@
         <view class=" p-30 flex-l img-warp">
           <view wx:for="{{drawCount}}" wx:key="index">
             <view class="flex-c ptb-20">
-              {{from[item].peopleCount ? from[item].peopleCount : (item+1) * 100}}人
+              {{prizelist[item].peopleCount ? prizelist[item].peopleCount : (item+1) * 100}}人
             </view>
-            <view wx:if="{{!from[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
+            <view wx:if="{{!prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
               推荐上传
               <view>
                 正方形
               </view>
               （200*200）
             </view>
-            <view wx:if="{{from[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
-              <image class="img-box" src="{{from[item].img}}" mode="" />
+            <view wx:if="{{prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
+              <image class="img-box" src="{{prizelist[item].img}}" mode="" />
             </view>
           </view>
         </view>

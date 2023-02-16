@@ -1,16 +1,18 @@
- <!-- 顶部横向tabs切换栏目 -->
- <view class="tabs">
-   <!-- 文字 -->
-   <view class="tabs_title ">
-     <!-- {{item.isActive?'active':''}}  用于判断当前是否选中，添加active样式 -->
-     <!--  data-index="{{index}}"  只有设置了这个，才能在绑定的事件中的参数里面的currentTarget==》dataset里找到设置的值 -->
-     <view wx:for="{{tabs}}" wx:key="id" class="title_item  {{item.isActive?'active':''}} " bindtap="handleItemTap"
-       data-index="{{index}}">
-       {{item.value}}
-     </view>
-   </view>
-   <!-- tabs下方内容区域 -->
-   <view class="tabs_content">
-     <slot></slot>
-   </view>
- </view>
+<!-- tabs切换 -->
+<view class="tabs bor-radius">
+  <view class="tabs-title rewrite-tabs_title">
+    <view wx:for="{{tabsList}}" wx:key="index" bindtap="active" data-item="{{item}}">
+      <view class="tabs-title_item {{current == index ? 'active' : ''}} ">
+        {{item.value}}
+      </view>
+    </view>
+  </view>
+
+  <view class="tabs-container">
+    <swiper  class="swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="eventhandle">
+        <swiper-item  class="swiper-item" style="height: 100%;" wx:for="{{tabsList}}" wx:key="index">
+            <slot name="{{item.id}}"></slot>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>

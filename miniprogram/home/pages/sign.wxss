@@ -1,71 +1,137 @@
-.wrap{
-  padding:0 20rpx;
-}
-.sign-in-box{
-  height: 100vh;
+.sign-in_page{
+  height: 100%;
   background-image: linear-gradient(to top, rgb(255, 140, 101), rgb(255, 140, 102),rgb(255, 140, 100));
-  position: relative;
-  z-index: 1;
+  padding: 30rpx 0;
 }
-.header{
-  height: 33vh;
-  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qd_bj_image.png?sign=9fe8907ea390298e3ed1756b5f350076&t=1675321399");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: 3;
-  position: relative;
-}
-
-.header_avatar-score{
+ 
+.calendar_title {
+  color: #fff;
   display: flex;
-  align-items: center;
-  column-gap: 20rpx;
-  padding: 15rpx;
-}
-
-.avatar{
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 100rpx;
-}
-
-.current-score{
-  vertical-align: center;
-}
-
-.qd-text-center{
-  display: flex;
-  height: 10vh;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-.qd-text{
-  height: 188rpx;
-  width: 387rpx;
+ 
+.calendar_title .icon {
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 0;
+}
+ 
+.icon image {
+  width: 100%;
+  height: 100%;
+}
+ 
+.nowDtae {
+  color: white;
+  margin: 0 20rpx;
+}
+ 
+/* 日历 */
+.calendar {
+  width: 100%;
+  background-color: #ff5533;
+  opacity: .8;
+  border-radius: 20rpx;
+  margin: 30rpx 0;
+}
+ 
+.header {
+  font-size: 0;
+  width: 100%;
+  border-bottom: 1px solid #D0D0D0;
+}
+ 
+.header>view {
+  display: inline-block;
+  width: 14%;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 20rpx 0;
+}
+ 
+.avatar-url{
+  background-color: red;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main{
-  width: 95.5vw;
-  top: 26vh;
-  position: absolute;
-  z-index: 2;
+/* .avatar-url image{
+  
+} */
+ 
+.date-box {
+  padding: 10rpx 0;
+  width: 100%;
 }
-.rili{
-  background-image: url("https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/qd-rili.png");  
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 60vh;
-}
-.message-tips{
+ 
+.date-box>view {
+  display: inline-block;
+  width: 14%;
+  height: 80rpx;
+  color: #666;
   text-align: center;
-  font-size: 30rpx;
-  padding-top: 70rpx;
+  vertical-align: middle;
+}
+ 
+.date-head {
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+}
+ 
+.nowDay .date-head {
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background-color: #ff9933;
+  margin: 0 auto;
+}
+.nowsDay .date-head{
+  width: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  background-color: #47c46d;
+  margin: 0 auto;
+}
+/* 签到 */
+.center {
+  background: #ff5533;
+  padding: 40rpx 0;
+}
+.flex_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30rpx;
+}
+.center_text {
+  margin-top: 20rpx;
+  color: white;
+  font-size: 38rpx;
+}
+.center_texts{
   color: white;
 }
-.number-text{
-  color: rgb(254, 226, 73);
+.bottom_text {
+  font-weight: normal;
+  line-height: 60rpx;
 }
-
-.calender{
-  margin-top: 100rpx;
+ 
+.bottom_text text {
+  color: white;
+}
+ 
+.bottom {
+  padding: 40rpx 0;
+  margin-top: 30rpx;
+  background-color: #ff5533;
 }

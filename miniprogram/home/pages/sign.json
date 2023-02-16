@@ -1,5 +1,4 @@
 {
-  "usingComponents": {
-    "calendar": "../../../components/calender/calender"
-  }
+  "usingComponents": {},
+  "navigationBarTitleText":"每日签到"
 }
