@@ -23,19 +23,19 @@
                去设置
               </view>
               <view class="picker c-d12418" wx:if="{{isStart}}">
-                {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}点{{multiArray[2][multiIndex[2]]}}分
+                {{multiArray[0][multiIndex[0]]}} 08:00
               </view>
             </picker>
           </view>
         </view>
         <view class="hang p-30 flex-sb">
           <view>
-            人未满自动开奖<text class="c-d12418">*</text>
+            活动结束时间<text class="c-d12418">*</text>
           </view>
           <view class="section">
             <picker mode="multiSelector" disabled="{{isEnd}}" bindchange="bindMultiPickerChangeEnd" bindtap="isSetStart" value="{{multiIndexEnd}}" range="{{multiArrayEnd}}">
               <view class="c-d12418" wx:if="{{!isEnd}}">
-                {{multiArrayEnd[0][multiIndexEnd[0]]}}{{multiArrayEnd[1][multiIndexEnd[1]]}}点{{multiArrayEnd[2][multiIndexEnd[2]]}}分
+                {{multiArrayEnd[0][multiIndexEnd[0]]}} 18:00
               </view>
               <view class="c-d12418" wx:if="{{isEnd}}">
                 请先选择开始时间

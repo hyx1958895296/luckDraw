@@ -53,7 +53,8 @@ Page({
     const res = await wx.cloud.callFunction({
       name: 'activity',
       data: {
-        type: 'select'
+        type: 'select',
+        status:'1'
       },
     })
     this.setData({
