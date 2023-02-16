@@ -9,7 +9,7 @@
   </view>
 
   <view class="tabs-container">
-    <swiper  class="swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="eventhandle">
+    <swiper  class="swiper" indicator-dots="{{indicatorDots}}" circular="{{true}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  bindchange="pagechange">
         <swiper-item  class="swiper-item" style="height: 100%;" wx:for="{{tabsList}}" wx:key="index">
             <slot name="{{item.id}}"></slot>
         </swiper-item>

@@ -35,6 +35,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    pagechange(e){
+      
+    },
+
     // 滑动到下一个
     eventhandle(e) {
       this.setData({

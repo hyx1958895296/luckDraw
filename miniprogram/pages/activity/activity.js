@@ -54,7 +54,7 @@ Page({
       name: 'activity',
       data: {
         type: 'select',
-        status:'1'
+        status:1
       },
     })
     this.setData({
