@@ -24,7 +24,7 @@ Page({
     this.setData({
       activityId:options.id
     })
-    this.isLuckDraw();
+    
     this.getActivityDetails();
   },
 
@@ -70,6 +70,7 @@ Page({
       }
     })
     if (res.result.status == 1) {
+      console.log(res);
       let activityInfo = res.result.data;
       activityInfo.prizelist.sort((a, b) => {
         return a.peopleCount - b.peopleCount
@@ -82,6 +83,7 @@ Page({
         activityInfo: activityInfo,
         newJackpot: peopleNumber
       });
+
       let loding = setTimeout(() => {
         _this.setData({
           isLoding: false
@@ -124,6 +126,22 @@ Page({
     })
   },
 
+  async selectUserInfo(){ 
+    let _this = this;
+    let res = await wx.cloud.callFunction({
+      name:"user",
+      data:{
+        type:"select",
+      }
+    });
+    if(res.result.status == 1){
+      app.globalData.isLogin = true;
+      _this.setData({
+         userInfo:res.result.data
+       })
+     }
+  },
+
    isLogin() {
     let _this = this;
     wx.getSetting({
@@ -155,7 +173,22 @@ Page({
     if (!app.globalData.isLogin) {
       this.isLogin();
       return;
+    }   
+    console.log(this.data.activityInfo);
+    if(this.data.activityInfo.status == 1){
+       wx.showToast({
+         title: '活动还未开始',
+         icon:"error"
+       })
+       return;
+    }else if(this.data.activityInfo.status == 3){
+      wx.showToast({
+        title: '活动已经结束',
+        icon:"error"
+      })
+      return;
     }
+
     if (!this.data.isLuckDraw) {
       wx.showToast({
         title: '你已经参加过此活动',
@@ -213,8 +246,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.selectUserInfo();
+    this.isLuckDraw();
     setInterval(() => {
-      this.countDown(this.data.activityInfo.endTimeStamp)
+      this.countDown(this.data.activityInfo.startTimeStamp)
     }, 1000)
 
     this.setData({
