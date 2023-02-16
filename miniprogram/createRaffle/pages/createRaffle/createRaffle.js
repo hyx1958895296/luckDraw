@@ -1,4 +1,6 @@
-// createRaffle/pages/createRaffle/createRaffle.js
+import { Time } from "../../../util/time"
+const time = new Time();
+
 Page({
 
   /**
@@ -13,11 +15,11 @@ Page({
     storeName: '',
     // 月 日 时 分  当天往后30天
     multiArray: [],
-    multiIndex: [0, 0, 0],
+    multiIndex: [0],
     isEnd: true,
     // 月 日 时 分  活动开始时间往后30天
     multiArrayEnd: [],
-    multiIndexEnd: [0, 0, 0],
+    multiIndexEnd: [0],
     // 是否同意活动协议
     checked: true,
     // 添加奖项
@@ -45,10 +47,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.time();
+    this.getStartTime();
     this.endTime();
     this.getUserInfo();
-    console.log(options)
   },
 
   // 获取焦点事件
@@ -107,38 +108,29 @@ Page({
     if (arr[e.target.id]) {
       arr[e.target.id].peopleCount = e.detail.value
     }
-    console.log(this.data.prizelist)
     this.setData({
       prizelist: arr
     });
   },
   // input  奖品
   bindKeyInputPrize(e) {
-    console.log(e)
     let arr = this.data.prizelist;
     if (arr[e.target.id]) {
       arr[e.target.id].prizeName = e.detail.value
     }
-    console.log(this.data.prizelist)
     this.setData({
       prizelist: arr
     });
-    console.log(this.data.prizelist)
   },
   // input  份
   bindKeyInputCount(e) {
-    console.log(e)
     let arr = this.data.prizelist;
     if (arr[e.target.id]) {
       arr[e.target.id].prizeCount = e.detail.value
     }
-    console.log(this.data.prizelist);
-    console.log('------------arr');
-    console.log(arr)
     this.setData({
       prizelist: arr
     });
-    console.log(this.data.prizelist)
   },
 
   // picker选择器
@@ -146,22 +138,21 @@ Page({
     this.setData({
       multiIndex: e.detail.value
     });
-    this.endTime(this.data.multiIndex[0] + 1);
+
     this.setData({
       isEnd: false,
       isStart: true,
     });
-    let year = this.data.multiArray[0][e.detail.value[0]].split('年', )[0];
-    let month = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[0];
-    let day = this.data.multiArray[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStamp = new Date(year + '-' + month + '-' + day + ' 08:00:00').getTime();
-    let yearEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
-    let monthEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
-    let dayEnd = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStampEnd = new Date(yearEnd + '-' + monthEnd + '-' + dayEnd + ' 18:00:00').getTime();
+
+    // 选择开始时间时同时选择结束时间
+    this.endTime(time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]).slice(1));
+
+    // 将开始时间转成时间戳
+    let startTimeStamp = time.parseTimeStamp(time.parseDate(this.data.multiArray[0][e.detail.value[0]]) + ' 08:00')
+    console.log(startTimeStamp);
     this.setData({
-      endTimeStamp: timeStampEnd,
-      startTimeStamp: timeStamp
+      startTimeStamp: startTimeStamp,
+      // endTimeStamp: timeStampEnd,
     });
   },
   bindMultiPickerChangeEnd(e) {
@@ -190,50 +181,22 @@ Page({
 
   // 结束抽奖时间
   endTime(e) {
-    let nowDate = new Date();
-    let dateArr = [];
-    dateArr.push(nowDate.getFullYear() + '年' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日')
-    for (let i = 0; i < 31 + e; i++) {
-      let tempDate = nowDate.setDate(nowDate.getDate() + 1);
-      tempDate = new Date(tempDate);
-      let ri = tempDate.getDate();
-      let yue = tempDate.getMonth() + 1;
-      let nian = tempDate.getFullYear();
-      let yueRi = nian + '年' + yue + '月' + ri + "日";
-      dateArr.push(yueRi);
-    }
-
-    let index = 1;
-    index = e ? e : index
-
+    let arr = new Date().getHours() >= 8 ? time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]])).slice(1) : time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]));
+    
     this.setData({
       multiArrayEnd: [
-        dateArr.slice(index),
-        [ '18'],
-        ['00']
+       arr
       ]
     })
   },
 
   // 开始抽奖时间
-  time() {
-    let nowDate = new Date();
-    let dateArr = [];
-    dateArr.push(nowDate.getFullYear() + '年' + (nowDate.getMonth() + 1) + '月' + nowDate.getDate() + '日')
-    for (let i = 0; i < 30; i++) {
-      let tempDate = nowDate.setDate(nowDate.getDate() + 1);
-      tempDate = new Date(tempDate);
-      let ri = tempDate.getDate();
-      let yue = tempDate.getMonth() + 1;
-      let nian = tempDate.getFullYear();
-      let yueRi = nian + '年' + yue + '月' + ri + "日";
-      dateArr.push(yueRi);
-    }
+  getStartTime() {
+    let arr =  new Date().getHours() >= 8 ? time.format(30).slice(1) : time.format(30);
+
     this.setData({
       multiArray: [
-        dateArr,
-        [ '08'],
-        ['00']
+        arr
       ]
     });
   },
@@ -273,7 +236,6 @@ Page({
     wx.chooseMedia({
       count: 1,
       success(res) {
-        console.log(res)
         _this.setData({
           localshowImage: res.tempFiles,
         });
@@ -380,7 +342,6 @@ Page({
         type: 'select',
       },
       success(res) {
-        console.log(res);
         _this.setData({
           avatarUrl: res.result.data.avatarUrl,
           storeName: res.result.data.nickName,
