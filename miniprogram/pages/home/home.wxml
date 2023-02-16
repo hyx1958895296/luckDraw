@@ -40,8 +40,8 @@
     <view class="content mtb-20">
       <!-- <tabs tabsList="{{tabsList}}" class="tab" bindtabsItemChange="getTabsItemChange">
       </tabs> -->
-      <tabs rewrite-tabs_title="rewrite-tabs_title" bor-radius="bor-radius" bgc-fff="bgc-fff" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
-        <view slot="0">
+      <tabs rewrite-tabs_title="rewrite-tabs_title" bor-radius="bor-radius" bgc-fff="bgc-fff" tabsList="{{tabListData}}" class="tabs" bindtabsItemChange="getTabsItemChange">
+        <view wx:for="{{tabListData}}" slot="{{_id}}" >
           <view class="activity-warp warp mt-20 ">
             <view class="activity-content">
               <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" class="obtain-more_score" mode="" bindtap="navagitorToActivity" />
@@ -74,6 +74,9 @@
               空空如也~~
             </view>
           </view>
+        </view>
+        <view slot="1">
+            1111
         </view>
       </tabs>
       <view>
