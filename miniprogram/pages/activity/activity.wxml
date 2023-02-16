@@ -3,7 +3,7 @@
 
 <!-- 活动列表 -->
 <view class="activity bg-f2f2f2" wx:if="{{!isLoding}}">
-  <tabs tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
+  <tabs bind:myevent="onMyEvent" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
   
     <view wx:for="{{tabsList}}" slot="{{index}}" wx:key="id">
       <view class="activity-warp warp " wx:if="{{isLoaded}}">
