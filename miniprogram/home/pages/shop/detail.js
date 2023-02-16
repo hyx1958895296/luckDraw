@@ -6,7 +6,7 @@ Page({
    */
   data: {
     shopDetail:{},
-    Top:false
+    Top:true
   },
   //回到顶部
   srollViewTop(e){
@@ -62,7 +62,20 @@ Page({
             console.log(res)
         }
     })
-},
+  },
+
+  callPhone(){
+    wx.makePhoneCall({
+      phoneNumber: "15985233142", //这里是电话号码[假的]可以调用自己的数据this.data.xxx
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -83,26 +96,18 @@ Page({
   },
    //商品详情接口
    getShopDetail(detailId){
-    console.log(111);
     wx.cloud.callFunction({
       name:"shop",
       data:{
         type:'details',
         shopId:detailId
       },success:res=>{
-        // console.log(res);
-        // console.log(this);
-        // this.data.shopDetail=res.result.data;
-        // console.log(this.data.shopDetail);
-        // console.log(res.result.data);
         this.setData({
           shopDetail:res.result.data
         })
         console.log(this.data.shopDetail);
-        // console.log(res);
       }
     })
-    console.log(1111);
   },
 
   /**

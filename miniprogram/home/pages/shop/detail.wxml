@@ -30,7 +30,7 @@
             联系方式
           </view>
           <view class="thirdary-title_color-3b3b3b">
-            乐唯诗旗舰店：1565521133367(9:00-18:00)
+            乐唯诗旗舰店： <text bindtap="callPhone">1565521133367</text> (9:00-18:00)
           </view>
         </view>
       </view>
@@ -98,7 +98,7 @@
     </view>
   </view>
 </scroll-view>
-<view class="back-top" hidden="{{Top}}" bindtap="backTop">
+<view class="back-top" hidden="{{ Top }}" bindtap="backTop">
   <image src="../../../images/back-top.png" class="icon-back_top" mode=""/>
     顶部  
 </view>

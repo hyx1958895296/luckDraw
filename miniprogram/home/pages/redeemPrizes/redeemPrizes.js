@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    goodsName:'小熊玩偶',
+    exchangeCode:'49995270120',
+    receiveAddress:'上城区钱潮路369号智谷人才广场一楼大厅（含江干区）',
+    exchangeDate:'2021.06.04 00:00至2021.07.04 00:00',
     phoneNumber:'15233633902'
   },
   callPhone(){

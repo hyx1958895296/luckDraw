@@ -1,6 +1,6 @@
 <!-- tabs切换 -->
-<view class="tabs">
-  <view class="tabs-title">
+<view class="tabs bor-radius">
+  <view class="tabs-title rewrite-tabs_title">
     <view wx:for="{{tabsList}}" wx:key="index" bindtap="active" data-item="{{item}}">
       <view class="tabs-title_item {{current == index ? 'active' : ''}} ">
         {{item.value}}

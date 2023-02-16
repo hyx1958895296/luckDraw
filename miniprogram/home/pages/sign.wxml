@@ -1,26 +1,54 @@
 <view class="sign-in_page">
-  <view class="header">
-    <view class="header-avatar_score wrap" bindtap="getUserProfile">
-      <image src="{{userInfo.avatarUrl}}" class="avatar" mode=""/>
-      <view class="current-score">
-        当前积分:{{ score }}
-      </view> 
+  <view class="contant warp">
+    <!-- 日历年月 -->
+    <view class='calendar_title layer_center'>
+      <view class='icon' bindtap='lastMonth'>
+        <image src='../../images/arrow-left.png' />
+      </view>
+      <view class="nowDtae font60">{{year}}年{{month}}月</view>
+      <view class='icon' bindtap='nextMonth'>
+        <image src='../../images/arrow-right.png' />
+      </view>
     </view>
-    <view class="sign-in_text">
-      <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/sign-in_image.png?sign=545becaa252eb731a53c07dae3203b58&t=1676364011" class="sign-in_image" mode=""/>
+    <!-- 日历主体 -->
+    <view class='calendar'>
+      <view class='header'>
+        <view wx:for='{{date}}' wx:key='index' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}} '>{{item}}
+          <view></view>
+        </view>
+      </view>
+      <view class='date-box'>
+        <block wx:for='{{dateArr}}' wx:key='index'>
+          <view class='{{item.choose?"nowsDay":isToday == item.isToday ? "nowDay":""}}'>
+            <view class='date-head font28' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'>
+              <view>{{item.dateNum}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
-  <view class="main sign-in_wrap">
-    <view class="calender">
-      <!-- <view class="message-tips">
-        <view>
-          再签到 <text class="sign-in_number">0</text> 天,就可以额外获得 <text class="sign-in_number">80</text> 积分
-        </view>
-        <view></view>
-      </view> -->
-      <view class="calender-container">
-        <calendar signedList="{{ signedList }}" bindchange="handleChangeMonth"/>
-      </view>
+  <view class="warp center flex_center" bindtap="signIn" wx:if="{{ !signinNow }}">
+    <view class="avatar-url center_text">
+      立即签到
+    </view>
+  </view>
+  <view class="warp center flex_center" bindtap="alreadySign" wx:else>
+    <view class="avatar-url center_text center_texts">
+      已签到
+    </view>
+    <!-- <view class="center_text center_texts font32">已签到</view> -->
+  </view>
+  <view class="warp bottom flex_center">
+    <view class="bottom_text font36">
+      本月累计签到
+      <text> {{ yesDate.length }} </text>
+      次
+    </view>
+    <view class="bottom_text font36">
+      未签到
+      <text> {{ noDate.length }} </text>
+      次
     </view>
   </view>
 </view>

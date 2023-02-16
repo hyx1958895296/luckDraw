@@ -3,48 +3,12 @@
 
 <!-- 活动列表 -->
 <view class="activity bg-f2f2f2" wx:if="{{!isLoding}}">
-  <!-- <view class="nav-box">
-    <view wx:for="{{tabList}}" wx:key="item" bindtap="tabFn">
-      <view data-item="{{item}}"> {{item.title}}</view>
-    </view>
-  </view>
-  <view class="active {{showId == 2 ? 'transition-l' : 'transition-r'}}"></view>
-  <view wx:if="{{showId == 1}}" class="pb-60">
-    <view class="activity-warp warp " wx:if="{{isLoaded}}">
-      <view class="flex-column activity-all plr-20 mt-20">
-        <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
-          <view>
-          </view>
-        </activity>
-      </view>
-    </view>
-    <view class="flex-column ptb-100" wx:if="{{!activityList}}">
-      <view class="flex-c mt-80">
-        <image class="icon-none" src="../../images/icon-none.png" mode="" />
-      </view>
-      <view class="flex-c mt-60 c-919191">
-        空空如也~~
-      </view>
-    </view>
-  </view>
-
-  <view wx:if="{{showId == 2}}">
-    <view class="flex-column ptb-100" wx:if="{{isShow}}">
-      <view class="flex-c mt-80">
-        <image class="icon-none" src="../../images/icon-none.png" mode="" />
-      </view>
-      <view class="flex-c mt-60 c-919191">
-        空空如也~~
-      </view>
-    </view>
-  </view>
- -->
   <tabs tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
   
-    <view wx:for="{{tabsList}}" slot="{{index}}">
+    <view wx:for="{{tabsList}}" slot="{{index}}" wx:key="id">
       <view class="activity-warp warp " wx:if="{{isLoaded}}">
         <view class="flex-column activity-all ">
-          <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="index" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
+          <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="id" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
             <view>
             </view>
           </activity>
@@ -52,7 +16,7 @@
         <view class="fs-30 c-919191 flex-c p-30">
           我也是有底线哒
         </view>
-      </view>
+
       <!-- 如果没数据展示 -->
       <view class="flex-column ptb-100" wx:if="{{!activityList}}">
         <view class="flex-c mt-80">
@@ -63,7 +27,7 @@
         </view>
       </view>
     </view>
- 
+  </view>
   </tabs>
 
 </view>

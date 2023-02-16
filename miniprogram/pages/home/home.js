@@ -6,15 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabsList: [{
+      id: 0,
+      value: "猜你喜欢",
+    }, {
+      id: 1,
+      value: "推荐商品",
+    }],
+    isLoaded: false,
     shopList:[],
     tabListData:[],
-    merchantReview:[],
-    currentTab: 0,
-    sleft: "", //横向滚动条位置
-    isLoding:false,
-    isLogin:app.globalData.isLogin,//本页面登录状态
-    loading: false, //是否展示 “正在加载” 字样
-    loaded: false //是否展示 “已加载全部” 字样
+    // merchantReview:[],
+    // currentTab: 0,
+    // sleft: "", //横向滚动条位置
+    // isLoding:false,
+    // // idLogin:true,
+    // isLogin:app.globalData.isLogin,//本页面登录状态
+    // loading: false, //是否展示 “正在加载” 字样
+    // loaded: false //是否展示 “已加载全部” 字样
   },
 
   handleTabChange(e) {
@@ -107,31 +116,36 @@ Page({
       this.setData({
         tabListData :res.result.data,
       })
+      console.log(this.data.tabListData);
   },
 
   //调用商品列表接口
   async getShopList(categoryId){
-      await wx.cloud.callFunction({
+      let res = await wx.cloud.callFunction({
         name:'shop',
         data:{
           type:'select',
           categoryId:categoryId
         },
-        success: res => {
-          // 请求成功后停止刷新加载的动画
-          wx.hideNavigationBarLoading();
-          // 停止下拉刷新
-          wx.stopPullDownRefresh();
-          if (res.result.data.length > 0 || res.result.data.status == 1) {
-            this.setData({
-              shopList : res.result.data
-            })
-          } else if(res.result.data.status == 0){
-            // 没有数据了
-            console.log('没有数据了');
-          }
-        }
     })
+    // if(res.result.status == 200){
+       // 请求成功后停止刷新加载的动画
+      wx.hideNavigationBarLoading();
+      // 停止下拉刷新
+      wx.stopPullDownRefresh();
+      if (res.result.data.length > 0 || res.result.data.status == 1) {
+        this.setData({
+          shopList : res.result.data
+        })
+        console.log(this.data.shopList);
+      } else if(res.result.data.status == 0){
+        // 没有数据了
+        console.log('没有数据了');
+      // }
+    }
+     
+    
+
   },
 
   /**
@@ -155,6 +169,11 @@ Page({
    */
   onShow() {
     this.navToMerchantAccess();
+    this.setData({
+      isLogin:app.globalData.isLogin
+    })
+    this.data.isLogin=app.globalData.isLogin
+    console.log(this.data.isLogin);
   },
 
   /**

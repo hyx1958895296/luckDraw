@@ -56,10 +56,10 @@ Page({
           wx.getUserProfile({
             desc: '用户授权',
             success: (res) => {
-              _this.data.userInfo = res.userInfo;
               _this.setData({
                 hasUserInfo: true,
-                isLoding:true
+                isLoding:true,
+                userInfo:res.userInfo
               });
               app.globalData.isLogin = true;
               _this.getBusinessInfo();
@@ -105,7 +105,7 @@ Page({
       })
       return;
     };
-    if (!this.data.hasUserInfo) {
+    if (!app.globalData.isLogin) {
       this.getUserProfile();
     } else {
       wx.navigateTo({
@@ -126,7 +126,6 @@ Page({
 
   async selectUserInfo(){ 
     let _this = this;
-    if(!app.globalData.isLogin) return;
     let res = await wx.cloud.callFunction({
       name:"user",
       data:{
@@ -134,6 +133,7 @@ Page({
       }
     });
     if(res.result.status == 1){
+      app.globalData.isLogin = true;
       _this.setData({
          userInfo:res.result.data
        })
@@ -142,14 +142,13 @@ Page({
 
   async getBusinessInfo() {
     let _this = this;
-    if (!app.globalData.isLogin) return;
-   let res = await  wx.cloud.callFunction({
+    if (this.data.examineStatus == "审核通过") return;
+    let res = await  wx.cloud.callFunction({
       name: "merchantReview",
       data: {
         type: "select",
       }
     });
-    if (_this.data.examineStatus == "审核通过") return;
     if (res.result.status == 1) {
       if (res.result.data.status == 1) {
         _this.setData({
@@ -174,13 +173,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
  async onLoad(options) {
-    let res = await  wx.cloud.callFunction({
-        name:"activity",
-        data:{
-          type:"update"
-        }
-      })
-      console.log(res);
+         this.selectUserInfo();
+        this.getBusinessInfo();
+    
   },
 
   /**
@@ -195,7 +190,6 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
-    this.selectUserInfo();
   },
 
   /**
