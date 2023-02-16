@@ -161,17 +161,24 @@
 .user-name{
   text-align: center;
   background-color: #f5eacc;
-  padding: 5rpx 10rpx;
+  padding: 5rpx 20rpx;
   color: #ea6b38;
+  white-space: nowrap;
   border-radius: 200rpx;
-  width: 132rpx;
+  /* width: 150rpx; */
+  width: 100%;
   font-size: 42rpx;
   position: absolute;
   top: 115rpx;
   z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .model-box_header{
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 .model-box_container{
   padding: 60rpx;
