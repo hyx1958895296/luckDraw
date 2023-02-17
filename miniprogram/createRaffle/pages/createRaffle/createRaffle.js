@@ -211,22 +211,22 @@ Page({
 
   // 将文件后缀改为 .png  将文件上传到云储存
    upImageFile() {
-    return new Promise(async(resolve, reject) => {
-      let res = await this.uploadFile();
+    return new Promise((resolve, reject) => {
+      let res =  this.uploadFile();
       let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
       let ext = res.tempFiles[0].tempFilePath.slice(po);
-      wx.cloud.uploadFile({
-        cloudPath: new Date().getTime() + ext,
-        filePath: res.tempFiles[0].tempFilePath,
-        // success(res) {
-        //   if (!res.fileID) return;
-        //   _this.setData({
-        //     activityCover: res.fileID,
-        //   });
-        // }
-        resolve(res)
-      })
-    })
+      // wx.cloud.uploadFile({
+      //   cloudPath: new Date().getTime() + ext,
+      //   filePath: res.tempFiles[0].tempFilePath,
+      //   // success(res) {
+      //   //   if (!res.fileID) return;
+      //   //   _this.setData({
+      //   //     activityCover: res.fileID,
+      //   //   });
+      //   // }
+      //   resolve(res)
+      // });
+    });
   },
 
 
