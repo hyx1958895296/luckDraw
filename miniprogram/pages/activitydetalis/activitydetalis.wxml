@@ -47,7 +47,8 @@
         开奖倒计时
       </view>
       <view class="countdown-countent">
-        <text class="countdown-countent-active">{{countDown[0]}}</text> 天 <text class="countdown-countent-active">{{countDown[1]}}</text> 时 <text class="countdown-countent-active">7</text> {{countDown[2]}} <text class="countdown-countent-active">{{countDown[3]}}</text> 秒
+        <text class="countdown-countent-active">{{countDown[0]}}</text> 天 <text class="countdown-countent-active">{{countDown[1]}}</text> 时 <text class="countdown-countent-active">{{countDown[2]}}</text> 分
+         <text class="countdown-countent-active">{{countDown[3]}}</text> 秒
       </view>
     </view>
 
