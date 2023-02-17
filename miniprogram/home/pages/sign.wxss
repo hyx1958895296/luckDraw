@@ -167,7 +167,6 @@
   color: #ea6b38;
   white-space: nowrap;
   border-radius: 200rpx;
-  width: 100%;
   font-size: 42rpx;
   position: absolute;
   top: 115rpx;
@@ -192,9 +191,19 @@
 }
 .second-title{
   text-align: center;
-  font-size: 70rpx;
+  font-size: 60rpx;
   font-weight: 900;
   color: #f4fbda;
+}
+.signin-success_text{
+  text-align: center;
+  font-size: 60rpx;
+  color:#f4fbda;
+  font-weight: 900;
+  margin-top: 20rpx;
+}
+.score-number{
+  font-size: 80rpx;
 }
 .third-title{
   text-align: center;
@@ -204,7 +213,9 @@
   margin-top: 20rpx;
 }
 .close{
-  font-size: 44rpx;
+  /* font-size: 44rpx; */
+  width: 60rpx;
+  height: 60rpx;
 }
 .flex-end{
   width: 100%;
@@ -225,5 +236,5 @@
   color: #fe3c3c;
   font-size: 52rpx;
   font-weight: 900;
-  margin: 200rpx 0 20rpx 0;
+  margin: 100rpx 0 20rpx 0;
 }

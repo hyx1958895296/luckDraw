@@ -197,52 +197,43 @@ Page({
     });
   },
 
-  // 上传活动封面
-  upImage() {
-    let _this = this;
-    let arr = [];
-    wx.chooseMedia({
-      count: 1,
-      success(res) {
-        _this.setData({
-          localshowImage: res.tempFiles,
-        });
-        res.tempFiles.forEach(image => {
-          let po = image.tempFilePath.lastIndexOf(".");
-          let ext = image.tempFilePath.slice(po);
-          wx.cloud.uploadFile({
-            cloudPath: new Date().getTime() + ext,
-            filePath: image.tempFilePath,
-            success(res) {
-              if (!res.fileID) return;
-              arr.push(res.fileID);
-              _this.setData({
-                activityCover: res.fileID
-              });
-            }
-          })
-        })
-      }
-    })
-  },
-
+  // 上传图片
   uploadFile() {
     return new Promise((resolve, reject) => {
       wx.chooseMedia({
         count: 1,
         success(res) {
           resolve(res);
-
         }
       })
     })
   },
 
+
+
+  // 上传活动封面
+  async upImage() {
+    let _this = this;
+    let res = await this.uploadFile();
+      // 将文件后缀改为 .png  将文件上传到云储存
+    let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
+    let ext = res.tempFiles[0].tempFilePath.slice(po);
+    wx.cloud.uploadFile({
+      cloudPath: new Date().getTime() + ext,
+      filePath: res.tempFiles[0].tempFilePath,
+      success(res) {
+        if (!res.fileID) return;
+        _this.setData({
+          activityCover: res.fileID,
+        });
+      }
+    })
+  },
+
   // 上传商品图片
   async upShopImage(e) {
-      let _this = this;
+    let _this = this;
     let res = await this.uploadFile();
-    console.log(res)
     let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
     let ext = res.tempFiles[0].tempFilePath.slice(po);
 
@@ -259,9 +250,8 @@ Page({
   },
 
 
-
   // 创建活动
-  create() {
+  async create() {
     let isCreate = true;
     if (!this.data.activityName) {
       wx.showToast({
@@ -298,13 +288,13 @@ Page({
     };
     if (isCreate) {
       // 调用发起活动的接口
-      this.createActivity();
+      await this.createActivity();
     }
   },
 
   // 创建活动接口
-  createActivity() {
-    wx.cloud.callFunction({
+  async createActivity() {
+    let res = await wx.cloud.callFunction({
       name: "activity",
       data: {
         type: "create",
@@ -318,38 +308,36 @@ Page({
           prizelist: this.data.prizelist,
         }
       },
-      success(res) {
-        wx.showToast({
-          title: '发起成功！',
-          icon: 'success',
-          duration: 2000
-        });
-
-        setTimeout(() => {
-          // 创建成功跳转到活动页面
-          wx.switchTab({
-            url: '/pages/activity/activity',
-          })
-        }, 1000);
-      }
     })
+    console.log(res);
+    if (res.result.status == 1) {
+      wx.switchTab({
+        url: '/pages/activity/activity',
+        success: function () {
+          wx.showToast({
+            title: '发起成功！',
+            icon: 'success',
+            duration: 1000,
+          })
+        }
+      })
+    }
   },
 
   // 获取用户信息
-  getUserInfo() {
-    let _this = this;
-    wx.cloud.callFunction({
+  async getUserInfo() {
+    let res = await wx.cloud.callFunction({
       name: 'user',
       data: {
         type: 'select',
       },
-      success(res) {
-        _this.setData({
-          avatarUrl: res.result.data.avatarUrl,
-          storeName: res.result.data.nickName,
-        })
-      }
     })
+    if (res.result.status == 1) {
+      this.setData({
+        avatarUrl: res.result.data.avatarUrl,
+        storeName: res.result.data.nickName,
+      })
+    }
   },
 
   /**

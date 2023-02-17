@@ -52,9 +52,7 @@
         <view>
 
         </view>
-        <view class="close" bindtap="closeModelBox">
-          X
-        </view>
+        <image bindtap="closeModelBox" class="close" src="../../images/close.png" mode=""/>
       </view>
       <view class="model-box_header">
         <image src="{{ userInfo.avatarUrl }}" class="avatar" mode="" />
@@ -63,8 +61,11 @@
         </view>
       </view>
       <view class="model-box_main">
+        <view class="signin-success_text">
+          签到成功
+        </view>
         <view class="second-title">
-          您已获得20积分
+          您已获得 <text class="score-number">20</text> 积分
         </view>
         <view class="third-title">
           去兑换心仪的商品吧

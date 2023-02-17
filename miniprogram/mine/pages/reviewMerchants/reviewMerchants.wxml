@@ -3,7 +3,7 @@
     商家列表
   </view>
   <view class="hr"></view>
-  <view class="warp shopper-list-item" wx:for="{{ businuessList }}" wx:for-item="shopperItem" wx:key="_id" bindtap="navigateToReviewDetail">
+  <view class="warp shopper-list-item" wx:for="{{ businuessList }}" wx:for-item="shopperItem" wx:key="_id" bindtap="navigateToReviewDetail" data-id="{{shopperItem._id}}">
     <view class="item-image">
       <image src="{{ shopperItem.printingLicenceUrl }}" class="item-image" mode="" />
     </view>

@@ -40,11 +40,6 @@
         </picker>
       </view>
     </view>
-    <!-- <view class="item">
-      <view>
-        
-      </view>
-    </view> -->
   </view>
   <view class="flex-around">
     <view class="approved" bindtap="dialogReviewOkFn">

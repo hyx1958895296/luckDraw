@@ -10,17 +10,18 @@ Page({
     dialogReviewNoOk:false
   },
 //获取商家详情列表接口
-  getBusinessDetail(id){
+  getBusinessDetail(businessId){
+    console.log(businessId);
     wx.cloud.callFunction({
       name:"business-info",
       data:{
-        type:'select',
-        openid:''
+        type:'detail',
+        businessInfoId:businessId
       },success:res=>{
+        console.log(res);
         this.setData({
           businessDetail:res.result.data
         })
-        console.log(res);
       }
     })
   },
@@ -43,6 +44,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options);
     this.getBusinessDetail(options.id);
   },
 

@@ -196,6 +196,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 30rpx;
+  padding: 30rpx 60rpx 30rpx 60rpx;
 }
 .save{
   position: fixed;

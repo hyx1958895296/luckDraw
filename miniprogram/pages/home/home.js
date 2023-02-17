@@ -1,4 +1,5 @@
 // pages/home/home.js
+import { backgroundColorTop } from '../../util/backgroundColorTop'
 const app = getApp();
 Page({
 
@@ -164,6 +165,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+
+    wx.setNavigationBarColor({
+      backgroundColor:'#000000'
+    })
+
     await this.getCategray();
     console.log(this.data.tabListData);
 
@@ -181,6 +187,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    wx.setBackgroundColor({
+      backgroundColorTop:'red'
+    })
     this.navToMerchantAccess();
     this.setData({
       isLogin:app.globalData.isLogin

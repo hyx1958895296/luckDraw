@@ -1,37 +1,18 @@
-// mine/pages/reviewMerchants/reviewMerchants.js
+// createRaffle/pages/activityRule/activityRule.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    businuessList:[],
+
   },
 
-  navigateToReviewDetail(id){
-    wx.navigateTo({
-      url:'/mine/pages/MerchantDetails/MerchantDetails?id='+id.currentTarget.dataset.id,
-    })
-    console.log(id);
-  },
-
-  businuessListFn(){
-    wx.cloud.callFunction({
-          name:"business-info",
-          data:{
-            type:'select',
-          },success:res=>{
-            this.setData({
-              businuessList:res.result.data
-            })
-            console.log(res);
-          }
-        })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.businuessListFn();
+
   },
 
   /**

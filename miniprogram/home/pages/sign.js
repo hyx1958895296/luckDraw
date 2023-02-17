@@ -43,18 +43,18 @@ Page({
   },
 
   //等待下一个逻辑执行
-  awaitNextLogicRun(){
-    if(isLogin){
+  // awaitNextLogicRun(){
+  //   if(isLogin){
 
-    }
-  },
+  //   }
+  // },
 
   // 签到
   signIn() {
     let t = this;
-      if(app.globalData.isLogin){
-        // this.selectUserInfo();
-        console.log("登录成功");
+    console.log(this.data.userInfo.avatarUrl);
+    console.log(this.data.userInfo.nickName);
+        if(this.data.userInfo.avatarUrl && this.data.userInfo.nickName){
         wx.getSetting({
           success(res){
             if(res.authSetting['scope.userLocation']){
@@ -70,19 +70,16 @@ Page({
           }
         })
       }else{
-        // let that = this;
         // wx.getSetting({
-          // success(res){
-            // if(res.authSetting['scope.userInfo']){
-            //   wx.authorize({
-            //     scope: 'scope.userInfo',
-            //     success(){
-                  this.getUserProfile();
-            //     }
-            //   })
-            // }       
-          // }
+        //   success:()=>{
+        //     wx.authorize({
+        //       scope: 'scope.userInfo',
+        //     })
+        //   }
         // })
+        this.getUserProfile();
+        // this.addUserInfo();
+        // this.getUserInfo();
       }
   },
 
@@ -126,7 +123,6 @@ Page({
             flag:true
           })
         }, 3000);
-        // $.successToast("签到成功");
         that.setData({
           signinNow: true,
           yesDate: yesDate,
@@ -261,44 +257,56 @@ Page({
                userInfo:res.result.data
              })
           }else{
-            wx.showToast({
-              title: '请登录',
-              duration:2000
-            })
+            this.getUserProfile();
           }
         }
       })
     },
+//把登录信息添加到数据库
+    // async addUserInfo(){
+    //   let res = await wx.cloud.callFunction({
+    //     name:"user",
+    //     data:{
+    //       type:"add",
+    //       userInfo:this.data.userInfo
+    //     },
+    //     success:(res)=>{
+    //       console.log(res);
+    //     },
+    //     fail:(err)=>{
+    //       console.log(err);
+    //     }
+    //   })
+    // },
+
+    // getUserInfo(){
+    //   let _this = this;
+    //   wx.getUserProfile({
+    //     desc: '用户信息授权',
+    //     success:(res)=>{
+    //       this.data.userInfo = res.userInfo;
+    //     },
+    //     fail:(err)=>{
+    //       console.log(err);
+    //     }
+    //   })
+    // },
 
     //登录逻辑
     getUserProfile() {
       let _this = this;
-      if (app.globalData.isLogin) return;
+      if (app.globalData.isLogin) return;    
       wx.getSetting({
         success(res) {
           if (res.authSetting["scope.userInfo"]) {
             wx.getUserProfile({
               desc: '用户授权',
               success: (res) => {
-                // _this.data.userInfo = res.userInfo;
-                console.log(res.userInfo);
                 _this.setData({
                   userInfo:res.userInfo,
                   hasUserInfo: true,
-                  isLoding:true
                 });
                 app.globalData.isLogin = true;
-                let loding = setTimeout(()=>{
-                  _this.setData({
-                    isLoding:false
-                  })
-                  clearTimeout(loding);
-                  wx.showToast({
-                    title: '登录成功',
-                    mask:true,
-                    duration:2000,
-                  });
-                },2000);
               }
             })
           } else {
@@ -307,42 +315,12 @@ Page({
         }
       })
     },
-    // onWXClick(event) {
-    //   var that = this;
-    //   if (app.globalData.isLogin) return;
-    //   console.log("微信授权登录被点击");
-    //   wx.getSetting({
-    //     success(res){
-    //       if(res.authSetting['scope.userInfo']){
-    //         wx.getUserProfile({
-    //           desc: "完善用户资料",
-    //           success: (res) => {
-    //             console.log("授权成功");
-    //             let loding = setTimeout(()=>{
-    //               that.setData({
-    //                 isLoding:false
-    //               })
-    //               clearTimeout(loding);
-    //               wx.showToast({
-    //                 title: '登录成功',
-    //                 mask:true,
-    //                 duration:2000,
-    //               });
-    //             },2000);
-    //           },
-    //           fail: (res) => {
-    //             console.log("授权失败");
-    //           },
-    //         });
-    //       }
-    //     }
-    //   })
-    // },
-
-    /**
+    
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.selectUserInfo();
     let t = this;
     let now = new Date();
     let year = now.getFullYear();
