@@ -34,7 +34,7 @@
       <view class="info-item_content" bindtap="setHobby">
         <text class="mr-20 c-6c6c6c fs-36">去设置</text>
         <image src="../../../images/icon-arrow_right.png" mode="" class="icon-arrow_right" />
-      </view>
+      </view> 
     </view>
   </view>
 </view>
