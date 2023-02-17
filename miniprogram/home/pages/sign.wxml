@@ -44,6 +44,9 @@
         再累计签到<text> 7 </text>天，
         会获得额外 <text> 80 </text> 积分
       </view>
+      <view class="message_text">
+        每个用户每天签到可以获得1积分
+      </view>
       <view class="message_text" bindtap="naviMine">
         本月累计签到
         <text> {{ yesDate.length }} </text>
