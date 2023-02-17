@@ -22,7 +22,8 @@
         "pages/drawRule/drawRule",
         "pages/loopDrawDetalis/loopDrawDetalis",
         "pages/addLoopDraw/addLoopDraw",
-        "pages/test/test"
+        "pages/test/test",
+        "pages/activityRule/activityRule"
       ]
     },
     {
