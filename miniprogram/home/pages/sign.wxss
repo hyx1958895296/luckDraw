@@ -1,11 +1,17 @@
 .sign-in_page{
-  height: 100%;
-  background-image: linear-gradient(to top, rgb(255, 140, 101), rgb(255, 140, 102),rgb(255, 140, 100));
-  padding: 30rpx 0;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #f53f3b, #f53f3b, #f2f2f2, #f2f2f2, #f2f2f2);
+  overflow-y:scroll;
 }
  
+.pt-30{
+  padding-top: 30rpx;
+}
+.pb-30{
+  padding-bottom:30rpx;
+}
 .calendar_title {
-  color: #fff;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +28,7 @@
   height: 100%;
 }
  
-.nowDtae {
+.nowDate {
   color: white;
   margin: 0 20rpx;
 }
@@ -30,8 +36,7 @@
 /* 日历 */
 .calendar {
   width: 100%;
-  background-color: #ff5533;
-  opacity: .8;
+  background-color: white;
   border-radius: 20rpx;
   margin: 30rpx 0;
 }
@@ -45,7 +50,7 @@
 .header>view {
   display: inline-block;
   width: 14%;
-  color: #fff;
+  color: black;
   font-size: 30rpx;
   text-align: center;
   padding: 20rpx 0;
@@ -60,21 +65,18 @@
   justify-content: center;
   align-items: center;
 }
-
-/* .avatar-url image{
-  
-} */
  
 .date-box {
   padding: 10rpx 0;
   width: 100%;
+  color: black;
 }
  
 .date-box>view {
   display: inline-block;
   width: 14%;
   height: 80rpx;
-  color: #666;
+  color: black;
   text-align: center;
   vertical-align: middle;
 }
@@ -82,7 +84,7 @@
 .date-head {
   height: 60rpx;
   line-height: 60rpx;
-  color: #fff;
+  color: black;
 }
  
 .nowDay .date-head {
@@ -103,7 +105,7 @@
 }
 /* 签到 */
 .center {
-  background: #ff5533;
+  background: white;
   padding: 40rpx 0;
 }
 .flex_center{
@@ -113,6 +115,12 @@
   flex-direction: column;
   border-radius: 30rpx;
 }
+.flex_left{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+}
 .center_text {
   margin-top: 20rpx;
   color: white;
@@ -121,17 +129,99 @@
 .center_texts{
   color: white;
 }
-.bottom_text {
+.message_text {
   font-weight: normal;
   line-height: 60rpx;
 }
  
-.bottom_text text {
-  color: white;
+.message_text text {
+  color: black;
 }
  
-.bottom {
+.message {
   padding: 40rpx 0;
   margin-top: 30rpx;
-  background-color: #ff5533;
+  background-color: white;
+}
+
+.model-box{
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 150rpx;
+}
+.user-name{
+  text-align: center;
+  background-color: #f5eacc;
+  padding: 5rpx 20rpx;
+  color: #ea6b38;
+  white-space: nowrap;
+  border-radius: 200rpx;
+  /* width: 150rpx; */
+  width: 100%;
+  font-size: 42rpx;
+  position: absolute;
+  top: 115rpx;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.model-box_header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.model-box_container{
+  padding: 60rpx;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20rpx;
+}
+.second-title{
+  text-align: center;
+  font-size: 70rpx;
+  font-weight: 900;
+  color: #f4fbda;
+}
+.third-title{
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 900;
+  color: #fff5ff;
+  margin-top: 20rpx;
+}
+.close{
+  font-size: 44rpx;
+}
+.flex-end{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.model-box_main{
+  margin-top: 30rpx;
+}
+.model-box_footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 300rpx;
+  background-color: #ffe78a;
+  color: #fe3c3c;
+  font-size: 52rpx;
+  font-weight: 900;
+  margin: 200rpx 0 20rpx 0;
 }

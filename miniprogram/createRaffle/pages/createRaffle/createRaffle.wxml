@@ -19,10 +19,10 @@
           </view>
           <view class="section">
             <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
-              <view class="picker c-d12418" wx:if="{{!isStart}}">
-               去设置
+              <view class="picker c-d12418" wx:if="{{!hasStart}}">
+                去设置
               </view>
-              <view class="picker c-d12418" wx:if="{{isStart}}">
+              <view class="picker c-d12418" wx:if="{{hasStart}}">
                 {{multiArray[0][multiIndex[0]]}} 08:00
               </view>
             </picker>
@@ -33,11 +33,11 @@
             活动结束时间<text class="c-d12418">*</text>
           </view>
           <view class="section">
-            <picker mode="multiSelector" disabled="{{isEnd}}" bindchange="bindMultiPickerChangeEnd" bindtap="isSetStart" value="{{multiIndexEnd}}" range="{{multiArrayEnd}}">
-              <view class="c-d12418" wx:if="{{!isEnd}}">
+            <picker mode="multiSelector" disabled="{{hasEnd}}" bindchange="bindMultiPickerChangeEnd" bindtap="isSetStart" value="{{multiIndexEnd}}" range="{{multiArrayEnd}}">
+              <view class="c-d12418" wx:if="{{!hasEnd}}">
                 {{multiArrayEnd[0][multiIndexEnd[0]]}} 18:00
               </view>
-              <view class="c-d12418" wx:if="{{isEnd}}">
+              <view class="c-d12418" wx:if="{{hasEnd}}">
                 请先选择开始时间
               </view>
               <view class="picker c-d12418">
@@ -55,8 +55,8 @@
             （如不上传则使用下方默认封面）
           </view>
         </view>
-        <view class="replace c-ffffff fs-26 flex-c"  bindtap="upImage" >
-          <image class="icon"  src="../../../images/icon-picture.png" mode="" />
+        <view class="replace c-ffffff fs-26 flex-c" bindtap="upImage">
+          <image class="icon" src="../../../images/icon-picture.png" mode="" />
           点击更换
         </view>
         <view class="gifts-warp p-30" bindtap="upImage">
@@ -65,25 +65,48 @@
       </view>
 
       <!-- 添加奖项 -->
-      <view class="bg-ffffff warp-radius mt-40">
-        <view wx:for="{{drawCount}}" wx:key="index">
+      <view class="bg-ffffff warp-radius mt-40" wx:for="{{drawCount}}" wx:key="index">
+      <view class="hang p-30 fw-700"> 
+        奖品信息
+      </view>
+        <view >
           <view class=" hang  flex-c align-c p-30">
             <view class="flex-c align-c  addItem">
               <input class="input input-num" bindinput="bindKeyInputPeople" type="digit" id="{{index}}" placeholder="{{(index+1) * 100}}" />
               <text>人</text>
               <input class="input ml-40 " bindinput="bindKeyInputPrize" id="{{index}}" placeholder="请输入奖品" />
               <text>x</text>
-              <input class="input input-fen" bindinput="bindKeyInputCount" type="digit" id="{{index}}" placeholder="{{(index+1) * 5}}" />
+              <input class="input input-fen" bindinput="bindKeyInputCount" type="digit" id="{{index}}" placeholder="1" />
               <text>份</text>
             </view>
             <view class="fs-0" wx:if="{{index!=0}}" bindtap="reduce" data-index="{{index}}">
-              <image class="icon-reduce" src="../../../images/icon-reduce.png" mode=""/>
+              <image class="icon-reduce" src="../../../images/icon-reduce.png" mode="" />
             </view>
             <view class="fs-0 icon-reduce" wx:if="{{index == 0}}">
             </view>
           </view>
-
+          <view class=" p-30">
+            <view class="flex-l align-c  img-warp">
+              <view class="ptb-20">
+                <!-- {{prizelist[item].peopleCount ? prizelist[item].peopleCount : (item+1) * 100}}人 -->
+                <view>
+                  奖品图片
+                </view>
+              </view>
+              <view wx:if="{{!prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
+                推荐上传
+                <view>
+                  正方形
+                </view>
+                （200*200）
+              </view>
+              <view wx:if="{{prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
+                <image class="img-box" src="{{prizelist[item].img}}" mode="" />
+              </view>
+            </view>
+          </view>
         </view>
+
         <view class="flex-c align-c p-30 c-d12418" bindtap="add">
           <image class="icon-add" src="../../../images/icon-add.png" mode="" />
           添加
@@ -91,30 +114,22 @@
       </view>
 
       <view class="bg-ffffff warp-radius mt-40">
-        <view class=" p-30 flex-l img-warp">
-          <view wx:for="{{drawCount}}" wx:key="index">
-            <view class="flex-c ptb-20">
-              {{prizelist[item].peopleCount ? prizelist[item].peopleCount : (item+1) * 100}}人
-            </view>
-            <view wx:if="{{!prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
-              推荐上传
-              <view>
-                正方形
-              </view>
-              （200*200）
-            </view>
-            <view wx:if="{{prizelist[item].img}}" class="img-box flex-column c-6b6b6b" bindtap="upShopImage" data-index="{{index}}">
-              <image class="img-box" src="{{prizelist[item].img}}" mode="" />
-            </view>
+          <view class="hang p-30 fw-700">
+            活动规则
           </view>
-        </view>
-        <view class="p-30 c-6b6b6b fs-26">
-          提示：请按照添加奖项的顺序添加
-        </view>
+          <view class="activityRule p-30">
+            1、开奖之后请及时确认信息，无误后7个工作日兑奖；
+          </view>
+          <view class="activityRule p-30">
+            2、如发现有刷票行为，将取消中奖资格，请按照规则参与，确保公平公正；
+          </view>
+          <view class="activityRule p-30">
+            3、本次活动解释权在法律范围内归活动方所有。
+          </view>
       </view>
 
       <!-- 开奖设置 -->
-      <view class="bg-ffffff warp-radius mt-40 ">
+      <!-- <view class="bg-ffffff warp-radius mt-40 ">
         <view class="hang mt-40 p-30 flex-sb " bindtap="navigateto" data-to="/createRaffle/pages/drawRule/drawRule">
           <view class="fs-36 fw-700 ">
             开奖方式介绍
@@ -123,8 +138,8 @@
             <image class="icon-arrow" src="../../../images/arrow-icon.png" mode="" />
           </view>
         </view>
-      </view>
-      
+      </view> -->
+
       <!-- 活动抽奖服务器协议 -->
       <view class="fs-26 flex-c align-c mt-40">
         <checkbox value="cb" checked="{{checked}}" />

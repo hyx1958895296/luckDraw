@@ -17,7 +17,7 @@ const successToast = str => {
     wx.showToast({
       title: str,
       icon: "success",
-      duration: 2000,
+      duration: 1000,
       success: () => {
         setTimeout(() => {
           resolve()
@@ -31,7 +31,9 @@ const showloading = () => {
     wx.showLoading({
       title: "加载中",
       success: () => {
-        resolve()
+        setTimeout(() => {
+          resolve()
+        }, 2000);
       }
     })
   })

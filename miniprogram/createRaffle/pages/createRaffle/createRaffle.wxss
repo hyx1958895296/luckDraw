@@ -1,5 +1,5 @@
 .create-raffle {
-  background: linear-gradient(#f53f3b, #f53f3b, #ffffff, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1);
+  background: linear-gradient(#f53f3b, #f53f3b, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1, #f1f1f1);
   min-height: 100vh;
 
 }
@@ -34,6 +34,7 @@
 }
 
 .hang {
+  font-size: 30rpx;
   border-bottom: 1rpx solid #f1f1f1;
 }
 
@@ -90,8 +91,7 @@
 }
 
 .img-warp{
-  flex-wrap: wrap;
-  gap: 20rpx;
+  gap: 95rpx;
 }
 
 /* 底部 */

@@ -1,4 +1,6 @@
-import { Time } from "../../../util/time"
+import {
+  Time
+} from "../../../util/time"
 const time = new Time();
 
 Page({
@@ -16,7 +18,7 @@ Page({
     // 月 日 时 分  当天往后30天
     multiArray: [],
     multiIndex: [0],
-    isEnd: true,
+    hasEnd: true,
     // 月 日 时 分  活动开始时间往后30天
     multiArrayEnd: [],
     multiIndexEnd: [0],
@@ -29,7 +31,6 @@ Page({
     // 上传活动封面图片
     localshowImage: '',
     activityCover: 'https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/%E6%9C%AA%E6%A0%87%E9%A2%98-2.png?sign=8ce3466a1d352e26f42db1dd1c7e6d5e&t=1675411132',
-    imageList: [],
     // 添加奖品信息
     prizelist: [{
       peopleCount: '',
@@ -133,44 +134,40 @@ Page({
     });
   },
 
-  // picker选择器
+  // picker选择器  
+  // 开始
   bindMultiPickerChange(e) {
     this.setData({
       multiIndex: e.detail.value
     });
 
     this.setData({
-      isEnd: false,
-      isStart: true,
+      hasEnd: false,
+      hasStart: true,
     });
 
     // 选择开始时间时同时选择结束时间
     this.endTime(time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]).slice(1));
 
-    // 将开始时间转成时间戳
-    let startTimeStamp = time.parseTimeStamp(time.parseDate(this.data.multiArray[0][e.detail.value[0]]) + ' 08:00')
-    console.log(startTimeStamp);
     this.setData({
-      startTimeStamp: startTimeStamp,
-      // endTimeStamp: timeStampEnd,
+      startTimeStamp: time.parseTimeStamp(time.parseDate(this.data.multiArray[0][e.detail.value[0]]) + ' 08:00'),
+      endTimeStamp: time.parseTimeStamp(time.parseDate(this.data.multiArrayEnd[0][e.detail.value[0]]) + ' 16:00'),
     });
   },
+  // 结束
   bindMultiPickerChangeEnd(e) {
     this.setData({
       multiIndexEnd: e.detail.value
     });
-    let year = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[0];
-    let month = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[0];
-    let day = this.data.multiArrayEnd[0][e.detail.value[0]].split('年', )[1].split('月')[1].split('日')[0];
-    let timeStamp = new Date(year + '-' + month + '-' + day + ' 18:00:00').getTime();
+
     this.setData({
-      endTimeStamp: timeStamp
+      endTimeStamp: time.parseTimeStamp(time.parseDate(this.data.multiArrayEnd[0][e.detail.value[0]]) + ' 16:00'),
     });
   },
 
   // 是否设置了开始时间，没设置提示用户
   isSetStart() {
-    if (this.data.isEnd) {
+    if (this.data.hasEnd) {
       wx.showToast({
         title: '请选择开始时间',
         icon: 'error',
@@ -181,19 +178,18 @@ Page({
 
   // 结束抽奖时间
   endTime(e) {
-    let arr = new Date().getHours() >= 8 ? time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]])).slice(1) : time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]));
-    
+    let arr = new Date().getHours() >= 8 ? time.format(30, time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]])).slice(1) : time.format(30, time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]));
+
     this.setData({
       multiArrayEnd: [
-       arr
+        arr
       ]
     })
   },
 
   // 开始抽奖时间
   getStartTime() {
-    let arr =  new Date().getHours() >= 8 ? time.format(30).slice(1) : time.format(30);
-
+    let arr = new Date().getHours() >= 8 ? time.format(30).slice(1) : time.format(30);
     this.setData({
       multiArray: [
         arr
@@ -229,34 +225,40 @@ Page({
       }
     })
   },
+
+  uploadFile() {
+    return new Promise((resolve, reject) => {
+      wx.chooseMedia({
+        count: 1,
+        success(res) {
+          resolve(res);
+
+        }
+      })
+    })
+  },
+
   // 上传商品图片
-  upShopImage(e) {
-    let _this = this;
-    let arr = [];
-    wx.chooseMedia({
-      count: 1,
+  async upShopImage(e) {
+      let _this = this;
+    let res = await this.uploadFile();
+    console.log(res)
+    let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
+    let ext = res.tempFiles[0].tempFilePath.slice(po);
+
+    wx.cloud.uploadFile({
+      cloudPath: new Date().getTime() + ext,
+      filePath: res.tempFiles[0].tempFilePath,
       success(res) {
+        if (!res.fileID) return;
         _this.setData({
-          localshowImage: res.tempFiles,
+          [`prizelist[${e.currentTarget.dataset.index}].img`]: res.fileID,
         });
-        res.tempFiles.forEach(image => {
-          let po = image.tempFilePath.lastIndexOf(".");
-          let ext = image.tempFilePath.slice(po);
-          wx.cloud.uploadFile({
-            cloudPath: new Date().getTime() + ext,
-            filePath: image.tempFilePath,
-            success(res) {
-              if (!res.fileID) return;
-              arr.push(res.fileID);
-              _this.setData({
-                [`prizelist[${e.currentTarget.dataset.index}].img`]: res.fileID,
-              });
-            }
-          })
-        })
       }
     })
   },
+
+
 
   // 创建活动
   create() {
@@ -268,7 +270,7 @@ Page({
         duration: 2000
       });
       isCreate = false;
-    } else if (!this.data.isStart) {
+    } else if (!this.data.hasStart) {
       wx.showToast({
         title: '请选择开始时间',
         icon: 'error',

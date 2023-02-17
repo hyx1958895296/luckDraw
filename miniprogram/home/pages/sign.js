@@ -13,51 +13,95 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
-    // 当前维度
+    // 当前纬度
     latitude: "",
-    // 当前精度
+    // 当前经度
     longitude: "",
     //此处应该是接口返回的数据，先模拟了一个
     yesDate: [20230201, 20230211, 20230212, 20230208],
+    //今日是否登录
     signinNow: false,
-    noDate:[]
+    //未签到的天数
+    noDate:[],
+    //是否登录过
+    isLogin:false,
+    //模态框
+    flag:false
   },
+//兑换商品
+  goExchange(){
+      wx.switchTab({
+        url: '/pages/home/home',
+      })
+  },
+
+//关闭模态框
+  closeModelBox(){
+    this.setData({
+      flag:false
+    })
+  },
+
+  //等待下一个逻辑执行
+  awaitNextLogicRun(){
+    if(isLogin){
+
+    }
+  },
+
   // 签到
   signIn() {
     let t = this;
-    console.log('------我走了登录方法--------')
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userFuzzyLocation']) {
-          t.getLocation();
-        }else{
-          wx.authorize({
-            scope: 'scope.userFuzzyLocation',
-            success(){
+      if(app.globalData.isLogin){
+        // this.selectUserInfo();
+        console.log("登录成功");
+        wx.getSetting({
+          success(res){
+            if(res.authSetting['scope.userLocation']){
               t.getLocation();
+            }else{
+              wx.authorize({
+                scope: 'scope.userLocation',
+                success(){
+                  t.getLocation();
+                }
+              })
             }
-          })
-        }
+          }
+        })
+      }else{
+        // let that = this;
+        // wx.getSetting({
+          // success(res){
+            // if(res.authSetting['scope.userInfo']){
+            //   wx.authorize({
+            //     scope: 'scope.userInfo',
+            //     success(){
+                  this.getUserProfile();
+            //     }
+            //   })
+            // }       
+          // }
+        // })
       }
-    })
   },
 
   // 获取用户当前地理位置
   getLocation() {
-    let t = this;
+    let that = this;
     console.log('----------获取用户地理位置-----------');
     wx.getLocation({
       type: 'wgs84',
       success: (res) => {
         console.log('----------------进入了地理位置------------');
         console.log(res);
-        var latitude = res.latitude
-        var longitude = res.longitude
-        t.setData({
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        that.setData({
           latitude: latitude,
           longitude: longitude
         });
-        t.activeSign()
+        that.activeSign()
       },
       fail:(err)=>{
         console.log('-------我是东西-----')
@@ -68,26 +112,31 @@ Page({
 
   // 是否可以签到
   activeSign() {
-    let t = this;
-    let nowdate = t.data.isToday;
-    let dateArr = t.data.dateArr;
-    let yesDate = t.data.yesDate;
+    let that = this;
+    let nowdate = that.data.isToday;
+    let dateArr = that.data.dateArr;
+    let yesDate = that.data.yesDate;
     console.log('-----------这个是登录---------')
     for (var i = 0; i < dateArr.length; i++) {
       if (dateArr[i].isToday == nowdate) {
         dateArr[i].choose = true;
         yesDate.push(nowdate);
-        $.successToast("签到成功")
-        t.setData({
+        setTimeout(() => {
+          this.setData({
+            flag:true
+          })
+        }, 3000);
+        $.successToast("签到成功");
+        that.setData({
           signinNow: true,
-          yesDate: yesDate
+          yesDate: yesDate,
         })
       }
     };
-    t.setData({
+    that.setData({
       dateArr: dateArr
     })
-  },
+},
 
   // 签到过
   alreadySign() {
@@ -96,9 +145,9 @@ Page({
 
   // 已签到日期
   yesdate() {
-    let t = this;
-    let yesdate = t.data.yesDate;
-    let dateArr = t.data.dateArr;
+    let that = this;
+    let yesdate = that.data.yesDate;
+    let dateArr = that.data.dateArr;
     for (var i = 0; i < dateArr.length; i++) {
       for (var j = 0; j < yesdate.length; j++) {
         if (dateArr[i].isToday == yesdate[j]) {
@@ -106,7 +155,7 @@ Page({
         }
       };
     }
-    t.setData({
+    that.setData({
       dateArr: dateArr
     })
   },
@@ -197,60 +246,103 @@ Page({
     t.dateInit(year, month);
     t.yesdate()
   },
+  // 获取用户登录信息
+    async selectUserInfo(){
+      let _this = this;
+      let res = await wx.cloud.callFunction({
+        name:'user',
+        data:{
+          type:'select'
+        },
+        success:res=>{
+          console.log('selectUserInfo',res);
+          if(res.result.status == 1){
+            _this.setData({
+               userInfo:res.result.data
+             })
+          }else{
+            wx.showToast({
+              title: '请登录',
+              duration:2000
+            })
+          }
+        }
+      })
+    },
 
-    //获取登录逻辑
-    // async getUserProfile(){
-    //   let _this = this;
-    //   let res = await wx.getUserProfile({
-    //     desc: '签到登录',
-    //     success:res=>{
-    //       this.setData({
-    //         userInfo:res.userInfo,
-    //         hasUserInfo:true
-    //       })
-    //       app.globalData.isLogin = true;
-    //       _this.addUserInfo();
-    //       _this.selectUserInfo();
-    //       wx.showToast({
-    //         title: '登录成功',
-    //         mask:true,
-    //         duration:2000,
-    //       });
+    //登录逻辑
+    getUserProfile() {
+      let _this = this;
+      if (app.globalData.isLogin) return;
+      wx.getSetting({
+        success(res) {
+          if (res.authSetting["scope.userInfo"]) {
+            wx.getUserProfile({
+              desc: '用户授权',
+              success: (res) => {
+                // _this.data.userInfo = res.userInfo;
+                console.log(res.userInfo);
+                _this.setData({
+                  userInfo:res.userInfo,
+                  hasUserInfo: true,
+                  isLoding:true
+                });
+                app.globalData.isLogin = true;
+                let loding = setTimeout(()=>{
+                  _this.setData({
+                    isLoding:false
+                  })
+                  clearTimeout(loding);
+                  wx.showToast({
+                    title: '登录成功',
+                    mask:true,
+                    duration:2000,
+                  });
+                },2000);
+              }
+            })
+          } else {
+            wx.openSetting();
+          }
+        }
+      })
+    },
+    // onWXClick(event) {
+    //   var that = this;
+    //   if (app.globalData.isLogin) return;
+    //   console.log("微信授权登录被点击");
+    //   wx.getSetting({
+    //     success(res){
+    //       if(res.authSetting['scope.userInfo']){
+    //         wx.getUserProfile({
+    //           desc: "完善用户资料",
+    //           success: (res) => {
+    //             console.log("授权成功");
+    //             let loding = setTimeout(()=>{
+    //               that.setData({
+    //                 isLoding:false
+    //               })
+    //               clearTimeout(loding);
+    //               wx.showToast({
+    //                 title: '登录成功',
+    //                 mask:true,
+    //                 duration:2000,
+    //               });
+    //             },2000);
+    //           },
+    //           fail: (res) => {
+    //             console.log("授权失败");
+    //           },
+    //         });
+    //       }
     //     }
     //   })
     // },
-    // async addUserInfo(){
-    //   let res = await wx.cloud.callFunction({
-    //     name:"user",
-    //     data:{
-    //       type:"add",
-    //       userInfo:this.data.userInfo
-    //     }
-    //   })
-    // },
-    // async selectUserInfo(){
-    //   let _this = this;
-    //   let res = await wx.cloud.callFunction({
-    //     name:'user',
-    //     data:{
-    //       type:'select'
-    //     },
-    //     success:res=>{
-    //       console.log(res);
-    //       if(res.result.status == 1){
-    //         _this.setData({
-    //            userInfo:res.result.data
-    //          })
-    //        }
-    //     }
-    //   })
-    // },
- 
-  /**
+
+    /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    // await this.getUserProfile();  
+  onLoad(options) {
     let t = this;
     let now = new Date();
     let year = now.getFullYear();
@@ -275,7 +367,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // this.selectUserInfo();
   },
 
   /**
