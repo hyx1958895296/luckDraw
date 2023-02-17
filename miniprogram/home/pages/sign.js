@@ -70,19 +70,19 @@ Page({
           }
         })
       }else{
-        let that = this;
-        wx.getSetting({
-          success(res){
-            if(res.authSetting['scope.userInfo']){
-              wx.authorize({
-                scope: 'scope.userInfo',
-                success(){
-                  that.getUserProfile();
-                }
-              })
-            }       
-          }
-        })
+        // let that = this;
+        // wx.getSetting({
+          // success(res){
+            // if(res.authSetting['scope.userInfo']){
+            //   wx.authorize({
+            //     scope: 'scope.userInfo',
+            //     success(){
+                  this.getUserProfile();
+            //     }
+            //   })
+            // }       
+          // }
+        // })
       }
   },
 
