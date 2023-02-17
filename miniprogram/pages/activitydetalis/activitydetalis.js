@@ -217,7 +217,7 @@ Page({
       } else {
         wx.showToast({
           title: res.result.msg,
-          icon: "error"
+          icon: "none",
         })
       }
     });

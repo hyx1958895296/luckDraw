@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "loding":"../loding/loding"
-  }
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#f53f3b"
 }

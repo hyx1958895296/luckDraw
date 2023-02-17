@@ -35,7 +35,7 @@
         选择兴趣
       </view>
       <view class="hobby-list">
-        <view class="hobby-item {{item.isSelected?'hobby-item_active':''}} fc-868686  fs-30 ptb-30 plr-60"  wx:for="{{hobbyList}}"  wx:key="index" bindtap="hobbySelect" data-index='{{index}}'>
+        <view class="hobby-item {{item.isSelected?'hobby-item_active':''}} fc-868686"  wx:for="{{hobbyList}}"  wx:key="index" bindtap="hobbySelect" data-index='{{index}}'>
           <!-- <image src="{{item.iconUrl}}" mode="" class="icon-hobby mr-10" /> -->
           {{item.title}}
           <!-- <image src="{{item.isSelected ? '../../../images/icon-checked.png' : ''}}" mode="" class="icon-checked"/> -->
