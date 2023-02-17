@@ -20,6 +20,15 @@ exports.main = async (event, context) => {
     data:[]
   }
    event.raffleRecordInfo.openid = OPENID;
+   let selectres = await db.collection("raffleRecord").where({
+    openid:event.raffleRecordInfo.openid,
+}).get();
+    if(selectres.data.length == 3){
+      res.msg = "每个用户最多参与三个活动";
+      return res;
+    }
+   
+         
    let selectResult = await db.collection("raffleRecord").where({
        openid:event.raffleRecordInfo.openid,
        activityId:event.raffleRecordInfo.activityId
