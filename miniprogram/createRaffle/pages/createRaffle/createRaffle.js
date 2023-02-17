@@ -1,4 +1,6 @@
-import { Time } from "../../../util/time"
+import {
+  Time
+} from "../../../util/time"
 const time = new Time();
 
 Page({
@@ -176,19 +178,18 @@ Page({
 
   // 结束抽奖时间
   endTime(e) {
-    let arr = new Date().getHours() >= 8 ? time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]])).slice(1) : time.format(30,time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]));
-    
+    let arr = new Date().getHours() >= 8 ? time.format(30, time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]])).slice(1) : time.format(30, time.parseDate(this.data.multiArray[0][this.data.multiIndex[0]]));
+
     this.setData({
       multiArrayEnd: [
-       arr
+        arr
       ]
     })
   },
 
   // 开始抽奖时间
   getStartTime() {
-    let arr =  new Date().getHours() >= 8 ? time.format(30).slice(1) : time.format(30);
-
+    let arr = new Date().getHours() >= 8 ? time.format(30).slice(1) : time.format(30);
     this.setData({
       multiArray: [
         arr
@@ -224,34 +225,40 @@ Page({
       }
     })
   },
+
+  uploadFile() {
+    return new Promise((resolve, reject) => {
+      wx.chooseMedia({
+        count: 1,
+        success(res) {
+          resolve(res);
+
+        }
+      })
+    })
+  },
+
   // 上传商品图片
-  upShopImage(e) {
-    let _this = this;
-    let arr = [];
-    wx.chooseMedia({
-      count: 1,
+  async upShopImage(e) {
+      let _this = this;
+    let res = await this.uploadFile();
+    console.log(res)
+    let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
+    let ext = res.tempFiles[0].tempFilePath.slice(po);
+
+    wx.cloud.uploadFile({
+      cloudPath: new Date().getTime() + ext,
+      filePath: res.tempFiles[0].tempFilePath,
       success(res) {
+        if (!res.fileID) return;
         _this.setData({
-          localshowImage: res.tempFiles,
+          [`prizelist[${e.currentTarget.dataset.index}].img`]: res.fileID,
         });
-        res.tempFiles.forEach(image => {
-          let po = image.tempFilePath.lastIndexOf(".");
-          let ext = image.tempFilePath.slice(po);
-          wx.cloud.uploadFile({
-            cloudPath: new Date().getTime() + ext,
-            filePath: image.tempFilePath,
-            success(res) {
-              if (!res.fileID) return;
-              arr.push(res.fileID);
-              _this.setData({
-                [`prizelist[${e.currentTarget.dataset.index}].img`]: res.fileID,
-              });
-            }
-          })
-        })
       }
     })
   },
+
+
 
   // 创建活动
   create() {
