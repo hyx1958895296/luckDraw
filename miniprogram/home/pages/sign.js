@@ -70,16 +70,7 @@ Page({
           }
         })
       }else{
-        // wx.getSetting({
-        //   success:()=>{
-        //     wx.authorize({
-        //       scope: 'scope.userInfo',
-        //     })
-        //   }
-        // })
         this.getUserProfile();
-        // this.addUserInfo();
-        // this.getUserInfo();
       }
   },
 
@@ -256,6 +247,7 @@ Page({
             _this.setData({
                userInfo:res.result.data
              })
+             _this.addUserInfo();
           }else{
             this.getUserProfile();
           }
@@ -263,34 +255,21 @@ Page({
       })
     },
 //把登录信息添加到数据库
-    // async addUserInfo(){
-    //   let res = await wx.cloud.callFunction({
-    //     name:"user",
-    //     data:{
-    //       type:"add",
-    //       userInfo:this.data.userInfo
-    //     },
-    //     success:(res)=>{
-    //       console.log(res);
-    //     },
-    //     fail:(err)=>{
-    //       console.log(err);
-    //     }
-    //   })
-    // },
-
-    // getUserInfo(){
-    //   let _this = this;
-    //   wx.getUserProfile({
-    //     desc: '用户信息授权',
-    //     success:(res)=>{
-    //       this.data.userInfo = res.userInfo;
-    //     },
-    //     fail:(err)=>{
-    //       console.log(err);
-    //     }
-    //   })
-    // },
+    addUserInfo(){
+      wx.cloud.callFunction({
+        name:"user",
+        data:{
+          type:"add",
+          userInfo:this.data.userInfo
+        },
+        success:(res)=>{
+          console.log(res);
+        },
+        fail:(err)=>{
+          console.log(err);
+        }
+      })
+    },
 
     //登录逻辑
     getUserProfile() {
