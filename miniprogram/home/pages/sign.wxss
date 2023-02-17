@@ -167,7 +167,6 @@
   color: #ea6b38;
   white-space: nowrap;
   border-radius: 200rpx;
-  width: 100%;
   font-size: 42rpx;
   position: absolute;
   top: 115rpx;
