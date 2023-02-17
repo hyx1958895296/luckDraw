@@ -14,7 +14,8 @@ Page({
     prizelist: [],
     newJackpot: {},
     timer: null,
-    countDown: []
+    countDown: [],
+    flag: true
   },
 
   /**
@@ -22,11 +23,13 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      activityId:options.id
+      activityId: options.id
     })
-    
+
     this.getActivityDetails();
   },
+
+
 
   tow(n) {
     return n >= 0 && n < 10 ? '0' + n : '' + n;
@@ -51,10 +54,6 @@ Page({
     countDownArr[1] = this.tow(hour);
     countDownArr[2] = this.tow(minute);
     countDownArr[3] = this.tow(second);
-    // let str = this.tow(day) + '天' +
-    //   this.tow(hour) + '小时' +
-    //   this.tow(minute) + '分钟' +
-    //   this.tow(second) + '秒';
     this.setData({
       countDown: countDownArr
     })
@@ -126,23 +125,23 @@ Page({
     })
   },
 
-  async selectUserInfo(){ 
+  async selectUserInfo() {
     let _this = this;
     let res = await wx.cloud.callFunction({
-      name:"user",
-      data:{
-        type:"select",
+      name: "user",
+      data: {
+        type: "select",
       }
     });
-    if(res.result.status == 1){
+    if (res.result.status == 1) {
       app.globalData.isLogin = true;
       _this.setData({
-         userInfo:res.result.data
-       })
-     }
+        userInfo: res.result.data
+      })
+    }
   },
 
-   isLogin() {
+  isLogin() {
     let _this = this;
     wx.getSetting({
       success(res) {
@@ -168,60 +167,79 @@ Page({
     })
   },
 
-  async luckDraw() {
+  luckDraw() {
     let _this = this;
-    if (!app.globalData.isLogin) {
-      this.isLogin();
-      return;
-    }   
-    if(this.data.activityInfo.status == 1){
-       wx.showToast({
-         title: '活动还未开始',
-         icon:"error"
-       })
-       return;
-    }else if(this.data.activityInfo.status == 3){
-      wx.showToast({
-        title: '活动已经结束',
-        icon:"error"
-      })
-      return;
-    }
+    let thrittle = this.throttle(async function () {
+      if (!app.globalData.isLogin) {
+        this.isLogin();
+        return;
+      }
+      if (_this.data.activityInfo.status == 1) {
+        wx.showToast({
+          title: '活动还未开始',
+          icon: "error"
+        })
+        return;
+      } else if (_this.data.activityInfo.status == 3) {
+        wx.showToast({
+          title: '活动已经结束',
+          icon: "error"
+        })
+        return;
+      }
 
-    if (!this.data.isLuckDraw) {
-      wx.showToast({
-        title: '你已经参加过此活动',
-        icon: "none"
-      })
-      return;
-    };
+      if (!_this.data.isLuckDraw) {
+        wx.showToast({
+          title: '你已经参加过此活动',
+          icon: "none"
+        })
+        return;
+      };
 
-   let res = await wx.cloud.callFunction({
-      name: "raffleRecord",
-      data: {
-        type: "create",
-        raffleRecordInfo: {
-          activityId: this.data.activityId
-        }
-      },
+      let res = await wx.cloud.callFunction({
+        name: "raffleRecord",
+        data: {
+          type: "create",
+          raffleRecordInfo: {
+            activityId: _this.data.activityId
+          }
+        },
+      });
+      if (res.result.status == 1) {
+        _this.setData({
+          isLuckDraw: false
+        })
+        wx.showToast({
+          title: res.result.msg,
+          icon: "success"
+        })
+        _this.getActivityDetails();
+      } else {
+        wx.showToast({
+          title: res.result.msg,
+          icon: "error"
+        })
+      }
     });
-    if (res.result.status == 1) {
+    thrittle();
+  },
+  throttle(fn) {
+    let _this = this;
+    return function () {
+      if (!_this.data.flag) return;
       _this.setData({
-        isLuckDraw: false
+        flag: false
       })
-      wx.showToast({
-        title: res.result.msg,
-        icon: "success"
-      })
-      _this.getActivityDetails();
-    } else {
-      wx.showToast({
-        title: res.result.msg,
-        icon: "error"
-      })
+      fn();
+      let timer = setTimeout(() => {
+        _this.setData({
+          flag: true
+        })
+        clearTimeout(timer);
+      }, 2000);
     }
   },
-
+ 
   showListofprizes() {
     if (this.data.isListofprizes) {
       this.setData({
@@ -248,7 +266,7 @@ Page({
     this.selectUserInfo();
     this.isLuckDraw();
     setInterval(() => {
-      this.countDown(this.data.activityInfo.startTimeStamp)
+      this.countDown(this.data.activityInfo.endTimeStamp)
     }, 1000)
 
     this.setData({

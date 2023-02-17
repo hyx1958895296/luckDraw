@@ -197,52 +197,53 @@ Page({
     });
   },
 
-  // 上传活动封面
-  upImage() {
-    let _this = this;
-    let arr = [];
-    wx.chooseMedia({
-      count: 1,
-      success(res) {
-        _this.setData({
-          localshowImage: res.tempFiles,
-        });
-        res.tempFiles.forEach(image => {
-          let po = image.tempFilePath.lastIndexOf(".");
-          let ext = image.tempFilePath.slice(po);
-          wx.cloud.uploadFile({
-            cloudPath: new Date().getTime() + ext,
-            filePath: image.tempFilePath,
-            success(res) {
-              if (!res.fileID) return;
-              arr.push(res.fileID);
-              _this.setData({
-                activityCover: res.fileID
-              });
-            }
-          })
-        })
-      }
-    })
-  },
-
+  // 上传图片
   uploadFile() {
     return new Promise((resolve, reject) => {
       wx.chooseMedia({
         count: 1,
         success(res) {
           resolve(res);
-
         }
       })
     })
   },
 
+  // 将文件后缀改为 .png  将文件上传到云储存
+   upImageFile() {
+    return new Promise((resolve, reject) => {
+      let res =  this.uploadFile();
+      let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
+      let ext = res.tempFiles[0].tempFilePath.slice(po);
+      // wx.cloud.uploadFile({
+      //   cloudPath: new Date().getTime() + ext,
+      //   filePath: res.tempFiles[0].tempFilePath,
+      //   // success(res) {
+      //   //   if (!res.fileID) return;
+      //   //   _this.setData({
+      //   //     activityCover: res.fileID,
+      //   //   });
+      //   // }
+      //   resolve(res)
+      // });
+    });
+  },
+
+
+  // 上传活动封面
+  async upImage() {
+    let res = await this.upImageFile();
+    // 如果为空则直接终止
+    if(!res.fileID) return ;
+    this.setData({
+      activityCover: res.fileID,
+    })    
+  },
+
   // 上传商品图片
   async upShopImage(e) {
-      let _this = this;
+    let _this = this;
     let res = await this.uploadFile();
-    console.log(res)
     let po = res.tempFiles[0].tempFilePath.lastIndexOf(".");
     let ext = res.tempFiles[0].tempFilePath.slice(po);
 
@@ -257,7 +258,6 @@ Page({
       }
     })
   },
-
 
 
   // 创建活动
