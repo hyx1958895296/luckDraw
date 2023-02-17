@@ -8,10 +8,12 @@ const db = cloud.database();
 // 查询数据库集合云函数入口函数
 exports.main = async (event, context) => {
   // 返回数据库查询结果
+  console.log(1);
+   console.log(event);
    let selectResult = await db.collection('business-info').where({
     _id: event.businessInfoId,
   }).get();
-   
+   console.log(selectResult);
   if(selectResult.data.length){
      return {
        status:1,
