@@ -3,11 +3,11 @@ const toast = str => {
     wx.showToast({
       title: str,
       icon: "none",
-      duration: 2000,
+      // duration: 2000,
       success: () => {
         setTimeout(() => {
           resolve()
-        }, 2000)
+        })
       }
     })
   })
@@ -21,7 +21,7 @@ const successToast = str => {
       success: () => {
         setTimeout(() => {
           resolve()
-        }, 2000)
+        })
       }
     })
   })
@@ -33,7 +33,7 @@ const showloading = () => {
       success: () => {
         setTimeout(() => {
           resolve()
-        }, 2000);
+        });
       }
     })
   })

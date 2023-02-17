@@ -232,6 +232,10 @@ view {
   margin-top: 20rpx;
 }
 
+.mt-30 {
+  margin-top: 30rpx;
+}
+
 .mt-40 {
   margin-top: 40rpx;
 }

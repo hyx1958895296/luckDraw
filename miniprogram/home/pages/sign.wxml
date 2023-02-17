@@ -29,41 +29,28 @@
         </view>
       </view>
     </view>
-    <view class="warp center flex_center" bindtap="signIn" wx:if="{{ !signinNow }}">
+
+    <view class="warp mt-30 message_text">
+      再累计签到<text> 7 </text>天，
+      会获得额外 <text> 80 </text> 积分
+    </view>
+
+    <view class="warp mt-30 center flex_center" bindtap="signIn" wx:if="{{ !signinNow }}">
       <view class="avatar-url center_text">
         立即签到
       </view>
     </view>
-    <view class="warp center flex_center" bindtap="alreadySign" wx:else>
+    <view class="warp mt-30 center flex_center" bindtap="alreadySign" wx:else>
       <view class="avatar-url center_text center_texts">
         已签到
       </view>
     </view>
-    <!-- <view class="warp message flex_center">
-      <view class="message_text">
-        再累计签到<text> 7 </text>天，
-        会获得额外 <text> 80 </text> 积分
-      </view>
-      <view class="message_text">
-        每个用户每天签到可以获得1积分
-      </view>
-      <view class="message_text" bindtap="naviMine">
-        本月累计签到
-        <text> {{ yesDate.length }} </text>
-        次
-      </view>
-      <view class="message_text">
-        未签到
-        <text> {{ noDate.length }} </text>
-        次
-      </view>
-    </view> -->
   </view>
   <view class="model-box" wx:else>
     <view class="model-box_container">
       <view class="flex-end">
         <view>
-          
+
         </view>
         <view class="close" bindtap="closeModelBox">
           X
