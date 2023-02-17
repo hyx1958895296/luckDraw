@@ -126,7 +126,7 @@ Page({
             flag:true
           })
         }, 3000);
-        $.successToast("签到成功");
+        // $.successToast("签到成功");
         that.setData({
           signinNow: true,
           yesDate: yesDate,

@@ -20,7 +20,7 @@
     </view>
     <view class="item" bindtap="upImage">
       <view class="item-title item-title">
-        商家头像
+        营业执照
       </view>
 
       <view class="printing">
@@ -34,19 +34,17 @@
       <view>
         <picker mode="region" bindchange="bindRegionChange">
           <view wx:if="{{detailItem.address.length}}" class="address">
-            {{ detailItem.address[0] }}-{{ detailItem.address[1] }}-{{ detailItem.address[2] }}
-          </view>
-          <view wx:else class="fc-228228">
-            请输入地址
+            <text>{{ detailItem.address[0] }}-{{ detailItem.address[1] }}-{{ detailItem.address[2] }}</text>
+            <text class="pl-20">{{ detailItem.detailedAddress }}</text>
           </view>
         </picker>
       </view>
     </view>
-    <view class="item">
+    <!-- <view class="item">
       <view>
-        {{ detailItem.detailedAddress }}
+        
       </view>
-    </view>
+    </view> -->
   </view>
   <view class="flex-around">
     <view class="approved" bindtap="dialogReviewOkFn">
@@ -57,9 +55,9 @@
     </view>
   </view>
   <!-- 弹窗 -->
-  <view class="dialog">
+  <!-- <view class="dialog">
     <view class="loading">
       
     </view>
-  </view>
+  </view> -->
 </view>

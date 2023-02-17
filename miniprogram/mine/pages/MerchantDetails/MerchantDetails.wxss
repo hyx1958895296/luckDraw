@@ -35,7 +35,6 @@
 
 .form {
   background-color: white;
-  height: 80vh;
 }
 
 .address{
