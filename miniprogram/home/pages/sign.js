@@ -18,8 +18,8 @@ Page({
     // 当前经度
     longitude: "",
     //此处应该是接口返回的数据，先模拟了一个
-    yesDate: [20230201, 20230211, 20230212, 20230208],
-    //今日是否登录
+    yesDate: [20230218],
+    //今日是否签到
     signinNow: false,
     //未签到的天数
     noDate:[],
@@ -51,9 +51,8 @@ Page({
 
   // 签到
   signIn() {
+    console.log(this.data.userInfo);
     let t = this;
-    console.log(this.data.userInfo.avatarUrl);
-    console.log(this.data.userInfo.nickName);
         if(this.data.userInfo.avatarUrl && this.data.userInfo.nickName){
         wx.getSetting({
           success(res){
@@ -69,9 +68,51 @@ Page({
             }
           }
         })
+        t.signInApi();
       }else{
         this.getUserProfile();
+        t.signInApi();
       }
+  },
+  //调用签到接口   添加（风险）
+  signInApi(){
+    let _this = this;
+    console.log(_this.data.yesDate);
+    _this.activeSign();
+    wx.cloud.callFunction({
+      name:"sign-in",
+        data:{
+          type:"add",
+          signIn:{
+            getScore:20,
+            signed:1,
+            yesDate:_this.data.yesDate
+          }
+        },
+        success:(res)=>{
+          console.log(res);
+        }
+    })
+  },
+
+  //调用签到接口   查询
+  async signInSelectApi(){
+    let that = this;
+    console.log(that.data.userInfo.openid);
+    let res = wx.cloud.callFunction({
+      name:'sign-in',
+      data:{
+        type:'select',
+        openid:that.data.userInfo.openid
+      },
+      success:(res)=>{
+        console.log(res);
+        res.result.data.forEach(item=>{
+          that.data.yesDate = item.yesDate
+        })
+        console.log(that.data.yesDate);
+      }
+    })
   },
 
   // 获取用户当前地理位置
@@ -298,8 +339,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  async onLoad(options) {
     this.selectUserInfo();
+    await this.signInSelectApi();
     let t = this;
     let now = new Date();
     let year = now.getFullYear();

@@ -1,4 +1,4 @@
-const cloud = require('wxyun-dev');
+const cloud = require('wx-server-sdk');
 
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -16,14 +16,15 @@ exports.main = async (event, context) => {
       msg: "未签到",
       data: []
     }
-  event.signIn.openid = OPENID;
-  event.signIn.status = 1;
+  event.signIn.OPENID = OPENID;
+  console.log(event);
   let addresult = await db.collection('sign-in').add({
-    data: event.signIn,
-  })
+    data:event.signIn
+  });
+  console.log(addresult);
   if(addresult._id){
      res.status=1;
-     res.msg="已签到"
+     res.msg="已签到";
   }
   return res;
 };

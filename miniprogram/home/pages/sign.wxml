@@ -35,7 +35,7 @@
       会获得额外 <text> 80 </text> 积分
     </view>
 
-    <view class="warp mt-30 center flex_center" bindtap="signIn" wx:if="{{ !signinNow }}">
+    <view class="warp mt-30 center flex_center" bindtap="signIn" wx:if="{{ signinNow }}">
       <view class="avatar-url center_text">
         立即签到
       </view>
