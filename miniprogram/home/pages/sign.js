@@ -18,15 +18,17 @@ Page({
     // 当前经度
     longitude: "",
     //此处应该是接口返回的数据，先模拟了一个
-    yesDate: [20230218],
-    //今日是否签到
+    yesDate: [],
+    //今日是否登录
     signinNow: false,
     //未签到的天数
     noDate:[],
     //是否登录过
     isLogin:false,
     //模态框
-    flag:false
+    flag:false,
+    //是否已经签到  1签到   2未签到
+    signed:1
   },
 //兑换商品
   goExchange(){
@@ -41,13 +43,6 @@ Page({
       flag:false
     })
   },
-
-  //等待下一个逻辑执行
-  // awaitNextLogicRun(){
-  //   if(isLogin){
-
-  //   }
-  // },
 
   // 签到
   signIn() {
@@ -74,7 +69,7 @@ Page({
         t.signInApi();
       }
   },
-  //调用签到接口   添加（风险）
+  //调用签到接口   添加
   signInApi(){
     let _this = this;
     console.log(_this.data.yesDate);
@@ -109,6 +104,7 @@ Page({
         console.log(res);
         res.result.data.forEach(item=>{
           that.data.yesDate = item.yesDate
+          
         })
         console.log(that.data.yesDate);
       }
@@ -145,7 +141,6 @@ Page({
     let nowdate = that.data.isToday;
     let dateArr = that.data.dateArr;
     let yesDate = that.data.yesDate;
-    console.log('-----------这个是登录---------')
     for (var i = 0; i < dateArr.length; i++) {
       if (dateArr[i].isToday == nowdate) {
         dateArr[i].choose = true;
@@ -154,13 +149,17 @@ Page({
           this.setData({
             flag:true
           })
-        }, 3000);
+        });
         that.setData({
           signinNow: true,
           yesDate: yesDate,
         })
+        this.data.yesDate = this.data.yesDate.filter((item, index, array) => {
+          return array.indexOf(item) === index
+        })
       }
     };
+    
     that.setData({
       dateArr: dateArr
     })
@@ -257,7 +256,7 @@ Page({
       month: (month + 1)
     })
     t.dateInit(year, month);
-    t.yesdate()
+    // t.yesdate()
   },
   /**
    * 下月切换
@@ -359,7 +358,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    if(!this.data.signinNow){
+      wx.showToast({
+        title: '今日未签到',
+      })
+    }else{
+      wx.showToast({
+        title: '今日已签到',
+      })
+    }
   },
 
   /**
