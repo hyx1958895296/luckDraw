@@ -1,7 +1,7 @@
 <scroll-view style="height: 100vh;" scroll-y="true" bindscroll="srollViewTop" scroll-top="{{top}}">
   <view class="page-detail_index">
     <view class="header">
-      <image src="{{ shopDetail.shopImage }}" class="shop-detail" mode="widthFix"/>
+      <image src="{{ shopDetail.shopImage }}" class="shop-detail" mode="aspectFill"/>
     </view>
     <view class="main warp">
       <view class="warp-radius pd-30 shop-info">
@@ -25,12 +25,10 @@
         <view class="secondary-title">
           权益提供方
         </view>
-        <view class="grid mt-40">
+        <view class="mt-40">
           <view class="thirdary-title">
-            联系方式
-          </view>
-          <view class="thirdary-title_color-3b3b3b">
-            乐唯诗旗舰店： <text bindtap="callPhone" bindtap="tels">{{ shopDetail.phone }}</text> (9:00-18:00)
+            <!-- <text>联系方式</text> -->
+            联系方式:<text bindtap="callPhone" bindtap="tels">{{ shopDetail.phone }}</text> (9:00-18:00)
           </view>
         </view>
       </view>
@@ -54,22 +52,6 @@
             <map style="width: 520rpx; height: 600rpx;" scale="4" subkey="YFTBZ-2OKCD-C644U-HK6GN-TEQ5J-XLFAU" markers="{{markers}}" include-points="{{markers}}" polyline show-location = "true" 
             rotate enable-rotate="true" bindmarkertap bindtap='onAuthLocation'>
             </map>
-          </view>
-        </view>
-      </view>
-      <view class="warp-radius pd-30 shop-info">
-        <view class="secondary-title flex">
-          <view>
-            价格说明
-          </view>
-        </view>
-        <view class="mt-40">
-          <view class="thirdary-title_color-3b3b3b">
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
           </view>
         </view>
       </view>

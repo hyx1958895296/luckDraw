@@ -52,6 +52,10 @@ page{
   color: #3b3b3b;
   font-weight: 500;
 }
+.shop-detail{
+  width: 100%;
+  height: 60vh;
+}
 .grid{
   display: grid;
   grid-template-columns: 1fr 3fr;

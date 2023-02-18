@@ -35,17 +35,16 @@
       会获得额外 <text> 80 </text> 积分
     </view>
 
-    <view class="warp mt-30 center flex_center"
-    catchtap="{{ signinNow == true }} ? signIn : alreadySign">
+    <view class="warp mt-30 center flex_center" bindtap="signIn" wx:if="{{ !signinNow }}">
       <view class="avatar-url center_text">
-        {{ signed == 1 }} ? '已签到' : ' 立即签到 ' 
+       立即签到
       </view>
     </view>
-    <!-- <view class="warp mt-30 center flex_center" bindtap="alreadySign">
+    <view class="warp mt-30 center flex_center" bindtap="alreadySign" wx:else>
       <view class="avatar-url center_text center_texts">
         已签到
       </view>
-    </view> -->
+    </view>
   </view>
   <view class="model-box" wx:else>
     <view class="model-box_container">
