@@ -1,5 +1,7 @@
 // pages/home/home.js
-import { backgroundColorTop } from '../../util/backgroundColorTop'
+import {
+  backgroundColorTop
+} from '../../util/backgroundColorTop'
 const app = getApp();
 Page({
 
@@ -15,17 +17,41 @@ Page({
       value: "推荐商品",
     }],
     isLoaded: false,
-    shopList:[],
+    shopList: [],
 
-    tabListData:[],
-    // merchantReview:[],
-    // currentTab: 0,
-    // sleft: "", //横向滚动条位置
-    // isLoding:false,
-    // // idLogin:true,
-    // isLogin:app.globalData.isLogin,//本页面登录状态
-    // loading: false, //是否展示 “正在加载” 字样
-    // loaded: false //是否展示 “已加载全部” 字样
+    //是否登录
+    isLogin: true,
+
+    // nav
+    navs: [{
+      id: 1,
+      icon: '../../images/icon-sign.png',
+      lable: '每日签到',
+      url: '/home/pages/sign',
+      isShow: true,
+    }, {
+      id: 2,
+      icon: '../../images/icon-activity_home.png',
+      lable: '参加活动',
+      url: '/pages/activity/activity',
+      isShow: true,
+    }, {
+      id: 3,
+      icon: '../../images/icon-business.png',
+      lable: '商家入驻',
+      url: '/pages/merchantAccess/merchantAccess',
+      isShow: true,
+    }, {
+      id: 4,
+      icon: '../../images/icon-launch.png',
+      lable: '发起活动',
+      url: 'createRaffle/pages/createRaffle/createRaffle',
+      isShow: true,
+    }, ],
+    // tabs类目
+    tabListData: [],
+    // tabs选中
+    tabsActive: 0
   },
 
   handleTabChange(e) {
@@ -62,139 +88,181 @@ Page({
     });
   },
 
+  // tabs
+  onMyEvent(e) {
+    console.log(e);
+    this.getShopList(this.data.tabListData[e.detail-1]._id)
+  },
 
-  //微信签到跳转
-  signIn(){
-  },
   //获取更多积分
-  navagitorToActivity(e){
+  navagitorToActivity() {
     wx.switchTab({
       url: '/pages/activity/activity',
     })
   },
-  //跳转签到页面
-  navToSign(e){
+
+  // 跳转
+  navigateTo(e) {
+    console.log(e);
     wx.navigateTo({
-      url: '/home/pages/sign',
+      url: e.currentTarget.dataset.item.url,
     })
   },
-  //跳转参加活动页面
-  navToActivity(e){
-    wx.switchTab({
-      url: '/pages/activity/activity',
-    })
+
+  // tab跳转
+  switchTab() {
+    if (!isLogin) {
+      wx.switchTab({
+        url: e.currentTarget.dataset.item.url,
+      })
+    }
   },
-  //跳转商家入驻页面
-  navToMerchantAccess(){
-    // wx.navigateTo({
-    //   url: '/pages/merchantAccess/merchantAccess',
-    // })
-    wx.cloud.callFunction({
-      name:'merchantReview',
-      data:{
-        type:'select',
+
+  //获取用户是否入驻商家
+  async navToMerchantAccess() {
+    let res = await wx.cloud.callFunction({
+      name: 'merchantReview',
+      data: {
+        type: 'select',
       },
-      success:res=>{
-        console.log(res);
+    })
+    console.log('是否商家入驻', res);
+    if (res.result.status) {
+      if (res.result.data.status == 1) {
         this.setData({
-          merchantReview:res.result.data
+          ['navs[2]']: false,
+          ['navs[3]']: false,
+        })
+      } else if (res.result.data.status == 2) {
+        this.setData({
+          ['navs[2]']: false,
+        })
+      } else if (res.result.data.status == 3) {
+        this.setData({
+          ['navs[3]']: false,
         })
       }
-    })
+    } else {
+      this.setData({
+        ['navs[3]']: false,
+      })
+
+    }
   },
+
   //跳转商品详情页
-  navToDetail(id){
+  navToDetail(id) {
     wx.navigateTo({
-      url:'/home/pages/shop/detail?id='+id.currentTarget.dataset.id,
+      url: '/home/pages/shop/detail?id=' + id.currentTarget.dataset.id,
     })
   },
 
   //获取类目接口
- async getCategray(){
-   const res = await wx.cloud.callFunction({
-      name:'category',
-       data:{
-         type:'select'
-        },
-      })
-      let arr = res.result.data.map(item=>JSON.stringify(item).
-      replace(/title/g,'value')).
-      map(item=>JSON.parse(item)).
-      forEach((item,index) => {
+  async getCategray() {
+    const res = await wx.cloud.callFunction({
+      name: 'category',
+      data: {
+        type: 'select'
+      },
+    })
+    if (res.result.status) {
+      let arr = [];
+      // 处理数据
+      res.result.data.map(item => JSON.stringify(item).replace(/title/g, 'value')).
+      map(item => JSON.parse(item)).
+      forEach((item, index) => {
         item['id'] = index;
-       console.log(item);
+        arr.push(item)
       });
       this.setData({
-        tabListData :arr
+        tabListData: arr
       })
-      console.log(this.data.tabListData);
+      console.log('tabsList', this.data.tabListData);
+    }
+
   },
 
   //调用商品列表接口
-  async getShopList(categoryId){
-      let res = await wx.cloud.callFunction({
-        name:'shop',
-        data:{
-          type:'select',
-          categoryId:categoryId
-        },
+  async getShopList(categoryId) {
+    let res = await wx.cloud.callFunction({
+      name: 'shop',
+      data: {
+        type: 'select',
+        categoryId: categoryId
+      },
     })
-    // if(res.result.status == 200){
-       // 请求成功后停止刷新加载的动画
-      wx.hideNavigationBarLoading();
+    console.log(res)
+    if (res.result.status) {
+      this.setData({
+        shopList: res.result.data
+      })
+      // // 请求成功后停止刷新加载的动画
+      // wx.hideNavigationBarLoading();
       // 停止下拉刷新
-      wx.stopPullDownRefresh();
-      if (res.result.data.length > 0 || res.result.data.status == 1) {
-        this.setData({
-          shopList : res.result.data
-        })
-        console.log(this.data.shopList);
+      // wx.stopPullDownRefresh();
+      // if (res.result.data.length > 0 || res.result.data.status == 1) {
+      //   this.setData({
+      //     shopList: res.result.data
+      //   })
+      //   console.log(this.data.shopList);
 
-      } else if(res.result.data.status == 0){
-        // 没有数据了
-        console.log('没有数据了');
+      // } else if (res.result.data.status == 0) {
+      //   // 没有数据了
+      //   console.log('没有数据了');
       // }
     }
-     
-    
-
   },
-  
+
+  // 查询用户是否登录
+  async getUserInfo() {
+    let res = await wx.cloud.callFunction({
+      name: 'user',
+      data: {
+        type: 'select'
+      }
+    });
+    console.log('登录', res);
+    if (res.result.status) {
+      await this.navToMerchantAccess();
+    } else {
+
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-
-    wx.setNavigationBarColor({
-      backgroundColor:'#000000'
-    })
-
+    // 获取商品类目
     await this.getCategray();
-    console.log(this.data.tabListData);
 
-    this.getShopList('f28436a263e369be0211b58d0a4115a6');
+    // 获取商品列表
+    await this.getShopList(this.data.tabListData[this.data.tabsActive]._id);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
+  async onShow() {
+
+    // 查询用户是否登录
+    await this.getUserInfo()
+
     wx.setBackgroundColor({
-      backgroundColorTop:'red'
+      backgroundColorTop: 'red'
     })
-    this.navToMerchantAccess();
     this.setData({
-      isLogin:app.globalData.isLogin
+      isLogin: app.globalData.isLogin
     })
-    this.data.isLogin=app.globalData.isLogin
+    this.data.isLogin = app.globalData.isLogin
     console.log(this.data.isLogin);
   },
 
@@ -216,23 +284,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-    // 在当前页面显示导航条加载动画
-    wx.showNavigationBarLoading();
     // 下拉刷新后，清空商品列表数组
     this.setData({
       shopList: [],
-
     });
     // 重新发起请求
-    if(this.data.tabListData[0]._id){
+    if (this.data.tabListData[0]._id) {
       this.getShopList(this.data.tabListData[0]._id);
 
       wx.showToast({
         title: '刷新成功',
         duration: 1000,
       })
-    }else{
-      wx:wx.showToast({
+    } else {
+      wx: wx.showToast({
         title: '刷新失败',
         duration: 1000,
       })
