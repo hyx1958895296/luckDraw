@@ -1,1 +1,36 @@
 /* createRaffle/pages/activityRule/activityRule.wxss */
+.fs-32{
+  font-size: 32rpx;
+}
+.ptb-20{
+  padding: 20rpx 0;
+}
+.c-757575{
+  color: #838383;
+}
+.c-000000{
+  color: #000000;
+}
+.mtb-40{
+  margin: 40rpx 0;
+}
+.plr-5{
+  padding: 0 5rpx;
+}
+.pl-10{
+  padding: 0 0 0  10rpx;
+}
+.fs-40{
+  font-size: 40rpx;
+}
+.dot{
+  display: inline-block;
+  width: 8rpx;
+  height:8rpx;
+  background-color: #838383;
+  border-radius: 50%;
+}
+.flex-align_cen{
+  display: flex;
+  align-items: center;
+}
