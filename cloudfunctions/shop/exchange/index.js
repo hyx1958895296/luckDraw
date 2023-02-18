@@ -30,6 +30,7 @@ exports.main = async (event, context) => {
      if(selectRes.data.length && selectShop.data.length){
       let updateRes = await transaction.collection('shop').where({
         shopItemPrice: _.lte(user.goldCoin),
+        count:_.gt(0),
         _id: event.shopId
       }).update({
         data: {
@@ -49,7 +50,7 @@ exports.main = async (event, context) => {
         if(updateUserInfo.stats.updated){
             return {
               status:1,
-              msg:"success",
+              msg:"兑换成功",
               data:[]
             }
         }else{
@@ -62,7 +63,7 @@ exports.main = async (event, context) => {
       }else{
         return {
           status:0,
-          msg:"error",
+          msg:"商品库存不足或积分不够",
           data:[]
         }
       }
