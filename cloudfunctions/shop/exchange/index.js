@@ -29,7 +29,7 @@ exports.main = async (event, context) => {
 
      if(selectRes.data.length && selectShop.data.length){
       let updateRes = await transaction.collection('shop').where({
-        shopItemPrice: _.lte(user.goldCoin),
+        shopPrice: _.lte(user.goldCoin),
         count:_.gt(0),
         _id: event.shopId
       }).update({
@@ -43,7 +43,7 @@ exports.main = async (event, context) => {
           openid: OPENID
         }).update({
           data: {
-            goldCoin: _.inc(-shop.shopItemPrice)
+            goldCoin: _.inc(-shop.shopPrice)
           },
         })
         
@@ -75,8 +75,6 @@ exports.main = async (event, context) => {
        }
      }
   })
-
-  console.log(result);
 
   return result;
 
