@@ -5,9 +5,9 @@ page{
   flex-direction: column;
   height: 100%;
  }
-.header{
+/* .header{
   height: 40vh;
-}
+} */
 .page-detail_index{
   width: 100vw;
   height: 40vh;

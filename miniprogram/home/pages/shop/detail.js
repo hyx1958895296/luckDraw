@@ -26,7 +26,11 @@ Page({
       top:true
     })
   },
-  
+  tels(){
+    wx.makePhoneCall({
+      phoneNumber: '18803899605',
+    })
+  },
   onAuthLocation(){
     wx.authorize({
       scope: 'scope.userLocation',
@@ -82,10 +86,6 @@ Page({
   onLoad(options) {
     // console.log(options.id);
     this.getShopDetail(options.id);
-    // const eventChannel = this.getOpenerEventChannel()
-    // eventChannel.on('acceptDataFromOpenerPage', function(data) {
-    //   console.log(data)
-    // })
   },
 
   /**
@@ -107,6 +107,13 @@ Page({
         })
         console.log(this.data.shopDetail);
       }
+    })
+  },
+
+  //兑换商品接口 
+  ImmediatelyExchange(){
+    wx.cloud.callFunction({
+
     })
   },
 
