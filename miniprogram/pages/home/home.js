@@ -55,7 +55,6 @@ Page({
   },
 
   handleTabChange(e) {
-    console.log(e)
     // let { current } = e.target.dataset.current;
     // if (this.data.currentTab == current || current === undefined) return;
     this.setData({
@@ -70,7 +69,6 @@ Page({
       currentTab: e.detail.current,
     });
     this.getScrollLeft();
-    console.log(e);
     this.getShopList(this.data.tabListData[e.detail.current]._id)
 
   },
@@ -90,7 +88,6 @@ Page({
 
   // tabs
   onMyEvent(e) {
-    console.log(e);
     this.getShopList(this.data.tabListData[e.detail-1]._id)
   },
 
@@ -103,7 +100,6 @@ Page({
 
   // 跳转
   navigateTo(e) {
-    console.log(e);
     wx.navigateTo({
       url: e.currentTarget.dataset.item.url,
     })
@@ -126,7 +122,6 @@ Page({
         type: 'select',
       },
     })
-    console.log('是否商家入驻', res);
     if (res.result.status) {
       if (res.result.data.status == 1) {
         this.setData({
@@ -177,7 +172,6 @@ Page({
       this.setData({
         tabListData: arr
       })
-      console.log('tabsList', this.data.tabListData);
     }
 
   },
@@ -191,7 +185,6 @@ Page({
         categoryId: categoryId
       },
     })
-    console.log(res)
     if (res.result.status) {
       this.setData({
         shopList: res.result.data
@@ -204,11 +197,9 @@ Page({
       //   this.setData({
       //     shopList: res.result.data
       //   })
-      //   console.log(this.data.shopList);
 
       // } else if (res.result.data.status == 0) {
       //   // 没有数据了
-      //   console.log('没有数据了');
       // }
     }
   },
@@ -221,7 +212,6 @@ Page({
         type: 'select'
       }
     });
-    console.log('登录', res);
     if (res.result.status) {
       await this.navToMerchantAccess();
     } else {
@@ -263,7 +253,6 @@ Page({
       isLogin: app.globalData.isLogin
     })
     this.data.isLogin = app.globalData.isLogin
-    console.log(this.data.isLogin);
   },
 
   /**
@@ -308,7 +297,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-    console.log("上拉加载....");
   },
 
   /**
