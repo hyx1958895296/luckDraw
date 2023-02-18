@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    businessDetail:[],
+    businessDetail:{},
     dialogReviewOk:false,
-    dialogReviewNoOk:false
+    dialogReviewNoOk:false,
+    isStatus:''
   },
 //获取商家详情列表接口
   getBusinessDetail(businessId){
@@ -18,10 +19,10 @@ Page({
         type:'detail',
         businessInfoId:businessId
       },success:res=>{
-        console.log(res);
         this.setData({
           businessDetail:res.result.data
         })
+        console.log(this.data.businessDetail);
       }
     })
   },
@@ -32,13 +33,34 @@ Page({
     //   dialogReviewOk = true
     // })
   },
+// 审核方法
+  dialogReviewOkFn(businessId){
+      wx.cloud.callFunction({
+        name:"business-info",
+        data:{
+          type:'update',
+          businessInfoId:businessId,
+          status:2
+        },success:(res)=>{
+          console.log(res);
+          this.setData({
+            businessDetail:res.result.data                                            
+          })
+          console.log(this.data.businessDetail);
+        }
+      })
+      if(this.data.businessDetail == 2){
+        wx.showToast({
+          title: '审核已通过',
+          duration:1000
+        })
 
-  dialogReviewOkFn(){
-    console.log(111);
-    // wx.showToast({
-    //   title: '审核已通过',
-    //   duration:1000
-    // })
+        wx.navigateTo({
+          url: '/mine/pages/reviewMerchants/reviewMerchants',
+        })
+      }else{
+        this.data.dialogReviewNoOk = true;
+      }
   },
   /**
    * 生命周期函数--监听页面加载
