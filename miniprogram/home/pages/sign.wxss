@@ -182,7 +182,7 @@
   justify-content: center;
 }
 .model-box_container{
-  padding: 60rpx;
+  padding: 30rpx;
   background-color: red;
   display: flex;
   align-items: center;

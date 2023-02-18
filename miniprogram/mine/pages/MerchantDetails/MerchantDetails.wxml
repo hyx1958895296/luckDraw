@@ -1,21 +1,21 @@
 <view class="review-merchant-detail-box">
-  <view class="form" wx:for="{{ businessDetail }}" wx:for-item="detailItem" wx:key="detailItem._id">
+  <view class="form">
     <view class="item">
       <view class="fw-600 item-title">店铺名称</view>
       <view>
-        {{ detailItem.storeName }}
+        {{ businessDetail.storeName }}
       </view>
     </view>
     <view class="item">
       <view class="fw-600 item-title">联系方式</view>
       <view>
-        {{ detailItem.phone }}
+        {{ businessDetail.phone }}
       </view>
     </view>
     <view class="item">
       <view class="fw-600 item-title">负责人</view>
       <view>
-        {{ detailItem.name }}
+        {{ businessDetail.name }}
       </view>
     </view>
     <view class="item" bindtap="upImage">
@@ -24,7 +24,7 @@
       </view>
 
       <view class="printing">
-        <image src="{{ detailItem.printingLicenceUrl }}" mode="" />
+        <image src="{{ businessDetail.printingLicenceUrl }}" mode="" />
       </view>
 
     </view>
@@ -33,9 +33,9 @@
       <view class="fw-600 item-title">店铺地址</view>
       <view>
         <picker mode="region" bindchange="bindRegionChange">
-          <view wx:if="{{detailItem.address.length}}" class="address">
-            <text>{{ detailItem.address[0] }}-{{ detailItem.address[1] }}-{{ detailItem.address[2] }}</text>
-            <text class="pl-20">{{ detailItem.detailedAddress }}</text>
+          <view wx:if="{{businessDetail.address.length}}" class="address">
+            <text>{{ businessDetail.address[0] }}-{{ businessDetail.address[1] }}-{{ businessDetail.address[2] }}</text>
+            <text class="pl-20">{{ businessDetail.detailedAddress }}</text>
           </view>
         </picker>
       </view>
@@ -49,10 +49,4 @@
       未审核通过
     </view>
   </view>
-  <!-- 弹窗 -->
-  <!-- <view class="dialog">
-    <view class="loading">
-      
-    </view>
-  </view> -->
 </view>
