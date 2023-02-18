@@ -1,19 +1,19 @@
 <scroll-view style="height: 100vh;" scroll-y="true" bindscroll="srollViewTop" scroll-top="{{top}}">
   <view class="page-detail_index">
     <view class="header">
-      <image src="{{ shopDetail.shopItemImage }}" class="shop-detail" mode="aspectFit"/>
+      <image src="{{ shopDetail.shopImage }}" class="shop-detail" mode="widthFix"/>
     </view>
     <view class="main warp">
       <view class="warp-radius pd-30 shop-info">
         <view>
           <view class="shop-price">
-            {{ shopDetail.shopItemPrice }}积分
+            {{ shopDetail.shopPrice }}积分
           </view>
           <view class="base-price">
             基础价：29.00元
           </view>
           <view class="mtb-30 secondary-title">
-            {{ shopDetail.shopItemTitle }}
+            {{ shopDetail.shopTitle }}
           </view>
           <view class="monthly-exchange">
             月兑 {{ shopDetail.monthlyExchange }}
@@ -30,7 +30,7 @@
             联系方式
           </view>
           <view class="thirdary-title_color-3b3b3b">
-            乐唯诗旗舰店： <text bindtap="callPhone" bindtap="tels">1565521133367</text> (9:00-18:00)
+            乐唯诗旗舰店： <text bindtap="callPhone" bindtap="tels">{{ shopDetail.phone }}</text> (9:00-18:00)
           </view>
         </view>
       </view>
@@ -54,23 +54,6 @@
             <map style="width: 520rpx; height: 600rpx;" scale="4" subkey="YFTBZ-2OKCD-C644U-HK6GN-TEQ5J-XLFAU" markers="{{markers}}" include-points="{{markers}}" polyline show-location = "true" 
             rotate enable-rotate="true" bindmarkertap bindtap='onAuthLocation'>
             </map>
-          </view>
-        </view>
-      </view>
-      <view class="warp-radius pd-30 shop-info">
-        <view class="secondary-title flex">
-          <view>
-            产品参数
-          </view>
-          <!-- <image src="../../../images/arrow-icon.png" class="arrow_icon" mode=""/> -->
-        </view>
-        <view class="mt-40">
-          <view class="thirdary-title_color-3b3b3b">
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
-            兑后48h内发货，7天无理由退货
           </view>
         </view>
       </view>
