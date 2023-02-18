@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
    let selectResult = await db.collection('business-info').where({
     _id: event.businessInfoId,
   }).get();
-   console.log(selectResult);
+  
   if(selectResult.data.length){
      return {
        status:1,

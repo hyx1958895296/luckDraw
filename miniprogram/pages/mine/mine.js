@@ -174,7 +174,7 @@ Page({
    */
  async onLoad(options) {
          this.selectUserInfo();
-        this.getBusinessInfo();
+         this.getBusinessInfo();
     
   },
 
@@ -190,6 +190,17 @@ Page({
    */
   onShow() {
     this.getBusinessInfo();
+
+    wx.cloud.callFunction({
+      name:"shop",
+      data:{
+        type:"exchange",
+        shopId:"3d37249c63dba600017f02c37da84262"
+      },
+      success(res){
+        console.log(res);
+      }
+    })
   },
 
   /**

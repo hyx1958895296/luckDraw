@@ -4,86 +4,42 @@
   </loding>
   <view class="box-page_home warp ptb-30">
     <view class="header flex-sa bg-ffffff p-20">
-      <view class="item">
+      <view class="item" wx:for="{{navs}}" wx:key="id" bindtap="{{item.id==2?'switchTab':'navigateTo'}}" data-item="{{item}}" wx:if="{{item.isShow}}">
         <view class="flex-cen">
-          <image src="../../images/icon-sign.png" class="item-icon ptb-10" mode="" />
+          <image src="{{item.icon}}" class="item-icon ptb-10" mode="" />
         </view>
         <view class="fs-30">
-          每日签到
+          {{item.lable}}
         </view>
       </view>
-      <view class="item">
-        <view class="flex-cen">
-          <image src="../../images/icon-event.png" class="item-icon ptb-10" mode="" />
-        </view>
-        <view class="fs-30">
-          参加活动
-        </view>
-      </view>
-      <view class="item">
-        <view class="flex-cen">
-          <image src="../../images/icon-business.png" class="item-icon ptb-10" mode="" />
-        </view>
-        <view class="fs-30">
-          商家入驻
-        </view>
-      </view>
-      <view class="item">
-        <view class="flex-cen">
-          <text class="c-ff7f00 fs-52 fw-800">19</text>
-        </view>
-        <view class="fs-30 flex-c">
-          积分
-        </view>
-      </view>
+
     </view>
     <view class="content mtb-20">
-      <!-- <tabs tabsList="{{tabsList}}" class="tab" bindtabsItemChange="getTabsItemChange">
-      </tabs> -->
-      <tabs rewrite-tabs_title="rewrite-tabs_title" bor-radius="bor-radius" bgc-fff="bgc-fff" tabsList="{{tabListData}}" class="tabs" bindtabsItemChange="getTabsItemChange">
-        <view wx:for="{{tabListData}}" slot="{{_id}}" >
-          <view class="activity-warp warp mt-20 ">
-            <view class="activity-content">
-              <image src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" class="obtain-more_score" mode="" bindtap="navagitorToActivity" />
-              <view class="item" wx:for="{{ shopList }}" wx:for-item="shopItem" wx:key="_id" bindtap="navToDetail" data-id="{{shopItem._id}}">
-                <view class="shop-item_picture">
-                  <image src="{{ shopItem.shopItemImage }}" class="icon-shop" mode="" />
-                </view>
-                <view class="shop-item_title fs-34">
-                  {{ shopItem.shopItemTitle }}
-                </view>
-                <view>
-                  <text class="points-redemption c-c90a74 fs-36">{{ shopItem.shopItemPrice }}</text>
-                  <text class="fs-22 pl-8 c-c90a74 fw-b">积分</text>
-                </view>
-                <view class="c-969497 fs-18">
-                  月兑 {{ shopItem.monthlyExchange }}
+      <view class="warp">
+        <tabs bind:myevent="onMyEvent" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
+          <view wx:for="{{tabsList}}" slot="{{item.id}}" wx:key="id">
+            <view class="tabs-warp">
+              <image class="jump-activity" bindtap="navagitorToActivity" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" mode="" />
+              <view class="tabs-item" wx:for="{{shopList}}" wx:key="_id" bindtap="navToDetail" data-id="{{item._id}}">
+                <image class="img" src="{{item.shopImage}}" mode="" />
+                <view class=" shop-text p-20">
+                  <view class="shop-title">
+                    {{item.shopTitle}}
+                  </view>
+                    <view class="shop-price">{{item.shopPrice}}积分</view>
+                    <view class="shop-months">已兑换{{item.monthlyExchange}}</view>
                 </view>
               </view>
+
+              <!-- 如果没数据展示 -->
+
             </view>
             <view class="fs-30 c-919191 flex-c p-30">
               我也是有底线哒
             </view>
           </view>
-
-          <view class="flex-column ptb-100" wx:if="{{!shopList}}">
-            <view class="flex-c mt-80">
-              <image class="icon-none" src="../../images/icon-none.png" mode="" />
-            </view>
-            <view class="flex-c mt-60 c-919191">
-              空空如也~~
-            </view>
-          </view>
-        </view>
-        <view slot="1">
-            1111
-        </view>
-      </tabs>
-      <view>
-
+        </tabs>
       </view>
     </view>
   </view>
 </view>
-
-
