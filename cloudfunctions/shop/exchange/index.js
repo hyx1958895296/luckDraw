@@ -48,10 +48,12 @@ exports.main = async (event, context) => {
         })
         
         if(updateUserInfo.stats.updated){
+        shop.credential = Math.floor(Math.random()* 999999999999) + Math.floor(Math.random()* 99);
+        shop.receiveTime =  Date.now() + 604800000;
             return {
               status:1,
               msg:"兑换成功",
-              data:[]
+              data:shop
             }
         }else{
           return {
@@ -75,7 +77,14 @@ exports.main = async (event, context) => {
        }
      }
   })
-
-  return result;
+  if(result == undefined){
+    return {
+      status:0,
+      msg:"兑换失败",
+      data:[]
+    }
+  }else{
+    return result;
+  }
 
 }

@@ -1,0 +1,14 @@
+/* components/loding/loding.wxss */
+.loding{
+  width: 100%;
+  /* border-radius: 50%; */
+}
+
+.warp{
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}

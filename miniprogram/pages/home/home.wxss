@@ -45,6 +45,7 @@
   padding: 10rpx;
   column-count: 2;
   column-gap: 10rpx;
+  position: relative;
 }
 
 .tabs-item {
@@ -52,8 +53,6 @@
   break-inside: avoid;
   font-size: 0;
 }
-
-
 
 .tabs-item .img {
   width: 100%;
@@ -70,7 +69,26 @@
   color: #d81e06;
 }
 .tabs-item .shop-months{
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #7e7e7e;
 }
 
+
+
+.box-page_home{
+animation-name: home ;
+animation-duration: 2s;
+}
+
+@keyframes home {
+ from {
+   margin-top: 100vh;
+ }
+ to {
+   margin-top: 0;
+ }
+}
+
+.loding-wrap{
+  background-color: #ffffff;
+}
