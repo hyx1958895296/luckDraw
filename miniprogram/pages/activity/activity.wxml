@@ -4,7 +4,7 @@
 <!-- 活动列表 -->
 <view class="activity bg-f2f2f2" wx:if="{{!isLoding}}">
   <tabs bind:myevent="onMyEvent" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
-  
+
     <view wx:for="{{tabsList}}" slot="{{index}}" wx:key="id">
       <view class="activity-warp warp " wx:if="{{isLoaded}}">
         <view class="flex-column activity-all ">
@@ -17,17 +17,17 @@
           我也是有底线哒
         </view>
 
-      <!-- 如果没数据展示 -->
-      <view class="flex-column ptb-100" wx:if="{{!activityList}}">
-        <view class="flex-c mt-80">
-          <image class="icon-none" src="../../images/icon-none.png" mode="" />
-        </view>
-        <view class="flex-c mt-60 c-919191">
-          空空如也~~
+        <!-- 如果没数据展示 -->
+        <view class="flex-column ptb-100" wx:if="{{!activityList}}">
+          <view class="flex-c mt-80">
+            <image class="icon-none" src="../../images/icon-none.png" mode="" />
+          </view>
+          <view class="flex-c mt-60 c-919191">
+            空空如也~~
+          </view>
         </view>
       </view>
     </view>
-  </view>
   </tabs>
 
 </view>

@@ -26,7 +26,11 @@ Page({
       top:true
     })
   },
-  
+  tels(){
+    wx.makePhoneCall({
+      phoneNumber: '18803899605',
+    })
+  },
   onAuthLocation(){
     wx.authorize({
       scope: 'scope.userLocation',
@@ -66,9 +70,10 @@ Page({
 
   callPhone(){
     wx.makePhoneCall({
-      phoneNumber: "15985233142", //这里是电话号码[假的]可以调用自己的数据this.data.xxx
+      phoneNumber: this.data.shopDetail.phone,
       success: function () {
         console.log("拨打电话成功！")
+        // console.log(this.data.shopDetail.phone);
       },
       fail: function () {
         console.log("拨打电话失败！")
@@ -82,10 +87,6 @@ Page({
   onLoad(options) {
     // console.log(options.id);
     this.getShopDetail(options.id);
-    // const eventChannel = this.getOpenerEventChannel()
-    // eventChannel.on('acceptDataFromOpenerPage', function(data) {
-    //   console.log(data)
-    // })
   },
 
   /**
@@ -107,6 +108,13 @@ Page({
         })
         console.log(this.data.shopDetail);
       }
+    })
+  },
+
+  //兑换商品接口 
+  ImmediatelyExchange(){
+    wx.cloud.callFunction({
+
     })
   },
 
