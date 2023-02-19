@@ -22,6 +22,10 @@ Page({
     //是否登录
     isLogin: true,
 
+    // loding
+    loding: 0,
+    isLodingTabs:true,
+    isLoding:true,
     // nav
     navs: [{
       id: 1,
@@ -86,9 +90,23 @@ Page({
     });
   },
 
+  onload(e) {
+    console.log(e);
+    let count = this.data.loding + 1
+    this.setData({
+      loding:count
+    })
+    // this
+    if(this.data.shopList.length == this.data.loding){
+      this.setData({
+        isLodingTabs:false,
+      })
+    }
+  },
+
   // tabs
   onMyEvent(e) {
-    this.getShopList(this.data.tabListData[e.detail-1]._id)
+    this.getShopList(this.data.tabListData[e.detail - 1]._id)
   },
 
   //获取更多积分
@@ -187,20 +205,9 @@ Page({
     })
     if (res.result.status) {
       this.setData({
-        shopList: res.result.data
+        shopList: res.result.data,
+        isLoding:false
       })
-      // // 请求成功后停止刷新加载的动画
-      // wx.hideNavigationBarLoading();
-      // 停止下拉刷新
-      // wx.stopPullDownRefresh();
-      // if (res.result.data.length > 0 || res.result.data.status == 1) {
-      //   this.setData({
-      //     shopList: res.result.data
-      //   })
-
-      // } else if (res.result.data.status == 0) {
-      //   // 没有数据了
-      // }
     }
   },
 
@@ -296,8 +303,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-  },
+  onReachBottom() {},
 
   /**
    * 用户点击右上角分享

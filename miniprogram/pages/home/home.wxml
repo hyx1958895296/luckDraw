@@ -1,8 +1,10 @@
 <view class="page-home bg-f53f3b">
-  <loding wx:if="{{ isLoding }}">
+  <view class="loding-wrap">
+    <loding class="loding" wx:if="{{ isLoding }}">
 
-  </loding>
-  <view class="box-page_home warp ptb-30">
+</loding>
+  </view>
+  <view class="box-page_home warp ptb-30" >
     <view class="header flex-sa bg-ffffff p-20">
       <view class="item" wx:for="{{navs}}" wx:key="id" bindtap="{{item.id==2?'switchTab':'navigateTo'}}" data-item="{{item}}" wx:if="{{item.isShow}}">
         <view class="flex-cen">
@@ -21,13 +23,14 @@
             <view class="tabs-warp">
               <image class="jump-activity" bindtap="navagitorToActivity" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" mode="" />
               <view class="tabs-item" wx:for="{{shopList}}" wx:key="_id" bindtap="navToDetail" data-id="{{item._id}}">
-                <image class="img" src="{{item.shopImage}}" mode="" />
+                <image class="img" bindload="onload" src="{{item.shopImage}}" mode="" />
                 <view class=" shop-text p-20">
-                  <view class="shop-title">
+                 
+                    <view class="shop-price">{{item.shopPrice}}积分</view>
+                    <view class="shop-title">
                     {{item.shopTitle}}
                   </view>
-                    <view class="shop-price">{{item.shopPrice}}积分</view>
-                    <view class="shop-months">已兑换{{item.monthlyExchange}}</view>
+                    <view class="shop-months">已兑换{{item.monthlyExchange}}件</view>
                 </view>
               </view>
 
@@ -37,6 +40,7 @@
             <view class="fs-30 c-919191 flex-c p-30">
               我也是有底线哒
             </view>
+          <!-- <loding class="loding" wx:if="{{!isLodingTabs}}"> </loding> -->
           </view>
         </tabs>
       </view>
