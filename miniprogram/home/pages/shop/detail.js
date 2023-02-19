@@ -70,9 +70,10 @@ Page({
 
   callPhone(){
     wx.makePhoneCall({
-      phoneNumber: "15985233142", //这里是电话号码[假的]可以调用自己的数据this.data.xxx
+      phoneNumber: this.data.shopDetail.phone,
       success: function () {
         console.log("拨打电话成功！")
+        // console.log(this.data.shopDetail.phone);
       },
       fail: function () {
         console.log("拨打电话失败！")
