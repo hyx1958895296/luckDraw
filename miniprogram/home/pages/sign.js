@@ -28,7 +28,13 @@ Page({
     //模态框
     flag:false,
     //是否已经签到  1签到   2未签到
-    signed:1
+    signed:1,
+    //获取现在的年
+    yearNow:'',
+    //获取现在的月
+    monthNow:'',
+    //获取现在的日
+    dayNow:''
   },
 //兑换商品
   goExchange(){
@@ -102,11 +108,13 @@ Page({
       },
       success:(res)=>{
         console.log(res);
-        res.result.data.forEach(item=>{
-          that.data.yesDate = item.yesDate
-          
-        })
-        console.log(that.data.yesDate);
+        let selectRes = res.result.data
+        if(selectRes){
+          selectRes.forEach(item=>{
+            that.data.yesDate = item.yesDate
+          })
+          console.log(that.data.yesDate);
+        }
       }
     })
   },
@@ -167,6 +175,9 @@ Page({
 
   // 签到过
   alreadySign() {
+    this.setData({
+      signinNow:true
+    })
     $.toast("今天已经签过到啦~");
   },
 
@@ -175,6 +186,8 @@ Page({
     let that = this;
     let yesdate = that.data.yesDate;
     let dateArr = that.data.dateArr;
+    // this.isyesDate();
+    if(this.data.isToday == this.data.yesdate)
     for (var i = 0; i < dateArr.length; i++) {
       for (var j = 0; j < yesdate.length; j++) {
         if (dateArr[i].isToday == yesdate[j]) {
@@ -256,7 +269,7 @@ Page({
       month: (month + 1)
     })
     t.dateInit(year, month);
-    // t.yesdate()
+    t.yesdate()
   },
   /**
    * 下月切换
