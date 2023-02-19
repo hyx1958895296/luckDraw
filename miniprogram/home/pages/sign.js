@@ -78,7 +78,6 @@ Page({
   //调用签到接口   添加
   signInApi(){
     let _this = this;
-    console.log(_this.data.yesDate);
     _this.activeSign();
     wx.cloud.callFunction({
       name:"sign-in",
@@ -99,8 +98,8 @@ Page({
   //调用签到接口   查询
   async signInSelectApi(){
     let that = this;
-    console.log(that.data.userInfo.openid);
-    let res = wx.cloud.callFunction({
+    // console.log(that.data.userInfo.openid);
+     await wx.cloud.callFunction({
       name:'sign-in',
       data:{
         type:'select',
@@ -109,11 +108,21 @@ Page({
       success:(res)=>{
         console.log(res);
         let selectRes = res.result.data
+        console.log('------我是签到的时间--------')
+        console.log(res);
         if(selectRes){
           selectRes.forEach(item=>{
-            that.data.yesDate = item.yesDate
+            that.setData({
+              yesDate : item.yesDate
+            })
+            console.log(that.data.yesDate[0]);
+            if(that.data.isToday == that.data.yesDate){
+              that.data.signinNow = true;
+
+            }else{
+              that.data.signinNow = false;
+            }
           })
-          console.log(that.data.yesDate);
         }
       }
     })
@@ -186,12 +195,11 @@ Page({
     let that = this;
     let yesdate = that.data.yesDate;
     let dateArr = that.data.dateArr;
-    // this.isyesDate();
-    if(this.data.isToday == this.data.yesdate)
     for (var i = 0; i < dateArr.length; i++) {
       for (var j = 0; j < yesdate.length; j++) {
         if (dateArr[i].isToday == yesdate[j]) {
           dateArr[i].choose = true;
+          yesDate.push(that.data.isToday);
         }
       };
     }
@@ -327,9 +335,11 @@ Page({
     //登录逻辑
     getUserProfile() {
       let _this = this;
+      console.log(123123123);
       if (app.globalData.isLogin) return;    
       wx.getSetting({
         success(res) {
+          console.log(res.authSetting["scope.userInfo"]);
           if (res.authSetting["scope.userInfo"]) {
             wx.getUserProfile({
               desc: '用户授权',
@@ -352,8 +362,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+    this.signInSelectApi();
+    if(this.data.yesDate == this.data.isToday){
+      wx.showToast({
+        title: '今日已签到',
+      })
+    }else{
+      wx.showToast({
+        title: '今日未签到',
+      })
+    }
     this.selectUserInfo();
-    await this.signInSelectApi();
+    this.signInSelectApi();
     let t = this;
     let now = new Date();
     let year = now.getFullYear();
@@ -364,22 +384,19 @@ Page({
       month: Number(month),
       isToday: '' + year + month + now.getDate()
     });
-    t.yesdate()
+    this.activeSign();
+    console.log(this.data.isToday);
+    console.log('------------我是日期的数组----')
+    console.log(this.data.dateArr)
+    console.log('----------我是签到的数组---------')
+    console.log(this.data.yesDate);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    if(!this.data.signinNow){
-      wx.showToast({
-        title: '今日未签到',
-      })
-    }else{
-      wx.showToast({
-        title: '今日已签到',
-      })
-    }
+  
   },
 
   /**
