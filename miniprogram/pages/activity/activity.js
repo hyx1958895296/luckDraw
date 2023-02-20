@@ -22,20 +22,20 @@ Page({
     // 定时器
     timer: null,
     // loding
-    isLoding:true,
-    isLodingTabs:true,
+    isLoding: true,
+    isLodingTabs: true,
     // 是否有数据
-    isShow:true,
+    isShow: true,
     // 获取活动列表的status
-    status:1,
+    status: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-   onLoad(options) {
-     this.getActivityList();
-     
+  onLoad(options) {
+    this.getActivityList();
+
   },
 
   tabFn(e) {
@@ -52,11 +52,11 @@ Page({
   },
 
   // 子组件传的参 
-  onMyEvent(options){
+  onMyEvent(options) {
     this.setData({
-      activityList:[],
-      isLodingTabs:true,
-      status:options.detail
+      activityList: [],
+      isLodingTabs: true,
+      status: options.detail
     });
     this.getActivityList();
   },
@@ -67,28 +67,25 @@ Page({
       name: 'activity',
       data: {
         type: 'select',
-        status:this.data.status
+        status: this.data.status
       },
     });
 
-    console.log(res);
-    // if(res.result.status){
-      this.setData({
-        isLodingTabs:false
-      })
-    // }
+    this.setData({
+      isLodingTabs: false
+    })
 
     this.setData({
       activityList: res.result.data,
       isLoaded: true
     })
-                    
-    let lodingTimer = setTimeout(()=>{
+
+    let lodingTimer = setTimeout(() => {
       this.setData({
-        isLoding:false
-      })      
+        isLoding: false
+      })
       clearTimeout(lodingTimer)
-    },1000)
+    }, 1000)
   },
 
 
@@ -101,14 +98,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-     this.getActivityList();
+    this.getActivityList();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载

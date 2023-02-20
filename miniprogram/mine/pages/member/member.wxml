@@ -1,10 +1,10 @@
 <view class="member-box">
   <view class="header">
-    <view class="warp growth">
+    <view class="wrap growth">
       <text class="growth-value">15</text>
       <text class="growth-value-text">成长值</text>
     </view>
-    <view class="progress-box warp">
+    <view class="progress-box wrap">
       <progress percent="15" color="red" backgroundColor="cray" active="true" stroke-width="15" border-radius="20rpx" />
     </view>
   </view>

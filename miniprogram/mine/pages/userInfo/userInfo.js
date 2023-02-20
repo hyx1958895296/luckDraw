@@ -48,12 +48,10 @@ Page({
       content: '性别只能选择一次,请慎重',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定');
           _this.setData({
             index: e.detail.value
           })
         } else if (res.cancel) {
-          console.log('用户点击取消');
         }
       }
     })

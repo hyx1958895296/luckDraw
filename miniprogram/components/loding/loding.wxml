@@ -1,4 +1,4 @@
 <!--components/loding/loding.wxml-->
-<view class="warp">
+<view class="wrap">
   <image class="loding" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/R-C.gif?sign=69285f8f93ea0368997d7f1b5b6a96c2&t=1676709511" mode=""/>
 </view>

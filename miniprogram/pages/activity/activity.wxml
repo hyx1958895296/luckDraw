@@ -12,7 +12,7 @@
       <view class="loding-wrap"  wx:if="{{isLodingTabs}}">
         <lodingTabs> </lodingTabs>
       </view>
-      <view class="activity-warp warp "  wx:if="{{!isLodingTabs}}">
+      <view class="activity-wrap wrap "  wx:if="{{!isLodingTabs}}">
         <view class="flex-column activity-all ">
           <activity class="activity-item mt-20" wx:for="{{activityList}}" wx:key="id" activityInfo="{{item}}" bindtap="navigateto" data-to="{{item}}">
             <view>

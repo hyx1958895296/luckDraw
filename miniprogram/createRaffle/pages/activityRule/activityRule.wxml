@@ -1,6 +1,6 @@
 <!--createRaffle/pages/activityRule/activityRule.wxml-->
 <view class="service-agreement">
-  <view class="warp page-service_agreement ptb-30">
+  <view class="wrap page-service_agreement ptb-30">
     <view class="fs-40 flex-c ptb-40">
       活动抽奖服务协议
     </view>

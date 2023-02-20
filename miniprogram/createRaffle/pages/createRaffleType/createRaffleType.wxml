@@ -1,6 +1,6 @@
 <!--createRaffle/pages/createRaffleType/createRaffleType.wxml-->
 <view class="raffle">
-  <view class="warp  pt-20">
+  <view class="wrap  pt-20">
 
     <swiper class="swiper" 	bindchange="eventhandle" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{swiperList}}" wx:key="index">
@@ -10,7 +10,7 @@
               {{item.title}}
             </view>
             <view class="flex-c mt-20 mb-20">
-              <view class="raffle-warp ">
+              <view class="raffle-wrap ">
                 <image class="draw-1" src="{{item.url}}" mode="" />
               </view>
             </view>
@@ -22,7 +22,7 @@
         </swiper-item>
       </block>
     </swiper>
-    <view class="btn-warp mt-80 flex-c">
+    <view class="btn-wrap mt-80 flex-c">
       <button class="btn c-ffffff flex-c ptb-20 " bindtap="navigateto">
         <image class="icon-add" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/icon-add%20(1).png?sign=c24a90d722ca5eb48dbbb2c0cfc6894d&t=1675392196" mode="" />
         <text class="btn-text">立即发起</text>

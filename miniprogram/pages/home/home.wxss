@@ -41,7 +41,7 @@
   border-radius: 20rpx;
 }
 
-.tabs-warp {
+.tabs-wrap {
   padding: 10rpx;
   column-count: 2;
   column-gap: 10rpx;

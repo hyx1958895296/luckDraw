@@ -3,8 +3,8 @@
     <view class="header">
       <image src="{{ shopDetail.shopImage }}" class="shop-detail" mode="aspectFill"/>
     </view>
-    <view class="main warp">
-      <view class="warp-radius pd-30 shop-info">
+    <view class="main wrap">
+      <view class="wrap-radius pd-30 shop-info">
         <view>
           <view class="shop-price">
             {{ shopDetail.shopPrice }}积分
@@ -18,7 +18,7 @@
         </view>
         <view></view>
       </view>
-      <view class="warp-radius pd-30 shop-info">
+      <view class="wrap-radius pd-30 shop-info">
         <view class="secondary-title">
           权益提供方
         </view>
@@ -29,7 +29,7 @@
           </view>
         </view>
       </view>
-      <view class="warp-radius pd-30 shop-info">
+      <view class="wrap-radius pd-30 shop-info">
         <view class="secondary-title">
           兑换条件
         </view>

@@ -10,7 +10,6 @@ Page({
   },
   //回到顶部
   srollViewTop(e){
-    // console.log(e.detail.scrollTop);
     if (e.detail.scrollTop > 300) {
       this.setData({
         Top:false
@@ -63,7 +62,6 @@ Page({
   gotoSetting() {
     wx.openSetting({
         success: (res) => {
-            console.log(res)
         }
     })
   },
@@ -72,11 +70,8 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.shopDetail.phone,
       success: function () {
-        console.log("拨打电话成功！")
-        // console.log(this.data.shopDetail.phone);
       },
       fail: function () {
-        console.log("拨打电话失败！")
       }
     })
   },
@@ -85,7 +80,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // console.log(options.id);
     this.getShopDetail(options.id);
   },
 
@@ -106,7 +100,6 @@ Page({
         this.setData({
           shopDetail:res.result.data
         })
-        console.log(this.data.shopDetail);
       }
     })
   },

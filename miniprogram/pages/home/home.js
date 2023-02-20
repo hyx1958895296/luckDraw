@@ -91,7 +91,6 @@ Page({
   },
 
   onload(e) {
-    console.log(e);
     let count = this.data.loding + 1
     this.setData({
       loding:count
