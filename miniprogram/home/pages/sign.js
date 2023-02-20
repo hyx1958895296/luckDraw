@@ -70,6 +70,7 @@ Page({
           }
         })
         t.signInApi();
+        t.activeSign();
       }else{
         this.getUserProfile();
         t.signInApi();
@@ -363,17 +364,17 @@ Page({
    */
   async onLoad(options) {
     this.signInSelectApi();
-    if(this.data.yesDate == this.data.isToday){
-      wx.showToast({
-        title: '今日已签到',
-      })
-    }else{
-      wx.showToast({
-        title: '今日未签到',
-      })
-    }
+    // if(this.data.yesDate == this.data.isToday){
+    //   wx.showToast({
+    //     title: '今日已签到',
+    //   })
+    // }else{
+    //   wx.showToast({
+    //     title: '今日未签到',
+    //   })
+    // }
     this.selectUserInfo();
-    this.signInSelectApi();
+    // this.signInSelectApi();
     let t = this;
     let now = new Date();
     let year = now.getFullYear();
