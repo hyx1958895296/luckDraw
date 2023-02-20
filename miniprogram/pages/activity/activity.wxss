@@ -1,5 +1,7 @@
 
 .activity {
+    animation-name: home ;
+  animation-duration: 1s;
   min-height: 100vh;
   background-color: #ffffff ;
 }
@@ -20,3 +22,20 @@
 ::-webkit-scrollbar{
   display: none;
 }
+
+  @keyframes home {
+   from {
+     margin-top: 100vh;
+   }
+   to {
+     margin-top: 0;
+   }
+  }
+  
+  /* .loding-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    background-color: #ffffff;
+  } */

@@ -2,7 +2,8 @@
   "usingComponents": {
     "activity" : "../../components/activity/activityItem",
     "loding":"../loding/loding",
-    "tabs":"../../components/tabs/tabs"
+    "tabs":"../../components/tabs/tabs",
+    "lodingTabs":"../../components/loding/loding"
   },
   "navigationBarTitleText": "活动列表"
 }

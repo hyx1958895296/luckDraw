@@ -142,11 +142,11 @@
 
       <!-- 活动抽奖服务器协议 -->
       <view class="fs-26 flex-c align-c mt-40">
-        <checkbox value="cb" checked="{{checked}}" />
+        <checkbox value="cb" checked="{{checked}}" bindtap = "checked"/>
         <view class="c-b3b3b3">
           我已约阅读并同意
         </view>
-        <view class="c-d12418">
+        <view class="c-d12418" bindtap="navigateto" data-to="/createRaffle/pages/activityRule/activityRule">
           《活动抽奖服务协议》
         </view>
       </view>

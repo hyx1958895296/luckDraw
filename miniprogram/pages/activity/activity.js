@@ -23,6 +23,7 @@ Page({
     timer: null,
     // loding
     isLoding:true,
+    isLodingTabs:true,
     // 是否有数据
     isShow:true,
     // 获取活动列表的status
@@ -53,6 +54,8 @@ Page({
   // 子组件传的参 
   onMyEvent(options){
     this.setData({
+      activityList:[],
+      isLodingTabs:true,
       status:options.detail
     });
     this.getActivityList();
@@ -67,6 +70,14 @@ Page({
         status:this.data.status
       },
     });
+
+    console.log(res);
+    // if(res.result.status){
+      this.setData({
+        isLodingTabs:false
+      })
+    // }
+
     this.setData({
       activityList: res.result.data,
       isLoaded: true
