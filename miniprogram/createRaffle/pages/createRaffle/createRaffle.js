@@ -23,7 +23,7 @@ Page({
     multiArrayEnd: [],
     multiIndexEnd: [0],
     // 是否同意活动协议
-    checked: true,
+    checked: false,
     // 添加奖项
     drawCount: 1,
     // 滚动
@@ -63,6 +63,12 @@ Page({
   closeblur(e) {
     this.setData({
       isScroll: true
+    })
+  },
+
+  checked(){
+    this.setData({
+      checked: !this.data.checked
     })
   },
 
@@ -264,6 +270,13 @@ Page({
       wx.showToast({
         title: '请选择开始时间',
         icon: 'error',
+        duration: 2000
+      });
+      isCreate = false;
+    }else if(!this.data.checked){
+      wx.showToast({
+        title: '请先同意服务协议',
+        icon: 'none',
         duration: 2000
       });
       isCreate = false;

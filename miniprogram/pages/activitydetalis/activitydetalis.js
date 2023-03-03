@@ -38,7 +38,6 @@ Page({
   countDown(endTime) {
     // 活动时间的秒数
     let second = Math.floor((endTime - new Date().getTime()) / 1000);
-    // console.log('second', second);
     // 一天的秒数是86400 活动时间的秒数 / 86400 = 活动时间的天数
     let day = Math.floor(second / 86400);
     //余数代表剩下的秒数；
@@ -69,7 +68,6 @@ Page({
       }
     })
     if (res.result.status == 1) {
-      console.log(res);
       let activityInfo = res.result.data;
       activityInfo.prizelist.sort((a, b) => {
         return a.peopleCount - b.peopleCount

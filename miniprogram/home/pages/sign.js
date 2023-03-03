@@ -70,6 +70,7 @@ Page({
           }
         })
         t.signInApi();
+        t.activeSign();
       }else{
         this.getUserProfile();
         t.signInApi();
@@ -335,11 +336,9 @@ Page({
     //登录逻辑
     getUserProfile() {
       let _this = this;
-      console.log(123123123);
       if (app.globalData.isLogin) return;    
       wx.getSetting({
         success(res) {
-          console.log(res.authSetting["scope.userInfo"]);
           if (res.authSetting["scope.userInfo"]) {
             wx.getUserProfile({
               desc: '用户授权',
@@ -363,17 +362,17 @@ Page({
    */
   async onLoad(options) {
     this.signInSelectApi();
-    if(this.data.yesDate == this.data.isToday){
-      wx.showToast({
-        title: '今日已签到',
-      })
-    }else{
-      wx.showToast({
-        title: '今日未签到',
-      })
-    }
+    // if(this.data.yesDate == this.data.isToday){
+    //   wx.showToast({
+    //     title: '今日已签到',
+    //   })
+    // }else{
+    //   wx.showToast({
+    //     title: '今日未签到',
+    //   })
+    // }
     this.selectUserInfo();
-    this.signInSelectApi();
+    // this.signInSelectApi();
     let t = this;
     let now = new Date();
     let year = now.getFullYear();
@@ -385,11 +384,11 @@ Page({
       isToday: '' + year + month + now.getDate()
     });
     this.activeSign();
-    console.log(this.data.isToday);
-    console.log('------------我是日期的数组----')
-    console.log(this.data.dateArr)
-    console.log('----------我是签到的数组---------')
-    console.log(this.data.yesDate);
+    // console.log(this.data.isToday);
+    // console.log('------------我是日期的数组----')
+    // console.log(this.data.dateArr)
+    // console.log('----------我是签到的数组---------')
+    // console.log(this.data.yesDate);
   },
 
   /**

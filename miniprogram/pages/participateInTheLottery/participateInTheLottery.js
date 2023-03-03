@@ -29,7 +29,6 @@ Page({
         type:"selectNumber"
       },
       success(res){
-            console.log(res);
       }
     })
   },

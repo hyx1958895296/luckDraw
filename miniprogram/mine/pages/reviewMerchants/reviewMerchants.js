@@ -11,7 +11,6 @@ Page({
     wx.navigateTo({
       url:'/mine/pages/MerchantDetails/MerchantDetails?id='+id.currentTarget.dataset.id,
     })
-    console.log(id);
   },
 
   businuessListFn(){
@@ -23,7 +22,6 @@ Page({
             this.setData({
               businuessList:res.result.data
             })
-            console.log(res);
           }
         })
   },

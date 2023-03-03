@@ -1,6 +1,6 @@
 <!--home/pages/redeemPrizes/redeemPrizes.wxml-->
 <view class="redeem-prize  bg-9c183c">
-  <view class="box-redeem_prize  bg-ffffff warp pt-20">
+  <view class="box-redeem_prize  bg-ffffff wrap pt-20">
     <view class="plr-20 prize-info">
       <view class="box-avatar flex-cen">
         <image src="../../../images/avator.png" mode="" class="icon-avatar" />

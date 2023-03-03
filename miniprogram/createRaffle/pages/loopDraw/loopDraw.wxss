@@ -8,7 +8,7 @@
   height: 40rpx;
 }
 
-.date-warp{
+.date-wrap{
   gap: 24rpx;
   flex-wrap: wrap;
 }
@@ -24,7 +24,7 @@
   background-color: #ffeeec;
 }
 
-.btn-warp{
+.btn-wrap{
   border-top:1rpx solid #dadada ;
   gap: 20rpx;
 }
@@ -53,7 +53,7 @@
   line-height: 50rpx;
 }
 
-.btn-warp_loop{
+.btn-wrap_loop{
   gap: 30rpx;
   position: fixed;
   bottom: 0;

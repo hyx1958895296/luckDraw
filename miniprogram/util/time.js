@@ -48,7 +48,6 @@ class Time {
     date = date.split('年')[0] + '-' +
       (date.split('年')[1].split('月')[0].length == 1 ? '0' + date.split('年')[1].split('月')[0] : date.split('年')[1].split('月')[0]) + '-' +
       (date.split('年')[1].split('月')[1].split('日')[0].length == 1 ? '0' + date.split('年')[1].split('月')[1].split('日')[0] : date.split('年')[1].split('月')[1].split('日')[0]);
-      console.log(date)
     return date
   };
 

@@ -1,6 +1,6 @@
 <view class="user-hobby pt-20">
-  <view class="warp pl-20 pr-20 pb-40">
-    <view class="ad warp-radius pb-60">
+  <view class="wrap pl-20 pr-20 pb-40">
+    <view class="ad wrap-radius pb-60">
       <view class="fs-34  pt-30  c-b5b5b5" >
       <view class="back" bindtap="returnPage" wx:if="{{pathChoose}}">
         返回

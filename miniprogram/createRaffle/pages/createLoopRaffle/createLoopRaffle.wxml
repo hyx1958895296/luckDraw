@@ -1,9 +1,9 @@
 <view class="create-raffle fs-30">
   <scroll-view scroll-y="{{isScroll}}" scroll-with-animation="true" style="height: 90vh;">
-    <view class="warp pt-40">
+    <view class="wrap pt-40">
 
       <!-- 填写活动信息 -->
-      <view class="bg-ffffff warp-radius">
+      <view class="bg-ffffff wrap-radius">
         <view class="hang p-30 flex-sb">
           <view>
             活动名称
@@ -28,7 +28,7 @@
       </view>
 
       <!-- 上传活动封面 -->
-      <view class="raffle-warp warp-radius mt-40">
+      <view class="raffle-wrap wrap-radius mt-40">
         <view class="hang p-30 fw-700 flex-l fs-30">
           上传活动封面
           <view class="fs-26 c-919191">
@@ -39,13 +39,13 @@
           <image class="icon" src="../../../images/icon-picture.png" mode="" />
           点击更换
         </view>
-        <view class="gifts-warp p-30" bindtap="upImage">
+        <view class="gifts-wrap p-30" bindtap="upImage">
           <image class="gifts" src="{{replaceImg}}" mode="" />
         </view>
       </view>
 
       <!-- 添加奖项 -->
-      <view class="bg-ffffff warp-radius mt-40">
+      <view class="bg-ffffff wrap-radius mt-40">
         <view wx:for="{{drawCount}}" wx:key="index">
           <view class=" hang  flex-c align-c p-30">
             <view class="flex-c align-c  addItem">
@@ -70,8 +70,8 @@
         </view>
       </view>
 
-      <view class="bg-ffffff warp-radius mt-40">
-        <view class=" p-30 flex-l img-warp">
+      <view class="bg-ffffff wrap-radius mt-40">
+        <view class=" p-30 flex-l img-wrap">
           <view wx:for="{{drawCount}}" wx:key="index">
             <view class="flex-c ptb-20">
               {{from[item].peopleCount ? from[item].peopleCount : (item+1) * 100}}人
@@ -94,7 +94,7 @@
       </view>
 
       <!-- 开奖设置 -->
-      <view class="bg-ffffff warp-radius mt-40 ">
+      <view class="bg-ffffff wrap-radius mt-40 ">
         <view class="hang mt-40 p-30 flex-sb " bindtap="navigateto" data-to="/createRaffle/pages/drawRule/drawRule">
           <view class="fs-36 fw-700 ">
             开奖方式介绍

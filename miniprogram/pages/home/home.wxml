@@ -4,7 +4,7 @@
 
 </loding>
   </view>
-  <view class="box-page_home warp ptb-30" >
+  <view class="box-page_home wrap ptb-30" >
     <view class="header flex-sa bg-ffffff p-20">
       <view class="item" wx:for="{{navs}}" wx:key="id" bindtap="{{item.id==2?'switchTab':'navigateTo'}}" data-item="{{item}}" wx:if="{{item.isShow}}">
         <view class="flex-cen">
@@ -17,10 +17,10 @@
 
     </view>
     <view class="content mtb-20">
-      <view class="warp">
+      <view class="wrap">
         <tabs bind:myevent="onMyEvent" tabsList="{{tabsList}}" class="tabs" bindtabsItemChange="getTabsItemChange">
           <view wx:for="{{tabsList}}" slot="{{item.id}}" wx:key="id">
-            <view class="tabs-warp">
+            <view class="tabs-wrap">
               <image class="jump-activity" bindtap="navagitorToActivity" src="https://776c-wllyun-dev-3gxie2dud70a3acf-1316269736.tcb.qcloud.la/get-score.png?sign=4844f2fdd54d1e25faca66554ad89d5b&t=1676364142" mode="" />
               <view class="tabs-item" wx:for="{{shopList}}" wx:key="_id" bindtap="navToDetail" data-id="{{item._id}}">
                 <image class="img" bindload="onload" src="{{item.shopImage}}" mode="" />

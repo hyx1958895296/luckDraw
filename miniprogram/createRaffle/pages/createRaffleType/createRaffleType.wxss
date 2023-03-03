@@ -1,5 +1,5 @@
 /* createRaffle/pages/createRaffleType/createRaffleType.wxss */
-.warp {
+.wrap {
   min-height: calc(100vh - 120rpx);
   padding-top: 10vh;
 }
@@ -12,7 +12,7 @@
   background: linear-gradient(#fc3a37, #fbd3d3);
 }
 
-.raffle-warp {
+.raffle-wrap {
   border-radius: 30rpx;
   width: 75%;
   height: 60vh;

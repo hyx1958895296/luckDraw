@@ -12,7 +12,6 @@ Page({
   },
 //获取商家详情列表接口
   getBusinessDetail(businessId){
-    console.log(businessId);
     wx.cloud.callFunction({
       name:"business-info",
       data:{
@@ -22,7 +21,6 @@ Page({
         this.setData({
           businessDetail:res.result.data
         })
-        console.log(this.data.businessDetail);
       }
     })
   },
@@ -42,11 +40,9 @@ Page({
           businessInfoId:businessId,
           status:2
         },success:(res)=>{
-          console.log(res);
           this.setData({
             businessDetail:res.result.data                                            
           })
-          console.log(this.data.businessDetail);
         }
       })
       if(this.data.businessDetail == 2){
@@ -66,7 +62,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options);
     this.getBusinessDetail(options.id);
   },
 

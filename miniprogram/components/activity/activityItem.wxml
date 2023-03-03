@@ -1,7 +1,7 @@
 <!--components/activity/activityItem.wxml-->
 <view class="w">
   <image class="commodity" src="{{activityInfo.activityCover}}" mode="" />
-  <view class="warp">
+  <view class="wrap">
     <view class="activity-name">
       {{activityInfo.activityName}}
     </view>
@@ -15,7 +15,7 @@
     </view> -->
     </view>
   </view>
-  <view class="warp grid user-w">
+  <view class="wrap grid user-w">
     <view class="flex-jl ">
       <image class="avator" src="{{activityInfo.avatarUrl}}" mode="" />
       <view class="title">{{activityInfo.storeName}}赞助</view>
