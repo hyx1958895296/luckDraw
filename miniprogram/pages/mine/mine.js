@@ -126,6 +126,9 @@ Page({
 
   async selectUserInfo(){ 
     let _this = this;
+    this.setData({
+      isLoding:true
+    })
     let res = await wx.cloud.callFunction({
       name:"user",
       data:{
@@ -135,7 +138,8 @@ Page({
     if(res.result.status == 1){
       app.globalData.isLogin = true;
       _this.setData({
-         userInfo:res.result.data
+        isLoding:false,
+         userInfo:res.result.data,
        })
      }
   },
@@ -143,6 +147,9 @@ Page({
   async getBusinessInfo() {
     let _this = this;
     if (this.data.examineStatus == "审核通过") return;
+    this.setData({
+      isLoding:true
+    })
     let res = await  wx.cloud.callFunction({
       name: "merchantReview",
       data: {
@@ -165,6 +172,9 @@ Page({
           examineStatus: "审核未通过"
         })
       }
+         _this.setData({
+           isLoding:false
+         })
     }
   },
 
